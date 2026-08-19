@@ -1044,19 +1044,19 @@ body {
 
 /* Fondos individuales de cada tarjeta */
 .transparencia {
-    background-image: url(assets/transparencia.jpg);
+    background-image: url(../assets/transparencia.jpg);
     background-size: cover;
     background-position: center;
 }
 
 .participacion {
-    background-image: url(assets/participacion.jpg);
+    background-image: url(../assets/participacion.jpg);
     background-size: cover;
     background-position: center;
 }
 
 .info-publica {
-    background-image: url(assets/charts.jpg);
+    background-image: url(../assets/charts.jpg);
     background-size: cover;
     background-position: center;
 }
