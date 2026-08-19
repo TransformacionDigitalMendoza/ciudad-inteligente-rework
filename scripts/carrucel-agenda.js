@@ -1,21 +1,21 @@
 // Reemplazá 'href' y 'src' por los enlaces y logos reales de cada empresa.
   const filaUno = [
-    { nombre: "Lugano Region", href: "#", src: "/assets/membresias/govlab.png" },
-    { nombre: "SUPSI", href: "#", src: "/assets/membresias/delivery.png" },
-    { nombre: "Swisscom", href: "#", src: "/assets/membresias/govtech.png" },
-    { nombre: "European Network of Living Labs", href: "#", src: "/assets/membresias/gpl.png" },
-    { nombre: "ABB", href: "#", src: "/assets/membresias/indice-datos.png" },
-    { nombre: "Città di Lugano", href: "#", src: "/assets/membresias/ocd.png" },
-    { nombre: "Arduino", href: "#", src: "/assets/membresias/ogp.png" },
+    { nombre: "Lugano Region", href: "#", src: "../assets/membresias/govlab.png" },
+    { nombre: "SUPSI", href: "#", src: "../assets/membresias/delivery.png" },
+    { nombre: "Swisscom", href: "#", src: "../assets/membresias/govtech.png" },
+    { nombre: "European Network of Living Labs", href: "#", src: "../assets/membresias/gpl.png" },
+    { nombre: "ABB", href: "#", src: "../assets/membresias/indice-datos.png" },
+    { nombre: "Città di Lugano", href: "#", src: "../assets/membresias/ocd.png" },
+    { nombre: "Arduino", href: "#", src: "../assets/membresias/ogp.png" },
   ];
  
   const filaDos = [
-    { nombre: "Swisscom", href: "#", src: "/assets/membresias/results.png" },
-    { nombre: "SUPSI", href: "#", src: "/assets/membresias/youth.png" },
-    { nombre: "Lugano Region", href: "#", src: "/assets/membresias/wwc.png" },
-    { nombre: "IBM", href: "#", src: "/assets/membresias/eco.webp" },
-    { nombre: "Franklin University", href: "#", src: "/assets/membresias/ogp.png" },
-    { nombre: "EOC", href: "#", src: "/assets/membresias/delivery.png" },
+    { nombre: "Swisscom", href: "#", src: "../assets/membresias/results.png" },
+    { nombre: "SUPSI", href: "#", src: "../assets/membresias/youth.png" },
+    { nombre: "Lugano Region", href: "#", src: "../assets/membresias/wwc.png" },
+    { nombre: "IBM", href: "#", src: "../assets/membresias/eco.webp" },
+    { nombre: "Franklin University", href: "#", src: "../assets/membresias/ogp.png" },
+    { nombre: "EOC", href: "#", src: "../assets/membresias/delivery.png" },
   ];
  
   function itemHTML(item){
