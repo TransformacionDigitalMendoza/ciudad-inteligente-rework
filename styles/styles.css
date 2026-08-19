@@ -1,0 +1,1371 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Raleway", sans-serif;
+}
+
+body {
+    background-color: rgb(244, 250, 255);
+}
+
+/* El wrapper le da "alto de scroll" a la sección para que
+   el usuario pueda scrollear mientras el hero queda fijo (sticky)
+   y la animación va progresando. Subí/bajá el 250vh para hacer
+   la transición más larga o más corta. */
+.hero-wrapper {
+    position: relative;
+    height: 250vh;
+}
+
+.hero-section {
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    padding: 20px;
+}
+
+/* ---- Título (izquierda) ---- */
+.hero-title {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 35%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: start;
+    gap: 40px;
+    padding: 40px;
+    will-change: transform, opacity;
+}
+
+.logo {
+    width: 100%;
+    height: 100px;
+    overflow: hidden;
+    display: flex;
+    justify-content: start;
+}
+
+.logo img {
+    width: auto;
+    height: 100%;
+    object-fit: contain;
+}
+
+.hero-title h1 {
+    font-size: 6rem;
+}
+
+.hero-title span {
+    font-size: 1.5rem;
+}
+
+.hero-title a {
+    padding: 15px;
+    border-radius: 24px;
+    text-decoration: none;
+    color: #f0f8ff;
+    background-color: #2b2b2b;
+    font-weight: 700;
+    display: flex;
+    gap: 10px;
+}
+
+/* ---- Fondo de video (centro) ---- */
+.hero-bkg {
+    position: absolute;
+    top: 25px;
+    left: 40%;
+    width: 30%;
+    height: 95%;
+    background-color: aquamarine;
+    overflow: hidden;
+    border-radius: 24px;
+    cursor: pointer;
+    will-change: left, width, border-radius;
+}
+
+/* Texto que invita al click, aparece al hacer hover sobre hero-bkg */
+.hero-bkg-hint {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 4;
+    transform: translate(-50%, -50%) translateY(10px);
+    background-color: #ffaf03;
+    color: #2b2b2b;
+    padding: 12px 24px;
+    border-radius: 24px;
+    font-size: 1rem;
+    font-weight: 700;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.hero-bkg:hover .hero-bkg-hint {
+    opacity: 1;
+    transform: translate(-50%, -50%) translateY(0);
+}
+
+/* Una vez que arrancó la animación de scroll (video expandiéndose),
+   el hint queda oculto aunque sigas en hover, para no pisar el texto. */
+.hero-bkg.hero-bkg--hide-hint .hero-bkg-hint {
+    opacity: 0;
+    transform: translate(-50%, -50%) translateY(10px);
+}
+
+.video-player {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: none;
+}
+
+.video-player.active {
+    display: block;
+}
+
+/* Overlay oscuro sobre el video, aparece con el scroll */
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: #000;
+    opacity: 0;
+    z-index: 2;
+    pointer-events: none;
+}
+
+/* Bloques de texto sobre el video expandido */
+.hero-text-blocks {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px;
+    color: aliceblue;
+    opacity: 0;
+    transform: translateY(30px);
+    pointer-events: none;
+    will-change: transform, opacity;
+}
+
+.hero-text-tag {
+    background-color: #ffaf03;
+    color: #2b2b2b;
+    padding: 8px 18px;
+    border-radius: 24px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.hero-text-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 40px;
+}
+
+.hero-text-bottom a {
+    background-color: #ffaf03;
+    color: #2b2b2b;
+    padding: 8px 18px;
+    border-radius: 24px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-decoration: none;
+}
+
+
+.hero-text-blocks h2 {
+    font-size: 3rem;
+    max-width: 800px;
+    margin-bottom: 20px;
+}
+
+.hero-text-blocks p {
+    font-size: 1.3rem;
+    max-width: 600px;
+}
+
+/* ---- Aside (derecha) ---- */
+.hero-aside {
+    position: absolute;
+    top: 0;
+    left: 63%;
+    width: 35%;
+    height: 100%;
+    will-change: transform, opacity;
+    padding: 40px 0px;
+}
+
+.header {
+    width: 100%;
+    height: 10%;
+}
+
+.header ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    list-style: none;
+}
+
+.header li {
+    display: flex;
+    color: #242424;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 700;
+    transition: 0.5s;
+    gap: 10px;
+}
+
+.header li:hover {
+    background-color: #ffaf03;
+    color: #2b2b2b;
+    cursor: pointer;
+}
+
+.hero-aside-bottom {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    align-items: start;
+}
+
+.hero-aside h2 {
+    font-size: 2rem;
+}
+
+.trust-block {
+    max-width: 320px;
+    margin-top: 80px;
+}
+
+.trust-block__number {
+    font-size: 40px;
+    font-weight: 700;
+    color: #111111;
+    margin: 0 0 8px 0;
+    line-height: 1;
+}
+
+.trust-block__text {
+    font-size: 15px;
+    color: #6b6b6b;
+    line-height: 1.4;
+    margin: 0 0 16px 0;
+}
+
+.trust-block__avatars {
+    display: flex;
+}
+
+.trust-block__avatars img {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #ffffff;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.06);
+    margin-left: -12px;
+}
+
+.trust-block__avatars img:first-child {
+    margin-left: 0;
+}
+
+.gestion {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 100px;
+}
+
+/* ============================================================
+     GESTIÓN BASADA EN EVIDENCIA — estructura apilada con
+     márgenes que se cierran a medida que se hace scroll.
+     El wrapper define --gestion-pad (controlado por JS en
+     scripts/gestion-scroll.js). Sin JS, cae a 80px por defecto.
+  ============================================================ */
+
+.gestion-scroll-wrap {
+    --gestion-pad: 80px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.gestion-title-block {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 150px var(--gestion-pad) 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+    will-change: padding-left, padding-right;
+}
+
+.gestion-title-block.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.gestion-title-block h2 {
+    font-size: 4rem;
+    color: #242424;
+    margin: 0;
+}
+
+.gestion-title-block h3 {
+    font-size: 1.5rem;
+    color: #2f5fd6;
+    font-weight: 600;
+    margin: 0;
+}
+
+.gestion-title-block p {
+    font-size: 1.2rem;
+    color: #4a4a4a;
+    margin: 0;
+    max-width: 1200px;
+}
+
+.gestion-video-block {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 20px var(--gestion-pad);
+    will-change: padding-left, padding-right;
+}
+
+.gestion-video-block video {
+    display: block;
+    width: 100%;
+    height: 50vh;
+    object-fit: cover;
+    border-radius: 24px;
+}
+
+.gestion-kpi-block {
+    box-sizing: border-box;
+    padding: 40px var(--gestion-pad) 40px;
+}
+
+.gestion-bottom {
+    width: 100%;
+    height: auto;
+    padding: 60px;
+}
+
+.gestion-cards {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    gap: 20px;
+}
+
+.g-card {
+    width: 100%;
+    height: 150px;
+    /* From https://css.glass */
+    backdrop-filter: blur(6.6px);
+    -webkit-backdrop-filter: blur(6.6px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 2px #2f5fd6 solid;
+}
+
+.g-card-title {
+    width: 20%;
+    height: 100%;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: start;
+    gap: 20px;
+    color: #2f5fd6;
+}
+
+.g-card-title h4 {
+    font-size: 1.5rem;
+
+}
+
+.g-card-title i {
+    font-size: 3rem;
+}
+
+.g-card-content {
+    width: 60%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    text-align: start;
+    padding: 40px 80px;
+    color: #1c2333;
+}
+
+.g-card-content p {
+    font-size: 1.2rem;
+}
+
+.g-card-button {
+    width: 10%;
+    height: 100%;
+
+    background-color: #2f5fd6;
+}
+
+.g-card-button a {
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    color: aliceblue;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+
+/* ============================================================
+     TERCIARY KPI BLOCK — estilos con namespace "terciary-*"
+     Para evitar conflictos con clases existentes en tu sitio.
+     Copia todo este bloque <style> + el <div class="terciary-aside-top">
+     + el <script> del final.
+  ============================================================ */
+
+.gestion-kpi-block {
+    --terciary-blue: #4f7df3;
+    --terciary-blue-light: #dbe6ff;
+    --terciary-blue-dark: #2f5fd6;
+    --terciary-track: #eef1f8;
+    --terciary-text: #1c2333;
+    --terciary-muted: #8992a6;
+    --terciary-card-bg: #ffffff;
+    --terciary-radius: 22px;
+    --terciary-shadow: 0 8px 30px rgba(30, 41, 82, 0.07);
+
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    width: 100%;
+}
+
+.terciary-aside-top__header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.terciary-aside-top__title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--terciary-text);
+    margin: 0;
+}
+
+.terciary-aside-top__subtitle {
+    font-size: 1rem;
+    color: var(--terciary-muted);
+    margin: 4px 0 0;
+}
+
+.terciary-kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+}
+
+.terciary-kpi-card {
+    background: var(--terciary-card-bg);
+    border-radius: var(--terciary-radius);
+    padding: 22px 22px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 210px;
+    position: relative;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(14px);
+    animation: terciary-card-in 0.6s ease forwards;
+}
+
+.terciary-kpi-card:nth-child(1) {
+    animation-delay: 0.05s;
+}
+
+.terciary-kpi-card:nth-child(2) {
+    animation-delay: 0.12s;
+}
+
+.terciary-kpi-card:nth-child(3) {
+    animation-delay: 0.19s;
+}
+
+.terciary-kpi-card:nth-child(4) {
+    animation-delay: 0.26s;
+}
+
+.terciary-kpi-card:nth-child(5) {
+    animation-delay: 0.33s;
+}
+
+.terciary-kpi-card:nth-child(6) {
+    animation-delay: 0.40s;
+}
+
+@keyframes terciary-card-in {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.terciary-kpi-card__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 6px;
+}
+
+.terciary-kpi-card__icon {
+    width: 34px;
+    height: 34px;
+    border-radius: 10px;
+    background: var(--terciary-blue-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--terciary-blue-dark);
+    flex-shrink: 0;
+}
+
+.terciary-kpi-card__icon svg {
+    width: 18px;
+    height: 18px;
+}
+
+.terciary-kpi-card__label {
+    font-size: 13.5px;
+    color: var(--terciary-muted);
+    font-weight: 500;
+    line-height: 1.3;
+}
+
+.terciary-kpi-card__body {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex: 1;
+}
+
+.terciary-kpi-card__value-wrap {
+    display: flex;
+    flex-direction: column;
+}
+
+.terciary-kpi-card__value {
+    font-size: 30px;
+    font-weight: 800;
+    color: var(--terciary-text);
+    letter-spacing: -0.5px;
+    font-variant-numeric: tabular-nums;
+}
+
+.terciary-kpi-card__caption {
+    font-size: 12px;
+    color: var(--terciary-muted);
+    margin-top: 2px;
+}
+
+.terciary-kpi-chart {
+    width: 92px;
+    height: 92px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ---------- Ring chart (dona) ---------- */
+.terciary-kpi-ring__track {
+    fill: none;
+    stroke: var(--terciary-track);
+    stroke-width: 9;
+}
+
+.terciary-kpi-ring__progress {
+    fill: none;
+    stroke: #21b57a;
+    stroke-width: 9;
+    stroke-linecap: round;
+    stroke-dasharray: 251.2;
+    stroke-dashoffset: 251.2;
+    transform: rotate(-90deg);
+    transform-origin: 50% 50%;
+    animation: terciary-ring-fill 1.4s cubic-bezier(.4, 0, .2, 1) forwards;
+    animation-delay: 0.4s;
+}
+
+.terciary-kpi-card--ring2 .terciary-kpi-ring__progress {
+    stroke: #21b57a;
+}
+
+@keyframes terciary-ring-fill {
+    to {
+        stroke-dashoffset: var(--terciary-ring-offset);
+    }
+}
+
+/* ---------- Bar chart ---------- */
+.terciary-kpi-bars {
+    width: 100%;
+    height: 70px;
+    display: flex;
+    align-items: flex-end;
+    gap: 5px;
+}
+
+.terciary-kpi-bars rect {
+    transform-box: fill-box;
+    transform-origin: bottom;
+    transform: scaleY(0);
+    animation: terciary-bar-grow 0.7s ease forwards;
+}
+
+@keyframes terciary-bar-grow {
+    to {
+        transform: scaleY(1);
+    }
+}
+
+/* ---------- Waveform (estilo asistente de voz) ---------- */
+.terciary-kpi-wave rect {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: terciary-wave-pulse 1.2s ease-in-out infinite;
+}
+
+@keyframes terciary-wave-pulse {
+
+    0%,
+    100% {
+        transform: scaleY(0.35);
+    }
+
+    50% {
+        transform: scaleY(1);
+    }
+}
+
+/* ---------- Line / sparkline ---------- */
+.terciary-kpi-line path.terciary-kpi-line__stroke {
+    fill: none;
+    stroke: var(--terciary-blue);
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    stroke-dasharray: 240;
+    stroke-dashoffset: 240;
+    animation: terciary-line-draw 1.3s ease forwards;
+    animation-delay: 0.35s;
+}
+
+.terciary-kpi-line circle.terciary-kpi-line__dot {
+    opacity: 0;
+    animation: terciary-dot-in 0.4s ease forwards;
+    animation-delay: 1.6s;
+}
+
+@keyframes terciary-line-draw {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes terciary-dot-in {
+    to {
+        opacity: 1;
+    }
+}
+
+/* ---------- Área con degradado ---------- */
+.terciary-kpi-area path.terciary-kpi-area__fill {
+    opacity: 0;
+    animation: terciary-area-fade 1s ease forwards;
+    animation-delay: 0.9s;
+}
+
+.terciary-kpi-area path.terciary-kpi-area__stroke {
+    fill: none;
+    stroke: #21b57a;
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    stroke-dasharray: 220;
+    stroke-dashoffset: 220;
+    animation: terciary-line-draw 1.2s ease forwards;
+    animation-delay: 0.3s;
+}
+
+@keyframes terciary-area-fade {
+    to {
+        opacity: 1;
+    }
+}
+
+.terciary-kpi-card__footer {
+    margin-top: 12px;
+    padding-top: 10px;
+    border-top: 1px solid #f0f2f7;
+    font-size: 11.5px;
+    color: var(--terciary-muted);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.terciary-kpi-card__footer strong {
+    color: var(--terciary-blue-dark);
+    font-weight: 700;
+}
+
+@media (max-width: 992px) {
+    .gestion-scroll-wrap {
+        --gestion-pad: 40px;
+    }
+
+    .gestion-title-block {
+        padding-top: 100px;
+    }
+
+    .gestion-title-block h2 {
+        font-size: 2.75rem;
+    }
+
+    .gestion-video-block video {
+        height: 50vh;
+    }
+}
+
+@media (max-width: 600px) {
+    .gestion-scroll-wrap {
+        --gestion-pad: 20px;
+    }
+
+    .gestion-title-block {
+        padding-top: 80px;
+    }
+
+    .gestion-title-block h2 {
+        font-size: 2.1rem;
+    }
+
+    .gestion-title-block h3 {
+        font-size: 1.2rem;
+    }
+
+    .gestion-title-block p {
+        font-size: 1rem;
+    }
+
+    .gestion-video-block video {
+        height: 40vh;
+        border-radius: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .terciary-aside-top {
+        padding: 20px;
+        border-radius: 20px;
+    }
+
+    .terciary-kpi-card {
+        min-height: 190px;
+    }
+
+    .terciary-kpi-card__value {
+        font-size: 26px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .terciary-aside-top *,
+    .terciary-aside-top *::before,
+    .terciary-aside-top *::after {
+        animation: none !important;
+        transition: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+        stroke-dashoffset: 0 !important;
+    }
+
+    .gestion-title-block {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+    }
+}
+
+/* =========================================================
+   Sección "Gobierno Abierto"
+   - Contenedor general con:
+     1) .gob-abierto-video-wrapper -> video de fondo, FIJO (sticky)
+        detrás de toda la sección (hero + content)
+     2) .gob-abierto-hero    -> presentación del bloque (100vh),
+        se superpone al video
+     3) .gob-abierto-content -> segundo contenedor, debajo del hero,
+        también se superpone al video
+   - El video queda pegado a la pantalla (position: sticky) mientras
+     se recorre toda la sección. Los contenedores de contenido van
+     por encima (z-index) y son ellos los que, con sus propios
+     clip-paths, dejan ver el video de fondo a medida que se scrollea.
+   ========================================================= */
+
+.gob-abierto {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Wrapper que contiene el video de fondo.
+   position: sticky + margin-bottom negativo lo "clava" a la pantalla
+   durante todo el alto de la sección, sin ocupar espacio en el flujo,
+   de modo que el resto de los contenedores se apilan encima. */
+.gob-abierto-video-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    margin-bottom: -100vh;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.gob-abierto-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Primer contenedor: presentación del bloque, se superpone al video fijo */
+.gob-abierto-hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    z-index: 0;
+}
+
+.svg-gob-abierto-1 {
+    position: absolute;
+    z-index: 3;
+    bottom: 0;
+}
+
+.svg-gob-abierto-2 {
+    position: absolute;
+    z-index: 2;
+    bottom: 0;
+}
+
+/* Máscara que simula el efecto de "despliegue" de abajo hacia arriba
+   que antes tenía el video (ahora el video está fixed/sticky para
+   toda la sección y no puede clipearse a sí mismo).
+   Arranca cubriendo todo el hero (oculta el video) y, al agregar
+   .is-revealed, su clip-path se "come" desde abajo hacia arriba,
+   dejando ver el video que está fijo detrás. */
+.gob-abierto-hero-mask {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background-color: rgb(244, 250, 255);
+    clip-path: inset(0% 0 0% 0);
+    -webkit-clip-path: inset(0% 0 0% 0);
+    transition: clip-path 1.2s cubic-bezier(0.65, 0, 0.35, 1);
+    -webkit-transition: -webkit-clip-path 1.2s cubic-bezier(0.65, 0, 0.35, 1);
+    will-change: clip-path;
+}
+
+.gob-abierto.is-revealed .gob-abierto-hero-mask {
+    clip-path: inset(0% 0 100% 0);
+    -webkit-clip-path: inset(0% 0 100% 0);
+}
+
+/* Overlay para incorporar contenido encima del video
+   (títulos, texto, botones, etc.) */
+.gob-abierto-overlay {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #00000080;
+    z-index: 2;
+    opacity: 0;
+    transition: opacity 0.8s ease 0.6s;
+}
+
+.gob-abierto.is-revealed .gob-abierto-overlay {
+    opacity: 1;
+}
+
+.gob-abierto-title {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 30%;
+    color: aliceblue;
+    text-align: center;
+}
+
+.gob-abierto-title h2 {
+    font-size: 4rem;
+    margin-bottom: 40px;
+}
+
+
+.gob-abierto-title h3 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.gob-abierto-title p {
+    font-size: 1.2rem;
+}
+
+
+
+.gob-abierto-content {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Relleno arriba/abajo solo para poder scrollear y probar el trigger del 70% */
+.relleno {
+    height: 110vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: .35;
+    font-size: 1.1rem;
+    letter-spacing: .04em;
+    color: #21b57a;
+}
+
+/* ===== Contenedor 100% x 100% ===== */
+#gob-abierto-main {
+    width: 100%;
+    height: 100vh;
+    background: aliceblue;
+    display: flex;
+    flex-direction: column;
+    padding: 3.5vh 3vw;
+    position: relative;
+    overflow: hidden;
+}
+
+#gob-abierto-main::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    pointer-events: none;
+}
+
+
+.gob-grid {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.4rem;
+    min-height: 0;
+    z-index: 1;
+}
+
+/* ===== Tarjeta ===== */
+.gob-card {
+    position: relative;
+    border-radius: 6px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem 1.8rem;
+    isolation: isolate;
+}
+
+/* Fondos individuales de cada tarjeta */
+.transparencia {
+    background-image: url(/assets/transparencia.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+.participacion {
+    background-image: url(/assets/participacion.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+.info-publica {
+    background-image: url(/assets/charts.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+/* Overlay semitransparente entre el fondo y el contenido,
+     para que el texto se siga leyendo bien sobre la foto */
+.gob-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: #0e0d0db2;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    z-index: -1;
+    pointer-events: none;
+}
+
+.gob-card::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, #21b57a, transparent 70%);
+    z-index: 2;
+}
+
+.gob-numero {
+    font-size: .85rem;
+    color: var(--oro-suave);
+    letter-spacing: .1em;
+    margin: 0 0 1rem 0;
+}
+
+.gob-card h3 {
+    font-weight: 400;
+    font-size: 2.5rem;
+    color: aliceblue;
+    margin: 0 0 .9rem 0;
+    line-height: 1.25;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.gob-card p {
+    font-size: .95rem;
+    line-height: 1.6;
+    color: aliceblue;
+    margin: 0 0 1.4rem 0;
+    flex: 1;
+}
+
+.gob-links {
+    display: flex;
+    flex-direction: column;
+    gap: .55rem;
+    margin-top: auto;
+}
+
+.gob-links a {
+    color: #f0f2f7;
+    text-decoration: none;
+    font-size: 1rem;
+    letter-spacing: .02em;
+    display: inline-flex;
+    align-items: center;
+    gap: .4rem;
+    width: fit-content;
+    border-bottom: 1px solid transparent;
+    transition: border-color .2s ease, color .2s ease;
+}
+
+.gob-links a::after {
+    content: "→";
+    font-size: .9em;
+    transition: transform .2s ease;
+}
+
+.gob-links a:hover {
+    color: aliceblue;
+}
+
+.gob-links a:hover::before {
+    transform: translateX(3px);
+}
+
+/* ===== Overlay tipo "cortina / sello" que tapa la tarjeta ===== */
+.gob-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 5;
+    background:
+        linear-gradient(160deg, #21b57a, #67ffc2 75%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translateY(0%);
+    transition: transform .9s cubic-bezier(.65, 0, .15, 1);
+}
+
+.gob-overlay span {
+    color: rgba(243, 239, 228, .55);
+    font-size: .75rem;
+    letter-spacing: .3em;
+    text-transform: uppercase;
+}
+
+/* Estados escalonados: la cortina sube y desaparece hacia arriba */
+#gob-abierto-main.en-vista .gob-card:nth-child(1) .gob-overlay {
+    transition-delay: .05s;
+    transform: translateY(-100%);
+}
+
+#gob-abierto-main.en-vista .gob-card:nth-child(2) .gob-overlay {
+    transition-delay: .28s;
+    transform: translateY(-100%);
+}
+
+#gob-abierto-main.en-vista .gob-card:nth-child(3) .gob-overlay {
+    transition-delay: .51s;
+    transform: translateY(-100%);
+}
+
+@media (max-width:800px) {
+    .gob-grid {
+        grid-template-columns: 1fr;
+        overflow-y: auto;
+    }
+
+    #gob-abierto-main {
+        height: auto;
+        min-height: 100vh;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .gob-overlay {
+        transition: none !important;
+    }
+}
+
+.agenda {
+    width: 100%;
+    height: auto;
+    background-color: #242424;
+    position: relative;
+    z-index: 2;
+}
+
+.agenda-top {
+  width: 100%;
+  height: 40vh;
+  display: flex;
+  align-items: end;
+  padding-left: 60px;
+  background-color: aliceblue;
+  text-transform: uppercase;
+  position: relative;
+  overflow: hidden; /* esconde el h2 mientras está fuera de posición */
+}
+
+.agenda-top h2 {
+  font-size: 8rem;
+  color: #242424;
+  position: absolute;
+  bottom: -30px;
+  transform: translateY(120%); /* arranca oculto, abajo del bloque */
+  transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.agenda-top.in-view h2 {
+  transform: translateY(0); /* sube hasta su posición final */
+}
+
+.agenda-bottom {
+  width: 100%;
+  height: 40vh;
+  text-transform: uppercase;
+  position: relative;
+  padding-left: 52px;
+  overflow: hidden; /* esconde el h2 mientras está fuera de posición */
+}
+
+.agenda-bottom h2 {
+  font-size: 8rem;
+  color: aliceblue;
+  position: absolute;
+  top: -28px;
+  transform: translateY(-120%); /* arranca oculto, arriba del bloque */
+  transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.agenda-bottom.in-view h2 {
+  transform: translateY(0); /* baja hasta su posición final */
+}
+.agenda-main {
+    width: 100%;
+    height: auto;
+    background-color: #242424;
+}
+
+.agenda-kpi {
+    display: flex;
+    gap: 12px;
+    padding: 0 60px;
+}
+
+.agenda-kpi .agenda-kpi__card {
+    width: auto;
+    height: auto;
+    padding: 5rem 1rem;
+    border-radius: 8px;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.agenda-kpi .agenda-kpi__label {
+    font-size: 3rem;
+    color: aliceblue;
+    margin: 0 0 4px;
+}
+
+.agenda-kpi .agenda-kpi__value {
+    font-size:4rem;
+    font-weight: 500;
+    margin: 0;
+    color: aliceblue;
+}
+
+  :root{
+    --tile-bg:#1c1c1c;
+    --tile-w:180px;
+    --tile-h:150px;
+    --gap:8px;
+    --speed-1:35s;
+    --speed-2:35s;
+  }
+  .carrusel-doble{
+    width:100%;
+    overflow:hidden;
+  }
+ 
+  .carrusel-fila{
+    overflow:hidden;
+    width:100%;
+    margin-bottom: var(--gap);
+  }
+  .carrusel-fila:last-child{ margin-bottom:0; }
+ 
+  .carrusel-track{
+    display:flex;
+    width:max-content;
+    gap: var(--gap);
+  }
+ 
+  /* fila 1: se mueve de derecha a izquierda */
+  .carrusel-fila--1 .carrusel-track{
+    animation: scroll-izq var(--speed-1) linear infinite;
+  }
+ 
+  /* fila 2: se mueve de izquierda a derecha */
+  .carrusel-fila--2 .carrusel-track{
+    animation: scroll-der var(--speed-2) linear infinite;
+  }
+ 
+  /* pausa independiente: solo la fila bajo el cursor se detiene */
+  .carrusel-fila--1:hover .carrusel-track,
+  .carrusel-fila--2:hover .carrusel-track{
+    animation-play-state: paused;
+  }
+ 
+  @keyframes scroll-izq{
+    from{ transform: translateX(0); }
+    to{ transform: translateX(-50%); }
+  }
+ 
+  @keyframes scroll-der{
+    from{ transform: translateX(-50%); }
+    to{ transform: translateX(0); }
+  }
+ 
+  .carrusel-item{
+    flex: 0 0 auto;
+    width: var(--tile-w);
+    height: var(--tile-h);
+  }
+ 
+  .carrusel-link{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    width:100%;
+    height:100%;
+    background: var(--tile-bg);
+    text-decoration:none;
+    padding: 16px;
+  }
+ 
+  .carrusel-link img{
+    max-width:100%;
+    max-height:100%;
+    width:auto;
+    height:auto;
+    object-fit:contain;
+    display:block;
+  }
+ 
+  @media (prefers-reduced-motion: reduce){
+    .carrusel-track{ animation: none !important; }
+  }

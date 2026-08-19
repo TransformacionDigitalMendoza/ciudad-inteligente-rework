@@ -1,0 +1,451 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <link rel="stylesheet" href="styles/styles.css" />
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="hero-wrapper">
+    <section class="hero-section">
+      <div class="hero-title">
+        <div class="logo">
+          <img src="assets/logo-para-fondo-blanco (1).png" alt="" />
+        </div>
+        <h1>Ciudad Inteligente</h1>
+        <span>Tecnología e innovación al servicio de una ciudad más conectada,
+          eficiente y cercana a sus ciudadanos.</span>
+        <a href="#">Contactanos<i class="fa-solid fa-people-group"></i></a>
+      </div>
+
+      <div class="hero-bkg">
+        <video id="video1" class="video-player active" playsinline muted autoplay>
+          <source src="assets/bkg1.mp4" type="video/mp4" />
+        </video>
+        <video id="video2" class="video-player" playsinline muted>
+          <source src="assets/bkg2.mp4" type="video/mp4" />
+        </video>
+        <video id="video3" class="video-player" playsinline muted>
+          <source src="assets/bkg3.mp4" type="video/mp4" />
+        </video>
+
+        <!-- Overlay oscuro que aparece a medida que el video se expande -->
+        <div class="hero-overlay"></div>
+
+        <!-- Texto que aparece al hacer hover, invitando a hacer click -->
+        <span class="hero-bkg-hint">Conocé nuestro trabajo</span>
+
+        <!-- Bloques de texto que aparecen encima del video expandido -->
+        <div class="hero-text-blocks">
+          <span class="hero-text-tag">Ciudad Inteligente</span>
+          <h2>Distintas miradas, un mismo objetivo.</h2>
+          <p>
+            Equipos de datos, diseño, desarrollo y políticas públicas
+            trabajando juntos para que cada solución responda a un problema
+            real de la ciudad.
+          </p>
+          <div class="hero-text-bottom">
+            <a href="#">Misión</a>
+            <a href="#">Visión</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-aside">
+        <div class="header">
+          <ul>
+            <li>
+              Gestión Basada en Evidencias<i class="fa-solid fa-chart-simple"></i>
+            </li>
+            <li>Gobierno Abierto<i class="fa-solid fa-feather"></i></li>
+            <li>Agenda Internacional<i class="fa-solid fa-medal"></i></li>
+          </ul>
+        </div>
+        <div class="hero-aside-bottom">
+          <h2>Innovación que transforma</h2>
+          <p>
+            Creamos herramientas basadas en datos, inteligencia artificial,
+            sensores y plataformas digitales para anticipar necesidades,
+            resolver problemas y construir una ciudad más sostenible.
+          </p>
+          <div class="trust-block">
+            <p class="trust-block__number">27+</p>
+            <p class="trust-block__text">
+              Reconocimientos internacionales<br />
+              llevando la ciudad de mendoza al mundo.
+            </p>
+            <div class="trust-block__avatars">
+              <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Cliente 1" />
+              <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Cliente 2" />
+              <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Cliente 3" />
+              <img src="https://randomuser.me/api/portraits/men/78.jpg" alt="Cliente 4" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <section class="gestion">
+    <div class="gestion-scroll-wrap">
+      <div class="gestion-title-block" id="gestionTitleBlock">
+        <h2>Gestión basada en evidencia</h2>
+        <h3>Innovación aplicada a la gestión</h3>
+        <p>
+          Impulsamos una gestión municipal que utiliza información real para
+          comprender desafíos, diseñar respuestas y evaluar resultados.
+          <br />
+          A partir del análisis de datos, la innovación y el desarrollo
+          tecnológico, creamos productos que mejoran tanto los procesos
+          internos de la administración como la experiencia cotidiana de la
+          ciudadanía.
+        </p>
+      </div>
+
+      <div class="gestion-video-block">
+        <video playsinline muted autoplay loop>
+          <source src="assets/gbe.mp4" type="video/mp4" />
+        </video>
+      </div>
+
+      <div class="gestion-kpi-block">
+        <header class="terciary-aside-top__header">
+          <div>
+            <p class="terciary-aside-top__subtitle">
+              Datos abiertos y participación ciudadana
+            </p>
+          </div>
+        </header>
+
+        <div class="terciary-kpi-grid">
+          <!-- 1. Datasets abiertos — anillo de progreso -->
+          <article class="terciary-kpi-card" style="--terciary-ring-offset: 68">
+            <div class="terciary-kpi-card__top">
+              <span class="terciary-kpi-card__label">Datasets abiertos</span>
+            </div>
+            <div class="terciary-kpi-card__body">
+              <div class="terciary-kpi-card__value-wrap">
+                <span class="terciary-kpi-card__value" data-terciary-count="180">+0</span>
+                <span class="terciary-kpi-card__caption">disponibles al público</span>
+              </div>
+              <div class="terciary-kpi-chart">
+                <svg viewBox="0 0 90 90" width="90" height="90">
+                  <circle class="terciary-kpi-ring__track" cx="45" cy="45" r="40" />
+                  <circle class="terciary-kpi-ring__progress" cx="45" cy="45" r="40" />
+                </svg>
+              </div>
+            </div>
+          </article>
+
+          <!-- 2. Pedidos de Información Pública — barras -->
+          <article class="terciary-kpi-card">
+            <div class="terciary-kpi-card__top">
+              <span class="terciary-kpi-card__label">Pedidos de Información Pública</span>
+            </div>
+            <div class="terciary-kpi-card__body">
+              <div class="terciary-kpi-card__value-wrap">
+                <span class="terciary-kpi-card__value" data-terciary-count="350">+0</span>
+                <span class="terciary-kpi-card__caption">recibidos y gestionados</span>
+              </div>
+              <div class="terciary-kpi-chart">
+                <svg class="terciary-kpi-bars" viewBox="0 0 90 70" width="90" height="70" preserveAspectRatio="none">
+                  <rect x="0" y="30" width="9" height="40" rx="3" fill="#c7d6ff" style="animation-delay: 0.05s" />
+                  <rect x="13" y="18" width="9" height="52" rx="3" fill="#9fb8ff" style="animation-delay: 0.1s" />
+                  <rect x="26" y="24" width="9" height="46" rx="3" fill="#749bff" style="animation-delay: 0.15s" />
+                  <rect x="39" y="8" width="9" height="62" rx="3" fill="#4f7df3" style="animation-delay: 0.2s" />
+                  <rect x="52" y="16" width="9" height="54" rx="3" fill="#749bff" style="animation-delay: 0.25s" />
+                  <rect x="65" y="2" width="9" height="68" rx="3" fill="#2f5fd6" style="animation-delay: 0.3s" />
+                  <rect x="78" y="12" width="9" height="58" rx="3" fill="#4f7df3" style="animation-delay: 0.35s" />
+                </svg>
+              </div>
+            </div>
+          </article>
+
+          <!-- 3. Consultas al Chatbot — sparkline -->
+          <article class="terciary-kpi-card">
+            <div class="terciary-kpi-card__top">
+              <span class="terciary-kpi-card__label">Consultas al Chatbot</span>
+            </div>
+            <div class="terciary-kpi-card__body">
+              <div class="terciary-kpi-card__value-wrap">
+                <span class="terciary-kpi-card__value" data-terciary-count="210000">+0</span>
+                <span class="terciary-kpi-card__caption">consultas resueltas</span>
+              </div>
+              <div class="terciary-kpi-chart">
+                <svg class="terciary-kpi-line" viewBox="0 0 90 70" width="90" height="70">
+                  <path class="terciary-kpi-line__stroke" d="M4 50 L18 40 L32 46 L46 24 L60 30 L74 12 L86 18" />
+                  <circle class="terciary-kpi-line__dot" cx="86" cy="18" r="4" fill="#4f7df3" />
+                </svg>
+              </div>
+            </div>
+          </article>
+
+          <!-- 4. Datos en el inventario de datos — anillo segmentado -->
+          <article class="terciary-kpi-card terciary-kpi-card--ring2" style="--terciary-ring-offset: 130">
+            <div class="terciary-kpi-card__top">
+              <span class="terciary-kpi-card__label">Datos en el inventario de datos</span>
+            </div>
+            <div class="terciary-kpi-card__body">
+              <div class="terciary-kpi-card__value-wrap">
+                <span class="terciary-kpi-card__value" data-terciary-count="40">+0</span>
+                <span class="terciary-kpi-card__caption">fuentes catalogadas</span>
+              </div>
+              <div class="terciary-kpi-chart">
+                <svg viewBox="0 0 90 90" width="90" height="90">
+                  <circle class="terciary-kpi-ring__track" cx="45" cy="45" r="40" />
+                  <circle class="terciary-kpi-ring__progress" cx="45" cy="45" r="40" />
+                </svg>
+              </div>
+            </div>
+          </article>
+
+          <!-- 5. Familias con Alarmas Comunitarias — waveform -->
+          <article class="terciary-kpi-card">
+            <div class="terciary-kpi-card__top">
+              <span class="terciary-kpi-card__label">Familias con Alarmas Comunitarias</span>
+            </div>
+            <div class="terciary-kpi-card__body">
+              <div class="terciary-kpi-card__value-wrap">
+                <span class="terciary-kpi-card__value" data-terciary-count="3000">+0</span>
+                <span class="terciary-kpi-card__caption">conectadas a la red</span>
+              </div>
+              <div class="terciary-kpi-chart">
+                <svg class="terciary-kpi-wave" viewBox="0 0 90 60" width="90" height="60" preserveAspectRatio="none">
+                  <rect x="0" y="24" width="6" height="12" rx="3" fill="#f3b4b2" style="animation-delay: 0s" />
+                  <rect x="10" y="18" width="6" height="24" rx="3" fill="#ec8a87" style="animation-delay: 0.1s" />
+                  <rect x="20" y="10" width="6" height="40" rx="3" fill="#e0524f" style="animation-delay: 0.2s" />
+                  <rect x="30" y="16" width="6" height="28" rx="3" fill="#ec8a87" style="animation-delay: 0.3s" />
+                  <rect x="40" y="6" width="6" height="48" rx="3" fill="#c93f3c" style="animation-delay: 0.4s" />
+                  <rect x="50" y="16" width="6" height="28" rx="3" fill="#ec8a87" style="animation-delay: 0.5s" />
+                  <rect x="60" y="10" width="6" height="40" rx="3" fill="#e0524f" style="animation-delay: 0.2s" />
+                  <rect x="70" y="18" width="6" height="24" rx="3" fill="#ec8a87" style="animation-delay: 0.1s" />
+                  <rect x="80" y="24" width="6" height="12" rx="3" fill="#f3b4b2" style="animation-delay: 0s" />
+                </svg>
+              </div>
+            </div>
+          </article>
+
+          <!-- 6. Ojos en Alerta Capacitados — área con degradado -->
+          <article class="terciary-kpi-card">
+            <div class="terciary-kpi-card__top">
+              <span class="terciary-kpi-card__label">Ojos en Alerta Capacitados</span>
+            </div>
+            <div class="terciary-kpi-card__body">
+              <div class="terciary-kpi-card__value-wrap">
+                <span class="terciary-kpi-card__value" data-terciary-count="20000">+0</span>
+                <span class="terciary-kpi-card__caption">personas capacitadas</span>
+              </div>
+              <div class="terciary-kpi-chart">
+                <svg class="terciary-kpi-area" viewBox="0 0 90 70" width="90" height="70">
+                  <defs>
+                    <linearGradient id="terciary-area-grad" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stop-color="#21b57a" stop-opacity="0.35" />
+                      <stop offset="100%" stop-color="#21b57a" stop-opacity="0" />
+                    </linearGradient>
+                  </defs>
+                  <path class="terciary-kpi-area__fill" fill="url(#terciary-area-grad)"
+                    d="M4 44 L18 34 L32 38 L46 20 L60 26 L74 10 L86 16 L86 66 L4 66 Z" />
+                  <path class="terciary-kpi-area__stroke" d="M4 44 L18 34 L32 38 L46 20 L60 26 L74 10 L86 16" />
+                </svg>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+    <div class="gestion-bottom">
+      <div class="gestion-cards">
+        <div class="g-card">
+          <div class="g-card-title">
+            <h4>Productos Digitales</h4>
+            <i class="fa-solid fa-code"></i>
+          </div>
+          <div class="g-card-content">
+            <p>
+              Diseñamos plataformas, aplicaciones y herramientas web que
+              simplifican trámites, conectan servicios y mejoran la
+              experiencia de quienes interactúan con el municipio.
+            </p>
+          </div>
+          <div class="g-card-button">
+            <a href="#">Explorar productos</a>
+          </div>
+        </div>
+        <div class="g-card">
+          <div class="g-card-title">
+            <h4>Ciencia de datos</h4>
+            <i class="fa-solid fa-chart-pie"></i>
+          </div>
+          <div class="g-card-content">
+            <p>
+              Transformamos datos reales en información clara para acompañar
+              la toma de decisiones.
+            </p>
+          </div>
+          <div class="g-card-button">
+            <a href="#">Ver tableros</a>
+          </div>
+        </div>
+        <div class="g-card">
+          <div class="g-card-title">
+            <h4>Inteligencia Artificial</h4>
+            <i class="fa-solid fa-comment-dots"></i>
+          </div>
+          <div class="g-card-content">
+            <p>
+              Aplicamos inteligencia artificial y automatización para agilizar
+              consultas, clasificar solicitudes y facilitar el acceso a
+              servicios municipales.
+            </p>
+          </div>
+          <div class="g-card-button">
+            <a href="#">Conocé nuestro asistente</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="gob-abierto">
+    <!-- Video de fondo fijo (sticky) detrás de TODA la sección.
+           Se queda pegado a la pantalla mientras se recorre la sección,
+           y los contenedores de contenido (hero, cards, etc.) se
+           superponen encima con sus propios clip-paths para ir
+           revelándolo a medida que se hace scroll. -->
+    <div class="gob-abierto-video-wrapper">
+      <video class="gob-abierto-video" playsinline muted autoplay loop>
+        <source src="assets/gob-abierto.mp4" type="video/mp4" />
+      </video>
+    </div>
+
+    <!-- Primer contenedor: presentación del bloque, se superpone al video -->
+    <div class="gob-abierto-hero">
+      <!-- Máscara que simula el "despliegue" de abajo hacia arriba.
+             El video ya no se clipea (está fixed/sticky para toda la
+             sección), así que este div opaco lo tapa al inicio y se
+             va "comiendo" desde abajo hacia arriba con clip-path,
+             dejando ver el video debajo a medida que se revela. -->
+      <div class="gob-abierto-hero-mask"></div>
+
+      <!-- Overlay para incorporar contenido (títulos, texto, botones, etc.) -->
+      <div class="gob-abierto-overlay">
+        <div class="gob-abierto-title">
+          <h2>Gobierno Abierto</h2>
+          <h3>Una gestión transparente, participativa y cercana</h3>
+          <p>
+            impulsamos un modelo de gobierno que facilita el acceso a la
+            información, promueve la participación ciudadana y pone los datos
+            públicos al alcance de toda la comunidad.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Segundo contenedor: contenido debajo del hero, se llama
+           "gob-abierto-content" y al entrar un 10% en pantalla sus
+           márgenes laterales se abren (ver scripts/gob-abierto-content-scroll.js),
+           dejando ver por los costados el video de fondo sticky de
+           la sección (.gob-abierto-video-wrapper). -->
+
+    <div id="gob-abierto-main">
+
+      <div class="gob-grid">
+
+        <article class="gob-card transparencia">
+          <div class="gob-overlay"><span>Abriendo</span></div>
+          <p class="gob-numero"></p>
+          <h3><i class="fa-solid fa-magnifying-glass-chart"></i>Datos abiertos</h3>
+          <p>El Estado publica de forma activa la información sobre su gestión, presupuesto y decisiones, para que
+            cualquier persona pueda acceder a ella sin pedir permiso.</p>
+          <div class="gob-links">
+            <a href="#">Portal de datos abiertos</a>
+            <a href="#">Geoportal Ciudadano</a>
+            <a href="#">Finanzas Públicas</a>
+          </div>
+        </article>
+
+        <article class="gob-card participacion">
+          <div class="gob-overlay"><span>Abriendo</span></div>
+          <p class="gob-numero"></p>
+          <h3><i class="fa-solid fa-users-rectangle"></i>Participación ciudadana</h3>
+          <p>Las decisiones públicas se construyen con la ciudadanía, habilitando canales concretos de consulta, debate
+            y co-creación de políticas.</p>
+          <div class="gob-links">
+            <a href="#">Formulario Acceso a Información Pública</a>
+            <a href="#">Tablero Pedidos Acceso Información Pública</a>
+            <a href="#">LEY 9070 + Ordenanzas/Decretos de Implementación</a>
+          </div>
+        </article>
+
+        <article class="gob-card info-publica">
+          <div class="gob-overlay"><span>Abriendo</span></div>
+          <p class="gob-numero"></p>
+          <h3><i class="fa-solid fa-circle-info"></i>informacion publica</h3>
+          <p>Organizaciones, academia y sector privado trabajan junto al Estado para resolver problemas públicos de
+            manera conjunta y sostenida.</p>
+          <div class="gob-links">
+            <a href="#">Presupuesto Participativo</a>
+            <a href="#">Seguridad Ciudadana</a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+  <section class="agenda">
+    <div class="agenda-top">
+      <h2>Agenda</h2>
+    </div>
+    <div class="agenda-bottom">
+      <h2>Internacional</h2>
+    </div>
+    <div class="agenda-main">
+<div class="agenda-kpi">
+  <div class="agenda-kpi__card">
+    <p class="agenda-kpi__label">membresías</p>
+    <p class="agenda-kpi__value">04</p>
+  </div>
+  <div class="agenda-kpi__card">
+    <p class="agenda-kpi__label">reconocimientos</p>
+    <p class="agenda-kpi__value">06</p>
+  </div>
+  <div class="agenda-kpi__card">
+    <p class="agenda-kpi__label">cooperaciones</p>
+    <p class="agenda-kpi__value">07</p>
+  </div>
+</div>
+    </div>
+    <div class="carrusel-doble">
+ 
+  <div class="carrusel-fila carrusel-fila--1">
+    <div class="carrusel-track" id="track-1"></div>
+  </div>
+ 
+  <div class="carrusel-fila carrusel-fila--2">
+    <div class="carrusel-track" id="track-2"></div>
+  </div>
+ 
+</div>
+  </section>
+  <script src="scripts/agenda-title.js"></script>
+  <script src="scripts/carrucel-agenda.js"></script>
+  <script src="scripts/gob-abierto-cards.js"></script>
+  <script src="scripts/gestion-scroll.js"></script>
+  <script src="scripts/gob-abierto-scroll.js"></script>
+  <script src="scripts/chatbot.js"></script>
+  <script src="scripts/kpis.js"></script>
+  <script src="scripts/iframe-carrucel.js"></script>
+  <script src="scripts/panels-carrucel.js"></script>
+  <script src="scripts/bars.js"></script>
+  <script src="scripts/categories-secondary.js"></script>
+  <script src="scripts/video-hero.js"></script>
+  <script src="scripts/hero-scroll.js"></script>
+  <script src="scripts/hero-click-scroll.js"></script>
+</body>
+
+</html>

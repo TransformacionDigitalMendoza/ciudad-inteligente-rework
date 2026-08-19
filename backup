@@ -1,0 +1,1772 @@
+    <section class="primary">
+      <div class="primary-img">
+        <section class="bars-block" id="barsBlock">
+          <div class="bars-wrapper" id="barsWrapper">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+          </div>
+        </section>
+        <img class="area-bg-image" id="areaImage" src="" alt="" />
+      </div>
+      <div class="primary-content">
+        <div class="areas-list">
+          <div
+            class="area-item"
+            data-bg="assets/direccion.jpg"
+            data-text="Conducción institucional, definición de prioridades y coordinación de proyectos de transformación digital. Esta área articula equipos, organismos municipales y actores externos para convertir los objetivos de gestión en iniciativas concretas de innovación pública."
+          >
+            <h3>Dirección y planificación estratégica</h3>
+          </div>
+          <div
+            class="area-item"
+            data-bg="assets/aip.jpg"
+            data-text="Diseño e implementación de políticas destinadas a fortalecer la transparencia, la integridad institucional y la participación ciudadana. También comprende la vinculación con los organismos de Ética Pública y el seguimiento de los compromisos municipales en materia de gobierno abierto."
+          >
+            <h3>Gobierno abierto, ética y transparencia</h3>
+          </div>
+          <div
+            class="area-item"
+            data-bg="assets/info-publica.jpg"
+            data-text="Gestión y seguimiento de las solicitudes de información realizadas por la ciudadanía. El área trabaja para facilitar el acceso a los datos públicos, coordinar respuestas con las dependencias municipales y garantizar el cumplimiento de la normativa vigente."
+          >
+            <h3>Acceso a la información pública</h3>
+          </div>
+          <div
+            class="area-item"
+            data-bg="assets/data-alaysis.jpg"
+            data-text="Diseño de modelos de información, integración de bases de datos y elaboración de análisis que apoyan la toma de decisiones. El equipo desarrolla indicadores, tableros y herramientas para transformar los datos municipales en información útil para la gestión y la ciudadanía."
+          >
+            <h3>Gestión, análisis y ciencia de datos</h3>
+          </div>
+          <div
+            class="area-item"
+            data-bg="assets/mapas.jpg"
+            data-text="Producción, organización y análisis de información territorial para representar fenómenos urbanos y apoyar la planificación de la ciudad. Esta área desarrolla mapas, servicios geográficos y soluciones basadas en sistemas de información geográfica."
+          >
+            <h3>Información geográfica y cartografía</h3>
+          </div>
+          <div
+            class="area-item"
+            data-bg="assets/desarrollo-web.jpg"
+            data-text="Diseño y desarrollo de sitios, plataformas y productos digitales orientados a facilitar el acceso de la ciudadanía a la información y los servicios municipales. El área trabaja sobre la identidad visual, la arquitectura de contenidos y la experiencia de navegación."
+          >
+            <h3>Desarrollo web y experiencia digital</h3>
+          </div>
+          <div
+            class="area-item"
+            data-bg="assets/chatbot.jpg"
+            data-text="Implementación de asistentes virtuales, automatizaciones y soluciones de inteligencia artificial aplicadas a la atención ciudadana y a los procesos internos. El objetivo es mejorar los tiempos de respuesta, ampliar los canales de atención y optimizar tareas repetitivas."
+          >
+            <h3>Inteligencia artificial y automatización</h3>
+          </div>
+          <div
+            class="area-item"
+            data-bg="assets/city.jpeg"
+            data-text="Formulación, seguimiento y evaluación de iniciativas de transformación digital. Esta área organiza cronogramas, objetivos, equipos y recursos, y acompaña la implementación de proyectos desde su diseño inicial hasta su puesta en funcionamiento."
+          >
+            <h3>Gestión de proyectos de innovación</h3>
+          </div>
+        </div>
+
+        <div class="area-card" id="areaCard">
+          <p></p>
+        </div>
+      </div>
+    </section>
+    <div class="separador">
+      <span>Gestión basada en evidencia</span>
+    </div>
+    <section class="secondary">
+      <div class="secondary-title">
+        <h2>Mejor gestión, mejores servicios</h2>
+        <p>
+          Nuestros proyectos permiten automatizar tareas, ordenar la información
+          y facilitar la toma de decisiones basada en datos. Esto reduce tiempos
+          administrativos, mejora la coordinación entre áreas y permite utilizar
+          los recursos municipales de manera más eficiente.
+        </p>
+      </div>
+      <div class="secondary-carrucel">
+        <div class="panels-carousel">
+          <button
+            class="panels-arrow panels-arrow--prev"
+            type="button"
+            aria-label="Anterior"
+          >
+            <i class="fa-solid fa-chevron-left"></i>
+          </button>
+
+          <div class="panels-track">
+            <article class="panel-card">
+              <div class="panel-card-media">
+                <div class="panel-card-scaler">
+                  <iframe
+                    src="https://geoportalciudadano.ciudaddemendoza.gob.ar/"
+                    title="Tablero de movilidad urbana"
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                  ></iframe>
+                </div>
+                <button class="panel-card-activate" type="button">
+                  Click para interactuar
+                </button>
+                <button
+                  class="panel-card-fav"
+                  type="button"
+                  aria-label="Guardar tablero"
+                >
+                  <i class="fa-regular fa-heart"></i>
+                </button>
+              </div>
+              <div class="panel-card-body">
+                <h3>Geoportal Ciudadano</h3>
+                <span class="panel-card-subtitle"
+                  >Herramientas digitales para visualizar y comunicar
+                  información geográfica</span
+                >
+                <div class="panel-card-meta">
+                  <span><i class="fa-regular fa-circle-dot"></i> En vivo</span>
+                  <span><i class="fa-solid fa-route"></i> MOV</span>
+                </div>
+                <div class="panel-card-actions">
+                  <button class="panel-card-cta" type="button">Visitar</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="panel-card">
+              <div class="panel-card-media">
+                <div class="panel-card-scaler">
+                  <iframe
+                    src="https://gobiernoabierto.ciudaddemendoza.gob.ar/comite-cambio-climatico.html"
+                    title="Tablero de seguridad ciudadana"
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                  ></iframe>
+                </div>
+                <button class="panel-card-activate" type="button">
+                  Click para interactuar
+                </button>
+                <button
+                  class="panel-card-fav"
+                  type="button"
+                  aria-label="Guardar tablero"
+                >
+                  <i class="fa-regular fa-heart"></i>
+                </button>
+              </div>
+              <div class="panel-card-body">
+                <h3>Gestión Climatica</h3>
+                <span class="panel-card-subtitle"
+                  >La Ciudad de Mendoza frente a la Emergencia Climática</span
+                >
+                <div class="panel-card-meta">
+                  <span><i class="fa-regular fa-circle-dot"></i> En vivo</span>
+                  <span><i class="fa-solid fa-shield-halved"></i> SEG</span>
+                </div>
+                <div class="panel-card-actions">
+                  <button class="panel-card-cta" type="button">Visitar</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="panel-card">
+              <div class="panel-card-media">
+                <div class="panel-card-scaler">
+                  <iframe
+                    src="https://invest.ciudaddemendoza.gob.ar/"
+                    title="Tablero de ambiente y sostenibilidad"
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                  ></iframe>
+                </div>
+                <button class="panel-card-activate" type="button">
+                  Click para interactuar
+                </button>
+                <button
+                  class="panel-card-fav"
+                  type="button"
+                  aria-label="Guardar tablero"
+                >
+                  <i class="fa-regular fa-heart"></i>
+                </button>
+              </div>
+              <div class="panel-card-body">
+                <h3>Invest Mendoza</h3>
+                <span class="panel-card-subtitle"
+                  >Una plataforma de oportunidades comerciales en la
+                  ciudad.</span
+                >
+                <div class="panel-card-meta">
+                  <span><i class="fa-regular fa-circle-dot"></i> En vivo</span>
+                  <span><i class="fa-solid fa-leaf"></i> AMB</span>
+                </div>
+                <div class="panel-card-actions">
+                  <button class="panel-card-cta" type="button">Visitar</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="panel-card">
+              <div class="panel-card-media">
+                <div class="panel-card-scaler">
+                  <iframe
+                    src="https://turismo.ciudaddemendoza.gob.ar/?_gl=1*1j86t6*_ga*MTQ4ODE1NTQ0NS4xNzQzMDA0OTc5*_ga_RZ464H4Y4F*czE3ODUzMjgzMjMkbzExOSRnMSR0MTc4NTMzMDY0NSRqNjAkbDAkaDA."
+                    title="Tablero de presupuesto participativo"
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                  ></iframe>
+                </div>
+                <button class="panel-card-activate" type="button">
+                  Click para interactuar
+                </button>
+                <button
+                  class="panel-card-fav"
+                  type="button"
+                  aria-label="Guardar tablero"
+                >
+                  <i class="fa-regular fa-heart"></i>
+                </button>
+              </div>
+              <div class="panel-card-body">
+                <h3>Agenda Cultural</h3>
+                <span class="panel-card-subtitle"
+                  >Una aplicación que te permite seguir toda la agenda cultural
+                  que ofrece la ciudad.</span
+                >
+                <div class="panel-card-meta">
+                  <span><i class="fa-regular fa-circle-dot"></i> En vivo</span>
+                  <span><i class="fa-solid fa-coins"></i> PRE</span>
+                </div>
+                <div class="panel-card-actions">
+                  <button class="panel-card-cta" type="button">Visitar</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="panel-card">
+              <div class="panel-card-media">
+                <div class="panel-card-scaler">
+                  <iframe
+                    src="https://invest.ciudaddemendoza.gob.ar/pages/modoParcelas/index.html"
+                    title="Tablero de presupuesto participativo"
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                  ></iframe>
+                </div>
+                <button class="panel-card-activate" type="button">
+                  Click para interactuar
+                </button>
+                <button
+                  class="panel-card-fav"
+                  type="button"
+                  aria-label="Guardar tablero"
+                >
+                  <i class="fa-regular fa-heart"></i>
+                </button>
+              </div>
+              <div class="panel-card-body">
+                <h3>Presupuesto participativo</h3>
+                <span class="panel-card-subtitle"
+                  >Proyectos votados por barrio</span
+                >
+                <div class="panel-card-meta">
+                  <span><i class="fa-regular fa-circle-dot"></i> En vivo</span>
+                  <span><i class="fa-solid fa-coins"></i> PRE</span>
+                </div>
+                <div class="panel-card-actions">
+                  <button class="panel-card-cta" type="button">Visitar</button>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <button
+            class="panels-arrow panels-arrow--next"
+            type="button"
+            aria-label="Siguiente"
+          >
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="terciary">
+      <div class="terciary-main">
+        <video playsinline muted autoplay loop>
+          <source src="assets/14572653_1920_1080_30fps.mp4" type="video/mp4" />
+        </video>
+        <div class="terciary-title">
+          <h2>Información clara para una mejor gestión</h2>
+          <p>
+            Desarrollamos tableros que permiten monitorear servicios, programas
+            e indicadores urbanos de manera dinámica. Estas herramientas ayudan
+            a las áreas municipales a evaluar resultados, anticipar escenarios y
+            administrar los recursos con mayor eficiencia.
+          </p>
+        </div>
+      </div>
+      <div class="terciary-aside">
+        <div class="terciary-aside-top">
+          <header class="terciary-aside-top__header">
+            <div>
+              <p class="terciary-aside-top__title">
+                Indicadores de transparencia
+              </p>
+              <p class="terciary-aside-top__subtitle">
+                Datos abiertos y participación ciudadana
+              </p>
+            </div>
+          </header>
+
+          <div class="terciary-kpi-grid">
+            <!-- 1. Datasets abiertos — anillo de progreso -->
+            <article
+              class="terciary-kpi-card"
+              style="--terciary-ring-offset: 68"
+            >
+              <div class="terciary-kpi-card__top">
+                <span class="terciary-kpi-card__label">Datasets abiertos</span>
+              </div>
+              <div class="terciary-kpi-card__body">
+                <div class="terciary-kpi-card__value-wrap">
+                  <span
+                    class="terciary-kpi-card__value"
+                    data-terciary-count="180"
+                    >+0</span
+                  >
+                  <span class="terciary-kpi-card__caption"
+                    >disponibles al público</span
+                  >
+                </div>
+                <div class="terciary-kpi-chart">
+                  <svg viewBox="0 0 90 90" width="90" height="90">
+                    <circle
+                      class="terciary-kpi-ring__track"
+                      cx="45"
+                      cy="45"
+                      r="40"
+                    />
+                    <circle
+                      class="terciary-kpi-ring__progress"
+                      cx="45"
+                      cy="45"
+                      r="40"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </article>
+
+            <!-- 2. Pedidos de Información Pública — barras -->
+            <article class="terciary-kpi-card">
+              <div class="terciary-kpi-card__top">
+                <span class="terciary-kpi-card__label"
+                  >Pedidos de Información Pública</span
+                >
+              </div>
+              <div class="terciary-kpi-card__body">
+                <div class="terciary-kpi-card__value-wrap">
+                  <span
+                    class="terciary-kpi-card__value"
+                    data-terciary-count="350"
+                    >+0</span
+                  >
+                  <span class="terciary-kpi-card__caption"
+                    >recibidos y gestionados</span
+                  >
+                </div>
+                <div class="terciary-kpi-chart">
+                  <svg
+                    class="terciary-kpi-bars"
+                    viewBox="0 0 90 70"
+                    width="90"
+                    height="70"
+                    preserveAspectRatio="none"
+                  >
+                    <rect
+                      x="0"
+                      y="30"
+                      width="9"
+                      height="40"
+                      rx="3"
+                      fill="#c7d6ff"
+                      style="animation-delay: 0.05s"
+                    />
+                    <rect
+                      x="13"
+                      y="18"
+                      width="9"
+                      height="52"
+                      rx="3"
+                      fill="#9fb8ff"
+                      style="animation-delay: 0.1s"
+                    />
+                    <rect
+                      x="26"
+                      y="24"
+                      width="9"
+                      height="46"
+                      rx="3"
+                      fill="#749bff"
+                      style="animation-delay: 0.15s"
+                    />
+                    <rect
+                      x="39"
+                      y="8"
+                      width="9"
+                      height="62"
+                      rx="3"
+                      fill="#4f7df3"
+                      style="animation-delay: 0.2s"
+                    />
+                    <rect
+                      x="52"
+                      y="16"
+                      width="9"
+                      height="54"
+                      rx="3"
+                      fill="#749bff"
+                      style="animation-delay: 0.25s"
+                    />
+                    <rect
+                      x="65"
+                      y="2"
+                      width="9"
+                      height="68"
+                      rx="3"
+                      fill="#2f5fd6"
+                      style="animation-delay: 0.3s"
+                    />
+                    <rect
+                      x="78"
+                      y="12"
+                      width="9"
+                      height="58"
+                      rx="3"
+                      fill="#4f7df3"
+                      style="animation-delay: 0.35s"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </article>
+
+            <!-- 3. Consultas al Chatbot — sparkline -->
+            <article class="terciary-kpi-card">
+              <div class="terciary-kpi-card__top">
+                <span class="terciary-kpi-card__label"
+                  >Consultas al Chatbot</span
+                >
+              </div>
+              <div class="terciary-kpi-card__body">
+                <div class="terciary-kpi-card__value-wrap">
+                  <span
+                    class="terciary-kpi-card__value"
+                    data-terciary-count="210000"
+                    >+0</span
+                  >
+                  <span class="terciary-kpi-card__caption"
+                    >consultas resueltas</span
+                  >
+                </div>
+                <div class="terciary-kpi-chart">
+                  <svg
+                    class="terciary-kpi-line"
+                    viewBox="0 0 90 70"
+                    width="90"
+                    height="70"
+                  >
+                    <path
+                      class="terciary-kpi-line__stroke"
+                      d="M4 50 L18 40 L32 46 L46 24 L60 30 L74 12 L86 18"
+                    />
+                    <circle
+                      class="terciary-kpi-line__dot"
+                      cx="86"
+                      cy="18"
+                      r="4"
+                      fill="#4f7df3"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </article>
+
+            <!-- 4. Datos en el inventario de datos — anillo segmentado -->
+            <article
+              class="terciary-kpi-card terciary-kpi-card--ring2"
+              style="--terciary-ring-offset: 130"
+            >
+              <div class="terciary-kpi-card__top">
+                <span class="terciary-kpi-card__label"
+                  >Datos en el inventario de datos</span
+                >
+              </div>
+              <div class="terciary-kpi-card__body">
+                <div class="terciary-kpi-card__value-wrap">
+                  <span
+                    class="terciary-kpi-card__value"
+                    data-terciary-count="40"
+                    >+0</span
+                  >
+                  <span class="terciary-kpi-card__caption"
+                    >fuentes catalogadas</span
+                  >
+                </div>
+                <div class="terciary-kpi-chart">
+                  <svg viewBox="0 0 90 90" width="90" height="90">
+                    <circle
+                      class="terciary-kpi-ring__track"
+                      cx="45"
+                      cy="45"
+                      r="40"
+                    />
+                    <circle
+                      class="terciary-kpi-ring__progress"
+                      cx="45"
+                      cy="45"
+                      r="40"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </article>
+
+            <!-- 5. Familias con Alarmas Comunitarias — waveform -->
+            <article class="terciary-kpi-card">
+              <div class="terciary-kpi-card__top">
+                <span class="terciary-kpi-card__label"
+                  >Familias con Alarmas Comunitarias</span
+                >
+              </div>
+              <div class="terciary-kpi-card__body">
+                <div class="terciary-kpi-card__value-wrap">
+                  <span
+                    class="terciary-kpi-card__value"
+                    data-terciary-count="3000"
+                    >+0</span
+                  >
+                  <span class="terciary-kpi-card__caption"
+                    >conectadas a la red</span
+                  >
+                </div>
+                <div class="terciary-kpi-chart">
+                  <svg
+                    class="terciary-kpi-wave"
+                    viewBox="0 0 90 60"
+                    width="90"
+                    height="60"
+                    preserveAspectRatio="none"
+                  >
+                    <rect
+                      x="0"
+                      y="24"
+                      width="6"
+                      height="12"
+                      rx="3"
+                      fill="#f3b4b2"
+                      style="animation-delay: 0s"
+                    />
+                    <rect
+                      x="10"
+                      y="18"
+                      width="6"
+                      height="24"
+                      rx="3"
+                      fill="#ec8a87"
+                      style="animation-delay: 0.1s"
+                    />
+                    <rect
+                      x="20"
+                      y="10"
+                      width="6"
+                      height="40"
+                      rx="3"
+                      fill="#e0524f"
+                      style="animation-delay: 0.2s"
+                    />
+                    <rect
+                      x="30"
+                      y="16"
+                      width="6"
+                      height="28"
+                      rx="3"
+                      fill="#ec8a87"
+                      style="animation-delay: 0.3s"
+                    />
+                    <rect
+                      x="40"
+                      y="6"
+                      width="6"
+                      height="48"
+                      rx="3"
+                      fill="#c93f3c"
+                      style="animation-delay: 0.4s"
+                    />
+                    <rect
+                      x="50"
+                      y="16"
+                      width="6"
+                      height="28"
+                      rx="3"
+                      fill="#ec8a87"
+                      style="animation-delay: 0.5s"
+                    />
+                    <rect
+                      x="60"
+                      y="10"
+                      width="6"
+                      height="40"
+                      rx="3"
+                      fill="#e0524f"
+                      style="animation-delay: 0.2s"
+                    />
+                    <rect
+                      x="70"
+                      y="18"
+                      width="6"
+                      height="24"
+                      rx="3"
+                      fill="#ec8a87"
+                      style="animation-delay: 0.1s"
+                    />
+                    <rect
+                      x="80"
+                      y="24"
+                      width="6"
+                      height="12"
+                      rx="3"
+                      fill="#f3b4b2"
+                      style="animation-delay: 0s"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </article>
+
+            <!-- 6. Ojos en Alerta Capacitados — área con degradado -->
+            <article class="terciary-kpi-card">
+              <div class="terciary-kpi-card__top">
+                <span class="terciary-kpi-card__label"
+                  >Ojos en Alerta Capacitados</span
+                >
+              </div>
+              <div class="terciary-kpi-card__body">
+                <div class="terciary-kpi-card__value-wrap">
+                  <span
+                    class="terciary-kpi-card__value"
+                    data-terciary-count="20000"
+                    >+0</span
+                  >
+                  <span class="terciary-kpi-card__caption"
+                    >personas capacitadas</span
+                  >
+                </div>
+                <div class="terciary-kpi-chart">
+                  <svg
+                    class="terciary-kpi-area"
+                    viewBox="0 0 90 70"
+                    width="90"
+                    height="70"
+                  >
+                    <defs>
+                      <linearGradient
+                        id="terciary-area-grad"
+                        x1="0"
+                        y1="0"
+                        x2="0"
+                        y2="1"
+                      >
+                        <stop
+                          offset="0%"
+                          stop-color="#21b57a"
+                          stop-opacity="0.35"
+                        />
+                        <stop
+                          offset="100%"
+                          stop-color="#21b57a"
+                          stop-opacity="0"
+                        />
+                      </linearGradient>
+                    </defs>
+                    <path
+                      class="terciary-kpi-area__fill"
+                      fill="url(#terciary-area-grad)"
+                      d="M4 44 L18 34 L32 38 L46 20 L60 26 L74 10 L86 16 L86 66 L4 66 Z"
+                    />
+                    <path
+                      class="terciary-kpi-area__stroke"
+                      d="M4 44 L18 34 L32 38 L46 20 L60 26 L74 10 L86 16"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="fourth">
+      <div class="fourth-content">
+        <div class="fourth-content-title"></div>
+        <h2>
+          Atención inteligente <br />
+          respuestas más rápidas
+        </h2>
+        <p>
+          El chatbot de la Municipalidad permite centralizar consultas, orientar
+          a la ciudadanía y facilitar el acceso a información y servicios desde
+          un canal simple, inmediato y disponible en todo momento.
+        </p>
+        <div class="fourth-content-cards">
+          <span>Principales procesos automatizados:</span>
+          <div class="fourth-cards">
+            <div class="proces">
+              <div class="proces-title">
+                <h3>Orientación de trámites</h3>
+                <i class="fa-solid fa-person-walking-arrow-right"></i>
+              </div>
+              <p>
+                Guía paso a paso para que cada ciudadano conozca qué debe
+                presentar, dónde iniciar una gestión y cómo continuarla.
+              </p>
+            </div>
+            <div class="proces">
+              <div class="proces-title">
+                <h3>Respuestas a consultas frecuentes</h3>
+                <i class="fa-solid fa-reply-all"></i>
+              </div>
+
+              <p>
+                Información inmediata sobre trámites, requisitos, horarios,
+                ubicaciones y servicios municipales.
+              </p>
+            </div>
+            <div class="proces">
+              <div class="proces-title">
+                <h3>Derivación de solicitudes</h3>
+                <i class="fa-solid fa-sitemap"></i>
+              </div>
+
+              <p>
+                Clasificación de consultas y direccionamiento hacia el área o
+                canal correspondiente.
+              </p>
+            </div>
+            <div class="proces">
+              <div class="proces-title">
+                <h3>
+                  Atención <br />
+                  continua
+                </h3>
+                <i class="fa-solid fa-eye"></i>
+              </div>
+
+              <p>
+                Disponibilidad fuera del horario administrativo para resolver
+                consultas básicas y facilitar el primer contacto con el
+                municipio.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="fourth-aside">
+        <div class="chat-block" id="chatBlock">
+          <div class="chat-frame">
+            <div class="chat-header">
+              <div class="avatar">
+                <img src="assets/chatbot-logo.png" alt="" />
+              </div>
+              <div class="header-lines">
+                <div class="header-line name"></div>
+                <div class="header-line status"></div>
+              </div>
+              <div class="header-actions"></div>
+            </div>
+
+            <div class="messages-viewport">
+              <div class="fade-top"></div>
+              <div class="messages" id="messages"></div>
+            </div>
+
+            <div class="input-bar">
+              <div class="input-field"><div class="line"></div></div>
+              <div class="send-btn"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+        <path
+          fill="#4FCBA0"
+          fill-opacity="1"
+          d="M0,96L360,64L720,256L1080,128L1440,288L1440,320L1080,320L720,320L360,320L0,320Z"
+        ></path>
+      </svg>
+    </section>
+
+
+
+    
+
+/* Sección de ejemplo para poder ver el efecto al scrollear */
+.primary {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: aliceblue;
+    gap: 40px;
+    padding: 5%;
+}
+
+.primary-img {
+    width: 45%;
+    height: 80%;
+    position: relative;
+    z-index: 0;
+    overflow: hidden;
+    /* recorta todo lo que se salga del contenedor */
+}
+
+.primary-content {
+    width: 55%;
+    height: 100%;
+}
+
+/* ---- Sección de áreas de trabajo ---- */
+
+.areas-list {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.area-item {
+    padding: 30px 0;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.area-item h3 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #2b2b2b;
+    transition: 0.3s;
+}
+
+.area-item:hover h3 {
+    color: #ffaf03;
+    transform: translateX(20px);
+}
+
+/* Tarjeta flotante que sigue al cursor */
+.area-card {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 420px;
+    height: 440px;
+    background-color: #2b2b2b;
+    background-size: cover;
+    background-position: center;
+    color: aliceblue;
+    padding: 22px;
+    border-radius: 16px;
+    font-size: 0.9rem;
+    line-height: 1.45;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    transition: opacity 0.25s ease, background-image 0.25s ease;
+    will-change: transform, opacity;
+}
+
+/* Overlay oscuro para que el texto se lea sobre la imagen de fondo */
+.area-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.692), rgba(0, 0, 0, 0.801));
+    opacity: 0;
+    transition: opacity 0.25s ease;
+}
+
+.area-card.has-bg::before {
+    opacity: 1;
+}
+
+.area-card p {
+    position: relative;
+    z-index: 1;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.area-card p {
+    max-height: 100%;
+    overflow: hidden;
+}
+
+.area-card.visible {
+    opacity: 1;
+}
+
+:root {
+    --c1: #003049;
+    --c2: #fdf0d5;
+    --c3: #669bbc;
+    --c4: #c1121f;
+    --hover-duration: .6s;
+    --hover-ease: cubic-bezier(.4, 0, .2, 1);
+}
+
+/* Bloque contenedor de las barras */
+.bars-block {
+    position: absolute;
+    inset: 0;
+    /* en vez de height:100vh, ocupa exactamente el contenedor */
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+    /* por debajo de la imagen, arriba del fondo */
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bars-wrapper {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: flex-end;
+}
+
+/* Se usa margin-right en vez de "gap" para animar la separación:
+     animar "gap" no tiene el mismo soporte/consistencia entre navegadores,
+     y con margin nos aseguramos de que coincida exactamente con el fade de la imagen. */
+.bar {
+    flex: 1;
+    height: 100%;
+    margin-right: 1vw;
+    transform: translate(-120%, 120%);
+    opacity: 0;
+    /* Gradiente que se anima solo (cambia de colores con el tiempo) */
+    background: linear-gradient(180deg, var(--c1), var(--c2), var(--c3), var(--c4));
+    background-size: 100% 300%;
+    animation: hueShift 8s ease-in-out infinite;
+    transition: transform 1.1s cubic-bezier(.16, .8, .24, 1), opacity 1.1s ease,
+        margin-right var(--hover-duration) var(--hover-ease);
+    border-radius: 24px;
+}
+
+.bar:last-child {
+    margin-right: 0;
+}
+
+/* Cuando se hace hover sobre un área, las barras se pegan entre sí (sin gap) */
+.bars-wrapper.merged .bar {
+    margin-right: 0;
+}
+
+/* Imagen relacionada al área, aparece por encima de las barras al hacer hover */
+.area-bg-image {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: bottom;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--hover-duration) var(--hover-ease);
+    border-radius: 24px;
+}
+
+.area-bg-image.visible {
+    opacity: 1;
+}
+
+/* Cuando el bloque entra en pantalla, se agrega esta clase con JS */
+.bars-block.in-view .bar {
+    transform: translate(0, 0);
+    opacity: 1;
+}
+
+/* Delay escalonado para que las barras entren en cascada desde abajo-izquierda */
+.bars-block.in-view .bar:nth-child(1) {
+    transition-delay: .00s;
+}
+
+.bars-block.in-view .bar:nth-child(2) {
+    transition-delay: .06s;
+}
+
+.bars-block.in-view .bar:nth-child(3) {
+    transition-delay: .12s;
+}
+
+.bars-block.in-view .bar:nth-child(4) {
+    transition-delay: .18s;
+}
+
+.bars-block.in-view .bar:nth-child(5) {
+    transition-delay: .24s;
+}
+
+.bars-block.in-view .bar:nth-child(6) {
+    transition-delay: .30s;
+}
+
+.bars-block.in-view .bar:nth-child(7) {
+    transition-delay: .36s;
+}
+
+.bars-block.in-view .bar:nth-child(8) {
+    transition-delay: .42s;
+}
+
+.bars-block.in-view .bar:nth-child(9) {
+    transition-delay: .48s;
+}
+
+.bars-block.in-view .bar:nth-child(10) {
+    transition-delay: .54s;
+}
+
+/* Animación del gradiente moviéndose dentro de cada barra (cambia de color en el tiempo) */
+@keyframes hueShift {
+    0% {
+        background-position: 0% 0%;
+        filter: hue-rotate(0deg);
+    }
+
+    50% {
+        background-position: 0% 100%;
+        filter: hue-rotate(180deg);
+    }
+
+    100% {
+        background-position: 0% 0%;
+        filter: hue-rotate(360deg);
+    }
+}
+
+.label {
+    position: relative;
+    z-index: 2;
+    font-size: 2rem;
+    font-weight: 700;
+    text-shadow: 0 2px 20px rgba(0, 0, 0, .6);
+    pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .bar {
+        transition: none;
+        animation: none;
+    }
+}
+
+.secondary {
+    width: 100%;
+    height: auto;
+}
+
+.secondary-title {
+    border-top: solid 5px #ffaf03;
+    padding: 40px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    padding: 5%;
+    padding-right: 20%;
+    border-radius: 0 0 48px 0;
+}
+
+.secondary-title h2 {
+    font-size: 3rem;
+}
+
+.secondary-title p {
+    font-size: 1.3rem;
+}
+
+.secondary-carrucel {
+    padding: 40px;
+}
+
+/* ============================================================
+   Sección de tarjetas con tableros (iframes) y efecto paralax
+   ============================================================ */
+
+.panels-section {
+    padding: 120px 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    /* Le da "aire" arriba/abajo para que el paralax tenga
+       recorrido antes de que las tarjetas entren/salgan de pantalla. */
+    overflow: visible;
+}
+
+.panels-header {
+    max-width: 720px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 16px;
+}
+
+.panels-eyebrow {
+    background-color: #ffaf03;
+    color: #2b2b2b;
+    padding: 8px 18px;
+    border-radius: 24px;
+    font-size: 0.9rem;
+    font-weight: 700;
+}
+
+.panels-header h2 {
+    font-size: 2.6rem;
+    color: #2b2b2b;
+}
+
+.panels-header p {
+    font-size: 1.15rem;
+    color: #4a4a4a;
+}
+
+/* ---- Carrusel ---- */
+.panels-carousel {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.panels-track {
+    display: flex;
+    gap: 32px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    padding: 8px 4px 24px;
+    scrollbar-width: none;
+}
+
+.panels-track::-webkit-scrollbar {
+    display: none;
+}
+
+.panels-arrow {
+    flex: 0 0 auto;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    border: 0;
+    background-color: #2b2b2b;
+    color: aliceblue;
+    font-size: 1.1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+}
+
+.panels-arrow:hover {
+    background-color: #ffaf03;
+    color: #2b2b2b;
+}
+
+/* ---- Tarjeta (más ancha, formato "flight card") ---- */
+.panel-card {
+    flex: 0 0 auto;
+    width: min(560px, 82vw);
+    scroll-snap-align: start;
+    background-color: #ffffff;
+    border-radius: 28px;
+    padding: 14px;
+}
+
+.panel-card-media {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    border-radius: 20px;
+    overflow: hidden;
+    background-color: rgb(232, 240, 247);
+}
+
+/* El iframe se renderiza siempre a un ancho "de escritorio" fijo
+   (1280x800), para que la página de adentro dispare su versión
+   desktop y no la mobile. Después se achica visualmente con
+   transform: scale() para que entre en el espacio real de la
+   tarjeta — el JS calcula ese factor de escala. */
+.panel-card-scaler {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1280px;
+    height: 800px;
+    transform-origin: top left;
+}
+
+.panel-card-scaler iframe {
+    width: 1280px;
+    height: 800px;
+    border: 0;
+    display: block;
+    /* Arranca deshabilitado: el scroll de la página nunca queda
+       atrapado dentro del tablero embebido. */
+    pointer-events: none;
+}
+
+.panel-card-media--active .panel-card-scaler iframe {
+    pointer-events: auto;
+}
+
+.panel-card-fav {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 0;
+    background-color: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(4px);
+    color: #2b2b2b;
+    font-size: 1.1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    transition: color 0.3s ease;
+}
+
+.panel-card-fav:hover {
+    color: #e0475c;
+}
+
+.panel-card-fav--active {
+    color: #e0475c;
+}
+
+/* Etiqueta para habilitar la interacción con el iframe */
+.panel-card-activate {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    cursor: pointer;
+    background: rgba(43, 43, 43, 0.25);
+    color: aliceblue;
+    font-family: inherit;
+    font-weight: 700;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+    opacity: 1;
+    transition: opacity 0.35s ease, background-color 0.35s ease;
+}
+
+.panel-card-activate:hover {
+    background: rgba(43, 43, 43, 0.4);
+}
+
+.panel-card-media--active .panel-card-activate {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.panel-card-body {
+    padding: 22px 10px 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    gap: 6px;
+}
+
+.panel-card-body h3 {
+    font-size: 1.6rem;
+    color: #2b2b2b;
+}
+
+.panel-card-subtitle {
+    color: #8a8a8a;
+    font-size: 1rem;
+}
+
+.panel-card-meta {
+    display: flex;
+    gap: 24px;
+    margin: 16px 0;
+    color: #4a4a4a;
+    font-weight: 600;
+}
+
+.panel-card-meta span {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.panel-card-meta i {
+    color: #ffaf03;
+}
+
+.panel-card-actions {
+    display: flex;
+}
+
+.panel-card-cta {
+    width: 100%;
+    background-color: #2b2b2b;
+    color: aliceblue;
+    border: 0;
+    border-radius: 999px;
+    padding: 16px;
+    font-family: inherit;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.panel-card-cta:hover {
+    background-color: #ffaf03;
+    color: #2b2b2b;
+}
+
+@media (max-width: 900px) {
+    .panels-section {
+        padding: 80px 24px;
+    }
+
+    .panels-arrow {
+        display: none;
+    }
+
+    .panel-card {
+        width: 88vw;
+    }
+}
+
+.panel-card-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: left;
+}
+
+
+
+.fourth {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+
+.fourth svg {
+    position: absolute;
+    z-index: -1;
+    bottom: 0;
+}
+
+.fourth-content {
+    width: 60%;
+    height: 100%;
+    padding: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    gap: 20px;
+}
+
+.fourth-content h2 {
+    font-size: 3rem;
+}
+
+.fourth-content p {
+    font-size: 1.5rem;
+}
+
+.fourth-content-cards {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.fourth-content-cards span {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.fourth-cards {
+    width: 100%;
+    height: auto;
+    display: flex;
+    gap: 10px;
+}
+
+.proces {
+    width: 300px;
+    height: 300px;
+    border-radius: 24px;
+    background: #242424;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    gap: 30px;
+    padding: 40px 15px;
+    color: aliceblue;
+    text-align: center;
+}
+
+.proces-title {
+    width: 100%;
+    height: 80px;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: start;
+    align-items: center;
+    gap: 10px;
+
+}
+
+.proces-title i {
+    font-size: 2rem;
+    color: #21b57a;
+}
+
+.proces-title h3 {
+    font-size: 1.2rem;
+}
+
+.proces p {
+    font-size: 1rem;
+    height: 100px;
+}
+
+
+.fourth-aside {
+    width: 40%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+:root {
+    --header-green: #3AAE84;
+    --sent-1: #4FCBA0;
+    --sent-2: #63D6AE;
+    --received-bg: #F1F1F1;
+    --received-border: rgba(20, 20, 30, 0.06);
+    --line-sent: rgba(255, 255, 255, 0.9);
+    --line-received: rgba(90, 90, 95, 0.4);
+    --shadow: rgba(20, 40, 30, 0.16);
+}
+
+/* ---------- Contenedor del chat ---------- */
+.chat-block {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.chat-frame {
+    width: 50%;
+    background: transparent;
+    border-radius: 26px;
+    overflow: hidden;
+    box-shadow: 0 30px 60px -20px var(--shadow);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0.15));
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+/* ---------- Header ---------- */
+.chat-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 16px;
+    background: var(--header-green);
+}
+
+.header-icon {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    opacity: 0.95;
+}
+
+.avatar {
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.5);
+    background-color: aliceblue;
+}
+
+.avatar img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.header-lines {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.header-line {
+    height: 7px;
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.55);
+}
+
+.header-line.name {
+    width: 42%;
+    height: 9px;
+    background: rgba(255, 255, 255, 0.85);
+}
+
+.header-line.status {
+    width: 26%;
+}
+
+.header-actions {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+}
+
+/* ---------- Área de mensajes ---------- */
+.messages-viewport {
+    height: 540px;
+    overflow: hidden;
+    position: relative;
+}
+
+.messages {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    min-height: 100%;
+    gap: 10px;
+    padding: 18px 16px;
+    will-change: transform;
+}
+
+.bubble-row {
+    display: flex;
+    transition: transform .45s cubic-bezier(.22, .68, .16, 1), opacity .45s ease;
+}
+
+.bubble-row.received {
+    justify-content: flex-start;
+}
+
+.bubble-row.sent {
+    justify-content: flex-end;
+}
+
+.bubble {
+    padding: 9px 12px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    box-shadow: 0 6px 14px -8px rgba(20, 10, 60, 0.2);
+    box-sizing: border-box;
+}
+
+.bubble.received {
+    background: var(--received-bg);
+    border: 1px solid var(--received-border);
+}
+
+.bubble.sent {
+    background: linear-gradient(135deg, var(--sent-2), var(--sent-1));
+}
+
+.line {
+    height: 11px;
+    border-radius: 5px;
+}
+
+.received .line {
+    background: var(--line-received);
+}
+
+.sent .line {
+    background: var(--line-sent);
+}
+
+/* Animación de entrada (nuevo mensaje) */
+.bubble-row.enter {
+    opacity: 0;
+    transform: translateY(24px);
+}
+
+.bubble-row.enter-active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Indicador de "escribiendo" */
+.typing {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+    padding: 12px 16px;
+    background: var(--received-bg);
+    border: 1px solid var(--received-border);
+    border-radius: 10px;
+    width: fit-content;
+}
+
+.typing span {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--line-received);
+    animation: bounce 1s infinite ease-in-out;
+}
+
+.typing span:nth-child(2) {
+    animation-delay: .15s;
+}
+
+.typing span:nth-child(3) {
+    animation-delay: .3s;
+}
+
+@keyframes bounce {
+
+    0%,
+    60%,
+    100% {
+        transform: translateY(0);
+        opacity: .5;
+    }
+
+    30% {
+        transform: translateY(-4px);
+        opacity: 1;
+    }
+}
+
+/* fade superior para simular que el chat continua hacia arriba */
+.fade-top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 36px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0));
+    pointer-events: none;
+    z-index: 2;
+}
+
+/* ---------- Barra inferior de escritura ---------- */
+.input-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 14px;
+    border-top: 1px solid rgba(20, 20, 30, 0.06);
+}
+
+.input-field {
+    flex: 1;
+    height: 36px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(20, 20, 30, 0.08);
+    display: flex;
+    align-items: center;
+    padding: 0 14px;
+}
+
+.input-field .line {
+    width: 38%;
+    background: rgba(40, 40, 55, 0.22);
+}
+
+.send-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--sent-2), var(--sent-1));
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 6px 14px -6px rgba(58, 174, 132, 0.55);
+}
+
+.send-btn svg {
+    width: 16px;
+    height: 16px;
+}
+
+.separador {
+    width: 100%;
+    height: 200px;
+    padding-left: 80px;
+    display: flex;
+    align-items: end;
+}
+
+.separador span {
+    background-color: #ffaf03;
+    padding: 20px;
+    color: aliceblue;
+    font-weight: 700;
+    border-radius: 24px 24px 0 0;
+}
+
