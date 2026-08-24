@@ -16,7 +16,7 @@
     <section class="hero-section">
       <div class="hero-title">
         <div class="logo">
-          <img src="assets/logo-para-fondo-blanco (1).png" alt="" />
+          <img src="assets/images/logo.png" alt="" />
         </div>
         <h1>Ciudad Inteligente</h1>
         <span>Tecnología e innovación al servicio de una ciudad más conectada,
@@ -26,13 +26,19 @@
 
       <div class="hero-bkg">
         <video id="video1" class="video-player active" playsinline muted autoplay>
-          <source src="assets/images/bkg1.mp4" type="video/mp4" />
+          <source
+            src="https://www.dropbox.com/scl/fi/fi5mxm8ry8npozrmisobc/11904079_3840_2160_30fps.mp4?rlkey=f8e1dpfvqejt2c1jt2svg0duw&st=fr4kb3xf&raw=1"
+            type="video/mp4" />
         </video>
         <video id="video2" class="video-player" playsinline muted>
-          <source src="assets/images/bkg2.mp4" type="video/mp4" />
+          <source
+            src="https://www.dropbox.com/scl/fi/5bqs9h2fgojo1vrnajlsz/15439975-uhd_3840_2160_30fps.mp4?rlkey=o57ph8wahixb0ehpre9mojf6j&st=5yacbdde&raw=1"
+            type="video/mp4" />
         </video>
         <video id="video3" class="video-player" playsinline muted>
-          <source src="assets/images/bkg3.mp4" type="video/mp4" />
+          <source
+            src="https://www.dropbox.com/scl/fi/zc5ur0kswhj0psiyhqdl6/14209120-uhd_3840_2160_30fps.mp4?rlkey=sidtm09tu7ciq6pml8xy8qs1c&st=jxtvxa0l&raw=1"
+            type="video/mp4" />
         </video>
 
         <!-- Overlay oscuro que aparece a medida que el video se expande -->
@@ -92,6 +98,58 @@
     </section>
   </div>
 
+  <!-- ===== STICKY HEADER CON LOGO + BOTONES ===== -->
+  <header class="sticky-nav-header" id="mainNavHeader">
+    <div class="nav-container">
+      <div class="nav-wrapper">
+        <!-- LOGO -->
+        <div class="nav-logo">
+          <a href="#">
+            <img src="assets/images/logo.png" alt="Ciudad Inteligente" />
+          </a>
+        </div>
+
+        <!-- MENÚ PRINCIPAL -->
+        <ul class="nav-menu">
+          <!-- Botón 1: Gestión -->
+          <li class="nav-item">
+            <button class="nav-btn">Gestión <i class="fa-solid fa-chart-simple"></i></button>
+            <ul class="dropdown">
+              <li><a href="#gestion-evidencia">Productos digitales</a></li>
+              <li><a href="#datos-abiertos">Ciencia de datos</a></li>
+              <li><a href="#tableros">Inteligencia artificial</a></li>
+            </ul>
+          </li>
+          <!-- Botón 2: Gobierno Abierto -->
+          <li class="nav-item">
+            <button class="nav-btn">Gobierno Abierto <i class="fa-solid fa-feather"></i></button>
+            <ul class="dropdown">
+              <li><a href="#transparencia">Datos abiertos</a></li>
+              <li><a href="#participacion">Participación ciudadana</a></li>
+              <li><a href="#informacion-publica">Información pública</a></li>
+            </ul>
+          </li>
+          <!-- Botón 3: Agenda Internacional -->
+          <li class="nav-item">
+            <button class="nav-btn">Agenda <i class="fa-solid fa-medal"></i></button>
+            <ul class="dropdown">
+              <li><a href="#membresias">Membresías</a></li>
+              <li><a href="#reconocimientos">Reconocimientos</a></li>
+              <li><a href="#cooperaciones">Cooperaciones</a></li>
+            </ul>
+          </li>
+
+          <!-- === NUEVOS BOTONES: EQUIPO Y CONTACTO === -->
+          <li class="nav-item nav-item--simple">
+            <a href="#equipo" class="nav-btn nav-btn--simple">Equipo</a>
+          </li>
+          <li class="nav-item nav-item--simple">
+            <a href="#contacto" class="nav-btn nav-btn--simple nav-btn--primary">Contáctanos</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </header>
   <section class="gestion">
     <div class="gestion-scroll-wrap">
       <div class="gestion-title-block" id="gestionTitleBlock">
@@ -110,7 +168,9 @@
 
       <div class="gestion-video-block">
         <video playsinline muted autoplay loop>
-          <source src="assets/images/gbe.mp4" type="video/mp4" />
+          <source
+            src="https://www.dropbox.com/scl/fi/3dezwhyc4rkz7z4an93rp/gbe.mp4?rlkey=uf5ncjzgecv8udi6p6v6appo4&st=fcnvsdnv&raw=1"
+            type="video/mp4" />
         </video>
       </div>
 
@@ -319,7 +379,9 @@
            revelándolo a medida que se hace scroll. -->
     <div class="gob-abierto-video-wrapper">
       <video class="gob-abierto-video" playsinline muted autoplay loop>
-        <source src="assets/images/gob-abierto.mp4" type="video/mp4" />
+        <source
+          src="https://www.dropbox.com/scl/fi/mhrid53y15ivvbecqqe1a/gob-abierto.mp4?rlkey=32ovzdjermn074zwx8lh5qb61&st=nhp2r7u3&raw=1"
+          type="video/mp4" />
       </video>
     </div>
 
@@ -357,7 +419,7 @@
       <div class="gob-grid">
 
         <article class="gob-card transparencia">
-          <div class="gob-overlay"><span>Abriendo</span></div>
+          <div class="gob-overlay"></div>
           <p class="gob-numero"></p>
           <h3><i class="fa-solid fa-magnifying-glass-chart"></i>Datos abiertos</h3>
           <p>El Estado publica de forma activa la información sobre su gestión, presupuesto y decisiones, para que
@@ -370,7 +432,7 @@
         </article>
 
         <article class="gob-card participacion">
-          <div class="gob-overlay"><span>Abriendo</span></div>
+          <div class="gob-overlay"></div>
           <p class="gob-numero"></p>
           <h3><i class="fa-solid fa-users-rectangle"></i>Participación ciudadana</h3>
           <p>Las decisiones públicas se construyen con la ciudadanía, habilitando canales concretos de consulta, debate
@@ -383,7 +445,7 @@
         </article>
 
         <article class="gob-card info-publica">
-          <div class="gob-overlay"><span>Abriendo</span></div>
+          <div class="gob-overlay"></div>
           <p class="gob-numero"></p>
           <h3><i class="fa-solid fa-circle-info"></i>informacion publica</h3>
           <p>Organizaciones, academia y sector privado trabajan junto al Estado para resolver problemas públicos de
@@ -405,33 +467,98 @@
       <h2>Internacional</h2>
     </div>
     <div class="agenda-main">
-<div class="agenda-kpi">
-  <div class="agenda-kpi__card">
-    <p class="agenda-kpi__label">membresías</p>
-    <p class="agenda-kpi__value">04</p>
-  </div>
-  <div class="agenda-kpi__card">
-    <p class="agenda-kpi__label">reconocimientos</p>
-    <p class="agenda-kpi__value">06</p>
-  </div>
-  <div class="agenda-kpi__card">
-    <p class="agenda-kpi__label">cooperaciones</p>
-    <p class="agenda-kpi__value">07</p>
-  </div>
-</div>
+      <div class="agenda-kpi">
+        <div class="agenda-kpi__card">
+          <p class="agenda-kpi__label">membresías</p>
+          <p class="agenda-kpi__value">04</p>
+        </div>
+        <div class="agenda-kpi__card">
+          <p class="agenda-kpi__label">reconocimientos</p>
+          <p class="agenda-kpi__value">06</p>
+        </div>
+        <div class="agenda-kpi__card">
+          <p class="agenda-kpi__label">cooperaciones</p>
+          <p class="agenda-kpi__value">07</p>
+        </div>
+      </div>
     </div>
     <div class="carrusel-doble">
- 
-  <div class="carrusel-fila carrusel-fila--1">
-    <div class="carrusel-track" id="track-1"></div>
-  </div>
- 
-  <div class="carrusel-fila carrusel-fila--2">
-    <div class="carrusel-track" id="track-2"></div>
-  </div>
- 
-</div>
+      <div class="carrusel-fila carrusel-fila--1">
+        <div class="carrusel-track" id="track-1"></div>
+      </div>
+      <div class="carrusel-fila carrusel-fila--2">
+        <div class="carrusel-track" id="track-2"></div>
+      </div>
+    </div>
   </section>
+  <section class="newsletter">
+    <video playsinline muted autoplay loop>
+      <source src="assets/images/news.mp4" type="video/mp4" />
+    </video>
+    <div class="news-overlay"></div>
+    <div class="news-title">
+      <h2>Suscribite a nuestro <span>newsletter</span> para conocer nuestros proyectos</h2>
+      <p>En nuestro newsletter compartimos nuevas herramientas, iniciativas de innovación, proyectos basados en datos,
+        avances en gobierno abierto y soluciones tecnológicas que buscan mejorar la gestión municipal y la experiencia
+        de la ciudadanía.</p>
+      <a href="#">Suscribirse</a>
+    </div>
+  </section>
+<footer class="site-footer">
+  <div class="footer-inner">
+ 
+    <div class="footer-brand">
+      <div class="brand-logo">
+        <span class="mark"></span>
+        Ciudad Inteligente
+      </div>
+      <p class="brand-tagline">Desarrollamos soluciones digitales que mejoran los servicios públicos, optimizan la gestión municipal y facilitan una relación más simple y directa con la comunidad.</p>
+      <div class="social-row">
+        <a href="#" aria-label="X">𝕏</a>
+        <a href="#" aria-label="Instagram">◎</a>
+        <a href="#" aria-label="LinkedIn">in</a>
+        <a href="#" aria-label="YouTube">▶</a>
+      </div>
+    </div>
+ 
+    <div class="footer-col">
+      <h4>Gestión</h4>
+      <ul>
+        <li><a href="#">Productos Digitales</a></li>
+        <li><a href="#">Ciencia de Datos</a></li>
+        <li><a href="#">Inteligencia Artificial</a></li>
+      </ul>
+    </div>
+ 
+    <div class="footer-col">
+      <h4>Gobierno Abierto</h4>
+      <ul>
+        <li><a href="#">Portal de datos abiertos</a></li>
+        <li><a href="#">Geoportal ciudadano</a></li>
+        <li><a href="#">Finanzas públicas</a></li>
+        <li><a href="#">Acceso a la información pública</a></li>
+        <li><a href="#">Presupuesto participativo</a></li>
+        <li><a href="#">Seguridad ciudadana</a></li>
+      </ul>
+    </div>
+ 
+    <div class="footer-col">
+      <h4>Agenda</h4>
+      <ul>
+        <li><a href="#">Membresias</a></li>
+        <li><a href="#">Reconocimientos</a></li>
+        <li><a href="#">Cooperaciones</a></li>
+        <li><a href="#">Noticias</a></li>
+      </ul>
+    </div>
+ 
+  </div>
+ 
+  <div class="footer-bottom">
+    <span>© 2026 KENAI Todos los derechos reservados.</span>
+  </div>
+</footer>
+  <script src="scripts/header.js"></script>
   <script src="scripts/agenda-title.js"></script>
   <script src="scripts/carrucel-agenda.js"></script>
   <script src="scripts/gob-abierto-cards.js"></script>
@@ -447,4 +574,5 @@
   <script src="scripts/hero-scroll.js"></script>
   <script src="scripts/hero-click-scroll.js"></script>
 </body>
+
 </html>
