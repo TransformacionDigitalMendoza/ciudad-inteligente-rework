@@ -8,11 +8,12 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
   <link rel="stylesheet" href="styles/styles.css" />
+  <link rel="stylesheet" href="styles/responsive.css">
   <title>Document</title>
 </head>
 
 <body>
-  <div class="hero-wrapper">
+  <section class="hero-wrapper">
     <section class="hero-section">
       <div class="hero-title">
         <div class="logo">
@@ -21,7 +22,8 @@
         <h1>Ciudad Inteligente</h1>
         <span>Tecnología e innovación al servicio de una ciudad más conectada,
           eficiente y cercana a sus ciudadanos.</span>
-        <a href="#">Contactanos<i class="fa-solid fa-people-group"></i></a>
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=transformaciondigitalmendoza@gmail.com" target="_blank"
+          rel="noopener noreferrer">Contactános</a>
       </div>
 
       <div class="hero-bkg">
@@ -56,13 +58,8 @@
             trabajando juntos para que cada solución responda a un problema
             real de la ciudad.
           </p>
-          <div class="hero-text-bottom">
-            <a href="#">Misión</a>
-            <a href="#">Visión</a>
-          </div>
         </div>
       </div>
-
       <div class="hero-aside">
         <div class="header">
           <ul>
@@ -81,22 +78,20 @@
             resolver problemas y construir una ciudad más sostenible.
           </p>
           <div class="trust-block">
-            <p class="trust-block__number">27+</p>
+            <p class="trust-block__number">Conocé nuestro equipo</p>
             <p class="trust-block__text">
-              Reconocimientos internacionales<br />
+              Un grupo multi-diciplinario<br />
               llevando la ciudad de mendoza al mundo.
             </p>
-            <div class="trust-block__avatars">
-              <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Cliente 1" />
-              <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Cliente 2" />
-              <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Cliente 3" />
-              <img src="https://randomuser.me/api/portraits/men/78.jpg" alt="Cliente 4" />
-            </div>
+
+            <a href="/pages/team/index.html" class="trust-block__cta" style="text-decoration: none;" data-pt-link>Conocé
+              al
+              equipo</a>
           </div>
         </div>
       </div>
     </section>
-  </div>
+  </section>
 
   <!-- ===== STICKY HEADER CON LOGO + BOTONES ===== -->
   <header class="sticky-nav-header" id="mainNavHeader">
@@ -113,25 +108,74 @@
         <ul class="nav-menu">
           <!-- Botón 1: Gestión -->
           <li class="nav-item">
-            <button class="nav-btn">Gestión <i class="fa-solid fa-chart-simple"></i></button>
+            <a href="#gestion" class="nav-btn" style="text-decoration: none;">Gestión <i
+                class="fa-solid fa-chart-simple"></i></a>
             <ul class="dropdown">
-              <li><a href="#gestion-evidencia">Productos digitales</a></li>
-              <li><a href="#datos-abiertos">Ciencia de datos</a></li>
-              <li><a href="#tableros">Inteligencia artificial</a></li>
+              <li><a href="#gestion-productos" class="gestion-open-link" data-card="productos">Productos digitales</a>
+              </li>
+              <li><a href="#gestion-ciencia-datos" class="gestion-open-link" data-card="datos">Ciencia de datos</a></li>
+              <li><a href="#gestion-ia" class="gestion-open-link" data-card="ia">Inteligencia artificial</a></li>
             </ul>
           </li>
           <!-- Botón 2: Gobierno Abierto -->
           <li class="nav-item">
-            <button class="nav-btn">Gobierno Abierto <i class="fa-solid fa-feather"></i></button>
-            <ul class="dropdown">
-              <li><a href="#transparencia">Datos abiertos</a></li>
-              <li><a href="#participacion">Participación ciudadana</a></li>
-              <li><a href="#informacion-publica">Información pública</a></li>
+            <a href="#gobierno" class="nav-btn" style="text-decoration: none;">Gobierno Abierto <i
+                class="fa-solid fa-feather"></i></a>
+            <ul class="dropdown dropdown--nested">
+
+              <!-- Categoría: Datos abiertos -->
+              <li class="dropdown-item has-submenu">
+                <div class="dropdown-item-row">
+                  <a href="#gob-datos-abiertos" class="dropdown-link scroll-link">Datos abiertos</a>
+                  <button type="button" class="submenu-toggle" aria-expanded="false"
+                    aria-label="Ver enlaces de Datos abiertos">
+                    <i class="fa-solid fa-chevron-down"></i>
+                  </button>
+                </div>
+                <ul class="submenu">
+                  <li><a href="#">Portal de datos abiertos</a></li>
+                  <li><a href="#">Geoportal Ciudadano</a></li>
+                  <li><a href="#">Finanzas Públicas</a></li>
+                </ul>
+              </li>
+
+              <!-- Categoría: Información pública -->
+              <li class="dropdown-item has-submenu">
+                <div class="dropdown-item-row">
+                  <a href="#gob-informacion-publica" class="dropdown-link scroll-link">Información pública</a>
+                  <button type="button" class="submenu-toggle" aria-expanded="false"
+                    aria-label="Ver enlaces de Información pública">
+                    <i class="fa-solid fa-chevron-down"></i>
+                  </button>
+                </div>
+                <ul class="submenu">
+                  <li><a href="#">Formulario Acceso a Información Pública</a></li>
+                  <li><a href="#">Tablero Pedidos Acceso Información Pública</a></li>
+                  <li><a href="#">LEY 9070 + Ordenanzas/Decretos de Implementación</a></li>
+                </ul>
+              </li>
+
+              <!-- Categoría: Participación ciudadana -->
+              <li class="dropdown-item has-submenu">
+                <div class="dropdown-item-row">
+                  <a href="#gob-participacion-ciudadana" class="dropdown-link scroll-link">Participación ciudadana</a>
+                  <button type="button" class="submenu-toggle" aria-expanded="false"
+                    aria-label="Ver enlaces de Participación ciudadana">
+                    <i class="fa-solid fa-chevron-down"></i>
+                  </button>
+                </div>
+                <ul class="submenu">
+                  <li><a href="#">Presupuesto Participativo</a></li>
+                  <li><a href="#">Seguridad Ciudadana</a></li>
+                </ul>
+              </li>
+
             </ul>
           </li>
           <!-- Botón 3: Agenda Internacional -->
           <li class="nav-item">
-            <button class="nav-btn">Agenda <i class="fa-solid fa-medal"></i></button>
+            <a href="#agenda" class="nav-btn" style="text-decoration: none;">Agenda <i
+                class="fa-solid fa-medal"></i></a>
             <ul class="dropdown">
               <li><a href="#membresias">Membresías</a></li>
               <li><a href="#reconocimientos">Reconocimientos</a></li>
@@ -140,17 +184,18 @@
           </li>
 
           <!-- === NUEVOS BOTONES: EQUIPO Y CONTACTO === -->
-          <li class="nav-item nav-item--simple">
-            <a href="#equipo" class="nav-btn nav-btn--simple">Equipo</a>
+          <li class="nav-item nav-item--simple team">
+            <a href="/pages/team/index.html" class="nav-btn nav-btn--simple" data-pt-link>Equipo</a>
           </li>
           <li class="nav-item nav-item--simple">
-            <a href="#contacto" class="nav-btn nav-btn--simple nav-btn--primary">Contáctanos</a>
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=transformaciondigitalmendoza@gmail.com"
+              target="_blank" rel="noopener noreferrer" class="nav-btn nav-btn--simple nav-btn--primary">Contactanos</a>
           </li>
         </ul>
       </div>
     </div>
   </header>
-  <section class="gestion">
+  <section class="gestion" id="gestion">
     <div class="gestion-scroll-wrap">
       <div class="gestion-title-block" id="gestionTitleBlock">
         <h2>Gestión basada en evidencia</h2>
@@ -321,57 +366,380 @@
     </div>
     <div class="gestion-bottom">
       <div class="gestion-cards">
-        <div class="g-card">
-          <div class="g-card-title">
-            <h4>Productos Digitales</h4>
-            <i class="fa-solid fa-code"></i>
+
+        <!-- PRODUCTOS DIGITALES -->
+        <div class="g-card g-card--productos" id="gestion-productos">
+          <div class="g-card-main">
+            <div class="g-card-title">
+              <h4>Productos Digitales</h4>
+              <i class="fa-solid fa-code"></i>
+            </div>
+            <div class="g-card-content">
+              <p>
+                Diseñamos plataformas, aplicaciones y herramientas web que
+                simplifican trámites, conectan servicios y mejoran la
+                experiencia de quienes interactúan con el municipio.
+              </p>
+            </div>
+            <div class="g-card-button">
+              <button class="g-open-btn">Explorar productos</button>
+            </div>
           </div>
-          <div class="g-card-content">
-            <p>
-              Diseñamos plataformas, aplicaciones y herramientas web que
-              simplifican trámites, conectan servicios y mejoran la
-              experiencia de quienes interactúan con el municipio.
-            </p>
-          </div>
-          <div class="g-card-button">
-            <a href="#">Explorar productos</a>
+
+          <div class="g-card-expanded g-expanded--productos">
+            <div class="g-expanded-inner">
+              <button class="g-close-btn" type="button" aria-label="Cerrar">
+                <i class="fa-solid fa-xmark"></i>
+              </button>
+
+              <div class="g-expanded-hero">
+                <!-- data-src: el video sólo se carga cuando la card se abre -->
+                <video muted loop playsinline data-src="/assets/images/productos_digitales.mp4"></video>
+                <div class="expanded-hero-title">
+                  <h2>Productos Digitales</h2>
+                  <p>Plataformas y herramientas que acercan los trámites y servicios de la ciudad a un click.</p>
+                </div>
+              </div>
+
+              <div class="g-expanded-body">
+                <div class="hcards-grid">
+
+                  <!-- 1 -->
+                  <article class="hcard hcard--azul">
+                    <div class="hcard-media">
+                      <svg xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 640 640"><!--!Font Awesome Free v7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.-->
+                        <path fill="rgb(255, 255, 255)"
+                          d="M320 576C461.4 576 576 461.4 576 320C576 178.6 461.4 64 320 64C178.6 64 64 178.6 64 320C64 461.4 178.6 576 320 576zM370.7 389.1L226.4 444.6C207 452.1 187.9 433 195.4 413.6L250.9 269.3C254.2 260.8 260.8 254.2 269.3 250.9L413.6 195.4C433 187.9 452.1 207 444.6 226.4L389.1 370.7C385.9 379.2 379.2 385.8 370.7 389.1zM352 320C352 302.3 337.7 288 320 288C302.3 288 288 302.3 288 320C288 337.7 302.3 352 320 352C337.7 352 352 337.7 352 320z" />
+                      </svg>
+                    </div>
+                    <div class="hcard-body">
+                      <h3>Geoportal ciudadano</h3>
+                      <p>Explorá mapas, servicios y datos geográficos de la Ciudad de Mendoza.</p>
+                      <div class="hcard-tags">
+                        <span class="hcard-tag">Mapas</span>
+                        <span class="hcard-tag">Territorio</span>
+                      </div>
+                      <a href="https://geoportalciudadano.ciudaddemendoza.gob.ar/?_gl=1*1kzta2l*_ga*MTQ4ODE1NTQ0NS4xNzQzMDA0OTc5*_ga_RZ464H4Y4F*czE3ODg5NjY1MzkkbzEzOSRnMCR0MTc4ODk2NjUzOSRqNjAkbDAkaDA."
+                        class="hcard-cta">Explorar geoportal</a>
+                    </div>
+                  </article>
+
+                  <!-- 2 -->
+                  <article class="hcard hcard--verde">
+                    <div class="hcard-media">
+                      <svg xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 640 640"><!--!Font Awesome Free v7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.-->
+                        <path fill="rgb(255, 255, 255)"
+                          d="M128 128C128 110.3 113.7 96 96 96C78.3 96 64 110.3 64 128L64 464C64 508.2 99.8 544 144 544L544 544C561.7 544 576 529.7 576 512C576 494.3 561.7 480 544 480L144 480C135.2 480 128 472.8 128 464L128 128zM534.6 214.6C547.1 202.1 547.1 181.8 534.6 169.3C522.1 156.8 501.8 156.8 489.3 169.3L384 274.7L326.6 217.4C314.1 204.9 293.8 204.9 281.3 217.4L185.3 313.4C172.8 325.9 172.8 346.2 185.3 358.7C197.8 371.2 218.1 371.2 230.6 358.7L304 285.3L361.4 342.7C373.9 355.2 394.2 355.2 406.7 342.7L534.7 214.7z" />
+                      </svg>
+                    </div>
+                    <div class="hcard-body">
+                      <h3>Invest ciudad de Mendoza</h3>
+                      <p>Conocé datos, oportunidades e información estratégica para invertir en la ciudad.</p>
+                      <div class="hcard-tags">
+                        <span class="hcard-tag">Inversiones</span>
+                        <span class="hcard-tag">Desarrollo</span>
+                      </div>
+                      <a href="https://invest.ciudaddemendoza.gob.ar/" class="hcard-cta">Conocer Invest</a>
+                    </div>
+                  </article>
+
+                  <!-- 3 -->
+                  <article class="hcard hcard--rojo">
+                    <div class="hcard-media">
+                      <svg xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 640 640"><!--!Font Awesome Free v7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.-->
+                        <path fill="rgb(255, 255, 255)"
+                          d="M552 264C582.9 264 608 289.1 608 320C608 350.9 582.9 376 552 376L424.7 376L265.5 549.6C259.4 556.2 250.9 560 241.9 560L198.2 560C187.3 560 179.6 549.3 183 538.9L237.3 376L137.6 376L84.8 442C81.8 445.8 77.2 448 72.3 448L52.5 448C42.1 448 34.5 438.2 37 428.1L64 320L37 211.9C34.4 201.8 42.1 192 52.5 192L72.3 192C77.2 192 81.8 194.2 84.8 198L137.6 264L237.3 264L183 101.1C179.6 90.7 187.3 80 198.2 80L241.9 80C250.9 80 259.4 83.8 265.5 90.4L424.7 264L552 264z" />
+                      </svg>
+                    </div>
+                    <div class="hcard-body">
+                      <h3>Turismo</h3>
+                      <p>Descubrí atractivos, experiencias y propuestas para disfrutar la Ciudad de Mendoza.</p>
+                      <div class="hcard-tags">
+                        <span class="hcard-tag">Turismo</span>
+                        <span class="hcard-tag">Experiencias</span>
+                      </div>
+                      <a href="https://turismo.ciudaddemendoza.gob.ar/" class="hcard-cta">Descubrir Mendoza</a>
+                    </div>
+                  </article>
+
+                  <!-- 4 -->
+                  <article class="hcard hcard--amarillo">
+                    <div class="hcard-media">
+                      <svg xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 640 640"><!--!Font Awesome Free v7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.-->
+                        <path fill="rgb(255, 255, 255)"
+                          d="M288 112C288 85.5 309.5 64 336 64L432 64C458.5 64 480 85.5 480 112L480 160L528 160L528 88C528 74.7 538.7 64 552 64C565.3 64 576 74.7 576 88L576 160L592 160C618.5 160 640 181.5 640 208L640 528C640 554.5 618.5 576 592 576L336 576C309.5 576 288 554.5 288 528L288 112zM352 176L352 208C352 216.8 359.2 224 368 224L400 224C408.8 224 416 216.8 416 208L416 176C416 167.2 408.8 160 400 160L368 160C359.2 160 352 167.2 352 176zM368 256C359.2 256 352 263.2 352 272L352 304C352 312.8 359.2 320 368 320L400 320C408.8 320 416 312.8 416 304L416 272C416 263.2 408.8 256 400 256L368 256zM352 368L352 400C352 408.8 359.2 416 368 416L400 416C408.8 416 416 408.8 416 400L416 368C416 359.2 408.8 352 400 352L368 352C359.2 352 352 359.2 352 368zM528 256C519.2 256 512 263.2 512 272L512 304C512 312.8 519.2 320 528 320L560 320C568.8 320 576 312.8 576 304L576 272C576 263.2 568.8 256 560 256L528 256zM512 368L512 400C512 408.8 519.2 416 528 416L560 416C568.8 416 576 408.8 576 400L576 368C576 359.2 568.8 352 560 352L528 352C519.2 352 512 359.2 512 368zM96 544L96 384L80 384C35.8 384 0 348.2 0 304C0 277.3 13.1 253.7 33.2 239.1C32.4 234.2 32 229.1 32 224C32 171 75 128 128 128C181 128 224 171 224 224L224 320C224 355.3 195.3 384 160 384L160 544C160 561.7 145.7 576 128 576C110.3 576 96 561.7 96 544z" />
+                      </svg>
+                    </div>
+                    <div class="hcard-body">
+                      <h3>Gestión ambiental</h3>
+                      <p>Consultá iniciativas, datos y acciones para una ciudad más sostenible y resiliente.</p>
+                      <div class="hcard-tags">
+                        <span class="hcard-tag">Ambiente</span>
+                        <span class="hcard-tag">Sostenibilidad</span>
+                      </div>
+                      <a href="https://gobiernoabierto.ciudaddemendoza.gob.ar/comite-cambio-climatico.html"
+                        class="hcard-cta">Conocer iniciativas</a>
+                    </div>
+                  </article>
+
+                  <!-- 5 -->
+                  <article class="hcard hcard--azul">
+                    <div class="hcard-media">
+                      <svg xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 640 640"><!--!Font Awesome Free v7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.-->
+                        <path fill="rgb(255, 255, 255)"
+                          d="M576 112C576 100.9 570.3 90.6 560.8 84.8C551.3 79 539.6 78.4 529.7 83.4L413.5 141.5L234.1 81.6C226 78.9 217.3 79.5 209.7 83.3L81.7 147.3C70.8 152.8 64 163.9 64 176L64 528C64 539.1 69.7 549.4 79.2 555.2C88.7 561 100.4 561.6 110.3 556.6L226.4 498.5L399.7 556.3C395.4 549.9 391.2 543.2 387.1 536.4C376.1 518.1 365.2 497.1 357.1 474.6L255.9 440.9L255.9 156.4L383.9 199.1L383.9 298.4C414.9 262.6 460.9 240 511.9 240C534.5 240 556.1 244.4 575.9 252.5L576 112zM392 405.9C392 474.8 456.1 556.3 490.6 595.2C502.2 608.2 521.9 608.2 533.5 595.2C568 556.3 632.1 474.8 632.1 405.9C632.1 340.8 578.4 288 512.1 288C445.8 288 392 340.8 392 405.9z" />
+                      </svg>
+                    </div>
+                    <div class="hcard-body">
+                      <h3>Explorador Urbano</h3>
+                      <p>Explorá información territorial y conocé la ciudad a través de mapas interactivos.</p>
+                      <div class="hcard-tags">
+                        <span class="hcard-tag">Ciudad</span>
+                        <span class="hcard-tag">Mapas</span>
+                      </div>
+                      <a href="https://invest.ciudaddemendoza.gob.ar/pages/modoParcelas/index.html"
+                        class="hcard-cta">Explorar la ciudad</a>
+                    </div>
+                  </article>
+
+                  <!-- 6 -->
+                  <article class="hcard hcard--verde">
+                    <div class="hcard-media">
+                      <svg xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 640 640"><!--!Font Awesome Free v7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.-->
+                        <path fill="rgb(255, 255, 255)"
+                          d="M224 64C241.7 64 256 78.3 256 96L256 128L384 128L384 96C384 78.3 398.3 64 416 64C433.7 64 448 78.3 448 96L448 128L480 128C515.3 128 544 156.7 544 192L544 480C544 515.3 515.3 544 480 544L160 544C124.7 544 96 515.3 96 480L96 192C96 156.7 124.7 128 160 128L192 128L192 96C192 78.3 206.3 64 224 64zM160 304L160 336C160 344.8 167.2 352 176 352L208 352C216.8 352 224 344.8 224 336L224 304C224 295.2 216.8 288 208 288L176 288C167.2 288 160 295.2 160 304zM288 304L288 336C288 344.8 295.2 352 304 352L336 352C344.8 352 352 344.8 352 336L352 304C352 295.2 344.8 288 336 288L304 288C295.2 288 288 295.2 288 304zM432 288C423.2 288 416 295.2 416 304L416 336C416 344.8 423.2 352 432 352L464 352C472.8 352 480 344.8 480 336L480 304C480 295.2 472.8 288 464 288L432 288zM160 432L160 464C160 472.8 167.2 480 176 480L208 480C216.8 480 224 472.8 224 464L224 432C224 423.2 216.8 416 208 416L176 416C167.2 416 160 423.2 160 432zM304 416C295.2 416 288 423.2 288 432L288 464C288 472.8 295.2 480 304 480L336 480C344.8 480 352 472.8 352 464L352 432C352 423.2 344.8 416 336 416L304 416zM416 432L416 464C416 472.8 423.2 480 432 480L464 480C472.8 480 480 472.8 480 464L480 432C480 423.2 472.8 416 464 416L432 416C423.2 416 416 423.2 416 432z" />
+                      </svg>
+                    </div>
+                    <div class="hcard-body">
+                      <h3>Agenda cultural</h3>
+                      <p>Encontrá eventos, actividades y propuestas culturales para disfrutar en la ciudad.</p>
+                      <div class="hcard-tags">
+                        <span class="hcard-tag">Cultura</span>
+                        <span class="hcard-tag">Eventos</span>
+                      </div>
+                      <a href="https://turismo.ciudaddemendoza.gob.ar/" class="hcard-cta">Ver agenda</a>
+                    </div>
+                  </article>
+
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="g-card">
-          <div class="g-card-title">
-            <h4>Ciencia de datos</h4>
-            <i class="fa-solid fa-chart-pie"></i>
+
+        <!-- CIENCIA DE DATOS -->
+        <div class="g-card g-card--datos" id="gestion-ciencia-datos">
+          <div class="g-card-main">
+            <div class="g-card-title">
+              <h4>Ciencia de datos</h4>
+              <i class="fa-solid fa-chart-pie"></i>
+            </div>
+            <div class="g-card-content">
+              <p>
+                Transformamos datos reales en información clara para acompañar
+                la toma de decisiones.
+              </p>
+            </div>
+            <div class="g-card-button">
+              <button class="g-open-btn">Ver tableros</button>
+            </div>
           </div>
-          <div class="g-card-content">
-            <p>
-              Transformamos datos reales en información clara para acompañar
-              la toma de decisiones.
-            </p>
-          </div>
-          <div class="g-card-button">
-            <a href="#">Ver tableros</a>
+
+          <div class="g-card-expanded g-expanded--datos">
+            <div class="g-expanded-inner">
+              <button class="g-close-btn" type="button" aria-label="Cerrar">
+                <i class="fa-solid fa-xmark"></i>
+              </button>
+
+              <div class="g-expanded-hero">
+                <video muted loop playsinline data-src="assets/images/ciencia_de_datos2.mp4"></video>
+                <div class="expanded-hero-title">
+                  <h2>Ciencia de Datos</h2>
+                  <p>Tableros en vivo que traducen la información pública en decisiones.</p>
+                </div>
+              </div>
+
+              <div class="g-expanded-body">
+                <div class="datos-row-reverse">
+                  <div class="datos-row-title">
+                    <h2>Modelos que ayudan a anticipar escenarios</h2>
+                    <p>Más allá del diagnóstico, trabajamos con herramientas de modelado y análisis predictivo que
+                      permiten proyectar comportamientos y evaluar el impacto de distintas alternativas antes de
+                      implementarlas.</p>
+                    <span>Información estratégica para la gestión municipal</span>
+                    <p>La Ciencia de Datos convierte la información dispersa en conocimiento accionable. Procesamos,
+                      integramos y analizamos datos provenientes de distintas áreas del municipio —servicios, programas,
+                      infraestructura y atención ciudadana— para generar diagnósticos precisos y oportunos.</p>
+                  </div>
+                  <div class="datos-row-chart">
+                    <div class="chart-wrap">
+                      <svg id="xy" viewBox="0 0 320 240" role="img">
+                        <title>Dos tendencias con punto de cruce</title>
+                        <desc>Dos líneas que se dibujan y se cruzan en un punto donde aparece una exclamación</desc>
+
+                        <line x1="30" y1="200" x2="300" y2="200" class="axis" />
+                        <line x1="30" y1="20" x2="30" y2="200" class="axis" />
+
+                        <path id="line1" class="trend trend-a" d="M45,175 L110,150 L160,130 L210,95 L270,55" />
+                        <path id="line2" class="trend trend-b" d="M45,55 L110,90 L160,130 L210,165 L270,190" />
+
+                        <circle id="marker" cx="160" cy="130" r="5" class="marker" />
+
+                        <g id="alert" class="alert" transform="translate(160,130)">
+                          <circle cx="0" cy="-26" r="10" class="alert-bg" />
+                          <text x="0" y="-22" class="alert-text">!</text>
+                        </g>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+                <div class="cards-container">
+
+                  <article class="card">
+                    <div class="card-header">
+                      <h2 class="card-title">Gestión Integral de Resíduos Sólidos Urbanos (GIRSU)</h2>
+                      <p class="card-description">Visualización estadística y cartográfica de la gestión integral de los
+                        residuos sólidos urbanos de la Ciudad de Mendoza.</p>
+                    </div>
+                    <div class="card-iframe-wrap">
+                      <div class="card-loading">Cargando tablero…</div>
+                      <iframe class="card-iframe" title="Tablero de ventas por región"
+                        data-src="https://app.powerbi.com/view?r=eyJrIjoiM2RmNjhjYTMtYjBhYS00YjBjLWIzMTktZmFmZDQzMGZjZGQ3IiwidCI6IjA3MjEzMTBmLTYxZDctNDE4ZS05ODc1LTM4MTkwYzczN2Y4YSIsImMiOjR9"
+                        allowfullscreen loading="lazy">
+                      </iframe>
+                    </div>
+                  </article>
+
+                  <article class="card">
+                    <div class="card-header">
+                      <h2 class="card-title">Estadísticas de accidentes viales ocurridos en la ciudad</h2>
+                      <p class="card-description">Este tablero reúne y organiza los
+                        datos obtenidos a través de la digitalización de las actas
+                        viales.</p>
+                    </div>
+                    <div class="card-iframe-wrap">
+                      <div class="card-loading">Cargando tablero…</div>
+                      <iframe class="card-iframe" title="Tablero de indicadores operativos"
+                        data-src="https://app.powerbi.com/view?r=eyJrIjoiOTUyMjRjNjctNTEwNy00ZTI3LTg3NDctZTZlMTI1YTZhOWJjIiwidCI6IjA3MjEzMTBmLTYxZDctNDE4ZS05ODc1LTM4MTkwYzczN2Y4YSIsImMiOjR9"
+                        allowfullscreen loading="lazy">
+                      </iframe>
+                    </div>
+                  </article>
+
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="g-card">
-          <div class="g-card-title">
-            <h4>Inteligencia Artificial</h4>
-            <i class="fa-solid fa-comment-dots"></i>
+
+        <!-- INTELIGENCIA ARTIFICIAL -->
+        <div class="g-card g-card--ia" id="gestion-ia">
+          <div class="g-card-main">
+            <div class="g-card-title">
+              <h4>Inteligencia Artificial</h4>
+              <i class="fa-solid fa-comment-dots"></i>
+            </div>
+            <div class="g-card-content">
+              <p>
+                Aplicamos inteligencia artificial y automatización para agilizar
+                consultas, clasificar solicitudes y facilitar el acceso a
+                servicios municipales.
+              </p>
+            </div>
+            <div class="g-card-button">
+              <button class="g-open-btn">Conocé nuestro asistente</button>
+            </div>
           </div>
-          <div class="g-card-content">
-            <p>
-              Aplicamos inteligencia artificial y automatización para agilizar
-              consultas, clasificar solicitudes y facilitar el acceso a
-              servicios municipales.
-            </p>
-          </div>
-          <div class="g-card-button">
-            <a href="#">Conocé nuestro asistente</a>
+
+          <div class="g-card-expanded g-expanded--ia">
+            <div class="g-expanded-inner">
+              <button class="g-close-btn" type="button" aria-label="Cerrar">
+                <i class="fa-solid fa-xmark"></i>
+              </button>
+
+              <div class="g-expanded-hero">
+                <video muted loop playsinline data-src="https://www.dropbox.com/scl/fi/fuegyjzr7ehs8zn2fstmn/red.mp4?rlkey=8yc8qtcgmzuettjtu95d1y0jc&st=rilgb95n&raw=1"></video>
+                <div class="expanded-hero-title">
+                  <h2>Inteligencia Artificial</h2>
+                  <p>Automatización y asistentes que agilizan la relación entre la ciudadanía y el municipio.</p>
+                </div>
+              </div>
+
+              <div class="g-expanded-body">
+                <div class="ia-demo">
+
+                  <!-- Mockup funcional del asistente virtual -->
+                  <div class="chat-card">
+                    <div class="chat-header">
+                      <div class="chat-avatar">
+                        <img src="/assets/images/bot.png" alt="">
+                      </div>
+                      <div class="chat-header-text">
+                        <span class="chat-name">Bot Muni Ciudad</span>
+                        <span class="chat-status"><span class="status-dot"></span>En línea</span>
+                      </div>
+                    </div>
+
+                    <div class="chat-body" id="chatBody"></div>
+
+                    <div class="chat-input-bar">
+                      <div class="chat-input-fake">Escribí tu consulta...</div>
+                      <div class="chat-send-fake">
+                        <i class="fa-solid fa-paper-plane"></i>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="chatbot-main">
+                    <div class="chatbot-title">
+                      <h2>Atención inteligente, respuestas más rápidas</h2>
+                      <p>El chatbot de la Municipalidad permite centralizar consultas, orientar a la ciudadanía y
+                        facilitar el acceso a información y servicios desde un canal simple, inmediato y disponible en
+                        todo momento.</p>
+                      <p>Su implementación permitió automatizar respuestas frecuentes, ordenar la atención y reducir
+                        tareas repetitivas dentro de las áreas municipales. De esta manera, los equipos pueden
+                        concentrarse en consultas que requieren una intervención específica, mientras que la ciudadanía
+                        obtiene respuestas más ágiles y una mejor experiencia de atención.</p>
+                      <h3>Automatización al servicio de la gestión</h3>
+                      <p>El chatbot integra información de distintos servicios y guía a cada persona según su necesidad.
+                        A partir de esta herramienta se automatizaron procesos de consulta, derivación y acceso a
+                        información, disminuyendo tiempos de espera y mejorando la distribución de las solicitudes.</p>
+                      <ul class="lista-servicios">
+                        <li
+                          data-info="Te guiamos paso a paso en tus trámites municipales, indicándote los requisitos y plazos necesarios.">
+                          Orientación de trámites
+                        </li>
+                        <li
+                          data-info="Redirigimos tus solicitudes al departamento correspondiente para una atención especializada.">
+                          Derivación de solicitudes
+                        </li>
+                        <li
+                          data-info="Obtén información actualizada sobre servicios, eventos y novedades de tu municipio.">
+                          Consulta de información municipal
+                        </li>
+                        <li
+                          data-info="Brindamos atención sin interrupciones para resolver tus necesidades en cualquier momento.">
+                          Atención continua
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
+
       </div>
     </div>
   </section>
-  <section class="gob-abierto">
+  <section class="gob-abierto" id="gobierno">
     <!-- Video de fondo fijo (sticky) detrás de TODA la sección.
            Se queda pegado a la pantalla mientras se recorre la sección,
            y los contenedores de contenido (hero, cards, etc.) se
@@ -417,49 +785,110 @@
     <div id="gob-abierto-main">
 
       <div class="gob-grid">
-
-        <article class="gob-card transparencia">
+        <article class="gob-card transparencia" id="gob-datos-abiertos">
           <div class="gob-overlay"></div>
           <p class="gob-numero"></p>
           <h3><i class="fa-solid fa-magnifying-glass-chart"></i>Datos abiertos</h3>
           <p>El Estado publica de forma activa la información sobre su gestión, presupuesto y decisiones, para que
             cualquier persona pueda acceder a ella sin pedir permiso.</p>
+
           <div class="gob-links">
             <a href="#">Portal de datos abiertos</a>
             <a href="#">Geoportal Ciudadano</a>
-            <a href="#">Finanzas Públicas</a>
+            <button type="button" class="finanzas-trigger">Finanzas Públicas</button>
+          </div>
+
+          <!-- Panel que cubre la tarjeta al hacer click en "Finanzas Públicas" -->
+          <div class="finanzas-panel">
+            <div class="finanzas-panel-header">
+              <h4>Finanzas Públicas</h4>
+              <button type="button" class="finanzas-close-btn" aria-label="Cerrar">
+                <i class="fa-solid fa-xmark"></i>
+              </button>
+            </div>
+            <div class="finanzas-buttons">
+              <a href="#" class="finanzas-btn finanzas-btn--licitaciones">
+                <i class="fa-solid fa-file-contract"></i>
+                <span>Licitaciones y Contrataciones</span>
+              </a>
+              <a href="#" class="finanzas-btn finanzas-btn--fiscal">
+                <i class="fa-solid fa-coins"></i>
+                <span>Información Fiscal</span>
+              </a>
+              <a href="#" class="finanzas-btn finanzas-btn--digesto">
+                <i class="fa-solid fa-book"></i>
+                <span>Digesto Municipal</span>
+              </a>
+            </div>
           </div>
         </article>
 
-        <article class="gob-card participacion">
-          <div class="gob-overlay"></div>
-          <p class="gob-numero"></p>
-          <h3><i class="fa-solid fa-users-rectangle"></i>Participación ciudadana</h3>
-          <p>Las decisiones públicas se construyen con la ciudadanía, habilitando canales concretos de consulta, debate
-            y co-creación de políticas.</p>
-          <div class="gob-links">
-            <a href="#">Formulario Acceso a Información Pública</a>
-            <a href="#">Tablero Pedidos Acceso Información Pública</a>
-            <a href="#">LEY 9070 + Ordenanzas/Decretos de Implementación</a>
-          </div>
-        </article>
-
-        <article class="gob-card info-publica">
+        <article class="gob-card participacion" id="gob-informacion-publica">
           <div class="gob-overlay"></div>
           <p class="gob-numero"></p>
           <h3><i class="fa-solid fa-circle-info"></i>informacion publica</h3>
+          <p>Las decisiones públicas se construyen con la ciudadanía, habilitando canales concretos de consulta, debate
+            y co-creación de políticas.</p>
+          <div class="gob-links">
+            <a
+              href="https://docs.google.com/forms/d/e/1FAIpQLSepNXZeVYKPUzaaaFHSXNwO_8_0fP-aqDqtQyxBAMlxS-0pJw/viewform?embedded=true">Formulario
+              Acceso a Información Pública</a>
+            <a
+              href="https://app.powerbi.com/links/llDJrfIwQ6?ctid=0721310f-61d7-418e-9875-38190c737f8a&pbi_source=linkShare&bookmarkGuid=bebe9b9a-21ae-426a-bdef-5433b42c1fb6">Tablero
+              Pedidos Acceso Información Pública</a>
+            <a href="https://eticapublica.mendoza.gov.ar/">LEY 9070 + Ordenanzas/Decretos de Implementación</a>
+          </div>
+        </article>
+
+        <article class="gob-card info-publica" id="gob-participacion-ciudadana">
+          <div class="gob-overlay"></div>
+          <p class="gob-numero"></p>
+          <h3><i class="fa-solid fa-users-rectangle"></i>Participación ciudadana</h3>
           <p>Organizaciones, academia y sector privado trabajan junto al Estado para resolver problemas públicos de
             manera conjunta y sostenida.</p>
           <div class="gob-links">
-            <a href="#">Presupuesto Participativo</a>
-            <a href="#">Seguridad Ciudadana</a>
+            <a href="https://gobiernoabierto.ciudaddemendoza.gob.ar/presupuesto-participativo.html">Presupuesto
+              Participativo</a>
+            <button type="button" class="seguridad-trigger">Seguridad Ciudadana</button>
+          </div>
+
+          <!-- Panel que cubre la tarjeta al hacer click en "Seguridad Ciudadana" -->
+          <div class="seguridad-panel">
+            <div class="seguridad-panel-header">
+              <h4>Seguridad Ciudadana</h4>
+              <button type="button" class="seguridad-close-btn" aria-label="Cerrar">
+                <i class="fa-solid fa-xmark"></i>
+              </button>
+            </div>
+            <div class="seguridad-buttons">
+              <a href="#" class="seguridad-btn seguridad-btn--ojos">
+                <i class="fa-solid fa-eye"></i>
+                <span>Ojos en Alerta</span>
+              </a>
+              <a href="#" class="seguridad-btn seguridad-btn--alarma">
+                <i class="fa-solid fa-shield-halved"></i>
+                <span>Alarma Comunitaria</span>
+              </a>
+              <a href="#" class="seguridad-btn seguridad-btn--participacion">
+                <i class="fa-solid fa-users"></i>
+                <span>Participación Vecinal</span>
+              </a>
+              <a href="#" class="seguridad-btn seguridad-btn--inmuebles">
+                <i class="fa-solid fa-house"></i>
+                <span>Inmuebles Desocupados</span>
+              </a>
+              <a href="#" class="seguridad-btn seguridad-btn--acoso">
+                <i class="fa-solid fa-person-walking"></i>
+                <span>Acoso Callejero</span>
+              </a>
+            </div>
           </div>
         </article>
 
       </div>
     </div>
   </section>
-  <section class="agenda">
+  <section class="agenda" id="agenda">
     <div class="agenda-top">
       <h2>Agenda</h2>
     </div>
@@ -468,15 +897,19 @@
     </div>
     <div class="agenda-main">
       <div class="agenda-kpi">
-        <div class="agenda-kpi__card">
+        <div class="agenda-kpi__card" data-filtro="membresia">
           <p class="agenda-kpi__label">membresías</p>
-          <p class="agenda-kpi__value">04</p>
+          <p class="agenda-kpi__value">02</p>
         </div>
-        <div class="agenda-kpi__card">
+        <div class="agenda-kpi__card" data-filtro="certificacion">
+          <p class="agenda-kpi__label">Certificación</p>
+          <p class="agenda-kpi__value">02</p>
+        </div>
+        <div class="agenda-kpi__card" data-filtro="reconocimiento">
           <p class="agenda-kpi__label">reconocimientos</p>
           <p class="agenda-kpi__value">06</p>
         </div>
-        <div class="agenda-kpi__card">
+        <div class="agenda-kpi__card" data-filtro="apoyo">
           <p class="agenda-kpi__label">cooperaciones</p>
           <p class="agenda-kpi__value">07</p>
         </div>
@@ -504,75 +937,82 @@
       <a href="#">Suscribirse</a>
     </div>
   </section>
-<footer class="site-footer">
-  <div class="footer-inner">
- 
-    <div class="footer-brand">
-      <div class="brand-logo">
-        <span class="mark"></span>
-        Ciudad Inteligente
+  <footer class="site-footer">
+    <div class="footer-inner">
+
+      <div class="footer-brand">
+        <div class="brand-logo">
+          <span class="mark"></span>
+          Ciudad Inteligente
+        </div>
+        <p class="brand-tagline">Desarrollamos soluciones digitales que mejoran los servicios públicos, optimizan la
+          gestión municipal y facilitan una relación más simple y directa con la comunidad.</p>
+        <div class="social-row">
+          <a href="#" aria-label="X">𝕏</a>
+          <a href="#" aria-label="Instagram">◎</a>
+          <a href="#" aria-label="LinkedIn">in</a>
+          <a href="#" aria-label="YouTube">▶</a>
+        </div>
       </div>
-      <p class="brand-tagline">Desarrollamos soluciones digitales que mejoran los servicios públicos, optimizan la gestión municipal y facilitan una relación más simple y directa con la comunidad.</p>
-      <div class="social-row">
-        <a href="#" aria-label="X">𝕏</a>
-        <a href="#" aria-label="Instagram">◎</a>
-        <a href="#" aria-label="LinkedIn">in</a>
-        <a href="#" aria-label="YouTube">▶</a>
+
+      <div class="footer-col">
+        <h4>Gestión</h4>
+        <ul>
+          <li><a href="#">Productos Digitales</a></li>
+          <li><a href="#">Ciencia de Datos</a></li>
+          <li><a href="#">Inteligencia Artificial</a></li>
+        </ul>
       </div>
+
+      <div class="footer-col">
+        <h4>Gobierno Abierto</h4>
+        <ul>
+          <li><a href="#">Portal de datos abiertos</a></li>
+          <li><a href="#">Geoportal ciudadano</a></li>
+          <li><a href="#">Finanzas públicas</a></li>
+          <li><a href="#">Acceso a la información pública</a></li>
+          <li><a href="#">Presupuesto participativo</a></li>
+          <li><a href="#">Seguridad ciudadana</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Agenda</h4>
+        <ul>
+          <li><a href="#">Membresias</a></li>
+          <li><a href="#">Reconocimientos</a></li>
+          <li><a href="#">Cooperaciones</a></li>
+          <li><a href="#">Noticias</a></li>
+        </ul>
+      </div>
+
     </div>
- 
-    <div class="footer-col">
-      <h4>Gestión</h4>
-      <ul>
-        <li><a href="#">Productos Digitales</a></li>
-        <li><a href="#">Ciencia de Datos</a></li>
-        <li><a href="#">Inteligencia Artificial</a></li>
-      </ul>
+
+    <div class="footer-bottom">
+      <span>© 2026 KENAI Todos los derechos reservados.</span>
     </div>
- 
-    <div class="footer-col">
-      <h4>Gobierno Abierto</h4>
-      <ul>
-        <li><a href="#">Portal de datos abiertos</a></li>
-        <li><a href="#">Geoportal ciudadano</a></li>
-        <li><a href="#">Finanzas públicas</a></li>
-        <li><a href="#">Acceso a la información pública</a></li>
-        <li><a href="#">Presupuesto participativo</a></li>
-        <li><a href="#">Seguridad ciudadana</a></li>
-      </ul>
-    </div>
- 
-    <div class="footer-col">
-      <h4>Agenda</h4>
-      <ul>
-        <li><a href="#">Membresias</a></li>
-        <li><a href="#">Reconocimientos</a></li>
-        <li><a href="#">Cooperaciones</a></li>
-        <li><a href="#">Noticias</a></li>
-      </ul>
-    </div>
- 
-  </div>
- 
-  <div class="footer-bottom">
-    <span>© 2026 KENAI Todos los derechos reservados.</span>
-  </div>
-</footer>
+  </footer>
+  <script src="scripts/header-list.js"></script>
+  <script src="scripts/chat.js"></script>
+  <script src="scripts/chat-demo.js"></script>
+  <script src="scripts/datos.iframe.js"></script>
+  <script src="scripts/charts-ciencia-datos-tend.js"></script>
+  <script src="scripts/charts-Ciencia-datos.js"></script>
+  <script src="scripts/g-cards.js"></script>
   <script src="scripts/header.js"></script>
   <script src="scripts/agenda-title.js"></script>
   <script src="scripts/carrucel-agenda.js"></script>
   <script src="scripts/gob-abierto-cards.js"></script>
   <script src="scripts/gestion-scroll.js"></script>
   <script src="scripts/gob-abierto-scroll.js"></script>
-  <script src="scripts/chatbot.js"></script>
   <script src="scripts/kpis.js"></script>
-  <script src="scripts/iframe-carrucel.js"></script>
-  <script src="scripts/panels-carrucel.js"></script>
-  <script src="scripts/bars.js"></script>
-  <script src="scripts/categories-secondary.js"></script>
   <script src="scripts/video-hero.js"></script>
   <script src="scripts/hero-scroll.js"></script>
   <script src="scripts/hero-click-scroll.js"></script>
+  <script src="scripts/seguridad-panel.js"></script>
+  <script src="scripts/page-transition.js"></script>
+
+
 </body>
 
 </html>

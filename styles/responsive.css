@@ -1,0 +1,643 @@
+/* ============================================================
+   HERO RESPONSIVE — móvil / tablet
+   El video ocupa 100vh, el título va centrado encima,
+   y el aside fluye debajo del video.
+   NO modifica el HTML: solo sobrescribe el layout de escritorio.
+   ============================================================ */
+
+@media (max-width: 992px) {
+
+    /* --- 0. Escala tipográfica estandarizada (h2, h3, p, span, a) --- */
+    :root {
+        --fs-h2: clamp(1.75rem, 5vw, 2.25rem);
+        --fs-h3: clamp(1.35rem, 4vw, 1.6rem);
+        --fs-p: 1rem;
+        --fs-span: 1rem;
+        --fs-a: 1rem;
+    }
+
+    /* --- 1. El wrapper deja de tener alto de scroll --- */
+    .hero-wrapper {
+        height: auto !important;
+        min-height: 100vh;
+    }
+
+    .hero-section {
+        position: relative !important;
+        height: auto !important;
+        min-height: 100vh;
+        padding: 0 !important;
+        overflow: visible !important;
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* --- 2. Video fullscreen --- */
+    .hero-bkg {
+        position: relative !important;
+        inset: auto !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: 100vh !important;
+        min-height: 560px;
+        border-radius: 0 !important;
+        order: 1;
+        cursor: default;
+    }
+
+    /* El hint "Conocé nuestro trabajo" no aplica en táctil */
+    .hero-bkg-hint {
+        display: none !important;
+    }
+
+    /* Overlay más oscuro para que el texto se lea bien */
+    .hero-overlay {
+        opacity: 1 !important;
+        background: linear-gradient(180deg,
+                rgba(0, 0, 0, 0.55) 0%,
+                rgba(0, 0, 0, 0.45) 50%,
+                rgba(0, 0, 0, 0.7) 100%) !important;
+    }
+
+    /* --- 3. Título centrado encima del video --- */
+    .hero-title {
+        position: absolute !important;
+        inset: 0 !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: 100vh !important;
+        min-height: 560px;
+        z-index: 5;
+        display: flex !important;
+        flex-direction: column;
+        align-items: center !important;
+        justify-content: center !important;
+        text-align: center;
+        gap: 24px;
+        padding: 40px 24px !important;
+        transform: none !important;
+        opacity: 1 !important;
+        pointer-events: none;
+        order: 2;
+        color: aliceblue;
+    }
+
+    /* Permitir click en el CTA aunque el contenedor tenga pointer-events:none */
+    .hero-title a {
+        pointer-events: auto;
+    }
+
+    .hero-title h1 {
+        font-size: clamp(2.2rem, 8vw, 4.5rem) !important;
+        line-height: 1.05;
+        margin: 0;
+        text-shadow: 0 2px 20px rgba(0, 0, 0, 0.4);
+    }
+
+    .hero-title span {
+        font-size: var(--fs-span) !important;
+        max-width: 620px;
+        line-height: 1.5;
+        text-shadow: 0 1px 12px rgba(0, 0, 0, 0.4);
+    }
+
+    .hero-title .logo {
+        width: auto !important;
+        height: 70px;
+        justify-content: center;
+    }
+
+    .hero-title a {
+        font-size: var(--fs-a);
+        padding: 14px 28px;
+        border-radius: 999px;
+        background-color: #ffaf03;
+        color: #2b2b2b;
+        font-weight: 700;
+    }
+
+    /* Los bloques de texto que aparecían al expandir el video
+     no tienen sentido en este layout: los ocultamos. */
+    .hero-text-blocks {
+        display: none !important;
+    }
+
+    /* --- 4. Aside debajo del video, flujo normal --- */
+    .hero-aside {
+        position: relative !important;
+        inset: auto !important;
+        top: auto !important;
+        left: auto !important;
+        width: 100% !important;
+        height: auto !important;
+        transform: none !important;
+        opacity: 1 !important;
+        order: 3;
+        padding: 0 !important;
+        background-color: #f4faff;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 40px;
+    }
+
+    .hero-aside .header {
+        display: none;
+    }
+
+    .hero-aside .header ul {
+        flex-direction: column;
+        gap: 10px;
+        align-items: stretch;
+    }
+
+    .hero-aside .header li {
+        width: 100%;
+        justify-content: space-between;
+        background-color: #ffffff;
+        box-shadow: 0 4px 14px rgba(30, 41, 82, 0.06);
+    }
+
+    .hero-aside-bottom {
+        width: auto;
+        height: auto;
+        gap: 16px;
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        text-align: start;
+        background-color: #2b2b2b;
+        padding: 20px;
+        color: aliceblue;
+    }
+
+
+    .hero-aside h2 {
+        font-size: var(--fs-h2) !important;
+    }
+
+    .trust-block {
+        width: 100%;
+        margin-top: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .trust-block__cta {
+        width: 100%;
+        border-radius: 8px;
+        text-align: center;
+    }
+
+    .trust-block__number {
+        font-size: clamp(1.6rem, 5vw, 2.2rem) !important;
+        color: aliceblue;
+    }
+
+    .trust-block__text {
+        font-size: var(--fs-span);
+        color: aliceblue;
+    }
+
+    /* --- 5. Ocultar el duplicado responsive (ya no hace falta) --- */
+    .hero-responsive {
+        display: none !important;
+    }
+
+    .sticky-nav-header {
+        position: fixed;
+    }
+
+    .nav-wrapper {
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .nav-logo {
+        height: 40px;
+    }
+
+    .nav-btn i {
+        display: none;
+    }
+
+    .nav-menu {
+        justify-content: center;
+        gap: 0.1rem;
+    }
+
+    .nav-btn {
+        font-size: 0.85rem;
+        padding: 0.4rem 0.8rem;
+    }
+
+    .dropdown {
+        min-width: 180px;
+    }
+
+    .team {
+        display: none;
+    }
+
+    .terciary-kpi-card {
+        padding: 22px 22px 20px;
+        min-height: 110px;
+        position: relative;
+        overflow: hidden;
+        opacity: 0;
+        transform: translateY(14px);
+        animation: terciary-card-in 0.6s ease forwards;
+    }
+
+    .gestion-title-block h2 {
+        font-size: 2rem;
+    }
+
+    .gestion-title-block p {
+        font-size: 1rem;
+    }
+
+    .gestion-bottom {
+        padding: 40px 20px;
+    }
+
+    .gestion-cards {
+        gap: 16px;
+    }
+
+    .g-card-main {
+        flex-direction: column;
+        min-height: 300px;
+        max-height: 520px;
+        padding: 30px 20px 0;
+        gap: 16px;
+        text-align: center;
+    }
+
+    .g-card.is-open .g-card-main {
+        max-height: 0;
+        padding: 0;
+    }
+
+    .g-card-title {
+        width: 100%;
+        flex-direction: column-reverse;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .g-card-title h4 {
+        font-size: 1.25rem;
+    }
+
+    .g-card-title i {
+        font-size: 2.5rem;
+    }
+
+    .g-card-content {
+        width: 100%;
+        height: auto;
+        padding: 0 10px;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .g-card-content p {
+        font-size: var(--fs-p);
+    }
+
+    .g-card-button {
+        width: 100%;
+        height: 54px;
+    }
+
+    .ia-demo {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .ia-demo .nn-card,
+    .ia-demo .chat-card {
+        flex: none;
+        width: 100%;
+        max-width: 420px;
+    }
+
+    .panel-row,
+    .panel-row:nth-child(even) {
+        flex-direction: column;
+        min-height: auto;
+    }
+
+    .panel-row-media {
+        aspect-ratio: 16 / 10;
+    }
+
+    .gob-abierto-hero {
+        position: relative;
+        width: 100%;
+        height: 70vh;
+        z-index: 0;
+    }
+
+    .gob-abierto-title {
+        padding: 20px;
+    }
+
+    .gob-grid {
+        grid-template-columns: 1fr;
+        overflow-y: auto;
+    }
+
+    #gob-abierto-main {
+        height: auto;
+        min-height: 100vh;
+    }
+
+    .gob-card {
+        padding: 1.4rem 1.3rem;
+        min-height: 500px;
+    }
+
+    .gob-card h3 {
+        font-size: var(--fs-h3);
+        margin-bottom: .6rem;
+        gap: 6px;
+    }
+
+    .gob-card p {
+        font-size: var(--fs-p);
+        line-height: 1.5;
+        margin-bottom: 1rem;
+    }
+
+    .gob-numero {
+        margin-bottom: .6rem;
+    }
+
+    .gob-links {
+        gap: .4rem;
+    }
+
+    /* en mobile el scroll ya escalona la entrada de cada card, 
+       así que acortamos los delays para que se sientan más ágiles */
+    .gob-card:nth-child(1).en-vista .gob-overlay {
+        transition-delay: 0s;
+    }
+
+    .gob-card:nth-child(2).en-vista .gob-overlay {
+        transition-delay: .08s;
+    }
+
+    .gob-card:nth-child(3).en-vista .gob-overlay {
+        transition-delay: .16s;
+    }
+
+    .agenda-top {
+        height: 20vh;
+    }
+
+    .agenda-top,
+    .agenda-bottom {
+        height: 10vh;
+        padding-left: 24px;
+    }
+
+    .agenda-top {
+        height: 20vh;
+    }
+
+    .agenda-top h2 {
+        bottom: -15px;
+        transform: translateY(120%);
+    }
+
+    .agenda-bottom h2 {
+        font-size: 3rem;
+        top: -12px;
+        transform: translateY(-120%);
+    }
+
+    .agenda-top h2 {
+        font-size: 3rem;
+        transform: translateY(-120%);
+    }
+
+    .agenda-kpi {
+        flex-wrap: wrap;
+        padding: 0 24px;
+        gap: 10px;
+    }
+
+    .agenda-kpi .agenda-kpi__card {
+        flex: 1 1 calc(50% - 10px);
+        padding: 1.6rem .8rem;
+        text-align: center;
+    }
+
+    .agenda-kpi .agenda-kpi__label {
+        font-size: 1.15rem;
+        margin: 0 0 6px;
+    }
+
+    .agenda-kpi .agenda-kpi__value {
+        font-size: 2.1rem;
+    }
+
+    :root {
+        --tile-w: 260px;
+        --tile-h: 230px;
+        --gap: 14px;
+    }
+
+    .card-inner {
+        padding: 16px;
+    }
+
+    .card-title {
+        font-size: 15px;
+        margin-bottom: 8px;
+    }
+
+    .card-text {
+        font-size: 12px;
+    }
+
+    .card-logo {
+        max-height: 56px;
+    }
+
+    .carrusel-item {
+        flex: 0 0 auto;
+        width: var(--tile-w);
+        height: auto;
+    }
+
+    .news-title {
+        padding: 40px 20px;
+        gap: 40px;
+    }
+
+    .news-title h2 {
+        font-size: var(--fs-h2);
+    }
+
+    .news-title p {
+        font-size: var(--fs-p);
+    }
+
+    .news-title a {
+        font-size: var(--fs-a);
+        padding: 10px 15px;
+    }
+
+    .gob-abierto-title h2 {
+        font-size: var(--fs-h2);
+    }
+
+
+    .gob-abierto-title h3 {
+        font-size: var(--fs-h3);
+        margin-bottom: 20px;
+    }
+
+    .gob-abierto-title p {
+        font-size: var(--fs-p);
+    }
+
+    .expanded-hero-title {
+        text-align: center;
+        padding: 20px;
+    }
+
+    .datos-row-reverse {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .datos-row-title {
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+    }
+
+    .g-expanded-body {
+        padding: 20px;
+    }
+
+    .datos-row-chart {
+        display: none;
+    }
+
+    .cards-container {
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 24px;
+        margin: 0 auto;
+        margin-top: 40px;
+    }
+
+    .chat-card {
+        display: none;
+    }
+
+    .chatbot-main {
+        width: 100%;
+    }
+
+    .lista-servicios {
+        width: 100%;
+        list-style: none;
+        padding: 0;
+        display: flex;
+        flex-wrap: wrap;
+        margin-bottom: 40px;
+    }
+
+    .lista-servicios li {
+        position: relative;
+        padding: 10px 20px;
+        margin-bottom: 10px;
+        background: #f0f4f8;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-weight: 500;
+        color: #2c3e50;
+        border-left: 4px solid #3498db;
+        z-index: 0;
+    }
+
+    .lista-servicios li:hover {
+        background: #e1e9f0;
+        transform: translateX(5px);
+        border-left-color: #039494;
+        z-index: 100;
+    }
+}
+
+/* Ajustes finos para pantallas muy chicas */
+@media (max-width: 480px) {
+    .hero-title {
+        padding: 30px 18px !important;
+        gap: 18px;
+    }
+
+    .hero-title .logo {
+        height: 56px;
+    }
+
+    .trust-block__number {
+        font-size: 1.5rem;
+    }
+
+    .sticky-nav-header {
+        position: fixed;
+    }
+
+    .nav-wrapper {
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .nav-logo {
+        height: 40px;
+        display: none;
+    }
+
+    .nav-btn i {
+        display: none;
+    }
+
+    .nav-menu {
+        justify-content: center;
+        gap: 0.1rem;
+    }
+
+    .nav-btn {
+        font-size: 0.85rem;
+        padding: 0.4rem 0.8rem;
+    }
+
+    .dropdown {
+        min-width: 180px;
+    }
+
+}

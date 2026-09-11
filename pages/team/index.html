@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+    <link rel="stylesheet" href="/pages/team/assets/styles/styles.css">
+    <link rel="stylesheet" href="/pages/team/assets/styles/page-transition.css">
+    <title>EQUIPO</title>
+    <style>
+      /* Botón "Volver" del hero — ajustá colores/posición a tu gusto */
+      .hero-back-btn {
+        position: absolute;
+        top: 32px;
+        left: 32px;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 18px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.12);
+        backdrop-filter: blur(6px);
+        color: #fff;
+        font-size: 14px;
+        font-weight: 600;
+        text-decoration: none;
+        z-index: 2;
+        transition: background 200ms ease;
+      }
+      .hero-back-btn:hover,
+      .hero-back-btn:focus-visible {
+        background: rgba(255, 255, 255, 0.22);
+      }
+    </style>
+</head>
+
+<body>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-main">
+      <video id="video1" class="video-player active" playsinline muted autoplay loop>
+        <source src="https://www.dropbox.com/scl/fi/xp9d8he34l7fz74h85m7i/hero.mp4?rlkey=ry60zott0t1c0kszru8crrrof&st=6jl07b06&raw=1" type="video/mp4" />
+      </video>
+      <div class="hero-overlay"></div>
+      <h1>Un equipo <br> <span class="title-mod">múltiples miradas</span> <br> <img class="hero-logo" src="/pages/team/assets/images/logo.png" alt=""> </h1>
+
+      <a href="/" data-pt-link class="hero-back-btn" aria-label="Volver al inicio">
+        <i class="fa-solid fa-arrow-left"></i> Volver
+      </a>
+    </div>
+
+  </section>
+
+<section class="team-section" id="equipo">
+  <div class="team-header">
+    <div>
+      <p class="team-eyebrow">Nuestro equipo</p>
+      <h2>Personas, disciplinas y una misma visión</h2>
+    </div>
+
+    <p class="team-intro">
+      Un equipo interdisciplinario que combina gestión pública, tecnología,
+      datos, diseño e inteligencia artificial para transformar desafíos
+      municipales en soluciones concretas.
+    </p>
+  </div>
+
+  <!-- DIRECCIÓN -->
+  <div class="team-group">
+    <div class="team-group-title">
+      <span>01</span>
+      <h3>Dirección</h3>
+    </div>
+
+    <div class="team-grid">
+      <article class="team-card">
+        <div class="team-photo">
+          <img src="/assets/images/cris.png" alt="Nombre Apellido">
+
+          <button class="team-toggle" aria-label="Ver información">
+            <span>+</span>
+          </button>
+
+          <div class="team-overlay">
+            <button class="team-close" aria-label="Cerrar información">×</button>
+
+            <div>
+              <p class="team-role">Dirección</p>
+              <p>
+                Lidera la estrategia de transformación digital, innovación y
+                gobierno abierto, articulando proyectos tecnológicos y de
+                gestión orientados a mejorar la administración municipal.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="team-info">
+          <h4>Cristian Chavarini</h4>
+          <p>Director</p>
+        </div>
+      </article>
+    </div>
+  </div>
+
+  <!-- GESTIÓN Y POLÍTICAS PÚBLICAS -->
+  <div class="team-group">
+    <div class="team-group-title">
+      <span>02</span>
+      <h3>Gestión y<br>políticas públicas</h3>
+    </div>
+
+    <div class="team-grid">
+      <article class="team-card">
+        <div class="team-photo">
+          <img src="/pages/team/assets/images/luli.png" alt="Nombre Apellido">
+
+          <button class="team-toggle" aria-label="Ver información">
+            <span>+</span>
+          </button>
+
+          <div class="team-overlay">
+            <button class="team-close" aria-label="Cerrar información">×</button>
+
+            <div>
+              <p class="team-role">Gestión y políticas públicas</p>
+              <p>
+                Trabaja en el diseño, planificación y seguimiento de proyectos,
+                vinculando innovación, políticas públicas y necesidades
+                concretas de la gestión municipal.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="team-info">
+          <h4>Lourdes Gabrielli</h4>
+          <p>Sub-directora</p>
+        </div>
+      </article>
+
+      <article class="team-card">
+        <div class="team-photo">
+          <img src="/pages/team/assets/images/candela.png" alt="Nombre Apellido">
+
+          <button class="team-toggle" aria-label="Ver información">
+            <span>+</span>
+          </button>
+
+          <div class="team-overlay">
+            <button class="team-close" aria-label="Cerrar información">×</button>
+
+            <div>
+              <p class="team-role">Gestión y políticas públicas</p>
+              <h4>Candela Grec</h4>
+              <p>
+                Acompaña la implementación de iniciativas de innovación
+                pública, participación ciudadana y modernización de procesos.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="team-info">
+          <h4>Candela Grec</h4>
+          <p>Gestión y Políticas públicas</p>
+        </div>
+      </article>
+    </div>
+  </div>
+
+  <!-- CIENCIA DE DATOS -->
+  <div class="team-group">
+    <div class="team-group-title">
+      <span>03</span>
+      <h3>Ciencia<br>de datos</h3>
+    </div>
+
+    <div class="team-grid">
+      <article class="team-card">
+        <div class="team-photo">
+          <img src="/pages/team/assets/images/ary.png" alt="Nombre Apellido">
+
+          <button class="team-toggle" aria-label="Ver información">
+            <span>+</span>
+          </button>
+
+          <div class="team-overlay">
+            <button class="team-close" aria-label="Cerrar información">×</button>
+
+            <div>
+              <p class="team-role">Ciencia de datos</p>
+              <h4>Ary Salomon</h4>
+              <p>
+                Analiza información, desarrolla indicadores y construye
+                herramientas de visualización para acompañar decisiones
+                basadas en evidencia.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="team-info">
+          <h4>Ary Salomon</h4>
+          <p>Analista de datos</p>
+        </div>
+      </article>
+
+      <article class="team-card">
+        <div class="team-photo">
+          <img src="/pages/team/assets/images/alejo.jpeg" alt="Nombre Apellido">
+
+          <button class="team-toggle" aria-label="Ver información">
+            <span>+</span>
+          </button>
+
+          <div class="team-overlay">
+            <button class="team-close" aria-label="Cerrar información">×</button>
+
+            <div>
+              <p class="team-role">Ciencia de datos</p>
+              <h4>Alejo Patiño</h4>
+              <p>
+                Diseña modelos de información, tableros e integraciones para
+                transformar datos dispersos en conocimiento útil para la
+                gestión.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="team-info">
+          <h4>Alejo Patiño</h4>
+          <p>Data analytics</p>
+        </div>
+      </article>
+
+            <article class="team-card">
+        <div class="team-photo">
+          <img src="/pages/team/assets/images/fede2.jpeg" alt="Nombre Apellido">
+
+          <button class="team-toggle" aria-label="Ver información">
+            <span>+</span>
+          </button>
+
+          <div class="team-overlay">
+            <button class="team-close" aria-label="Cerrar información">×</button>
+
+            <div>
+              <p class="team-role">Ciencia de datos</p>
+              <h4>Federico Salomon</h4>
+              <p>
+                Diseña modelos de información, tableros e integraciones para
+                transformar datos dispersos en conocimiento útil para la
+                gestión.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="team-info">
+          <h4>Federico Salomon</h4>
+          <p>Data analytics</p>
+        </div>
+      </article>
+    </div>
+  </div>
+
+  <!-- DESARROLLO Y DISEÑO WEB -->
+  <div class="team-group">
+    <div class="team-group-title">
+      <span>04</span>
+      <h3>Desarrollo y<br>diseño web</h3>
+    </div>
+
+    <div class="team-grid">
+      <article class="team-card">
+        <div class="team-photo">
+          <img src="/pages/team/assets/images/juanse.png" alt="Nombre Apellido">
+
+          <button class="team-toggle" aria-label="Ver información">
+            <span>+</span>
+          </button>
+
+          <div class="team-overlay">
+            <button class="team-close" aria-label="Cerrar información">×</button>
+
+            <div>
+              <p class="team-role">Desarrollo web</p>
+              <h4>Juan Ontivero</h4>
+              <p>
+                Desarrolla plataformas, aplicaciones y productos digitales que
+                simplifican procesos y mejoran la experiencia de los usuarios.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="team-info">
+          <h4>Juan Ontivero</h4>
+          <p>Desarrollo web</p>
+        </div>
+      </article>
+
+      <article class="team-card">
+        <div class="team-photo">
+          <img src="img/persona-07.jpg" alt="Nombre Apellido">
+
+          <button class="team-toggle" aria-label="Ver información">
+            <span>+</span>
+          </button>
+
+          <div class="team-overlay">
+            <button class="team-close" aria-label="Cerrar información">×</button>
+
+            <div>
+              <p class="team-role">Diseño digital</p>
+              <h4>Nombre Apellido</h4>
+              <p>
+                Diseña experiencias digitales claras, accesibles y centradas
+                en las personas, combinando identidad visual, usabilidad y
+                comunicación.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="team-info">
+          <h4>Nombre Apellido</h4>
+          <p>Diseño UX/UI</p>
+        </div>
+      </article>
+    </div>
+  </div>
+
+  <!-- INTELIGENCIA ARTIFICIAL -->
+  <div class="team-group">
+    <div class="team-group-title">
+      <span>05</span>
+      <h3>Inteligencia<br>artificial</h3>
+    </div>
+
+    <div class="team-grid">
+      <article class="team-card">
+        <div class="team-photo">
+          <img src="img/persona-08.jpg" alt="Nombre Apellido">
+
+          <button class="team-toggle" aria-label="Ver información">
+            <span>+</span>
+          </button>
+
+          <div class="team-overlay">
+            <button class="team-close" aria-label="Cerrar información">×</button>
+
+            <div>
+              <p class="team-role">Inteligencia artificial</p>
+              <h4>Nombre Apellido</h4>
+              <p>
+                Explora y desarrolla soluciones basadas en inteligencia
+                artificial, automatización y modelos predictivos aplicados a
+                desafíos concretos de la gestión municipal.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="team-info">
+          <h4>Nombre Apellido</h4>
+          <p>IA y automatización</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+<script src="/pages/team/assets/js/org.js"></script>
+    <script src="/pages/team/assets/js/scroll.js"></script>
+    <script src="/pages/team/assets/js/page-transition.js"></script>
+</body>
+
+</html>

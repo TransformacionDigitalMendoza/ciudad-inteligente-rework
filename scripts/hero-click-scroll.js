@@ -4,13 +4,13 @@
 
   if (!heroBkg || !heroWrapper) return;
 
+  const MOBILE_BREAKPOINT = 992;
+
   heroBkg.addEventListener("click", () => {
-    // .hero-section queda "sticky" (pineada) mientras dura el alto extra
-    // de .hero-wrapper (250vh). El pineo termina justo cuando
-    // scrollY llega a: offsetTop del wrapper + (alto del wrapper - alto de pantalla).
-    // Ese es el último frame de la animación ligada al scroll, donde
-    // .hero-text-blocks queda completamente visible, todavía dentro del hero
-    // (sin pasar a .secondary).
+    // En móvil el video ocupa 100vh y no hay animación de expansión:
+    // no hacemos scroll automático.
+    if (window.innerWidth <= MOBILE_BREAKPOINT) return;
+
     const targetY =
       heroWrapper.offsetTop + (heroWrapper.offsetHeight - window.innerHeight);
 
@@ -20,15 +20,18 @@
     });
   });
 
-  // Apenas arranca la animación de scroll (el video empieza a expandirse),
-  // ocultamos el hint "Conocé nuestro trabajo": si no, queda pisando el
-  // título y el resto del texto que aparece encima del video expandido.
   const scrollableHeight = heroWrapper.offsetHeight - window.innerHeight;
-  const hideThreshold = 0.05; // 5% de progreso ya alcanza para ocultarlo
+  const hideThreshold = 0.05;
 
   let ticking = false;
 
   function updateHintVisibility() {
+    if (window.innerWidth <= MOBILE_BREAKPOINT) {
+      heroBkg.classList.remove("hero-bkg--hide-hint");
+      ticking = false;
+      return;
+    }
+
     const progress =
       scrollableHeight > 0
         ? (window.scrollY - heroWrapper.offsetTop) / scrollableHeight

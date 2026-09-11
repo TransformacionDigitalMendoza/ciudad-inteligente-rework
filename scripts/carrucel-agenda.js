@@ -28,7 +28,19 @@ const filaUno = [
     texto:
       "Mendoza se unió a OGP como parte de la cohorte 2020. Actualmente están implementando tres compromisos de su plan de acción 2026-2027. Este plan de acción incluye compromisos relacionados con el cambio climático y la participación ciudadana.",
     logo: "../assets/membresias/ogp.png",
-    categoria: "membresia",
+    categoria: "Membresía",
+    categoriaClase: "membresia",
+  },
+    {
+    nombre: "CIDEU",
+    href: "https://prensa.ciudaddemendoza.gob.ar/2024/07/05/ulpiano-suarez-es-el-primer-intendente-mendocino-en-asumir-la-presidencia-de-cideu/",
+    color: "#faf8f5",
+    titulo: "Ciudades CIDEU Junio 2025",
+    texto:
+      "El Centro Iberoamericano de Desarrollo Estratégico Urbano (CIDEU) es una red de gobiernos locales, entidades y estrategas urbanos de Iberoamérica que impulsan la transformación de las ciudades a través de la planificación estratégica urbana. Está conformada por más de 150 ciudades y entidades colaboradoras, entre las que se encuentra la Ciudad de Mendoza.",
+    logo: "../assets/images/cideu.png",
+    sinCambioTexto: true,
+    categoria: "Membresía",
     categoriaClase: "membresia",
   },
   {
@@ -52,18 +64,6 @@ const filaUno = [
     logo: "../assets/images/wwc-GOLD.png",
     categoria: "certificacion",
     categoriaClase: "certificacion",
-  },
-  {
-    nombre: "CIDEU",
-    href: "https://prensa.ciudaddemendoza.gob.ar/2024/07/05/ulpiano-suarez-es-el-primer-intendente-mendocino-en-asumir-la-presidencia-de-cideu/",
-    color: "#faf8f5",
-    titulo: "Ciudades CIDEU Junio 2025",
-    texto:
-      "El Centro Iberoamericano de Desarrollo Estratégico Urbano (CIDEU) es una red de gobiernos locales, entidades y estrategas urbanos de Iberoamérica que impulsan la transformación de las ciudades a través de la planificación estratégica urbana. Está conformada por más de 150 ciudades y entidades colaboradoras, entre las que se encuentra la Ciudad de Mendoza.",
-    logo: "../assets/images/cideu.png",
-    sinCambioTexto: true,
-    categoria: "Membresía",
-    categoriaClase: "membresia",
   },
   {
     nombre: "SMART-CITY",
@@ -166,7 +166,7 @@ const filaDos = [
 function itemHTML(item){
   const claseExtra = item.sinCambioTexto ? "sin-cambio-texto" : "";
   return `
-    <div class="carrusel-item">
+    <div class="carrusel-item categoria-${item.categoriaClase}">
       <a class="carrusel-card ${claseExtra}" style="--card-color:${item.color}" href="${item.href}" target="_blank" rel="noopener" aria-label="${item.nombre}">
         <div class="card-inner">
           <span class="card-tag card-tag--${item.categoriaClase}">${item.categoria}</span>
@@ -353,3 +353,31 @@ crearCarrusel({
     ) || 40,
   direction: "right",
 });
+
+/**
+ * Filtro por hover en los KPI: al pasar el mouse sobre una tarjeta
+ * .agenda-kpi__card con [data-filtro], se le agrega a .carrusel-doble
+ * la clase "filtrando" + el atributo data-filtro-activo, y el CSS
+ * se encarga de atenuar todo lo que no matchee esa categoría.
+ */
+function inicializarFiltroKPI() {
+  const contenedor = document.querySelector(".carrusel-doble");
+  const kpis = document.querySelectorAll(".agenda-kpi__card[data-filtro]");
+  if (!contenedor || !kpis.length) return;
+
+  kpis.forEach((kpi) => {
+    const filtro = kpi.dataset.filtro;
+
+    kpi.addEventListener("mouseenter", () => {
+      contenedor.classList.add("filtrando");
+      contenedor.setAttribute("data-filtro-activo", filtro);
+    });
+
+    kpi.addEventListener("mouseleave", () => {
+      contenedor.classList.remove("filtrando");
+      contenedor.removeAttribute("data-filtro-activo");
+    });
+  });
+}
+
+inicializarFiltroKPI();
