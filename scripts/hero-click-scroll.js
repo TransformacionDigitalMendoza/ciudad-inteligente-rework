@@ -1,5 +1,5 @@
 (function () {
-  const heroBkg = document.querySelector(".hero-bkg");
+  const heroBkg = document.querySelector(".hero-bkg-hint");
   const heroWrapper = document.querySelector(".hero-wrapper");
 
   if (!heroBkg || !heroWrapper) return;

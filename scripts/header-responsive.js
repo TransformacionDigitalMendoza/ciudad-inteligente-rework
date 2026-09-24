@@ -1,112 +1,121 @@
-// scripts/header-responsive.js
 (function () {
-  const MOBILE_BREAKPOINT = 992;
-
-  const navToggle = document.getElementById('navToggle');
+  const hamburgerBtn = document.getElementById('hamburgerBtn');
   const navMenu = document.getElementById('navMenu');
-  const header = document.getElementById('mainNavHeader');
+  if (!hamburgerBtn || !navMenu) return; // evita errores si el header no está en la página
 
-  // FIX: si falta cualquiera de los dos, avisamos por consola en vez de
-  // salir en silencio (así te enterás si el id no está en el HTML).
-  if (!navToggle || !navMenu) {
-    console.warn('[header-responsive] Falta #navToggle o #navMenu en el HTML.');
-    return;
-  }
-
-  const icon = navToggle.querySelector('i');
+  const mq = window.matchMedia('(max-width: 992px)');
 
   function isMobile() {
-    return window.innerWidth <= MOBILE_BREAKPOINT;
+    return mq.matches;
   }
 
-  /* ---------- Abrir / cerrar el menú principal ---------- */
-  function openMenu() {
-    navMenu.classList.add('is-open');
-    navToggle.setAttribute('aria-expanded', 'true');
-    if (icon) icon.className = 'fa-solid fa-xmark';
+  function closeAllAccordions() {
+    document.querySelectorAll('.nav-item.open').forEach(li => {
+      li.classList.remove('open');
+      const t = li.querySelector(':scope > .nav-btn-row > .nav-toggle');
+      if (t) t.setAttribute('aria-expanded', 'false');
+    });
+    document.querySelectorAll('.dropdown-item.open').forEach(li => {
+      li.classList.remove('open');
+      const t = li.querySelector(':scope > .dropdown-item-row > .submenu-toggle');
+      if (t) t.setAttribute('aria-expanded', 'false');
+    });
   }
 
-  function closeMenu() {
-    navMenu.classList.remove('is-open');
-    navToggle.setAttribute('aria-expanded', 'false');
-    if (icon) icon.className = 'fa-solid fa-bars';
+  function closeMobileMenu() {
+    navMenu.classList.remove('active');
+    hamburgerBtn.classList.remove('active');
+    hamburgerBtn.setAttribute('aria-expanded', 'false');
+    document.body.classList.remove('menu-open');
+    closeAllAccordions();
   }
 
-  navToggle.addEventListener('click', function (e) {
-    e.stopPropagation();
-    if (navMenu.classList.contains('is-open')) {
-      closeMenu();
-    } else {
-      openMenu();
-    }
+  function openMobileMenu() {
+    navMenu.classList.add('active');
+    hamburgerBtn.classList.add('active');
+    hamburgerBtn.setAttribute('aria-expanded', 'true');
+    document.body.classList.add('menu-open');
+  }
+
+  hamburgerBtn.addEventListener('click', () => {
+    navMenu.classList.contains('active') ? closeMobileMenu() : openMobileMenu();
   });
 
-  /* ---------- Acordeones: click en un .nav-btn con dropdown ---------- */
-  const navItems = navMenu.querySelectorAll('.nav-item');
+  // Acordeón para cada botón principal con dropdown (Gestión, Gobierno Abierto, Agenda)
+  document.querySelectorAll('.nav-menu > .nav-list > .nav-item').forEach(item => {
+    const row = item.querySelector(':scope > .nav-btn-row');
+    if (!row) return;
+    const toggleBtn = row.querySelector('.nav-toggle');
+    const mainLink = row.querySelector('.nav-btn');
+    if (!toggleBtn || !mainLink) return;
 
-  navItems.forEach(function (item) {
-    const btn = item.querySelector('.nav-btn');
-    const dropdown = item.querySelector('.dropdown');
-    if (!btn || !dropdown) return;
+    const toggleAccordion = () => {
+      const willOpen = !item.classList.contains('open');
+      // cierra los otros ítems principales abiertos (acordeón exclusivo)
+      document.querySelectorAll('.nav-menu > .nav-list > .nav-item.open').forEach(other => {
+        if (other !== item) {
+          other.classList.remove('open');
+          const ot = other.querySelector(':scope > .nav-btn-row > .nav-toggle');
+          if (ot) ot.setAttribute('aria-expanded', 'false');
+        }
+      });
+      item.classList.toggle('open', willOpen);
+      toggleBtn.setAttribute('aria-expanded', String(willOpen));
+    };
 
-    btn.addEventListener('click', function (e) {
-      if (!isMobile()) return; // en desktop manda el hover
-
-      // En mobile el primer tap abre el acordeón en vez de navegar.
+    toggleBtn.addEventListener('click', (e) => {
+      if (!isMobile()) return; // escritorio: el dropdown lo maneja el CSS (hover), no se toca nada
       e.preventDefault();
+      e.stopPropagation();
+      toggleAccordion();
+    });
 
-      const isOpen = item.classList.contains('open');
-
-      // Cierra los demás acordeones del mismo nivel
-      navItems.forEach(function (other) {
-        if (other !== item) other.classList.remove('open');
-      });
-
-      item.classList.toggle('open', !isOpen);
+    mainLink.addEventListener('click', (e) => {
+      if (!isMobile()) return; // en desktop el hover ya maneja el dropdown
+      if (mainLink.hasAttribute('data-no-scroll')) {
+        // Gestión / Gobierno Abierto: ya no navegan, solo despliegan
+        e.preventDefault();
+        toggleAccordion();
+      } else {
+        // Agenda: conserva el scroll-to, solo cerramos el menú móvil
+        closeMobileMenu();
+      }
     });
   });
 
-  /* ---------- Al hacer click en un link interno, cerrar todo ---------- */
-  navMenu.addEventListener('click', function (e) {
-    const link = e.target.closest('a');
-    if (!link) return;
-    // Si es un link con href a sección o página, cerramos el menú
-    closeMenu();
-    // También cerramos los acordeones abiertos
-    navItems.forEach(function (item) {
-      item.classList.remove('open');
+  // Acordeón anidado (categorías dentro de Gobierno Abierto)
+  document.querySelectorAll('.submenu-toggle').forEach(btn => {
+    const parentLi = btn.closest('.dropdown-item');
+    if (!parentLi) return;
+    btn.addEventListener('click', (e) => {
+      if (!isMobile()) return; // escritorio: sin interferir con el submenú por hover
+      e.preventDefault();
+      e.stopPropagation();
+      const willOpen = !parentLi.classList.contains('open');
+      parentLi.classList.toggle('open', willOpen);
+      btn.setAttribute('aria-expanded', String(willOpen));
     });
   });
 
-  /* ---------- Click fuera del menú lo cierra ---------- */
-  document.addEventListener('click', function (e) {
-    if (!navMenu.classList.contains('is-open')) return;
-    if (navMenu.contains(e.target) || navToggle.contains(e.target)) return;
-    closeMenu();
+  // Los enlaces "destino" reales dentro de los dropdowns cierran el menú móvil al hacer clic
+  document.querySelectorAll('.dropdown a:not([data-no-scroll]), .submenu a').forEach(link => {
+    link.addEventListener('click', () => {
+      if (isMobile()) closeMobileMenu();
+    });
   });
 
-  /* ---------- Si se agranda la ventana, resetear estado ---------- */
-  window.addEventListener('resize', function () {
-    if (!isMobile()) {
-      closeMenu();
-      navItems.forEach(function (item) {
-        item.classList.remove('open');
-      });
-    }
+  // Los links simples (Equipo / Contactanos) también cierran el menú
+  document.querySelectorAll('.nav-item--simple .nav-btn--simple').forEach(link => {
+    link.addEventListener('click', () => {
+      if (isMobile()) closeMobileMenu();
+    });
   });
 
-  /* ---------- Header siempre visible en mobile ---------- */
-  // (lo forzamos por CSS con !important, pero por las dudas
-  //  limpiamos los estilos inline que pueda haber dejado header.js)
-  function ensureHeaderVisible() {
-    if (!header) return;
-    if (isMobile()) {
-      header.style.opacity = '1';
-      header.style.pointerEvents = 'auto';
-    }
-  }
+  // Si el usuario agranda la ventana a escritorio, resetea todo
+  mq.addEventListener('change', (e) => {
+    if (!e.matches) closeMobileMenu();
+  });
 
-  ensureHeaderVisible();
-  window.addEventListener('resize', ensureHeaderVisible);
-  window.addEventListener('scroll', ensureHeaderVisible, { passive: true });
+  // Estado inicial en escritorio: sin clases de acordeón residuales
+  if (!isMobile()) closeAllAccordions();
 })();

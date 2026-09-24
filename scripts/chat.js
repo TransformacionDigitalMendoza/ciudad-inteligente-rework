@@ -67,10 +67,31 @@
   const RESTART_PAUSE = 2200; // pausa antes de reiniciar el loop
   const MAX_VISIBLE = 4;      // filas visibles antes de empezar a limpiar
 
-  let cancelled = false;
+  // --- Control de ejecución ---------------------------------------------
+  // Causa del bug original: cada vez que el IntersectionObserver reportaba
+  // "visible" se llamaba a runScript() otra vez, y como `cancelled` volvía a
+  // ser false, los loops viejos (que seguían dormidos en un wait) despertaban
+  // junto con los nuevos. Resultado: varios loops en paralelo, cada vez más
+  // rápido. Ahora hay UN solo loop, identificado por runId; si el id cambia,
+  // el loop viejo termina solo.
+  let runId = 0;
+  let running = false;
+  let index = 0;           // posición actual en SCRIPT (se conserva al pausar)
+  let cardVisible = false;
 
   function scrollToBottom() {
     chatBody.scrollTop = chatBody.scrollHeight;
+  }
+
+  function activeRows() {
+    // Filas reales: sin las que ya se están yendo ni el indicador "escribiendo"
+    return Array.from(chatBody.querySelectorAll('.chat-row')).filter(
+      (r) => !r.classList.contains('exit') && !r.dataset.typing
+    );
+  }
+
+  function removeTypingRows() {
+    chatBody.querySelectorAll('.chat-row[data-typing="true"]').forEach((r) => r.remove());
   }
 
   function addBubble(from, text) {
@@ -85,12 +106,14 @@
     chatBody.appendChild(row);
     scrollToBottom();
 
-    // Limita cuántas filas quedan visibles, sacando las más viejas con fade-out
-    const rows = chatBody.querySelectorAll('.chat-row');
-    if (rows.length > MAX_VISIBLE) {
-      const oldest = rows[0];
+    // Saca las filas más viejas con fade-out hasta quedar en MAX_VISIBLE
+    const rows = activeRows();
+    for (let k = 0; k < rows.length - MAX_VISIBLE; k++) {
+      const oldest = rows[k];
       oldest.classList.add('exit');
-      oldest.addEventListener('animationend', () => oldest.remove(), { once: true });
+      const remove = () => oldest.remove();
+      oldest.addEventListener('animationend', remove, { once: true });
+      setTimeout(remove, 800); // respaldo por si la animación no se dispara
     }
   }
 
@@ -114,38 +137,62 @@
     return new Promise((resolve) => setTimeout(resolve, ms));
   }
 
-  async function runScript() {
-    while (!cancelled) {
-      for (const msg of SCRIPT) {
-        if (cancelled) return;
+  async function runScript(myId) {
+    // El loop sólo sigue mientras siga siendo el "vigente"
+    const alive = () => myId === runId;
+
+    while (alive()) {
+      while (index < SCRIPT.length) {
+        const msg = SCRIPT[index];
 
         if (msg.from === 'bot') {
           const typingRow = addTypingIndicator();
           await wait(TYPING_DELAY);
           typingRow.remove();
-          if (cancelled) return;
+          if (!alive()) return;
         }
 
         addBubble(msg.from, msg.text);
+        index++;
         await wait(MSG_PAUSE);
+        if (!alive()) return;
       }
+
       await wait(RESTART_PAUSE);
+      if (!alive()) return;
+      index = 0;
     }
+  }
+
+  function start() {
+    if (running) return;          // nunca más de un loop
+    running = true;
+    runScript(++runId);
+  }
+
+  function stop() {
+    if (!running) return;
+    running = false;
+    runId++;                      // invalida cualquier loop en curso
+    removeTypingRows();
+  }
+
+  function sync() {
+    if (cardVisible && !document.hidden) start();
+    else stop();
   }
 
   // Sólo corre la animación mientras la tarjeta esté visible en pantalla,
   // para no gastar recursos cuando la card de IA está cerrada/fuera de vista.
   const chatCard = chatBody.closest('.chat-card');
   const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        cancelled = false;
-        runScript();
-      } else {
-        cancelled = true;
-      }
-    });
+    // Se usa el último estado reportado; start()/stop() son idempotentes
+    cardVisible = entries[entries.length - 1].isIntersecting;
+    sync();
   }, { threshold: 0.2 });
+
+  document.addEventListener('visibilitychange', sync);
+  window.addEventListener('pagehide', stop);
 
   if (chatCard) observer.observe(chatCard);
 })();

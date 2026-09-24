@@ -47,11 +47,11 @@
     heroAside.style.opacity = 1 - titleFade;
     heroAside.style.transform = `translateX(${lerp(0, 100, p)}%)`;
 
-    heroBkg.style.left = `${lerp(35, 0, p)}%`;
-    heroBkg.style.width = `${lerp(25, 100, p)}%`;
+    heroBkg.style.left = `${lerp(36, 0, p)}%`;
+    heroBkg.style.width = `${lerp(60, 100, p)}%`;
     heroBkg.style.borderRadius = `${lerp(24, 0, p)}px`;
 
-    if (overlay) overlay.style.opacity = lerp(0, 0.55, p);
+    if (overlay) overlay.style.opacity = lerp(0.5, 0.55, p);
 
     if (textBlocks) {
       const textP = clamp01((p - 0.5) / 0.5);

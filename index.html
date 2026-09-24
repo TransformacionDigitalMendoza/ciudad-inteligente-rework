@@ -23,7 +23,7 @@
         <span>Tecnología e innovación al servicio de una ciudad más conectada,
           eficiente y cercana a sus ciudadanos.</span>
         <a href="https://mail.google.com/mail/?view=cm&fs=1&to=transformaciondigitalmendoza@gmail.com" target="_blank"
-          rel="noopener noreferrer">Contactános</a>
+          rel="noopener noreferrer">Contactános<i class="fa-solid fa-arrow-right-long"></i></a>
       </div>
 
       <div class="hero-bkg">
@@ -47,7 +47,6 @@
         <div class="hero-overlay"></div>
 
         <!-- Texto que aparece al hacer hover, invitando a hacer click -->
-        <span class="hero-bkg-hint">Conocé nuestro trabajo</span>
 
         <!-- Bloques de texto que aparecen encima del video expandido -->
         <div class="hero-text-blocks">
@@ -63,11 +62,10 @@
       <div class="hero-aside">
         <div class="header">
           <ul>
-            <li>
-              Gestión Basada en Evidencias<i class="fa-solid fa-chart-simple"></i>
+            <li><a href="#gestion">Gestión Basada en Evidencias<i class="fa-solid fa-chart-simple"></i></a>
             </li>
-            <li>Gobierno Abierto<i class="fa-solid fa-feather"></i></li>
-            <li>Agenda Internacional<i class="fa-solid fa-medal"></i></li>
+            <li><a href="#gobierno">Gobierno Abierto<i class="fa-solid fa-feather"></i></a></li>
+            <li><a href="#agenda">Agenda Internacional<i class="fa-solid fa-medal"></i></a></li>
           </ul>
         </div>
         <div class="hero-aside-bottom">
@@ -77,6 +75,7 @@
             sensores y plataformas digitales para anticipar necesidades,
             resolver problemas y construir una ciudad más sostenible.
           </p>
+          <span class="hero-bkg-hint">Conocé nuestro trabajo</span>
           <div class="trust-block">
             <p class="trust-block__number">Conocé nuestro equipo</p>
             <p class="trust-block__text">
@@ -86,7 +85,7 @@
 
             <a href="/pages/team/index.html" class="trust-block__cta" style="text-decoration: none;" data-pt-link>Conocé
               al
-              equipo</a>
+              equipo<i class="fa-solid fa-arrow-right-long"></i></a>
           </div>
         </div>
       </div>
@@ -97,101 +96,136 @@
   <header class="sticky-nav-header" id="mainNavHeader">
     <div class="nav-container">
       <div class="nav-wrapper">
+
         <!-- LOGO -->
         <div class="nav-logo">
           <a href="#">
-            <img src="assets/images/logo.png" alt="Ciudad Inteligente" />
+            <img src="/assets/images/logo.png" alt="Ciudad Inteligente" />
           </a>
         </div>
 
+        <!-- HAMBURGUESA -->
+        <button class="hamburger-btn" id="hamburgerBtn" aria-label="Abrir menú" aria-expanded="false"
+          aria-controls="navMenu">
+          <span></span><span></span><span></span>
+        </button>
+
         <!-- MENÚ PRINCIPAL -->
-        <ul class="nav-menu">
-          <!-- Botón 1: Gestión -->
-          <li class="nav-item">
-            <a href="#gestion" class="nav-btn" style="text-decoration: none;">Gestión <i
-                class="fa-solid fa-chart-simple"></i></a>
-            <ul class="dropdown">
-              <li><a href="#gestion-productos" class="gestion-open-link" data-card="productos">Productos digitales</a>
-              </li>
-              <li><a href="#gestion-ciencia-datos" class="gestion-open-link" data-card="datos">Ciencia de datos</a></li>
-              <li><a href="#gestion-ia" class="gestion-open-link" data-card="ia">Inteligencia artificial</a></li>
-            </ul>
-          </li>
-          <!-- Botón 2: Gobierno Abierto -->
-          <li class="nav-item">
-            <a href="#gobierno" class="nav-btn" style="text-decoration: none;">Gobierno Abierto <i
-                class="fa-solid fa-feather"></i></a>
-            <ul class="dropdown dropdown--nested">
+        <nav class="nav-menu" id="navMenu">
+          <ul class="nav-list">
 
-              <!-- Categoría: Datos abiertos -->
-              <li class="dropdown-item has-submenu">
-                <div class="dropdown-item-row">
-                  <a href="#gob-datos-abiertos" class="dropdown-link scroll-link">Datos abiertos</a>
-                  <button type="button" class="submenu-toggle" aria-expanded="false"
-                    aria-label="Ver enlaces de Datos abiertos">
-                    <i class="fa-solid fa-chevron-down"></i>
-                  </button>
-                </div>
-                <ul class="submenu">
-                  <li><a href="#">Portal de datos abiertos</a></li>
-                  <li><a href="#">Geoportal Ciudadano</a></li>
-                  <li><a href="#">Finanzas Públicas</a></li>
-                </ul>
-              </li>
+            <!-- Botón 1: Gestión (sin scroll-to, solo abre dropdown) -->
+            <li class="nav-item">
+              <div class="nav-btn-row">
+                <a href="javascript:void(0)" class="nav-btn" data-no-scroll>
+                  Gestión <i class="fa-solid fa-chart-simple nav-btn-icon"></i>
+                </a>
+                <button type="button" class="nav-toggle" aria-expanded="false" aria-label="Ver opciones de Gestión">
+                  <i class="fa-solid fa-chevron-down"></i>
+                </button>
+              </div>
+              <ul class="dropdown">
+                <li><a href="#gestion-productos" class="gestion-open-link" data-card="productos">Productos digitales</a>
+                </li>
+                <li><a href="#gestion-ciencia-datos" class="gestion-open-link" data-card="datos">Ciencia de datos</a>
+                </li>
+                <li><a href="#gestion-ia" class="gestion-open-link" data-card="ia">Inteligencia artificial</a></li>
+              </ul>
+            </li>
 
-              <!-- Categoría: Información pública -->
-              <li class="dropdown-item has-submenu">
-                <div class="dropdown-item-row">
-                  <a href="#gob-informacion-publica" class="dropdown-link scroll-link">Información pública</a>
-                  <button type="button" class="submenu-toggle" aria-expanded="false"
-                    aria-label="Ver enlaces de Información pública">
-                    <i class="fa-solid fa-chevron-down"></i>
-                  </button>
-                </div>
-                <ul class="submenu">
-                  <li><a href="#">Formulario Acceso a Información Pública</a></li>
-                  <li><a href="#">Tablero Pedidos Acceso Información Pública</a></li>
-                  <li><a href="#">LEY 9070 + Ordenanzas/Decretos de Implementación</a></li>
-                </ul>
-              </li>
+            <!-- Botón 2: Gobierno Abierto (sin scroll-to, solo abre dropdown) -->
+            <li class="nav-item">
+              <div class="nav-btn-row">
+                <a href="javascript:void(0)" class="nav-btn" data-no-scroll>
+                  Gobierno Abierto <i class="fa-solid fa-feather nav-btn-icon"></i>
+                </a>
+                <button type="button" class="nav-toggle" aria-expanded="false"
+                  aria-label="Ver opciones de Gobierno Abierto">
+                  <i class="fa-solid fa-chevron-down"></i>
+                </button>
+              </div>
+              <ul class="dropdown dropdown--nested">
 
-              <!-- Categoría: Participación ciudadana -->
-              <li class="dropdown-item has-submenu">
-                <div class="dropdown-item-row">
-                  <a href="#gob-participacion-ciudadana" class="dropdown-link scroll-link">Participación ciudadana</a>
-                  <button type="button" class="submenu-toggle" aria-expanded="false"
-                    aria-label="Ver enlaces de Participación ciudadana">
-                    <i class="fa-solid fa-chevron-down"></i>
-                  </button>
-                </div>
-                <ul class="submenu">
-                  <li><a href="#">Presupuesto Participativo</a></li>
-                  <li><a href="#">Seguridad Ciudadana</a></li>
-                </ul>
-              </li>
+                <!-- Categoría: Datos abiertos -->
+                <li class="dropdown-item has-submenu">
+                  <div class="dropdown-item-row">
+                    <a href="#gob-datos-abiertos" class="dropdown-link scroll-link">Datos abiertos</a>
+                    <button type="button" class="submenu-toggle" aria-expanded="false"
+                      aria-label="Ver enlaces de Datos abiertos">
+                      <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                  </div>
+                  <ul class="submenu">
+                    <li><a href="https://datos.ciudaddemendoza.gob.ar/">Portal de datos abiertos</a></li>
+                    <li><a href="https://geoportalciudadano.ciudaddemendoza.gob.ar/">Geoportal Ciudadano</a></li>
+                    <li><a href="#">Finanzas Públicas</a></li>
+                  </ul>
+                </li>
 
-            </ul>
-          </li>
-          <!-- Botón 3: Agenda Internacional -->
-          <li class="nav-item">
-            <a href="#agenda" class="nav-btn" style="text-decoration: none;">Agenda <i
-                class="fa-solid fa-medal"></i></a>
-            <ul class="dropdown">
-              <li><a href="#membresias">Membresías</a></li>
-              <li><a href="#reconocimientos">Reconocimientos</a></li>
-              <li><a href="#cooperaciones">Cooperaciones</a></li>
-            </ul>
-          </li>
+                <!-- Categoría: Información pública -->
+                <li class="dropdown-item has-submenu">
+                  <div class="dropdown-item-row">
+                    <a href="#gob-informacion-publica" class="dropdown-link scroll-link">Información pública</a>
+                    <button type="button" class="submenu-toggle" aria-expanded="false"
+                      aria-label="Ver enlaces de Información pública">
+                      <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                  </div>
+                  <ul class="submenu">
+                    <li><a href="#">Formulario Acceso a Información Pública</a></li>
+                    <li><a href="#">Tablero Pedidos Acceso Información Pública</a></li>
+                    <li><a href="#">LEY 9070 + Ordenanzas/Decretos de Implementación</a></li>
+                  </ul>
+                </li>
 
-          <!-- === NUEVOS BOTONES: EQUIPO Y CONTACTO === -->
-          <li class="nav-item nav-item--simple team">
-            <a href="/pages/team/index.html" class="nav-btn nav-btn--simple" data-pt-link>Equipo</a>
-          </li>
-          <li class="nav-item nav-item--simple">
-            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=transformaciondigitalmendoza@gmail.com"
-              target="_blank" rel="noopener noreferrer" class="nav-btn nav-btn--simple nav-btn--primary">Contactanos</a>
-          </li>
-        </ul>
+                <!-- Categoría: Participación ciudadana -->
+                <li class="dropdown-item has-submenu">
+                  <div class="dropdown-item-row">
+                    <a href="#gob-participacion-ciudadana" class="dropdown-link scroll-link">Participación ciudadana</a>
+                    <button type="button" class="submenu-toggle" aria-expanded="false"
+                      aria-label="Ver enlaces de Participación ciudadana">
+                      <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                  </div>
+                  <ul class="submenu">
+                    <li><a href="#">Presupuesto Participativo</a></li>
+                    <li><a href="#">Seguridad Ciudadana</a></li>
+                  </ul>
+                </li>
+
+              </ul>
+            </li>
+
+            <!-- Botón 3: Agenda (mantiene el scroll-to a #agenda) -->
+            <li class="nav-item">
+              <div class="nav-btn-row">
+                <a href="#agenda" class="nav-btn">
+                  Agenda <i class="fa-solid fa-medal nav-btn-icon"></i>
+                </a>
+                <button type="button" class="nav-toggle" aria-expanded="false" aria-label="Ver opciones de Agenda">
+                  <i class="fa-solid fa-chevron-down"></i>
+                </button>
+              </div>
+              <ul class="dropdown">
+                <li><a href="#membresias">Membresías</a></li>
+                <li><a href="#reconocimientos">Reconocimientos</a></li>
+                <li><a href="#cooperaciones">Cooperaciones</a></li>
+              </ul>
+            </li>
+
+            <!-- Equipo y Contactanos -->
+            <li class="nav-item nav-item--simple team">
+              <a href="/pages/team/index.html" class="nav-btn nav-btn--simple" data-pt-link>Equipo</a>
+            </li>
+            <li class="nav-item nav-item--simple">
+              <a href="https://mail.google.com/mail/?view=cm&fs=1&to=transformaciondigitalmendoza@gmail.com"
+                target="_blank" rel="noopener noreferrer"
+                class="nav-btn nav-btn--simple nav-btn--primary">Contactanos</a>
+            </li>
+
+          </ul>
+        </nav>
+
       </div>
     </div>
   </header>
@@ -211,23 +245,9 @@
         </p>
       </div>
 
-      <div class="gestion-video-block">
-        <video playsinline muted autoplay loop>
-          <source
-            src="https://www.dropbox.com/scl/fi/3dezwhyc4rkz7z4an93rp/gbe.mp4?rlkey=uf5ncjzgecv8udi6p6v6appo4&st=fcnvsdnv&raw=1"
-            type="video/mp4" />
-        </video>
-      </div>
+
 
       <div class="gestion-kpi-block">
-        <header class="terciary-aside-top__header">
-          <div>
-            <p class="terciary-aside-top__subtitle">
-              Datos abiertos y participación ciudadana
-            </p>
-          </div>
-        </header>
-
         <div class="terciary-kpi-grid">
           <!-- 1. Datasets abiertos — anillo de progreso -->
           <article class="terciary-kpi-card" style="--terciary-ring-offset: 68">
@@ -247,7 +267,6 @@
               </div>
             </div>
           </article>
-
           <!-- 2. Pedidos de Información Pública — barras -->
           <article class="terciary-kpi-card">
             <div class="terciary-kpi-card__top">
@@ -271,7 +290,6 @@
               </div>
             </div>
           </article>
-
           <!-- 3. Consultas al Chatbot — sparkline -->
           <article class="terciary-kpi-card">
             <div class="terciary-kpi-card__top">
@@ -283,16 +301,30 @@
                 <span class="terciary-kpi-card__caption">consultas resueltas</span>
               </div>
               <div class="terciary-kpi-chart">
-                <svg class="terciary-kpi-line" viewBox="0 0 90 70" width="90" height="70">
-                  <path class="terciary-kpi-line__stroke" d="M4 50 L18 40 L32 46 L46 24 L60 30 L74 12 L86 18" />
-                  <circle class="terciary-kpi-line__dot" cx="86" cy="18" r="4" fill="#4f7df3" />
+                <svg class="terciary-kpi-robot" viewBox="0 0 90 90" width="90" height="90">
+                  <!-- cuerpo -->
+                  <ellipse cx="45" cy="70" rx="20" ry="16" fill="#d7dbe8" />
+                  <ellipse cx="45" cy="75" rx="12" ry="9" fill="#8dc63f" />
+
+                  <!-- cabeza (pantalla) -->
+                  <rect x="24" y="24" width="42" height="34" rx="12" fill="#16244a" />
+
+                  <!-- gorra -->
+                  <path d="M20 30 Q45 4 70 30 Q45 20 20 30 Z" fill="#2bb3a3" />
+                  <path d="M20 30 Q45 20 70 30 L74 34 Q45 26 16 34 Z" fill="#1c8f81" />
+
+                  <!-- ojos -->
+                  <ellipse class="terciary-kpi-robot__eye" cx="36" cy="40" rx="4.5" ry="6" fill="#ffffff" />
+                  <ellipse class="terciary-kpi-robot__eye" cx="54" cy="40" rx="4.5" ry="6" fill="#ffffff" />
+
+                  <!-- sonrisa -->
+                  <path d="M36 50 Q45 57 54 50" stroke="#ffffff" stroke-width="3" stroke-linecap="round" fill="none" />
                 </svg>
               </div>
             </div>
           </article>
-
-          <!-- 4. Datos en el inventario de datos — anillo segmentado -->
-          <article class="terciary-kpi-card terciary-kpi-card--ring2" style="--terciary-ring-offset: 130">
+          <!-- 4. Datos en el inventario de datos — grid de datasets -->
+          <article class="terciary-kpi-card">
             <div class="terciary-kpi-card__top">
               <span class="terciary-kpi-card__label">Datos en el inventario de datos</span>
             </div>
@@ -302,14 +334,40 @@
                 <span class="terciary-kpi-card__caption">fuentes catalogadas</span>
               </div>
               <div class="terciary-kpi-chart">
-                <svg viewBox="0 0 90 90" width="90" height="90">
-                  <circle class="terciary-kpi-ring__track" cx="45" cy="45" r="40" />
-                  <circle class="terciary-kpi-ring__progress" cx="45" cy="45" r="40" />
+                <svg class="terciary-kpi-datagrid" viewBox="0 0 90 90" width="90" height="90">
+                  <rect x="3" y="3" width="12" height="12" rx="3" style="animation-delay: 0.00s" />
+                  <rect x="19" y="3" width="12" height="12" rx="3" style="animation-delay: 0.06s" />
+                  <rect x="35" y="3" width="12" height="12" rx="3" style="animation-delay: 0.12s" />
+                  <rect x="51" y="3" width="12" height="12" rx="3" style="animation-delay: 0.18s" />
+                  <rect x="67" y="3" width="12" height="12" rx="3" style="animation-delay: 0.24s" />
+
+                  <rect x="3" y="19" width="12" height="12" rx="3" style="animation-delay: 0.30s" />
+                  <rect x="19" y="19" width="12" height="12" rx="3" style="animation-delay: 0.36s" />
+                  <rect x="35" y="19" width="12" height="12" rx="3" style="animation-delay: 0.42s" />
+                  <rect x="51" y="19" width="12" height="12" rx="3" style="animation-delay: 0.48s" />
+                  <rect x="67" y="19" width="12" height="12" rx="3" style="animation-delay: 0.54s" />
+
+                  <rect x="3" y="35" width="12" height="12" rx="3" style="animation-delay: 0.60s" />
+                  <rect x="19" y="35" width="12" height="12" rx="3" style="animation-delay: 0.66s" />
+                  <rect x="35" y="35" width="12" height="12" rx="3" style="animation-delay: 0.72s" />
+                  <rect x="51" y="35" width="12" height="12" rx="3" style="animation-delay: 0.78s" />
+                  <rect x="67" y="35" width="12" height="12" rx="3" style="animation-delay: 0.84s" />
+
+                  <rect x="3" y="51" width="12" height="12" rx="3" style="animation-delay: 0.90s" />
+                  <rect x="19" y="51" width="12" height="12" rx="3" style="animation-delay: 0.96s" />
+                  <rect x="35" y="51" width="12" height="12" rx="3" style="animation-delay: 1.02s" />
+                  <rect x="51" y="51" width="12" height="12" rx="3" style="animation-delay: 1.08s" />
+                  <rect x="67" y="51" width="12" height="12" rx="3" style="animation-delay: 1.14s" />
+
+                  <rect x="3" y="67" width="12" height="12" rx="3" style="animation-delay: 1.20s" />
+                  <rect x="19" y="67" width="12" height="12" rx="3" style="animation-delay: 1.26s" />
+                  <rect x="35" y="67" width="12" height="12" rx="3" style="animation-delay: 1.32s" />
+                  <rect x="51" y="67" width="12" height="12" rx="3" style="animation-delay: 1.38s" />
+                  <rect x="67" y="67" width="12" height="12" rx="3" style="animation-delay: 1.44s" />
                 </svg>
               </div>
             </div>
           </article>
-
           <!-- 5. Familias con Alarmas Comunitarias — waveform -->
           <article class="terciary-kpi-card">
             <div class="terciary-kpi-card__top">
@@ -335,7 +393,6 @@
               </div>
             </div>
           </article>
-
           <!-- 6. Ojos en Alerta Capacitados — área con degradado -->
           <article class="terciary-kpi-card">
             <div class="terciary-kpi-card__top">
@@ -347,16 +404,22 @@
                 <span class="terciary-kpi-card__caption">personas capacitadas</span>
               </div>
               <div class="terciary-kpi-chart">
-                <svg class="terciary-kpi-area" viewBox="0 0 90 70" width="90" height="70">
+                <svg class="terciary-kpi-eye" viewBox="0 0 90 70" width="90" height="70">
                   <defs>
-                    <linearGradient id="terciary-area-grad" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="0%" stop-color="#21b57a" stop-opacity="0.35" />
-                      <stop offset="100%" stop-color="#21b57a" stop-opacity="0" />
-                    </linearGradient>
+                    <clipPath id="terciary-eye-clip">
+                      <circle cx="45" cy="35" r="26" />
+                    </clipPath>
                   </defs>
-                  <path class="terciary-kpi-area__fill" fill="url(#terciary-area-grad)"
-                    d="M4 44 L18 34 L32 38 L46 20 L60 26 L74 10 L86 16 L86 66 L4 66 Z" />
-                  <path class="terciary-kpi-area__stroke" d="M4 44 L18 34 L32 38 L46 20 L60 26 L74 10 L86 16" />
+
+                  <!-- contorno -->
+                  <circle cx="45" cy="35" r="26" fill="none" stroke="#21b57a" stroke-width="2.5" />
+
+                  <g clip-path="url(#terciary-eye-clip)">
+                    <!-- pupila que se mueve -->
+                    <circle class="terciary-kpi-eye__pupil" cx="45" cy="35" r="7" fill="#21b57a" />
+                    <!-- párpado -->
+                    <rect class="terciary-kpi-eye__lid" x="15" y="0" width="60" height="70" fill="#f7f9fd" />
+                  </g>
                 </svg>
               </div>
             </div>
@@ -664,7 +727,8 @@
               </button>
 
               <div class="g-expanded-hero">
-                <video muted loop playsinline data-src="https://www.dropbox.com/scl/fi/fuegyjzr7ehs8zn2fstmn/red.mp4?rlkey=8yc8qtcgmzuettjtu95d1y0jc&st=rilgb95n&raw=1"></video>
+                <video muted loop playsinline
+                  data-src="https://www.dropbox.com/scl/fi/fuegyjzr7ehs8zn2fstmn/red.mp4?rlkey=8yc8qtcgmzuettjtu95d1y0jc&st=rilgb95n&raw=1"></video>
                 <div class="expanded-hero-title">
                   <h2>Inteligencia Artificial</h2>
                   <p>Automatización y asistentes que agilizan la relación entre la ciudadanía y el municipio.</p>
@@ -672,6 +736,42 @@
               </div>
 
               <div class="g-expanded-body">
+                <div class="comite-ia">
+                  <div class="comite-title">
+                    <h2>Comité Local de inteligencia artificial</h2>
+                    <p>Una iniciativa orientada a modernizar y agilizar los procesos administrativos mediante el uso de
+                      tecnologías avanzadas de inteligencia artificial (IA). Nuestro objetivo es mejorar la eficiencia,
+                      reducir tiempos de espera y optimizar la toma de decisiones en diversas áreas del municipio.</p>
+                    <ul>
+                      <li>
+                        <span>Automatización de Procesos Administrativos</span>
+                        Implementar sistemas de inteligencia artificial para automatizar trámites y procesos
+                        administrativos, con el fin de reducir los tiempos de respuesta y mejorar la eficiencia
+                        operativa.
+                      </li>
+                      <li>
+                        <span>Mejora de la Atención al Ciudadano</span>
+                        Desarrollar plataformas de atención al ciudadano, incluyendo chatbots y asistentes virtuales,
+                        que proporcionen información y resuelvan dudas de manera eficiente y en tiempo real.
+                      </li>
+                      <li>
+                        <span>Análisis Predictivo para la Toma de Decisiones</span>
+                        Utilizar herramientas de análisis de datos para predecir tendencias y necesidades en áreas como
+                        la planificación urbana, la gestión presupuestaria y la seguridad pública.
+                      </li>
+                      <li>
+                        <span>Promoción de la Transparencia y la Participación Ciudadana</span>
+                        Fomentar la transparencia en las decisiones del gobierno municipal a través de plataformas
+                        digitales que faciliten la participación ciudadana en la formulación de políticas públicas.
+                      </li>
+                    </ul>
+                    <a href="/assets/images/Acta Compromiso CLIA.pdf">Acta de compromiso</a>
+                  </div>
+
+                  <div id="rnh" role="img" aria-label="Red neuronal hexagonal animada con pulsos de información">
+                    <canvas></canvas>
+                  </div>
+                </div>
                 <div class="ia-demo">
 
                   <!-- Mockup funcional del asistente virtual -->
@@ -747,9 +847,7 @@
            revelándolo a medida que se hace scroll. -->
     <div class="gob-abierto-video-wrapper">
       <video class="gob-abierto-video" playsinline muted autoplay loop>
-        <source
-          src="https://www.dropbox.com/scl/fi/mhrid53y15ivvbecqqe1a/gob-abierto.mp4?rlkey=32ovzdjermn074zwx8lh5qb61&st=nhp2r7u3&raw=1"
-          type="video/mp4" />
+        <source src="https://www.dropbox.com/scl/fi/pm8od8yoje2q2c6q8tud5/15408618_1920_1080_24fps.mp4?rlkey=t1mjn1bhkbzebn3o7e4yfxsd1&st=pc8xoitq&raw=1" type="video/mp4" />
       </video>
     </div>
 
@@ -768,11 +866,17 @@
           <h2>Gobierno Abierto</h2>
           <h3>Una gestión transparente, participativa y cercana</h3>
           <p>
-            impulsamos un modelo de gobierno que facilita el acceso a la
+            Impulsamos un modelo de gobierno que facilita el acceso a la
             información, promueve la participación ciudadana y pone los datos
             públicos al alcance de toda la comunidad.
           </p>
+          <div class="gob-abierto-btn">
+            <a href="/assets/images/plan-accion_2021_2022.pdf">Primer plan de acción 2021</a>
+            <a href="/assets/images/Segundo Plan de Acción de Gobierno Abierto (1).pdf">Segundo plan de acción
+              2024-2027</a>
+          </div>
         </div>
+
       </div>
     </div>
 
@@ -787,14 +891,13 @@
       <div class="gob-grid">
         <article class="gob-card transparencia" id="gob-datos-abiertos">
           <div class="gob-overlay"></div>
-          <p class="gob-numero"></p>
           <h3><i class="fa-solid fa-magnifying-glass-chart"></i>Datos abiertos</h3>
           <p>El Estado publica de forma activa la información sobre su gestión, presupuesto y decisiones, para que
             cualquier persona pueda acceder a ella sin pedir permiso.</p>
 
           <div class="gob-links">
-            <a href="#">Portal de datos abiertos</a>
-            <a href="#">Geoportal Ciudadano</a>
+            <a href="https://datos.ciudaddemendoza.gob.ar/">Portal de datos abiertos</a>
+            <a href="https://geoportalciudadano.ciudaddemendoza.gob.ar/">Geoportal Ciudadano</a>
             <button type="button" class="finanzas-trigger">Finanzas Públicas</button>
           </div>
 
@@ -807,15 +910,15 @@
               </button>
             </div>
             <div class="finanzas-buttons">
-              <a href="#" class="finanzas-btn finanzas-btn--licitaciones">
+              <a href="https://apex.ciudaddemendoza.gov.ar/apex/produccion/f?p=204:10031:15776901818422::NO:10031:P10031_GO_BACK:10012" class="finanzas-btn finanzas-btn--licitaciones">
                 <i class="fa-solid fa-file-contract"></i>
                 <span>Licitaciones y Contrataciones</span>
               </a>
-              <a href="#" class="finanzas-btn finanzas-btn--fiscal">
+              <a href="https://ciudaddemendoza.gob.ar/area-municipal/informacion-fiscal/" class="finanzas-btn finanzas-btn--fiscal">
                 <i class="fa-solid fa-coins"></i>
                 <span>Información Fiscal</span>
               </a>
-              <a href="#" class="finanzas-btn finanzas-btn--digesto">
+              <a href="https://apex.ciudaddemendoza.gov.ar/apex/produccion/f?p=204:3005" class="finanzas-btn finanzas-btn--digesto">
                 <i class="fa-solid fa-book"></i>
                 <span>Digesto Municipal</span>
               </a>
@@ -825,7 +928,6 @@
 
         <article class="gob-card participacion" id="gob-informacion-publica">
           <div class="gob-overlay"></div>
-          <p class="gob-numero"></p>
           <h3><i class="fa-solid fa-circle-info"></i>informacion publica</h3>
           <p>Las decisiones públicas se construyen con la ciudadanía, habilitando canales concretos de consulta, debate
             y co-creación de políticas.</p>
@@ -842,7 +944,6 @@
 
         <article class="gob-card info-publica" id="gob-participacion-ciudadana">
           <div class="gob-overlay"></div>
-          <p class="gob-numero"></p>
           <h3><i class="fa-solid fa-users-rectangle"></i>Participación ciudadana</h3>
           <p>Organizaciones, academia y sector privado trabajan junto al Estado para resolver problemas públicos de
             manera conjunta y sostenida.</p>
@@ -861,23 +962,23 @@
               </button>
             </div>
             <div class="seguridad-buttons">
-              <a href="#" class="seguridad-btn seguridad-btn--ojos">
+              <a href="https://ciudaddemendoza.gob.ar/formulario-ojos-en-alerta/" class="seguridad-btn seguridad-btn--ojos">
                 <i class="fa-solid fa-eye"></i>
                 <span>Ojos en Alerta</span>
               </a>
-              <a href="#" class="seguridad-btn seguridad-btn--alarma">
+              <a href="https://ciudaddemendoza.gob.ar/formulario-alarma-comunitaria/" class="seguridad-btn seguridad-btn--alarma">
                 <i class="fa-solid fa-shield-halved"></i>
                 <span>Alarma Comunitaria</span>
               </a>
-              <a href="#" class="seguridad-btn seguridad-btn--participacion">
+              <a href="https://ciudaddemendoza.gob.ar/formulario-participacion-vecinal/" class="seguridad-btn seguridad-btn--participacion">
                 <i class="fa-solid fa-users"></i>
                 <span>Participación Vecinal</span>
               </a>
-              <a href="#" class="seguridad-btn seguridad-btn--inmuebles">
+              <a href="https://ciudaddemendoza.gob.ar/formulario-de-denuncia/" class="seguridad-btn seguridad-btn--inmuebles">
                 <i class="fa-solid fa-house"></i>
                 <span>Inmuebles Desocupados</span>
               </a>
-              <a href="#" class="seguridad-btn seguridad-btn--acoso">
+              <a href="https://ciudaddemendoza.gob.ar/formulario-acoso-callejero/" class="seguridad-btn seguridad-btn--acoso">
                 <i class="fa-solid fa-person-walking"></i>
                 <span>Acoso Callejero</span>
               </a>
@@ -992,6 +1093,8 @@
       <span>© 2026 KENAI Todos los derechos reservados.</span>
     </div>
   </footer>
+  <script src="scripts/red-neuronal.js"></script>
+  <script src="scripts/header-responsive.js"></script>
   <script src="scripts/header-list.js"></script>
   <script src="scripts/chat.js"></script>
   <script src="scripts/chat-demo.js"></script>
@@ -1003,7 +1106,6 @@
   <script src="scripts/agenda-title.js"></script>
   <script src="scripts/carrucel-agenda.js"></script>
   <script src="scripts/gob-abierto-cards.js"></script>
-  <script src="scripts/gestion-scroll.js"></script>
   <script src="scripts/gob-abierto-scroll.js"></script>
   <script src="scripts/kpis.js"></script>
   <script src="scripts/video-hero.js"></script>

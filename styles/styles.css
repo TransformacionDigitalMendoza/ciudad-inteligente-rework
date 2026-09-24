@@ -4,11 +4,25 @@
     box-sizing: border-box;
     font-family: "Raleway", sans-serif;
 }
+
 html {
-  scroll-behavior: smooth;
+    scroll-behavior: smooth;
 }
+
 body {
     background-color: #f4faff;
+}
+
+#gestion {
+    scroll-margin-top: 50px;
+}
+
+#gobierno {
+    scroll-margin-top: 250px;
+}
+
+#agenda {
+    scroll-margin-top: 100px;
 }
 
 /* El wrapper le da "alto de scroll" a la sección para que
@@ -42,7 +56,7 @@ body {
     align-items: start;
     justify-content: start;
     gap: 40px;
-    padding: 40px;
+    padding: 80px;
     will-change: transform, opacity;
 }
 
@@ -69,13 +83,14 @@ body {
 }
 
 .hero-title a {
+    width: 100%;
     padding: 15px;
-    border-radius: 24px;
     text-decoration: none;
     color: #f0f8ff;
-    background-color: #2b2b2b;
+    background-color: #111111;
     font-weight: 700;
     display: flex;
+    justify-content: space-between;
     gap: 10px;
 }
 
@@ -86,7 +101,6 @@ body {
     left: 40%;
     width: 30%;
     height: 95%;
-    background-color: aquamarine;
     overflow: hidden;
     border-radius: 24px;
     cursor: pointer;
@@ -95,27 +109,19 @@ body {
 
 /* Texto que invita al click, aparece al hacer hover sobre hero-bkg */
 .hero-bkg-hint {
-    position: absolute;
-    top: 50%;
-    left: 50%;
     z-index: 4;
-    transform: translate(-50%, -50%) translateY(10px);
     background-color: #ffaf03;
     color: #2b2b2b;
     padding: 12px 24px;
-    border-radius: 24px;
+    border-radius: 10px;
     font-size: 1rem;
     font-weight: 700;
     white-space: nowrap;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.35s ease, transform 0.35s ease;
+    opacity: 1;
+    z-index: 9999;
+    cursor: pointer;
 }
 
-.hero-bkg:hover .hero-bkg-hint {
-    opacity: 1;
-    transform: translate(-50%, -50%) translateY(0);
-}
 
 /* Una vez que arrancó la animación de scroll (video expandiéndose),
    el hint queda oculto aunque sigas en hover, para no pisar el texto. */
@@ -142,7 +148,7 @@ body {
 .hero-overlay {
     position: absolute;
     inset: 0;
-    background: #000;
+    background: #000000de;
     opacity: 0;
     z-index: 2;
     pointer-events: none;
@@ -210,17 +216,23 @@ body {
 /* ---- Aside (derecha) ---- */
 .hero-aside {
     position: absolute;
-    top: 0;
-    left: 63%;
-    width: 35%;
+    bottom: 0;
+    left: 35%;
+    width: 60%;
     height: 100%;
     will-change: transform, opacity;
-    padding: 40px 0px;
+    padding: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    color: aliceblue;
+    z-index: 9;
 }
 
 .header {
     width: 100%;
-    height: 10%;
+    height: auto;
 }
 
 .header ul {
@@ -230,30 +242,34 @@ body {
     list-style: none;
 }
 
-.header li {
+.header a {
+    width: 100%;
     display: flex;
-    color: #242424;
+    flex-direction: row-reverse;
+    justify-content: center;
+    color: aliceblue;
     padding: 10px;
-    border-radius: 10px;
     font-size: 1rem;
     font-weight: 700;
     transition: 0.5s;
     gap: 10px;
+    text-decoration: none;
 }
 
-.header li:hover {
+.header a:hover {
     background-color: #ffaf03;
     color: #2b2b2b;
     cursor: pointer;
 }
 
 .hero-aside-bottom {
-    min-height: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     gap: 20px;
     align-items: start;
+    padding-right: 50%;
 }
 
 .hero-aside h2 {
@@ -268,14 +284,12 @@ body {
 .trust-block__number {
     font-size: 40px;
     font-weight: 700;
-    color: #111111;
     margin: 0 0 8px 0;
     line-height: 1;
 }
 
 .trust-block__text {
     font-size: 15px;
-    color: #6b6b6b;
     line-height: 1.4;
     margin: 0 0 16px 0;
 }
@@ -371,14 +385,12 @@ body {
 .trust-block__card-title {
     font-size: 14px;
     font-weight: 700;
-    color: #111111;
     margin: 0 0 2px 0;
     line-height: 1.2;
 }
 
 .trust-block__card-subtitle {
     font-size: 12px;
-    color: #8a8a8a;
     margin: 0;
     line-height: 1.2;
 }
@@ -386,20 +398,17 @@ body {
 .trust-block__cta {
     appearance: none;
     border: none;
-    background: #111111;
-    color: #ffffff;
+    color: aliceblue;
     font-size: 14px;
     font-weight: 600;
-    padding: 12px 22px;
-    border-radius: 999px;
+    padding: 12px 0;
     cursor: pointer;
     transition: background 0.18s ease, transform 0.18s ease;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
-.trust-block__cta:hover {
-    background: #2b2b2b;
-    transform: translateY(-1px);
-}
 
 .gestion {
     width: 100%;
@@ -408,13 +417,6 @@ body {
     flex-direction: column;
     margin-bottom: 100px;
 }
-
-/* ============================================================
-     GESTIÓN BASADA EN EVIDENCIA — estructura apilada con
-     márgenes que se cierran a medida que se hace scroll.
-     El wrapper define --gestion-pad (controlado por JS en
-     scripts/gestion-scroll.js). Sin JS, cae a 80px por defecto.
-  ============================================================ */
 
 .gestion-scroll-wrap {
     --gestion-pad: 80px;
@@ -425,6 +427,7 @@ body {
 
 .gestion-title-block {
     width: 100%;
+    height: auto;
     box-sizing: border-box;
     padding: 150px var(--gestion-pad) 60px;
     display: flex;
@@ -433,10 +436,6 @@ body {
     justify-content: center;
     gap: 20px;
     text-align: center;
-    opacity: 0;
-    transform: translateY(40px);
-    transition: opacity 0.7s ease, transform 0.7s ease;
-    will-change: padding-left, padding-right;
 }
 
 .gestion-title-block.is-visible {
@@ -474,7 +473,7 @@ body {
 .gestion-video-block video {
     display: block;
     width: 100%;
-    height: 50vh;
+    height: 20vh;
     object-fit: cover;
     border-radius: 24px;
 }
@@ -718,11 +717,77 @@ body {
     text-align: center;
 }
 
+.comite-ia {
+    width: 100%;
+    height: auto;
+    display: flex;
+    margin-bottom: 100px;
+}
+
+.comite-title {
+    width: 50%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    text-align: start;
+    gap: 20px;
+}
+
+.comite-title h2 {
+    font-size: 2.5rem;
+}
+
+.comite-title p {
+    font-size: 1rem;
+
+}
+
+.comite-title a{
+    text-decoration: none;
+    background-color: #232322;
+    color: aliceblue;
+    padding: 15px;
+    border-radius: 14px;
+}
+.comite-title li{
+    list-style: none;
+    padding-bottom: 20px;
+    padding-right: 150px;
+}
+
+li span {
+  display: block;
+  font-size: 1rem;
+  font-weight: 600;
+}
+#rnh {
+    --rnh-bg: #080b1e;
+    --rnh-bg-glow: #232ecf;
+    position: relative;
+    width: 50%;
+    height: 560px;
+    /* cambia el alto aquí (o usa 100vh, aspect-ratio, etc.) */
+    overflow: hidden;
+    border-radius: 16px;
+}
+
+#rnh canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    cursor: crosshair;
+}
+
 /* --- Demo del asistente IA: red de nodos + mockup de chat --- */
 .ia-demo {
+    width: 100%;
     display: flex;
     align-items: stretch;
-    justify-content: center;
+    justify-content: space-around;
     gap: 40px;
     flex-wrap: wrap;
     text-align: left;
@@ -1579,22 +1644,6 @@ canvas {
     margin-bottom: 6px;
 }
 
-.terciary-kpi-card__icon {
-    width: 34px;
-    height: 34px;
-    border-radius: 10px;
-    background: var(--terciary-blue-light);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--terciary-blue-dark);
-    flex-shrink: 0;
-}
-
-.terciary-kpi-card__icon svg {
-    width: 18px;
-    height: 18px;
-}
 
 .terciary-kpi-card__label {
     font-size: 13.5px;
@@ -1856,6 +1905,130 @@ canvas {
     }
 }
 
+.terciary-kpi-robot__eye {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: terciary-robot-blink 3.5s ease-in-out infinite;
+}
+
+@keyframes terciary-robot-blink {
+
+    0%,
+    92%,
+    100% {
+        transform: scaleY(1);
+    }
+
+    95% {
+        transform: scaleY(0.15);
+    }
+}
+
+/* ---------- Ojo minimalista ---------- */
+.terciary-kpi-eye__pupil {
+    transform-box: fill-box;
+    transform-origin: 45px 35px;
+    animation: terciary-eye-look 4s ease-in-out infinite;
+}
+
+@keyframes terciary-eye-look {
+
+    0%,
+    12% {
+        transform: translateX(0);
+    }
+
+    20%,
+    32% {
+        transform: translateX(-9px);
+    }
+
+    45%,
+    57% {
+        transform: translateX(9px);
+    }
+
+    70%,
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.terciary-kpi-eye__lid {
+    transform-box: fill-box;
+    transform-origin: center;
+    transform: scaleY(0);
+    animation: terciary-eye-blink 4.5s ease-in-out infinite;
+}
+
+@keyframes terciary-eye-blink {
+
+    0%,
+    90% {
+        transform: scaleY(0);
+    }
+
+    93% {
+        transform: scaleY(1);
+    }
+
+    96% {
+        transform: scaleY(0);
+    }
+
+    100% {
+        transform: scaleY(0);
+    }
+}
+
+/* ---------- Grid de datasets ---------- */
+.terciary-kpi-datagrid rect {
+    fill: var(--terciary-track);
+    transform-box: fill-box;
+    transform-origin: center;
+    transform: scale(0);
+    opacity: 0;
+    animation: terciary-dataset-fill 3.2s ease-in-out infinite;
+}
+
+@keyframes terciary-dataset-fill {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+        fill: var(--terciary-track);
+    }
+
+    8% {
+        transform: scale(1.15);
+        opacity: 1;
+        fill: #21b57a;
+    }
+
+    16% {
+        transform: scale(1);
+        opacity: 1;
+        fill: #21b57a;
+    }
+
+    85% {
+        transform: scale(1);
+        opacity: 1;
+        fill: #21b57a;
+    }
+
+    95% {
+        transform: scale(0.85);
+        opacity: 0.4;
+        fill: var(--terciary-track);
+    }
+
+    100% {
+        transform: scale(0);
+        opacity: 0;
+        fill: var(--terciary-track);
+    }
+}
+
 /* =========================================================
    Sección "Gobierno Abierto"
    - Contenedor general con:
@@ -1887,7 +2060,7 @@ canvas {
     top: 0;
     left: 0;
     width: 100%;
-    height: 100vh;
+    height: 70vh;
     margin-bottom: -100vh;
     z-index: 0;
     overflow: hidden;
@@ -1904,7 +2077,7 @@ canvas {
 .gob-abierto-hero {
     position: relative;
     width: 100%;
-    height: 100vh;
+    height: 70vh;
     z-index: 0;
 }
 
@@ -1953,9 +2126,10 @@ canvas {
     width: 100%;
     height: 100%;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    background: #00000080;
+    background: #0000009f;
     z-index: 2;
     opacity: 0;
     transition: opacity 1.8s ease 0.6s;
@@ -1972,7 +2146,7 @@ canvas {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 30%;
+    padding: 0 30%;
     color: aliceblue;
     text-align: center;
 }
@@ -1986,12 +2160,38 @@ canvas {
 .gob-abierto-title h3 {
     font-size: 2rem;
     margin-bottom: 20px;
+    color: #21b57a;
 }
 
 .gob-abierto-title p {
     font-size: 1.2rem;
 }
 
+.gob-abierto-btn {
+    width: 100%;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 40px;
+}
+
+
+
+.gob-abierto-btn a {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: white;
+    font-weight: 700;
+    font-size: 1rem;
+    text-transform: uppercase;
+    transition: 0.4s;
+    padding: 20px 0;
+}
 
 
 .gob-abierto-content {
@@ -2051,7 +2251,9 @@ canvas {
     overflow: hidden;
     display: flex;
     flex-direction: column;
+    justify-content: end;
     padding: 2rem 1.8rem;
+    padding-top: 300px;
     isolation: isolate;
 }
 
@@ -2322,6 +2524,7 @@ canvas {
         padding: .65rem .85rem;
     }
 }
+
 /* Botón "Finanzas Públicas" con el mismo look que los links de .gob-links */
 .gob-links .finanzas-trigger {
     color: #f0f2f7;
@@ -2414,10 +2617,6 @@ canvas {
     transition: background .2s ease, transform .2s ease;
 }
 
-.finanzas-close-btn:hover {
-    background: rgba(255, 255, 255, .25);
-    transform: rotate(90deg);
-}
 
 .finanzas-buttons {
     display: flex;
@@ -2444,10 +2643,7 @@ canvas {
     transition: transform .2s ease, filter .2s ease;
 }
 
-.finanzas-btn:hover {
-    transform: translateX(5px);
-    filter: brightness(1.07);
-}
+
 
 .finanzas-btn i {
     font-size: 1.3rem;
@@ -2481,6 +2677,7 @@ canvas {
         padding: .65rem .85rem;
     }
 }
+
 /* ===== Overlay tipo "cortina / sello" que tapa la tarjeta ===== */
 .gob-overlay {
     position: absolute;
@@ -2859,6 +3056,7 @@ canvas {
     opacity: 1;
     filter: grayscale(0);
 }
+
 /* ===== STICKY HEADER ===== */
 .sticky-nav-header {
     position: sticky;
@@ -2908,6 +3106,11 @@ canvas {
 .nav-menu {
     display: flex;
     align-items: center;
+}
+
+.nav-list {
+    display: flex;
+    align-items: center;
     gap: 0.2rem;
     list-style: none;
     flex-wrap: wrap;
@@ -2917,6 +3120,12 @@ canvas {
 
 .nav-item {
     position: relative;
+}
+
+.nav-btn-row {
+    display: flex;
+    align-items: center;
+
 }
 
 /* Botones base */
@@ -2933,11 +3142,11 @@ canvas {
     display: flex;
     align-items: center;
     gap: 6px;
-    font-family: "Raleway", sans-serif;
     white-space: nowrap;
+    text-decoration: none;
 }
 
-.nav-btn i {
+.nav-btn i.nav-btn-icon {
     color: #8992a6;
     transition: transform 0.25s ease;
 }
@@ -2947,8 +3156,29 @@ canvas {
     color: #2f5fd6;
 }
 
-.nav-btn:hover i {
+.nav-btn:hover i.nav-btn-icon {
     color: #2f5fd6;
+}
+
+/* Botón toggle (flechita para abrir dropdown/acordeón) */
+.nav-toggle {
+    display: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    color: #8992a6;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-toggle i {
+    transition: transform 0.25s ease;
+}
+
+.nav-toggle[aria-expanded="true"] i {
+    transform: rotate(180deg);
 }
 
 /* Botones simples (sin dropdown) */
@@ -2980,7 +3210,7 @@ canvas {
     color: #ffffff;
 }
 
-/* ----- DROPDOWN ----- */
+/* ----- DROPDOWN (desktop) ----- */
 .dropdown {
     position: absolute;
     top: 110%;
@@ -2997,6 +3227,7 @@ canvas {
     transform-origin: top center;
     transition: opacity 0.22s ease, transform 0.22s ease;
     border: 1px solid rgba(0, 0, 0, 0.04);
+    margin: 0;
 }
 
 .nav-item:hover .dropdown {
@@ -3022,7 +3253,84 @@ canvas {
     border-left-color: #2f5fd6;
 }
 
+/* Submenú anidado (Gobierno Abierto) */
+.dropdown-item-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
 
+.dropdown-item-row .dropdown-link {
+    flex: 1;
+}
+
+.submenu-toggle {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    color: #8992a6;
+}
+
+.submenu-toggle i {
+    transition: transform 0.25s ease;
+}
+
+.submenu-toggle[aria-expanded="true"] i {
+    transform: rotate(180deg);
+}
+
+.submenu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.submenu li a {
+    padding-left: 2rem;
+    font-size: 0.85rem;
+}
+
+/* ----- HAMBURGUESA (oculta en desktop) ----- */
+.hamburger-btn {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    width: 42px;
+    height: 42px;
+    background: transparent;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.hamburger-btn:hover {
+    background: #eef3ff;
+}
+
+.hamburger-btn span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: #1c2333;
+    border-radius: 2px;
+    transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.hamburger-btn.active span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.hamburger-btn.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger-btn.active span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
 
 
 .newsletter {
@@ -3093,10 +3401,10 @@ canvas {
     height: 100vh;
     position: relative;
     overflow: hidden;
-    background-image: url(../assets/images/footer1.jpg);
+    background-image: url(../assets/images/footer.png);
     background-size: cover;
     background-position: center;
-    color: aliceblue;
+    color: #f0f8ff;
     padding: 95px 48px 0;
 }
 
@@ -3308,9 +3616,11 @@ canvas {
     line-height: 1.5;
     color: var(--gris-texto);
 }
-.hcard-body a{
+
+.hcard-body a {
     text-decoration: none;
 }
+
 .hcard-tags {
     display: flex;
     flex-wrap: wrap;
@@ -3396,196 +3706,201 @@ canvas {
     gap: 20px;
 }
 
-.chatbot-title h2{
+.chatbot-title h2 {
     font-size: 2rem;
 }
-.chatbot-title ul{
+
+.chatbot-title ul {
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
-.chatbot-title li{
+
+.chatbot-title li {
     font-size: 1rem;
     list-style: none;
 }
 
 .lista-servicios {
-  list-style: none;
-  padding: 0;
-  display: flex;
-  flex-wrap: wrap;
-  margin-bottom: 40px;
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
 }
 
 .lista-servicios li {
-  position: relative;
-  padding: 10px 20px;
-  margin-bottom: 10px;
-  background: #f0f4f8;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  font-weight: 500;
-  color: #2c3e50;
-  border-left: 4px solid #3498db;
-  z-index: 0;
+    position: relative;
+    padding: 10px 20px;
+    margin-bottom: 10px;
+    background: #f0f4f8;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    color: #2c3e50;
+    border-left: 4px solid #3498db;
+    z-index: 0;
 }
 
 .lista-servicios li:hover {
-  background: #e1e9f0;
-  transform: translateX(5px);
-  border-left-color: #039494;
+    background: #e1e9f0;
+    transform: translateX(5px);
+    border-left-color: #039494;
     z-index: 100;
 }
 
 /* Tarjeta que aparece en hover */
 .lista-servicios li::after {
-  content: attr(data-info);
-  position: absolute;
-  left: 0;
-  top: calc(100% + 10px);
-  background: #257fd8;
-  color: #ecf0f1;
-  padding: 15px 20px;
-  border-radius: 10px;
-  font-size: 14px;
-  font-weight: 400;
-  width: 280px;
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(-10px);
-  transition: all 0.3s ease;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    content: attr(data-info);
+    position: absolute;
+    left: 0;
+    top: calc(100% + 10px);
+    background: #257fd8;
+    color: #ecf0f1;
+    padding: 15px 20px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 400;
+    width: 280px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
 
-  line-height: 1.5;
-  border-left: 3px solid #039494;
-  pointer-events: none;
+    line-height: 1.5;
+    border-left: 3px solid #039494;
+    pointer-events: none;
 }
 
 
 .lista-servicios li:hover::after,
 .lista-servicios li:hover::before {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
 }
 
-  /* Compensa el header sticky al hacer scroll-to hacia las tarjetas */
-    #gob-datos-abiertos,
-    #gob-informacion-publica,
-    #gob-participacion-ciudadana,
-    #gestion-productos,
-    #gestion-ciencia-datos,
-    #gestion-ia {
-      scroll-margin-top: 90px;
-    }
+/* Compensa el header sticky al hacer scroll-to hacia las tarjetas */
+#gob-datos-abiertos,
+#gob-informacion-publica,
+#gob-participacion-ciudadana,
+#gestion-productos,
+#gestion-ciencia-datos,
+#gestion-ia {
+    scroll-margin-top: 90px;
+}
 
-    .dropdown--nested {
-      min-width: 260px;
-    }
+.dropdown--nested {
+    min-width: 260px;
+}
 
-    .dropdown--nested .dropdown-item {
-      display: flex;
-      flex-direction: column;
-    }
+.dropdown--nested .dropdown-item {
+    display: flex;
+    flex-direction: column;
+}
 
-    .dropdown-item-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 8px;
-    }
+.dropdown-item-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+}
 
-    .dropdown-item-row .dropdown-link {
-      flex: 1;
-      padding: 8px 4px;
-    }
+.dropdown-item-row .dropdown-link {
+    flex: 1;
+    padding: 8px 4px;
+}
 
-    .submenu-toggle {
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 8px;
-      color: inherit;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+.submenu-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    color: inherit;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
-    .submenu-toggle i {
-      transition: transform 0.2s ease;
-    }
+.submenu-toggle i {
+    transition: transform 0.2s ease;
+}
 
-    .dropdown-item.open .submenu-toggle i {
-      transform: rotate(180deg);
-    }
+.dropdown-item.open .submenu-toggle i {
+    transform: rotate(180deg);
+}
 
-    .submenu {
-      list-style: none;
-      margin: 0;
-      padding: 0 0 0 14px;
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.25s ease;
-    }
+.submenu {
+    list-style: none;
+    margin: 0;
+    padding: 0 0 0 14px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.25s ease;
+}
 
-    .dropdown-item.open .submenu {
-      max-height: 300px;
-    }
+.dropdown-item.open .submenu {
+    max-height: 300px;
+}
 
-    .submenu li a {
-      display: block;
-      padding: 6px 4px;
-      font-size: 0.9em;
-      opacity: 0.85;
-      text-decoration: none;
-      color: inherit;
-    }
+.submenu li a {
+    display: block;
+    padding: 6px 4px;
+    font-size: 0.9em;
+    opacity: 0.85;
+    text-decoration: none;
+    color: inherit;
+}
 
-    .submenu li a:hover {
-      opacity: 1;
-      text-decoration: underline;
-    }
+.submenu li a:hover {
+    opacity: 1;
+    text-decoration: underline;
+}
 
-    /* ==========================================================
+/* ==========================================================
    PAGE TRANSITION — bloque que tapa/revela entre subpáginas
    Incluir este archivo en TODAS las páginas que participen
    de la transición (principal y subpáginas).
    ========================================================== */
 
 :root {
-  --pt-color: aliceblue;   /* color del bloque — ajustalo a tu paleta */
-  --pt-duration: 600ms;  /* duración de la animación de tape/reveal */
+    --pt-color: aliceblue;
+    /* color del bloque — ajustalo a tu paleta */
+    --pt-duration: 600ms;
+    /* duración de la animación de tape/reveal */
 }
 
 #pt-block {
-  position: fixed;
-  inset: 0;
-  background: var(--pt-color);
-  transform: translateY(100%); /* estado de reposo: escondido abajo */
-  transition: transform var(--pt-duration) cubic-bezier(.65, 0, .35, 1);
-  z-index: 9999;
-  pointer-events: none;
+    position: fixed;
+    inset: 0;
+    background: var(--pt-color);
+    transform: translateY(100%);
+    /* estado de reposo: escondido abajo */
+    transition: transform var(--pt-duration) cubic-bezier(.65, 0, .35, 1);
+    z-index: 9999;
+    pointer-events: none;
 }
 
 /* sube y tapa toda la pantalla (de abajo hacia arriba) */
 #pt-block.pt-cover {
-  transform: translateY(0);
+    transform: translateY(0);
 }
 
 /* sigue subiendo y se va por arriba (revela de arriba hacia abajo) */
 #pt-block.pt-reveal {
-  transform: translateY(-100%);
+    transform: translateY(-100%);
 }
 
 /* usado solo al cargar la página destino, para que el bloque
    aparezca ya tapando todo SIN animarse desde abajo */
 #pt-block.pt-instant {
-  transition: none;
+    transition: none;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  #pt-block {
-    transition: none;
-  }
+    #pt-block {
+        transition: none;
+    }
 }
