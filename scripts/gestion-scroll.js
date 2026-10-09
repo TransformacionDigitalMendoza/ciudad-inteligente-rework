@@ -1,80 +1,71 @@
-/**
- * Gestión basada en evidencia — efecto de scroll.
- *
- * Al entrar la sección en pantalla:
- *  1. El título (h2/h3/p) aparece centrado (fade + translateY).
- *  2. Los costados de todo el bloque (título, video y KPIs) se
- *     desplazan hacia adentro hasta dejar un margen fijo de 80px
- *     (menos en pantallas chicas, ver breakpoints más abajo).
- *
- * El margen se expone como la custom property --gestion-pad en
- * .gestion-scroll-wrap, y title/video/kpi la heredan vía CSS.
- * Sin JS, --gestion-pad cae al valor final definido en el CSS.
- */
-(function () {
-  const section = document.querySelector(".gestion");
-  if (!section) return;
+const section = document.getElementById('gestion');
+const clip = document.getElementById('gestionClip');
+const NS = 'http://www.w3.org/2000/svg';
 
-  const wrap = section.querySelector(".gestion-scroll-wrap");
-  const titleBlock = section.querySelector(".gestion-title-block");
-  if (!wrap || !titleBlock) return;
+// Orden de aparición: 3, 4, 5, 7
+const boxes = ['.g-box3', '.g-box4', '.g-box5', '.g-box7']
+  .map(sel => section.querySelector(sel));
 
-  const prefersReducedMotion = window.matchMedia(
-    "(prefers-reduced-motion: reduce)"
-  ).matches;
+const rects = boxes.map(() => {
+  const r = document.createElementNS(NS, 'rect');
+  clip.appendChild(r);
+  return r;
+});
 
-  if (prefersReducedMotion) {
-    titleBlock.classList.add("is-visible");
-    return;
-  }
+const DURATION = 900;  // ms por bloque
+const STAGGER  = 250;  // ms entre bloques
+const easeOut = t => 1 - Math.pow(1 - t, 3);
 
-  // Margen final según ancho de pantalla (debe coincidir con el CSS)
-  function getPadEnd() {
-    const w = window.innerWidth;
-    if (w <= 600) return 20;
-    if (w <= 992) return 40;
-    return 80;
-  }
+let start = null;      // null = animación no iniciada
+let finished = false;
 
-  // Margen inicial (ancho), proporcional al viewport
-  function getPadStart() {
-    const padEnd = getPadEnd();
-    return Math.max(padEnd, window.innerWidth * 0.24);
-  }
+function update(now = performance.now()) {
+  const s = section.getBoundingClientRect();
 
-  let ticking = false;
+  boxes.forEach((box, i) => {
+    
+    const radius = parseFloat(getComputedStyle(box).borderTopLeftRadius) || 0;
 
-  function update() {
-    ticking = false;
+rects[i].setAttribute('rx', radius);
+rects[i].setAttribute('ry', radius);
 
-    const rect = section.getBoundingClientRect();
-    const vh = window.innerHeight;
+    const b = box.getBoundingClientRect();
+    const x = b.left - s.left;
+    const y = b.top - s.top;
 
-    // progreso 0 -> 1 a medida que el bloque entra en pantalla:
-    // 0 = el top de la sección todavía está en el borde inferior del viewport
-    // 1 = el top de la sección llegó aprox. al 15% superior del viewport
-    const start = vh;
-    const end = vh * 0.15;
-    let progress = (start - rect.top) / (start - end);
-    progress = Math.min(1, Math.max(0, progress));
-
-    const padStart = getPadStart();
-    const padEnd = getPadEnd();
-    const pad = padStart + (padEnd - padStart) * progress;
-
-    wrap.style.setProperty("--gestion-pad", pad.toFixed(1) + "px");
-
-    titleBlock.classList.toggle("is-visible", progress > 0.15);
-  }
-
-  function onScroll() {
-    if (!ticking) {
-      window.requestAnimationFrame(update);
-      ticking = true;
+    let p = 0;
+    if (start !== null) {
+      p = Math.min(Math.max((now - start - i * STAGGER) / DURATION, 0), 1);
+      p = easeOut(p);
     }
-  }
 
-  window.addEventListener("scroll", onScroll, { passive: true });
-  window.addEventListener("resize", onScroll);
-  update();
-})();
+    // El borde inferior queda fijo y el superior sube: revelado de abajo hacia arriba
+    rects[i].setAttribute('x', x);
+    rects[i].setAttribute('width', b.width);
+    rects[i].setAttribute('y', y + b.height * (1 - p));
+    rects[i].setAttribute('height', b.height * p);
+    box.style.setProperty('--p', p);
+  });
+
+  if (start !== null && now - start >= DURATION + (boxes.length - 1) * STAGGER) {
+    finished = true;
+  }
+}
+
+function loop(now) {
+  update(now);
+  if (!finished) requestAnimationFrame(loop);
+}
+
+// Inicia cuando la sección entra en pantalla
+new IntersectionObserver(([entry], obs) => {
+  if (entry.isIntersecting) {
+    start = performance.now();
+    requestAnimationFrame(loop);
+    obs.disconnect();
+  }
+}, { threshold: 0.4 }).observe(section);
+
+// Mantener la máscara alineada si cambia el tamaño
+new ResizeObserver(() => update()).observe(section);
+update();
