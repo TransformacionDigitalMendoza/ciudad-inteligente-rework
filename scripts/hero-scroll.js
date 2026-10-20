@@ -6,6 +6,7 @@
   const overlay = document.querySelector(".hero-overlay");
   const textBlocks = document.querySelector(".hero-text-blocks");
   const nav = document.querySelector(".hero-nav");
+  const heroSection = document.querySelector(".hero-section");
 
   if (!wrapper || !heroTitle || !heroBkg || !heroAside) return;
 
@@ -21,10 +22,15 @@
   const outsideTitle = document.querySelector(".hero-outside h2");
   const outside = document.querySelector(".hero-outside");
   let isMobile = window.innerWidth <= MOBILE_BREAKPOINT;
+  let FRAME = 12; // se lee de --frame en CSS
+  let SPLIT = 48; // se lee de --split en CSS (%)
   let startTop = 0;
   let startHeight = 0;
 
   function measureInitial() {
+    const cs = getComputedStyle(heroSection);
+    FRAME = parseFloat(cs.getPropertyValue("--frame")) || 12;
+    SPLIT = parseFloat(cs.getPropertyValue("--split")) || 48;
     // Quita los inline de top/height para leer los valores reales del CSS
     heroBkg.style.top = "";
     heroBkg.style.height = "";
@@ -50,6 +56,10 @@
     heroBkg.style.left = "";
     heroBkg.style.width = "";
     heroBkg.style.borderRadius = "";
+    heroBkg.style.removeProperty("--notch-s");
+    ["--frame-o", "--panel-o", "--panel-w"].forEach((v) =>
+      heroSection.style.removeProperty(v)
+    );
     if (overlay) overlay.style.opacity = "";
     if (textBlocks) {
       textBlocks.style.opacity = "";
@@ -76,9 +86,16 @@
     heroAside.style.transform = `translateX(${lerp(0, 100, p)}%)`;
 
     // Horizontal (fase 1)
-    heroBkg.style.left = `calc(${lerp(36, 0, p)}% + ${lerp(0, GAP, p)}px)`;
-    heroBkg.style.width = `calc(${lerp(60, 100, p)}% - ${lerp(0, GAP * 2, p)}px)`;
-    heroBkg.style.borderRadius = `${RADIUS}px`;
+    const leftExpr = `${lerp(SPLIT, 0, p)}% + ${lerp(0, GAP, p)}px`;
+    heroBkg.style.left = `calc(${leftExpr})`;
+    heroBkg.style.width = `calc(${lerp(100 - SPLIT, 100, p)}% - ${lerp(FRAME, GAP * 2, p)}px)`;
+    heroBkg.style.borderRadius = `${lerp(4, RADIUS, p)}px`;
+
+    // Marco, panel y muescas: se desvanecen / encogen mientras el video se expande
+    heroSection.style.setProperty("--frame-o", 1 - p);
+    heroSection.style.setProperty("--panel-o", 1 - clamp01((p - 0.75) / 0.25));
+    heroSection.style.setProperty("--panel-w", `max(0px, calc(${leftExpr} - ${FRAME}px + 8px))`);
+    heroBkg.style.setProperty("--notch-s", 1 - clamp01(p / 0.5));
 
     // Vertical: fase 1 (expande con aire) + fase 2 (crece y sube)
     const parentH = heroBkg.offsetParent
@@ -95,7 +112,7 @@
     heroBkg.style.top = `${curTop}px`;
     heroBkg.style.height = `${curHeight}px`;
 
-    if (overlay) overlay.style.opacity = lerp(0.5, 0.55, p);
+    if (overlay) overlay.style.opacity = lerp(0.35, 0.55, p);
 
     if (textBlocks) {
       const textP = clamp01((p - 0.5) / 0.5);

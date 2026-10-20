@@ -1110,7 +1110,7 @@
         grid-template-columns: repeat(2, minmax(0, 1fr));
         grid-template-rows: auto auto repeat(3, clamp(140px, 30vw, 220px)) auto;
         gap: 10px;
-        padding: 20px;
+        padding: 16px;
     }
 
     /* Reubicación explícita (pisa grid-column-start / grid-row-start del escritorio) */
@@ -1447,7 +1447,7 @@
     .gob-box1 {
         grid-column: 1 / -1;
         grid-row: 1;
-        padding: 20px 24px 28px;
+        padding: 20px 16px 28px;
     }
  .gob-box1 p{
     font-size: 1.5rem;
@@ -1501,3 +1501,99 @@
     }
 }
  
+
+/* ================= HERO MOBILE: video arriba + panel con texto abajo =================
+   Misma estética del hero de escritorio: marco con degradé, panel claro y
+   muescas semicirculares. La tarjeta sigue abriéndose a pantalla completa.
+   Variables: --frame (marco), --panel (color), --notch (tamaño muescas).      */
+@media (max-width: 992px) {
+
+    .hero {
+        --frame: 12px;
+        --panel: #eef4f2;
+        --notch: clamp(64px, 20vw, 96px);
+        /* alto del video = hasta donde empieza la tarjeta (--card-top lo fija hero.responsive.js) */
+        --vid-h: calc(var(--card-top, 56%) - var(--frame));
+background: linear-gradient(to bottom, rgba(255,255,255,0.15) 0%, rgba(0,0,0,0.15) 100%), radial-gradient(at top center, rgba(255,255,255,0.40) 0%, rgba(0,0,0,0.40) 120%) #989898;
+ background-blend-mode: multiply,multiply;
+    }
+
+    /* Video arriba, dentro del marco */
+    .hero__video {
+        inset: var(--frame) var(--frame) auto var(--frame);
+        width: calc(100% - var(--frame) * 2);
+        height: var(--vid-h);
+        border-radius: 4px 4px 0 0;
+    }
+
+    /* Capa del tamaño del video: recorta las muescas (mitad visible) */
+    .hero__shade {
+        inset: var(--frame) var(--frame) auto var(--frame);
+        height: var(--vid-h);
+        overflow: hidden;
+        border-radius: 4px 4px 0 0;
+    }
+
+    .hero__shade::before,
+    .hero__shade::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        width: var(--notch);
+        height: var(--notch);
+        margin-left: calc(var(--notch) / -2);
+        border-radius: 50%;
+        background: var(--panel);
+    }
+
+    .hero__shade::before { top: calc(var(--notch) / -2); }
+    .hero__shade::after { bottom: calc(var(--notch) / -2); }
+
+    /* Tarjeta cerrada = panel claro pegado al video, ancho completo */
+    .card {
+        left: var(--frame);
+        bottom: var(--frame);
+        width: calc(100% - var(--frame) * 2);
+        background: var(--panel);
+        border-radius: 0 0 4px 4px;
+        box-shadow: none;
+    }
+
+    .card__intro {
+        padding: 28px 24px 24px;
+    }
+
+    .tag { margin-bottom: 28px; }
+    .tag img { width: 64px; }
+
+    .card__title {
+        font-size: clamp(2.4rem, 11vw, 4rem);
+        font-weight: 500;
+        line-height: 0.95;
+        letter-spacing: -0.04em;
+        color: #1d2422;
+        margin-bottom: 14px;
+    }
+
+    .card__text {
+        color: #3b4543;
+        max-width: 36ch;
+        margin-bottom: 20px;
+    }
+
+    /* El título completo vive en el panel: se oculta la palabra flotante
+       sobre el video y se muestra la parte "sr-only" del título */
+    .hero__word { display: none; }
+
+    .card__title .sr-only {
+        position: static;
+        width: auto;
+        height: auto;
+        margin: 0;
+        overflow: visible;
+        clip: auto;
+        white-space: normal;
+    }
+
+    .card__title .sr-only::after { content: " "; }
+}

@@ -175,10 +175,6 @@ body {
     border-radius: 24px;
 }
 
-.hero-text-blocks svg {
-    position: ;
-}
-
 .hero-text-tag {
     background-color: #ffaf03;
     color: #242424;
@@ -414,6 +410,132 @@ body {
     display: flex;
     align-items: center;
     gap: 10px;
+}
+
+/* ================= HERO: marco + panel claro + muescas (desktop) =================
+   Variables editables:
+   --frame  aire entre el borde de la pantalla y el hero
+   --split  ancho del panel izquierdo (donde empieza el video)
+   --panel  color del panel y de las muescas
+   --notch  diametro de las muescas semicirculares                          */
+.hero-section {
+    --frame: 12px;
+    --split: 48%;
+    --panel: aliceblue;
+    --notch: clamp(80px, 12vw, 180px);
+}
+
+@media (min-width: 993px) {
+
+    /* Fondo degradé del marco (se desvanece al expandirse el video) */
+    .hero-section::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        opacity: var(--frame-o, 1);
+        background: linear-gradient(to bottom, rgba(255, 255, 255, 0.15) 0%, rgba(0, 0, 0, 0.15) 100%), radial-gradient(at top center, rgba(255, 255, 255, 0.40) 0%, rgba(0, 0, 0, 0.40) 120%) #989898;
+        background-blend-mode: multiply, multiply;
+    }
+
+    /* Panel claro de la izquierda (JS ajusta --panel-w al expandir) */
+    .hero-section::after {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        top: var(--frame);
+        bottom: var(--frame);
+        left: var(--frame);
+        width: var(--panel-w, calc(var(--split) - var(--frame) + 8px));
+        background: var(--panel);
+        border-radius: 4px 0 0 4px;
+        opacity: var(--panel-o, 1);
+    }
+
+    /* Video: arranca en el borde del panel y llega hasta el marco derecho */
+    .hero-bkg {
+        top: var(--frame);
+        left: var(--split);
+        width: calc(100% - var(--split) - var(--frame));
+        height: calc(100% - var(--frame) * 2);
+        border-radius: 4px;
+    }
+
+    /* Muescas: círculos del color del panel centrados en los bordes
+       izquierdo y derecho del video (overflow:hidden deja ver la mitad) */
+    .hero-bkg::before,
+    .hero-bkg::after {
+        content: "";
+        position: absolute;
+        z-index: 4;
+        top: 48%;
+        width: var(--notch);
+        height: var(--notch);
+        margin-top: calc(var(--notch) / -2);
+        border-radius: 50%;
+        background: var(--panel);
+        transform: scale(var(--notch-s, 1));
+        pointer-events: none;
+    }
+
+    .hero-bkg::before {
+        left: calc(var(--notch) / -2);
+    }
+
+    .hero-bkg::after {
+        right: calc(var(--notch) / -2);
+    }
+
+    /* Título: logo arriba, titular + texto abajo */
+    .hero-title {
+        width: var(--split);
+        height: 100%;
+        padding: calc(var(--frame) + 40px) 56px calc(var(--frame) + 48px) calc(var(--frame) + 40px);
+        justify-content: flex-end;
+        gap: 28px;
+        border-radius: 0;
+    }
+
+    .hero-title .logo {
+        height: 44px;
+        margin-bottom: auto;
+    }
+
+    .hero-title h1 {
+        font-size: clamp(3.25rem, 7vw, 8rem);
+        font-weight: 500;
+        line-height: 0.95;
+        letter-spacing: -0.035em;
+        color: #1d2422;
+    }
+
+    .hero-title span {
+        font-size: 0.95rem;
+        line-height: 1.55;
+        max-width: 420px;
+        color: #3b4543;
+    }
+
+    .hero-title a {
+        width: fit-content;
+        gap: 16px;
+        padding: 12px 20px;
+        border-radius: 999px;
+        font-size: 0.9rem;
+    }
+
+    /* Aside: texto sobre el video, lejos de las muescas */
+    .hero-aside {
+        left: var(--split);
+        bottom: var(--frame);
+        width: calc(100% - var(--split) - var(--frame));
+        height: calc(100% - var(--frame) * 2);
+        padding: 60px 60px 60px calc(var(--notch) / 2 + 48px);
+    }
+
+    .hero-aside-bottom {
+        padding-right: 20%;
+    }
 }
 
 .gestion {
@@ -1149,14 +1271,14 @@ body {
     padding: 20px;
     margin: 48px 0;
 }
- 
+
 .gob-grid {
     --gob-ease: cubic-bezier(0.65, 0, 0.35, 1);
     --gob-index: 0;
     --gob-accent: #ffaf03;
     --gob-on: #1c2333;
     /* color del icono/texto sobre el acento */
- 
+
     position: relative;
     width: 100%;
     height: 100vh;
@@ -1167,11 +1289,22 @@ body {
     gap: 0;
     /* sin gap: los bloques 2 y 3 tienen que tocarse */
 }
- 
-.gob-grid[data-active="0"] { --gob-accent: #ffaf03; --gob-on: #1c2333; }
-.gob-grid[data-active="1"] { --gob-accent: #21b57a; --gob-on: #1c2333; }
-.gob-grid[data-active="2"] { --gob-accent: #2f5fd6; --gob-on: #ffffff; }
- 
+
+.gob-grid[data-active="0"] {
+    --gob-accent: #ffaf03;
+    --gob-on: #1c2333;
+}
+
+.gob-grid[data-active="1"] {
+    --gob-accent: #21b57a;
+    --gob-on: #1c2333;
+}
+
+.gob-grid[data-active="2"] {
+    --gob-accent: #2f5fd6;
+    --gob-on: #ffffff;
+}
+
 /* ----- Máscara: el video solo se ve dentro de la forma 2 + 3 ----- */
 .gob-shape {
     position: absolute;
@@ -1182,11 +1315,11 @@ body {
     transition: opacity 0.4s ease;
     /* el clip-path lo escribe el JS */
 }
- 
+
 .gob-grid.is-ready .gob-shape {
     opacity: 1;
 }
- 
+
 .gob-video {
     position: absolute;
     inset: 0;
@@ -1196,13 +1329,13 @@ body {
     background: #1c2333;
     /* color mientras carga */
 }
- 
+
 .gob-shape-overlay {
     position: absolute;
     inset: 0;
     background: linear-gradient(90deg, rgba(0, 0, 0, 0.78) 0%, rgba(0, 0, 0, 0.5) 60%, rgba(0, 0, 0, 0.35) 100%);
 }
- 
+
 /* ----- Bloque 1: título ----- */
 .gob-box1 {
     grid-column: 1 / span 6;
@@ -1215,25 +1348,25 @@ body {
     gap: 16px;
     padding: 0 48px 24px 0;
 }
- 
+
 .gob-box1 h2 {
     font-size: clamp(4.5rem, 6vw, 5rem);
     line-height: 1;
     text-transform: uppercase;
     color: #242424;
 }
- 
+
 .gob-box1 p {
     max-width: 560px;
     font-size: 1.2rem;
     line-height: 1.5;
     color: #242424;
 }
- 
+
 .gob-box1 p span {
     font-weight: 700;
 }
- 
+
 /* ----- Bloque 3: tab con los 3 iconos (nav) ----- */
 .gob-box3 {
     grid-column: 7 / span 4;
@@ -1248,14 +1381,14 @@ body {
     padding: 20px;
     color: aliceblue;
 }
- 
+
 .gob-icons {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 18px;
 }
- 
+
 .gob-icon {
     display: grid;
     place-items: center;
@@ -1270,24 +1403,24 @@ body {
     transition: background-color 0.4s var(--gob-ease), color 0.4s var(--gob-ease),
         transform 0.25s ease, border-color 0.4s var(--gob-ease);
 }
- 
+
 .gob-icon:hover {
     transform: translateY(-3px);
     background: rgba(255, 255, 255, 0.22);
 }
- 
+
 .gob-icon.is-active {
     background: var(--gob-accent);
     border-color: var(--gob-accent);
     color: var(--gob-on);
     transform: scale(1.08);
 }
- 
+
 .gob-icon:focus-visible {
     outline: 3px solid #ffffff;
     outline-offset: 3px;
 }
- 
+
 .gob-nav-label {
     font-size: 0.95rem;
     font-weight: 700;
@@ -1299,14 +1432,14 @@ body {
     filter: blur(0);
     transition: opacity 0.25s ease, transform 0.35s var(--gob-ease), filter 0.25s ease;
 }
- 
+
 /* salida: sube y se desvanece */
 .gob-nav-label.is-leaving {
     opacity: 0;
     transform: translateY(-10px);
     filter: blur(3px);
 }
- 
+
 /* entrada: arranca desde abajo (sin transición) y luego se asienta */
 .gob-nav-label.is-entering {
     opacity: 0;
@@ -1314,7 +1447,7 @@ body {
     filter: blur(3px);
     transition: none;
 }
- 
+
 /* ----- Bloque 2: slider ----- */
 .gob-box2 {
     grid-column: 1 / -1;
@@ -1323,7 +1456,7 @@ body {
     z-index: 1;
     color: aliceblue;
 }
- 
+
 .gob-viewport {
     position: relative;
     width: 100%;
@@ -1331,7 +1464,7 @@ body {
     overflow: hidden;
     border-radius: 24px;
 }
- 
+
 .gob-track {
     display: flex;
     width: 100%;
@@ -1340,7 +1473,7 @@ body {
     transition: transform 1s var(--gob-ease);
     will-change: transform;
 }
- 
+
 .gob-slide {
     flex: 0 0 100%;
     height: 100%;
@@ -1350,34 +1483,34 @@ body {
     gap: 28px;
     padding: 44px 56px 40px;
 }
- 
+
 /* Slides inactivos fuera del foco y la tabulación */
 .gob-slide[aria-hidden="true"] {
     visibility: hidden;
     transition: visibility 0s 1s;
 }
- 
+
 .gob-slide-title {
     font-size: clamp(2rem, 4vw, 3.5rem);
     font-weight: 700;
     line-height: 1.05;
     margin-bottom: 14px;
 }
- 
+
 .gob-slide-lead {
     max-width: 640px;
     font-size: 1.15rem;
     line-height: 1.55;
     opacity: 0.92;
 }
- 
+
 /* ----- 3 tarjetas por slide ----- */
 .gob-cards {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 20px;
 }
- 
+
 .gob-card {
     display: flex;
     flex-direction: column;
@@ -1389,12 +1522,12 @@ body {
     border-radius: 18px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
 }
- 
+
 .gob-card h4 {
     font-size: 1.15rem;
     line-height: 1.2;
 }
- 
+
 .gob-card p {
     font-size: 0.92rem;
     line-height: 1.5;
@@ -1404,7 +1537,7 @@ body {
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
- 
+
 .gob-card-btn {
     margin-top: auto;
     padding: 10px 22px;
@@ -1416,18 +1549,18 @@ body {
     text-decoration: none;
     transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
 }
- 
+
 .gob-card-btn:hover {
     background: var(--gob-accent);
     color: var(--gob-on);
     transform: translateY(-1px);
 }
- 
+
 .gob-card-btn:focus-visible {
     outline: 2px solid var(--gob-accent);
     outline-offset: 2px;
 }
- 
+
 /* ----- Entrada escalonada del slide activo ----- */
 .gob-slide-title,
 .gob-slide-lead,
@@ -1436,7 +1569,7 @@ body {
     transform: translateY(28px);
     transition: opacity 0.4s ease, transform 0.4s ease;
 }
- 
+
 .gob-slide.is-active .gob-slide-title,
 .gob-slide.is-active .gob-slide-lead,
 .gob-slide.is-active .gob-card {
@@ -1444,12 +1577,26 @@ body {
     transform: none;
     transition: opacity 0.9s ease, transform 1s var(--gob-ease);
 }
- 
-.gob-slide.is-active .gob-slide-title { transition-delay: 0.45s; }
-.gob-slide.is-active .gob-slide-lead { transition-delay: 0.6s; }
-.gob-slide.is-active .gob-card:nth-child(1) { transition-delay: 0.75s; }
-.gob-slide.is-active .gob-card:nth-child(2) { transition-delay: 0.85s; }
-.gob-slide.is-active .gob-card:nth-child(3) { transition-delay: 0.95s; }
+
+.gob-slide.is-active .gob-slide-title {
+    transition-delay: 0.45s;
+}
+
+.gob-slide.is-active .gob-slide-lead {
+    transition-delay: 0.6s;
+}
+
+.gob-slide.is-active .gob-card:nth-child(1) {
+    transition-delay: 0.75s;
+}
+
+.gob-slide.is-active .gob-card:nth-child(2) {
+    transition-delay: 0.85s;
+}
+
+.gob-slide.is-active .gob-card:nth-child(3) {
+    transition-delay: 0.95s;
+}
 
 /* ----- Responsive ----- */
 
