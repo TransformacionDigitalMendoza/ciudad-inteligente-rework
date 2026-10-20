@@ -29,14 +29,13 @@
 
       <div class="hero-bkg">
         <video id="video1" class="video-player active" playsinline muted autoplay>
-          <source src="https://www.dropbox.com/scl/fi/01n7se1g3hs60aaj6hxts/hero1.mp4?rlkey=zsd20ns5dv4rfcy82pl0qlyji&st=l21uz78j&raw=1" type="video/mp4" />
+          <source
+            src="https://www.dropbox.com/scl/fi/01n7se1g3hs60aaj6hxts/hero1.mp4?rlkey=zsd20ns5dv4rfcy82pl0qlyji&st=l21uz78j&raw=1"
+            type="video/mp4" />
         </video>
         <video id="video2" class="video-player" playsinline muted>
-          <source src="https://www.dropbox.com/scl/fi/ehgsa133uls456tve4esz/hero2.mp4?rlkey=zgvmllcaocyterz7m1egwsled&st=kulkyehm&raw=1" type="video/mp4" />
-        </video>
-        <video id="video3" class="video-player" playsinline muted>
           <source
-            src="https://www.dropbox.com/scl/fi/zc5ur0kswhj0psiyhqdl6/14209120-uhd_3840_2160_30fps.mp4?rlkey=sidtm09tu7ciq6pml8xy8qs1c&st=jxtvxa0l&raw=1"
+            src="https://www.dropbox.com/scl/fi/ehgsa133uls456tve4esz/hero2.mp4?rlkey=zgvmllcaocyterz7m1egwsled&st=kulkyehm&raw=1"
             type="video/mp4" />
         </video>
 
@@ -80,9 +79,44 @@
       </div>
     </section>
   </section>
+  <section class="hero" id="hero" aria-label="Portada">
+    <video class="hero__video" id="heroVideo"
+      src="https://www.dropbox.com/scl/fi/ehgsa133uls456tve4esz/hero2.mp4?rlkey=zgvmllcaocyterz7m1egwsled&st=gfwokgz6&raw=1"
+      autoplay muted loop playsinline preload="auto" aria-hidden="true"></video>
+    <div class="hero__shade"></div>
 
+
+
+    <article class="card" id="card">
+      <div class="card__intro">
+        <div class="tag">
+          <img src="/assets/images/logo.png" alt="">
+        </div>
+        <h1 class="card__title">Ciudad Inteligente</h1>
+        <p class="card__text">Tecnología e innovación al servicio de una ciudad más conectada,
+          eficiente y cercana a sus ciudadanos.</p>
+        <button class="cta" id="openBtn" type="button" aria-expanded="false" aria-controls="reveal">
+          <span>Conocé nuestro trabajo</span>
+        </button>
+      </div>
+
+      <div class="reveal" id="reveal">
+        <button class="reveal__close" id="closeBtn" type="button" style="--i:0">Volver</button>
+        
+        <h2 class="reveal__title" id="revealTitle" tabindex="-1" style="--i:1">Innovación que transforma</h2>
+        <p class="reveal__text" style="--i:2">Creamos herramientas basadas en datos, inteligencia artificial, sensores y
+          plataformas digitales para anticipar necesidades, resolver problemas y construir una ciudad más sostenible.
+        </p>
+<a class="reveal__eyebrow" style="--i:0" href="/pages/team/index.html">Conocé al equipo</a>
+      </div>
+      
+    </article>
+  </section>
   <!-- ===== STICKY NAV: píldora fija en pantalla (posición animada por hero-scroll.js) ===== -->
   <nav class="sticky-nav-header hero-nav" aria-label="Navegación principal">
+    <div class="nav-logo">
+      <img src="/assets/images/logo.png" alt="">
+    </div>
     <ul class="hero-nav__list">
 
       <li class="hero-nav__li">
@@ -190,7 +224,9 @@
   <section class="gestion" id="gestion">
     <div class="gestion-main">
       <!-- Un solo video compartido -->
-      <video class="g-video" src="https://www.dropbox.com/scl/fi/ifnstbpb52ooakma5fwaw/gestion.mp4?rlkey=g0v9h660dca81zyf2r6dmyp0q&st=e8vvp8lt&raw=1" autoplay muted loop playsinline></video>
+      <video class="g-video"
+        src="https://www.dropbox.com/scl/fi/ifnstbpb52ooakma5fwaw/gestion.mp4?rlkey=g0v9h660dca81zyf2r6dmyp0q&st=e8vvp8lt&raw=1"
+        autoplay muted loop playsinline></video>
 
       <div class="g-box1 g-box-title">
         <h2>Gestión basada <br> en evidencia</h2>
@@ -246,8 +282,9 @@
         <div class="g-slider-stage">
 
           <!-- Mismo video que usa la máscara de g-box-bkg, compartido por todos los slides -->
-          <video class="g-slider-video" src="https://www.dropbox.com/scl/fi/ifnstbpb52ooakma5fwaw/gestion.mp4?rlkey=g0v9h660dca81zyf2r6dmyp0q&st=e8vvp8lt&raw=1" autoplay muted loop
-            playsinline></video>
+          <video class="g-slider-video"
+            src="https://www.dropbox.com/scl/fi/ifnstbpb52ooakma5fwaw/gestion.mp4?rlkey=g0v9h660dca81zyf2r6dmyp0q&st=e8vvp8lt&raw=1"
+            autoplay muted loop playsinline></video>
           <div class="g-slider-overlay"></div>
 
           <!-- Nav interno: siempre visible, arriba y centrado -->
@@ -308,7 +345,7 @@
                       más</button>
                   </article>
                   <article class="g-app g-app--blue">
-                    <span class="g-app-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></span>
+                    <span class="g-app-icon"><i class="fa-solid fa-list-check"></i></span>
                     <h4 class="g-app-title">Modelo Predictivo de Ausentismo en Centros de Salud</h4>
                     <p class="g-app-desc">Inteligencia artificial para mejorar el acceso a la salud</p>
                     <div class="g-app-tags"><span class="g-tag-status g-tag-status--live">En curso</span><span>IA</span>
@@ -317,7 +354,7 @@
                       más</button>
                   </article>
                   <article class="g-app g-app--green">
-                    <span class="g-app-icon"><i class="fa-solid fa-comments"></i></span>
+                    <span class="g-app-icon"><i class="fa-solid fa-road"></i></span>
                     <h4 class="g-app-title">Inteligencia urbana</h4>
                     <p class="g-app-desc">IA para comprender la ciudad en tiempo real.</p>
                     <div class="g-app-tags"><span class="g-tag-status g-tag-status--proposed">Piloto
@@ -326,7 +363,7 @@
                       más</button>
                   </article>
                   <article class="g-app g-app--red">
-                    <span class="g-app-icon"><i class="fa-solid fa-lightbulb"></i></span>
+                    <span class="g-app-icon"><i class="fa-solid fa-folder-open"></i></span>
                     <h4 class="g-app-title">Gestión documental inteligente</h4>
                     <p class="g-app-desc">IA aplicada a los procesos administrativos.</p>
                     <div class="g-app-tags"><span class="g-tag-status g-tag-status--proposed">Piloto
@@ -344,28 +381,36 @@
                     <p class="g-app-desc">Consultá los resultados del censo y la información demográfica de la Ciudad.
                     </p>
                     <div class="g-app-tags"><span>Población</span><span>Hogares</span></div>
-                    <a class="g-app-btn" href="#">Ver tablero</a>
+                    <a class="g-app-btn"
+                      href="https://app.powerbi.com/view?r=eyJrIjoiZTQxYWM5NDYtOGQ3OS00ZGVkLTkzM2YtOTM4MzAyNjU4ODc5IiwidCI6IjA3MjEzMTBmLTYxZDctNDE4ZS05ODc1LTM4MTkwYzczN2Y4YSIsImMiOjR9">Ver
+                      tablero</a>
                   </article>
                   <article class="g-app g-app--red">
                     <span class="g-app-icon"><i class="fa-solid fa-car-burst"></i></span>
                     <h4 class="g-app-title">Accidentes viales</h4>
                     <p class="g-app-desc">Seguí la siniestralidad vial: ubicación, frecuencia y zonas críticas.</p>
                     <div class="g-app-tags"><span>Seguridad vial</span><span>Tránsito</span></div>
-                    <a class="g-app-btn" href="#">Ver tablero</a>
+                    <a class="g-app-btn"
+                      href="https://app.powerbi.com/view?r=eyJrIjoiOTUyMjRjNjctNTEwNy00ZTI3LTg3NDctZTZlMTI1YTZhOWJjIiwidCI6IjA3MjEzMTBmLTYxZDctNDE4ZS05ODc1LTM4MTkwYzczN2Y4YSIsImMiOjR9">Ver
+                      tablero</a>
                   </article>
                   <article class="g-app g-app--green">
                     <span class="g-app-icon"><i class="fa-solid fa-recycle"></i></span>
                     <h4 class="g-app-title">Gestión Integral de Residuos Sólidos Urbanos</h4>
                     <p class="g-app-desc">Indicadores de recolección, reciclaje y tratamiento de residuos.</p>
                     <div class="g-app-tags"><span>Ambiente</span><span>Residuos</span></div>
-                    <a class="g-app-btn" href="#">Ver tablero</a>
+                    <a class="g-app-btn"
+                      href="https://app.powerbi.com/view?r=eyJrIjoiM2RmNjhjYTMtYjBhYS00YjBjLWIzMTktZmFmZDQzMGZjZGQ3IiwidCI6IjA3MjEzMTBmLTYxZDctNDE4ZS05ODc1LTM4MTkwYzczN2Y4YSIsImMiOjR9">Ver
+                      tablero</a>
                   </article>
                   <article class="g-app g-app--yellow">
                     <span class="g-app-icon"><i class="fa-solid fa-helmet-safety"></i></span>
                     <h4 class="g-app-title">Obras públicas</h4>
                     <p class="g-app-desc">Estado y avance de las obras públicas en toda la Ciudad.</p>
                     <div class="g-app-tags"><span>Infraestructura</span><span>Inversión</span></div>
-                    <a class="g-app-btn" href="#">Ver tablero</a>
+                    <a class="g-app-btn"
+                      href="https://webgis.ciudaddemendoza.gob.ar/portal/apps/experiencebuilder/experience/?id=db1aaa8a98f04c01b06d89543bb686e1">Ver
+                      tablero</a>
                   </article>
                 </div>
               </div>
@@ -383,14 +428,14 @@
                     <h4 class="g-app-title">Invest ciudad de Mendoza</h4>
                     <p class="g-app-desc">Conocé datos y oportunidades para invertir en la ciudad.</p>
                     <div class="g-app-tags"><span>Inversiones</span><span>Desarrollo</span></div>
-                    <a class="g-app-btn" href="#">Conocer Invest</a>
+                    <a class="g-app-btn" href="https://invest.ciudaddemendoza.gob.ar/">Conocer Invest</a>
                   </article>
                   <article class="g-app g-app--red">
                     <span class="g-app-icon"><i class="fa-solid fa-plane"></i></span>
                     <h4 class="g-app-title">Turismo</h4>
                     <p class="g-app-desc">Descubrí atractivos, experiencias y propuestas de la Ciudad.</p>
                     <div class="g-app-tags"><span>Turismo</span><span>Experiencias</span></div>
-                    <a class="g-app-btn" href="#">Descubrir Mendoza</a>
+                    <a class="g-app-btn" href="https://turismo.ciudaddemendoza.gob.ar/">Descubrir Mendoza</a>
                   </article>
                   <article class="g-app g-app--yellow">
                     <span class="g-app-icon"><i class="fa-solid fa-seedling"></i></span>
@@ -404,14 +449,8 @@
                     <h4 class="g-app-title">Explorador Urbano</h4>
                     <p class="g-app-desc">Explorá información territorial a través de mapas interactivos.</p>
                     <div class="g-app-tags"><span>Ciudad</span><span>Mapas</span></div>
-                    <a class="g-app-btn" href="#">Explorar la ciudad</a>
-                  </article>
-                  <article class="g-app g-app--green">
-                    <span class="g-app-icon"><i class="fa-solid fa-calendar-days"></i></span>
-                    <h4 class="g-app-title">Agenda cultural</h4>
-                    <p class="g-app-desc">Encontrá eventos, actividades y propuestas culturales.</p>
-                    <div class="g-app-tags"><span>Cultura</span><span>Eventos</span></div>
-                    <a class="g-app-btn" href="#">Ver agenda</a>
+                    <a class="g-app-btn"
+                      href="https://invest.ciudaddemendoza.gob.ar/pages/modoParcelas/index.html">Explorar la ciudad</a>
                   </article>
                 </div>
               </div>
@@ -427,8 +466,9 @@
 
       <!-- Máscara: el video solo se ve dentro de la forma bloque 2 + bloque 3 (clip-path generado por gob-grid.js) -->
       <div class="gob-shape" aria-hidden="true">
-        <video class="gob-video" src="https://www.dropbox.com/scl/fi/9kjhudn7m3aa561ulz6qy/gob-abierto.mp4?rlkey=xri6g2bdvjxqo1bzwcpktrrlw&st=x17hnknm&raw=1" autoplay muted loop
-          playsinline></video>
+        <video class="gob-video"
+          src="https://www.dropbox.com/scl/fi/9kjhudn7m3aa561ulz6qy/gob-abierto.mp4?rlkey=xri6g2bdvjxqo1bzwcpktrrlw&st=x17hnknm&raw=1"
+          autoplay muted loop playsinline></video>
         <div class="gob-shape-overlay"></div>
       </div>
 
@@ -487,14 +527,19 @@
                         aria-hidden="true"></i></button>
                     <h4>Finanzas Públicas</h4>
                     <ul class="gob-panel-list">
-                      <li><a class="gob-panel-btn" href="#"><i class="fa-solid fa-coins"
-                            aria-hidden="true"></i><span>Licitaciones y contrataciones</span><i
-                            class="fa-solid fa-arrow-right gob-panel-arrow" aria-hidden="true"></i></a></li>
-                      <li><a class="gob-panel-btn" href="#"><i class="fa-solid fa-file-invoice-dollar"
-                            aria-hidden="true"></i><span>Información fiscal</span><i
-                            class="fa-solid fa-arrow-right gob-panel-arrow" aria-hidden="true"></i></a></li>
-                      <li><a class="gob-panel-btn" href="#"><i class="fa-solid fa-chart-pie"
-                            aria-hidden="true"></i><span>Digesto municipal</span><i
+                      <li><a class="gob-panel-btn"
+                          href="https://apex.ciudaddemendoza.gov.ar/apex/produccion/f?p=204:10031:2738375024704::NO:10031:P10031_GO_BACK:10012"><i
+                            class="fa-solid fa-coins" aria-hidden="true"></i><span>Licitaciones y
+                            contrataciones</span><i class="fa-solid fa-arrow-right gob-panel-arrow"
+                            aria-hidden="true"></i></a></li>
+                      <li><a class="gob-panel-btn"
+                          href="https://ciudaddemendoza.gob.ar/area-municipal/informacion-fiscal/"><i
+                            class="fa-solid fa-file-invoice-dollar" aria-hidden="true"></i><span>Información
+                            fiscal</span><i class="fa-solid fa-arrow-right gob-panel-arrow" aria-hidden="true"></i></a>
+                      </li>
+                      <li><a class="gob-panel-btn"
+                          href="https://apex.ciudaddemendoza.gov.ar/apex/produccion/f?p=204:3005"><i
+                            class="fa-solid fa-chart-pie" aria-hidden="true"></i><span>Digesto municipal</span><i
                             class="fa-solid fa-arrow-right gob-panel-arrow" aria-hidden="true"></i></a></li>
                     </ul>
                   </div>
@@ -518,11 +563,7 @@
                     rel="noopener noreferrer">Participar</a>
                 </article>
 
-                <article class="gob-card">
-                  <h4>Alarmas Comunitarias</h4>
-                  <p>Una red vecinal de alarmas que ya conecta a más de 3.000 familias de la Ciudad.</p>
-                  <a class="gob-card-btn" href="#">Sumate</a>
-                </article>
+
 
                 <article class="gob-card gob-card--expandable">
                   <h4>Seguridad Ciudadana</h4>
@@ -572,7 +613,7 @@
                   <h4>Tablero de pedidos</h4>
                   <p>Seguí el estado y las estadísticas de los más de 350 pedidos de información recibidos.</p>
                   <a class="gob-card-btn"
-                    href="https://app.powerbi.com/links/llDJrfIwQ6?ctid=0721310f-61d7-418e-9875-38190c737f8a&amp;pbi_source=linkShare&amp;bookmarkGuid=bebe9b9a-21ae-426a-bdef-5433b42c1fb6"
+                    href="https://app.powerbi.com/view?r=eyJrIjoiMGMxNGZlYzYtYWRkZi00ZTliLTg1NGQtNTAxYzgyMDBjNWFmIiwidCI6IjA3MjEzMTBmLTYxZDctNDE4ZS05ODc1LTM4MTkwYzczN2Y4YSIsImMiOjR9"
                     target="_blank" rel="noopener noreferrer">Ver tablero</a>
                 </article>
                 <article class="gob-card">
@@ -779,29 +820,19 @@
   <script src="scripts/gestion-animation.js"></script>
   <script src="scripts/gestion-slider.js"></script>
   <script src="scripts/ia-modal.js"></script>
-  <script src="scripts/red-neuronal.js"></script>
   <script src="scripts/header-responsive.js"></script>
   <script src="scripts/header-list.js"></script>
-  <script src="scripts/chat.js"></script>
-  <script src="scripts/chat-demo.js"></script>
-  <script src="scripts/datos.iframe.js"></script>
-  <script src="scripts/charts-ciencia-datos-tend.js"></script>
-  <script src="scripts/charts-Ciencia-datos.js"></script>
   <script src="scripts/g-cards.js"></script>
-  <script src="scripts/header.js"></script>
   <script src="scripts/agenda-title.js"></script>
   <script src="scripts/carrucel-agenda.js"></script>
   <script src="scripts/gob-abierto-cards.js"></script>
   <script src="scripts/gob-abierto-scroll.js"></script>
-  <script src="scripts/gob-grid.js"></script>
   <script src="scripts/gob-card-expand.js"></script>
-  <script src="scripts/kpis.js"></script>
   <script src="scripts/video-hero.js"></script>
   <script src="scripts/hero-scroll.js"></script>
   <script src="scripts/hero-click-scroll.js"></script>
-  <script src="scripts/seguridad-panel.js"></script>
   <script src="scripts/page-transition.js"></script>
-
+  <script src="scripts/hero.responsive.js"></script>
 
 </body>
 

@@ -49,9 +49,16 @@
     if (e.key === 'ArrowLeft') { goTo(current - 1); tabs[current].focus(); }
   });
 
-  // Swipe en pantallas táctiles
+  // Swipe en pantallas táctiles para cambiar de sección.
+  // En móvil (mismo corte que el CSS responsive) está desactivado: las secciones
+  // se cambian solo con las pestañas, así el gesto horizontal queda libre para
+  // desplazar las cards. Tampoco se dispara si el gesto empieza sobre la card.
+  const mobileQuery = window.matchMedia('(max-width: 768px)');
   let startX = null;
-  slider.addEventListener('touchstart', (e) => { startX = e.touches[0].clientX; }, { passive: true });
+  slider.addEventListener('touchstart', (e) => {
+    const onCard = !!e.target.closest('.g-card');
+    startX = (mobileQuery.matches || onCard) ? null : e.touches[0].clientX;
+  }, { passive: true });
   slider.addEventListener('touchend', (e) => {
     if (startX === null) return;
     const dx = e.changedTouches[0].clientX - startX;

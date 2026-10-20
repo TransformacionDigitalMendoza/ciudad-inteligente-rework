@@ -31,7 +31,20 @@
     const tx0 = n(b.left - g.left); // borde izquierdo del tab
     const ty0 = n(b.top - g.top); // borde superior del tab
 
-    const d = [
+    // Si el bloque 3 ocupa todo el ancho (mobile) no hay pestaña ni curva cóncava:
+    // la máscara es un rectángulo redondeado simple.
+    const fullWidth = tx0 <= x0 + 1;
+    const d = fullWidth ? [
+      `M ${x0} ${ty0 + R}`,
+      `A ${R} ${R} 0 0 1 ${x0 + R} ${ty0}`,
+      `L ${x1 - R} ${ty0}`,
+      `A ${R} ${R} 0 0 1 ${x1} ${ty0 + R}`,
+      `L ${x1} ${y1 - R}`,
+      `A ${R} ${R} 0 0 1 ${x1 - R} ${y1}`,
+      `L ${x0 + R} ${y1}`,
+      `A ${R} ${R} 0 0 1 ${x0} ${y1 - R}`,
+      'Z',
+    ].join(' ') : [
       `M ${tx0} ${ty0 + R}`,
       `A ${R} ${R} 0 0 1 ${tx0 + R} ${ty0}`, // esquina sup. izq. del tab
       `L ${x1 - R} ${ty0}`,
@@ -62,6 +75,27 @@
   /* ---------- Slider ---------- */
   let current = 0;
 
+  // Etiqueta del nav: sale hacia arriba y el nuevo texto entra desde abajo
+  let labelTimer = null;
+  function setLabel(text) {
+    if (!label || label.textContent === text) return;
+    clearTimeout(labelTimer);
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduce || !label.textContent.trim()) {
+      label.textContent = text;
+      return;
+    }
+    label.classList.remove('is-entering');
+    label.classList.add('is-leaving');
+    labelTimer = setTimeout(() => {
+      label.textContent = text;
+      label.classList.remove('is-leaving');
+      label.classList.add('is-entering');
+      void label.offsetWidth; // fuerza reflow para que arranque la transición
+      label.classList.remove('is-entering');
+    }, 250);
+  }
+
   function setActive(i) {
     current = (i + slides.length) % slides.length;
     grid.style.setProperty('--gob-index', current);
@@ -81,7 +115,7 @@
       s.inert = !on;
     });
 
-    if (label) label.textContent = names[current];
+    setLabel(names[current]);
     // La altura de la máscara puede cambiar en mobile
     requestAnimationFrame(buildMask);
   }
