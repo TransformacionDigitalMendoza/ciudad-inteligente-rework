@@ -744,12 +744,14 @@
 
 
     .agenda-kpi {
+        width: 100%;
         flex-wrap: wrap;
         padding: 20px 24px;
         gap: 10px;
     }
 
     .agenda-kpi .agenda-kpi__card {
+        width: 50%;
         flex: 1 1 calc(50% - 10px);
         padding: 1.6rem .8rem;
         text-align: center;
