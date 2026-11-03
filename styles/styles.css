@@ -1,0 +1,3818 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Raleway", sans-serif;
+}
+
+.hero {
+    display: none;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: aliceblue;
+}
+
+#gestion {
+    scroll-margin-top: 120px;
+}
+
+#gobierno {
+    scroll-margin-top: 250px;
+}
+
+#agenda {
+    scroll-margin-top: 120px;
+}
+
+/* El wrapper le da "alto de scroll" a la sección para que
+   el usuario pueda scrollear mientras el hero queda fijo (sticky)
+   y la animación va progresando. Subí/bajá el 250vh para hacer
+   la transición más larga o más corta. */
+.hero-wrapper {
+    position: relative;
+    height: 250vh;
+}
+
+.hero-section {
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* ---- Título (izquierda) ---- */
+.hero-title {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 35%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: start;
+    gap: 40px;
+    padding: 80px;
+    will-change: transform, opacity;
+    border-radius: 24px;
+}
+.hero-direct-links{
+    width: auto;
+    height: auto;
+    display: flex;
+    gap: 8px;
+}
+
+
+.logo {
+    width: 100%;
+    height: 80px;
+    overflow: hidden;
+    display: flex;
+    justify-content: start;
+}
+
+.logo img {
+    width: auto;
+    height: 100%;
+    object-fit: contain;
+}
+
+.hero-title h1 {
+    font-size: 6rem;
+}
+
+.hero-title span {
+    font-size: 1.5rem;
+}
+
+.hero-direct-links a {
+    width: 100%;
+    padding: 15px;
+    text-decoration: none;
+    color: aliceblue;
+    font-weight: 700;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+.hero-btn1{
+    background-color: #2f5fd6;
+}
+.hero-btn2{
+    background-color: #e29b01;
+}
+.hero-btn3{
+    background-color: #19a76e;
+}
+/* ---- Fondo de video (centro) ---- */
+.hero-bkg {
+    position: absolute;
+    top: 25px;
+    left: 40%;
+    width: 30%;
+    height: 95%;
+    overflow: hidden;
+    border-radius: 24px;
+    cursor: pointer;
+    will-change: left, width, border-radius;
+}
+
+/* Texto que invita al click, aparece al hacer hover sobre hero-bkg */
+.hero-bkg-hint {
+    z-index: 4;
+    background-color: #ffaf03;
+    color: #242424;
+    padding: 12px 24px;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 700;
+    white-space: nowrap;
+    opacity: 1;
+    z-index: 9999;
+    cursor: pointer;
+}
+
+
+/* Una vez que arrancó la animación de scroll (video expandiéndose),
+   el hint queda oculto aunque sigas en hover, para no pisar el texto. */
+.hero-bkg.hero-bkg--hide-hint .hero-bkg-hint {
+    opacity: 0;
+    transform: translate(-50%, -50%) translateY(10px);
+}
+
+.video-player {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: none;
+}
+
+.video-player.active {
+    display: block;
+}
+
+/* Overlay oscuro sobre el video, aparece con el scroll */
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: #242424de;
+    opacity: 0;
+    z-index: 2;
+    pointer-events: none;
+}
+
+/* Bloques de texto sobre el video expandido */
+.hero-text-blocks {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: aliceblue;
+    opacity: 0;
+    transform: translateY(30px);
+    pointer-events: none;
+    will-change: transform, opacity;
+    border-radius: 24px;
+}
+
+.hero-text-tag {
+    background-color: #ffaf03;
+    color: #242424;
+    padding: 8px 18px;
+    border-radius: 24px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.hero-text-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 40px;
+}
+
+.hero-text-bottom a {
+    background-color: #ffaf03;
+    color: #242424;
+    padding: 8px 18px;
+    border-radius: 24px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-decoration: none;
+}
+
+
+.hero-text-blocks h2 {
+    font-size: 3rem;
+    max-width: 800px;
+    margin-bottom: 20px;
+}
+
+.hero-text-blocks p {
+    font-size: 1.3rem;
+    max-width: 600px;
+}
+
+/* ---- Aside (derecha) ---- */
+.hero-aside {
+    position: absolute;
+    bottom: 0;
+    left: 35%;
+    width: 100%;
+    height: 100%;
+    will-change: transform, opacity;
+    padding: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    color: aliceblue;
+    z-index: 9;
+}
+.hero-aside-logos{
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    display: flex;
+    gap: 8px;
+}
+.hero-aside-logos img{
+    width: 80px;
+    height: auto;
+}
+.header {
+    width: 100%;
+    height: auto;
+}
+
+.header ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    list-style: none;
+}
+
+.header a {
+    width: 100%;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    color: aliceblue;
+    padding: 10px;
+    font-size: 1rem;
+    font-weight: 700;
+    transition: 0.5s;
+    gap: 10px;
+    text-decoration: none;
+}
+
+.header a:hover {
+    background-color: #ffaf03;
+    color: #242424;
+    cursor: pointer;
+}
+
+.hero-aside-bottom {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    align-items: start;
+    padding-right: 50%;
+}
+
+.hero-aside h2 {
+    font-size: 2rem;
+}
+
+.trust-block {
+    width: 320px;
+    margin-top: 40px;
+}
+
+.trust-block__number {
+    font-size: 40px;
+    font-weight: 700;
+    margin: 0 0 8px 0;
+    line-height: 1;
+}
+
+.trust-block__text {
+    font-size: 15px;
+    line-height: 1.4;
+    margin: 0 0 16px 0;
+}
+
+.trust-block__avatars {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+/* Cada avatar ahora es un item interactivo, no solo una imagen */
+.trust-block__avatar-item {
+    position: relative;
+    margin-left: -12px;
+}
+
+.trust-block__avatar-item:first-child {
+    margin-left: 0;
+}
+
+/* El z-index sube al pasar el mouse para que la foto y su card
+     queden por encima de los avatares vecinos */
+.trust-block__avatar-item:hover,
+.trust-block__avatar-item:focus-within {
+    z-index: 10;
+}
+
+.trust-block__avatars img {
+    display: block;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid aliceblue;
+    box-shadow: 0 0 0 1px rgba(36, 36, 36, 0.06);
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.trust-block__avatar-item:hover img,
+.trust-block__avatar-item:focus-within img {
+    transform: scale(1.08);
+}
+
+/* Card que se despliega con foto grande, título y subtítulo */
+.trust-block__card {
+    position: absolute;
+    bottom: calc(100% + 14px);
+    left: 50%;
+    transform: translateX(-50%) translateY(6px);
+    width: 168px;
+    background: aliceblue;
+    border-radius: 14px;
+
+    box-shadow: 0 12px 32px rgba(36, 36, 36, 0.14), 0 0 0 1px rgba(36, 36, 36, 0.04);
+    text-align: center;
+
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.18s ease, transform 0.18s ease;
+}
+
+.trust-block__avatar-item:hover .trust-block__card,
+.trust-block__avatar-item:focus-within .trust-block__card {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* Flechita apuntando al avatar */
+.trust-block__card::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 7px solid transparent;
+    border-top-color: aliceblue;
+}
+
+.trust-block__card img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    height: auto;
+    border-radius: 10px;
+    object-fit: cover;
+    border: none;
+    box-shadow: none;
+    margin-bottom: 10px;
+    cursor: default;
+    transform: none !important;
+}
+
+.trust-block__card-title {
+    font-size: 14px;
+    font-weight: 700;
+    margin: 0 0 2px 0;
+    line-height: 1.2;
+}
+
+.trust-block__card-subtitle {
+    font-size: 12px;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.trust-block__cta {
+    appearance: none;
+    border: none;
+    color: aliceblue;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 20px 0;
+    cursor: pointer;
+    transition: background 0.18s ease, transform 0.18s ease;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* ================= HERO: marco + panel claro + muescas (desktop) =================
+   Variables editables:
+   --frame  aire entre el borde de la pantalla y el hero
+   --split  ancho del panel izquierdo (donde empieza el video)
+   --panel  color del panel y de las muescas
+   --notch  diametro de las muescas semicirculares                          */
+.hero-section {
+    --frame: 12px;
+    --split: 48%;
+    --panel: aliceblue;
+    --notch: clamp(80px, 12vw, 180px);
+}
+
+@media (min-width: 993px) {
+
+    /* Fondo degradé del marco (se desvanece al expandirse el video) */
+    .hero-section::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        opacity: var(--frame-o, 1);
+        background: linear-gradient(to bottom, rgba(255, 255, 255, 0.15) 0%, rgba(0, 0, 0, 0.15) 100%), radial-gradient(at top center, rgba(255, 255, 255, 0.40) 0%, rgba(0, 0, 0, 0.40) 120%) #989898;
+        background-blend-mode: multiply, multiply;
+    }
+
+    /* Panel claro de la izquierda (JS ajusta --panel-w al expandir) */
+    .hero-section::after {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        top: var(--frame);
+        bottom: var(--frame);
+        left: var(--frame);
+        width: var(--panel-w, calc(var(--split) - var(--frame) + 8px));
+        background: var(--panel);
+        border-radius: 4px 0 0 4px;
+        opacity: var(--panel-o, 1);
+    }
+
+    /* Video: arranca en el borde del panel y llega hasta el marco derecho */
+    .hero-bkg {
+        top: var(--frame);
+        left: var(--split);
+        width: calc(100% - var(--split) - var(--frame));
+        height: calc(100% - var(--frame) * 2);
+        border-radius: 4px;
+    }
+
+    /* Muescas: círculos del color del panel centrados en los bordes
+       izquierdo y derecho del video (overflow:hidden deja ver la mitad) */
+    .hero-bkg::before,
+    .hero-bkg::after {
+        content: "";
+        position: absolute;
+        z-index: 4;
+        top: 48%;
+        width: var(--notch);
+        height: var(--notch);
+        margin-top: calc(var(--notch) / -2);
+        border-radius: 50%;
+        background: var(--panel);
+        transform: scale(var(--notch-s, 1));
+        pointer-events: none;
+    }
+
+    .hero-bkg::before {
+        left: calc(var(--notch) / -2);
+    }
+
+    .hero-bkg::after {
+        right: calc(var(--notch) / -2);
+    }
+
+    /* Título: logo arriba, titular + texto abajo */
+    .hero-title {
+        width: var(--split);
+        height: 100%;
+        padding: calc(var(--frame) + 40px) 56px calc(var(--frame) + 48px) calc(var(--frame) + 40px);
+        justify-content: flex-end;
+        gap: 28px;
+        border-radius: 0;
+    }
+
+    .hero-title .logo {
+        height: 44px;
+        margin-bottom: auto;
+    }
+
+    .hero-title h1 {
+        font-size: clamp(3.25rem, 7vw, 8rem);
+        font-weight: 500;
+        line-height: 0.95;
+        letter-spacing: -0.035em;
+        color: #1d2422;
+    }
+
+    .hero-title span {
+        font-size: 0.95rem;
+        line-height: 1.55;
+        max-width: 420px;
+        color: #3b4543;
+    }
+
+    .hero-title a {
+        width: fit-content;
+        gap: 16px;
+        padding: 12px 20px;
+        border-radius: 999px;
+        font-size: 0.9rem;
+    }
+
+    /* Aside: texto sobre el video, lejos de las muescas */
+    .hero-aside {
+        left: var(--split);
+        bottom: var(--frame);
+        width: calc(100% - var(--split) - var(--frame));
+        height: calc(100% - var(--frame) * 2);
+        padding: 60px 60px 60px calc(var(--notch) / 2 + 48px);
+    }
+
+    .hero-aside-bottom {
+        padding-right: 20%;
+    }
+}
+
+.gestion {
+    width: 100%;
+    height: auto;
+    position: relative;
+}
+
+/* El grid vive acá (antes estaba en .gestion). También es el
+   contenedor de referencia del video (.g-video) y de la máscara. */
+.gestion-main {
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+    gap: 8px;
+    padding: 80px 20px;
+    position: relative;
+}
+
+/* Contenido que continúa debajo del grid */
+.gestion-content {
+    width: 100%;
+    height: auto;
+    position: relative;
+    padding: 20px;
+    margin: 40px 0;
+}
+
+/* ===== Slider de Gestión (IA / Ciencia de Datos / Productos Digitales) ===== */
+.g-slider {
+    --g-ease: cubic-bezier(0.65, 0, 0.35, 1);
+    --g-index: 0;
+    /* slide activo, lo actualiza gestion-animation.js */
+    --g-accent: #ffaf03;
+    /* color del borde de la card (cambia según el slide) */
+    position: relative;
+    width: 100%;
+    height: calc(100vh - 40px);
+    min-height: 560px;
+    scroll-margin-top: 90px;
+}
+
+/* Color del borde de la card por slide (data-active lo setea el JS) */
+.g-slider[data-active="0"] {
+    --g-accent: #ffaf03;
+}
+
+.g-slider[data-active="1"] {
+    --g-accent: #21b57a;
+}
+
+.g-slider[data-active="2"] {
+    --g-accent: #2f5fd6;
+}
+
+/* Stage: la caja que recorta el video y los slides */
+.g-slider-stage {
+    position: absolute;
+    inset: 0;
+    border-radius: 24px;
+    overflow: hidden;
+    background: #242424;
+    isolation: isolate;
+}
+
+/* ----- Nav interno (arriba, centrado, fijo dentro del slider) ----- */
+.g-slider-nav {
+    position: absolute;
+    top: 25%;
+    left: 74%;
+    transform: translateX(-50%);
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    max-width: calc(100% - 24px);
+    padding: 6px;
+    background: rgba(240, 248, 255, 0.92);
+    border-radius: 999px;
+    box-shadow: 0 10px 30px rgba(36, 36, 36, 0.18);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+/* Fondo que se desliza suavemente hasta la pestaña activa */
+.g-slider-indicator {
+    position: absolute;
+    top: 6px;
+    bottom: 6px;
+    left: 0;
+    width: var(--w, 0px);
+    transform: translateX(var(--x, 0px));
+    background: #ffaf03;
+    border-radius: 999px;
+    transition: transform 0.8s var(--g-ease), width 0.8s var(--g-ease);
+    will-change: transform, width;
+}
+
+.g-slider-tab {
+    position: relative;
+    z-index: 1;
+    padding: 12px 22px;
+    border: none;
+    border-radius: 999px;
+    background: transparent;
+    color: #242424;
+    font-size: 0.9rem;
+    font-weight: 700;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.g-slider-tab:not(.is-active):hover {
+    color: #21b57a;
+}
+
+.g-slider-tab:focus-visible {
+    outline: 2px solid #242424;
+    outline-offset: 2px;
+}
+
+/* ----- Pista que se desplaza ----- */
+.g-slider-track {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    transform: translateX(calc(var(--g-index) * -100%));
+    transition: transform 1s var(--g-ease);
+    will-change: transform;
+}
+
+.g-slide {
+    position: relative;
+    flex: 0 0 100%;
+    height: 100%;
+    overflow: hidden;
+    color: aliceblue;
+}
+
+/* ----- Video de fondo único (compartido por todos los slides) + overlay ----- */
+.g-slider-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+    background: #21b57a;
+    /* color mientras carga */
+}
+
+.g-slider-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(90deg, rgba(36, 36, 36, 0.72) 0%, rgba(36, 36, 36, 0.35) 60%, rgba(36, 36, 36, 0.2) 100%);
+    pointer-events: none;
+}
+
+/* ----- Contenido: texto a la izquierda, imagen a la derecha ----- */
+.g-slide-inner {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+    padding: 120px 60px 20px;
+}
+
+.ia-logo {
+    width: 100%;
+    /* en vez de 300px */
+    display: flex;
+    flex-wrap: wrap;
+    /* si no entran, bajan de línea */
+    align-items: center;
+    gap: 24px 40px;
+    padding: 20px 0;
+}
+
+.ia-logo a {
+    display: block;
+    flex: 0 1 auto;
+    min-width: 0;
+    /* permite que el <a> se encoja */
+}
+
+.ia-logo img {
+    display: block;
+    height: 60px;
+    /* controlás por alto, así quedan parejos */
+    width: auto;
+    max-width: 100%;
+}
+
+.bit-logo img {
+    width: 100px;
+    height: auto;
+}
+
+.banco-logo img {
+    width: 200px;
+    height: auto;
+}
+
+.g-slide-title {
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    font-weight: 700;
+    line-height: 1.05;
+    margin-bottom: 24px;
+}
+
+.g-slide-text p {
+    max-width: 100%;
+    height: 100%;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    opacity: 0.92;
+    padding-right: 80px;
+}
+
+/* ----- Card blanca por encima del slider -----
+   Nace desde afuera: se apoya en el borde inferior del slider (y lo cruza por --g-overhang)
+   y tiene dos bordes inversos en la base que la hacen curvarse hacia afuera. */
+.g-card {
+    --g-r: 28px;
+    /* radio de las curvas */
+    --g-overhang: 20px;
+    /* cuánto sobresale por debajo del slider (0px = al ras) */
+    --g-card-bg: aliceblue;
+    /* fondo de la card y de las curvas */
+    --card-right: 80px;
+    --card-width: min(42vw, 840px);
+    --card-height: min(70vh, 600px);
+
+    position: absolute;
+    z-index: 5;
+    right: var(--card-right);
+    bottom: calc(var(--g-overhang) * -1);
+    width: var(--card-width);
+    height: calc(var(--card-height) + var(--g-overhang));
+    padding: 16px 16px calc(16px + var(--g-overhang));
+    background: var(--g-card-bg);
+    border-radius: var(--g-r) var(--g-r) 0 0;
+}
+
+/* Bordes inversos (curvas cóncavas) a ambos lados de la base, a la altura del borde del slider */
+.g-card::before,
+.g-card::after {
+    content: "";
+    position: absolute;
+    bottom: var(--g-overhang);
+    width: var(--g-r);
+    height: var(--g-r);
+    pointer-events: none;
+}
+
+.g-card::before {
+    left: calc(var(--g-r) * -1);
+    background: radial-gradient(circle at 0 0, transparent calc(var(--g-r) - 0.5px), var(--g-card-bg) var(--g-r));
+}
+
+.g-card::after {
+    right: calc(var(--g-r) * -1);
+    background: radial-gradient(circle at 100% 0, transparent calc(var(--g-r) - 0.5px), var(--g-card-bg) var(--g-r));
+}
+
+/* Marco interno: queda fijo, solo cambia el color del borde */
+.g-card-frame {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 16px;
+    background: aliceblue;
+    transition: border-color 0.8s var(--g-ease);
+}
+
+/* Lo que se mueve: el contenido interno */
+.g-card-track {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    transform: translateX(calc(var(--g-index) * -100%));
+    transition: transform 1s var(--g-ease);
+    will-change: transform;
+}
+
+.g-card-item {
+    flex: 0 0 100%;
+    height: 100%;
+}
+
+/* ----- Productos Digitales: grilla de tarjetas-botón dentro de la card ----- */
+.g-card-item--apps {
+    box-sizing: border-box;
+    padding: 10px;
+    background: aliceblue;
+    overflow-y: auto;
+}
+
+.g-apps {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-auto-rows: minmax(0, 1fr);
+    gap: 10px;
+    min-height: 100%;
+}
+
+.g-app {
+    --app-c: #2f5fd6;
+    display: grid;
+    grid-template-columns: 44px 1fr;
+    grid-template-areas: "icon title" "desc desc" "tags tags" "btn btn";
+    align-content: start;
+    gap: 4px 10px;
+    padding: 12px;
+    background: aliceblue;
+    border-radius: 14px;
+    box-shadow: 0 2px 10px rgba(36, 36, 36, 0.06);
+}
+
+.g-app--blue {
+    --app-c: #2f5fd6;
+}
+
+.g-app--green {
+    --app-c: #21b57a;
+}
+
+.g-app--red {
+    --app-c: #e0475c;
+}
+
+.g-app--yellow {
+    --app-c: #ffaf03;
+}
+
+.g-app-icon {
+    grid-area: icon;
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: var(--app-c);
+    color: aliceblue;
+    font-size: 1.25rem;
+    box-shadow: 0 6px 14px color-mix(in srgb, var(--app-c) 35%, transparent);
+}
+
+.g-app-title {
+    grid-area: title;
+    align-self: center;
+    margin: 0;
+    color: #242424;
+    font-size: 0.95rem;
+    font-weight: 700;
+    line-height: 1.15;
+}
+
+.g-app-desc {
+    grid-area: desc;
+    margin: 4px 0 0;
+    color: #6b7280;
+    font-size: 0.74rem;
+    line-height: 1.35;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.g-app-tags {
+    grid-area: tags;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.g-app-tags span {
+    padding: 2px 8px;
+    border-radius: 999px;
+    background: rgba(47, 95, 214, 0.1);
+    color: #2f5fd6;
+    font-size: 0.66rem;
+    font-weight: 700;
+}
+
+.g-app-btn {
+    grid-area: btn;
+    justify-self: start;
+    align-self: end;
+    margin-top: 4px;
+    padding: 7px 14px;
+    border-radius: 999px;
+    background: #242424;
+    color: aliceblue;
+    font-size: 0.74rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.g-app-btn:hover {
+    background: var(--app-c);
+    transform: translateY(-1px);
+}
+
+.g-app-btn:focus-visible {
+    outline: 2px solid var(--app-c);
+    outline-offset: 2px;
+}
+
+/* Items inactivos: fuera de la tabulación y del foco (así no desplazan el marco al enfocar un link) */
+.g-card-item[aria-hidden="true"] {
+    visibility: hidden;
+    transition: visibility 0s 1s;
+}
+
+/* ----- Variante grande: pilotos de IA (2 filas) y tableros de Ciencia de Datos (2x2) ----- */
+.g-apps--2 {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(2, minmax(0, 1fr));
+}
+
+.g-apps--4 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: repeat(2, minmax(0, 1fr));
+}
+
+.g-apps--lg .g-app {
+    grid-template-columns: 60px 1fr;
+    align-content: center;
+    gap: 8px 16px;
+    padding: 20px 22px;
+    border-radius: 18px;
+}
+
+.g-apps--lg .g-app-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 16px;
+    font-size: 1.6rem;
+}
+
+.g-apps--lg .g-app-title {
+    font-size: 1.15rem;
+}
+
+.g-apps--lg .g-app-desc {
+    margin-top: 6px;
+    font-size: 0.88rem;
+    -webkit-line-clamp: 3;
+}
+
+.g-apps--lg .g-app-tags span {
+    padding: 3px 10px;
+    font-size: 0.72rem;
+}
+
+.g-apps--lg .g-app-btn {
+    margin-top: 8px;
+    padding: 10px 20px;
+    font-size: 0.85rem;
+}
+
+@media (max-width: 900px) {
+
+    .g-apps,
+    .g-apps--2,
+    .g-apps--4 {
+        grid-template-columns: 1fr;
+        grid-template-rows: none;
+        grid-auto-rows: auto;
+    }
+}
+
+.g-card-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+/* Botón bajo el texto del slide de IA */
+.g-slide-cta {
+    border: 0;
+    cursor: pointer;
+    font-family: inherit;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 28px;
+    padding: 14px 26px;
+    border-radius: 999px;
+    background: #ffaf03;
+    color: #242424;
+    font-size: 1rem;
+    font-weight: 700;
+    text-decoration: none;
+    opacity: 0;
+    transform: translateY(28px);
+    visibility: hidden;
+    transition: opacity 0.4s ease, transform 0.4s ease, background-color 0.2s ease, visibility 0s 0.4s;
+}
+
+.g-slide-cta:hover {
+    background: #ffaf03;
+}
+
+.g-slide-cta:focus-visible {
+    outline: 3px solid aliceblue;
+    outline-offset: 3px;
+}
+
+.g-slide.is-active .g-slide-cta {
+    opacity: 1;
+    transform: none;
+    visibility: visible;
+    transition: opacity 0.9s ease 0.75s, transform 1s var(--g-ease) 0.75s, background-color 0.2s ease 0s, visibility 0s 0s;
+}
+
+/* ----- Entrada escalonada del contenido del slide activo ----- */
+.g-slide-text>*:not(.g-slide-cta) {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.g-slide.is-active .g-slide-text>*:not(.g-slide-cta) {
+    opacity: 1;
+    transform: none;
+    transition: opacity 0.9s ease, transform 1s var(--g-ease);
+}
+
+/* Escalonado: cada elemento entra un poco después del anterior */
+.g-slide.is-active .g-slide-text> :nth-child(1) {
+    transition-delay: 0.45s;
+}
+
+.g-slide.is-active .g-slide-text> :nth-child(2) {
+    transition-delay: 0.6s;
+}
+
+.g-slide.is-active .g-slide-text> :nth-child(3) {
+    transition-delay: 0.75s;
+}
+
+.g-slide.is-active .g-slide-text> :nth-child(4) {
+    transition-delay: 0.9s;
+}
+
+.g-slide.is-active .g-slide-text> :nth-child(5) {
+    transition-delay: 1.05s;
+}
+
+@media (max-width: 900px) {
+    .g-slide-inner {
+        grid-template-columns: 1fr;
+        align-content: center;
+        gap: 24px;
+        padding: 110px 24px calc(30vh + 24px);
+    }
+
+    .g-slide-text p {
+        font-size: 1rem;
+    }
+
+    .g-card {
+        --g-r: 20px;
+        --card-right: 40px;
+        --card-height: 30vh;
+        left: 40px;
+        width: auto;
+    }
+
+    .g-slider-nav {
+        overflow-x: auto;
+    }
+
+    .g-slider-tab {
+        padding: 10px 14px;
+        font-size: 0.78rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .g-slider-track,
+    .g-slider-indicator,
+    .g-card-track,
+    .g-card-frame,
+    .g-slide-cta,
+    .g-slide-title,
+    .g-slide-text p {
+        transition-duration: 0.01ms !important;
+        transition-delay: 0s !important;
+    }
+}
+
+/* El video ocupa toda la sección y solo se ve a través de la máscara */
+.g-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+    clip-path: url(#gestionClip);
+    background: #21b57a;
+    /* color mientras carga */
+}
+
+.g-box1 {
+    grid-column: span 5 / span 5;
+    grid-row: span 2 / span 2;
+    color: #242424;
+}
+
+.g-box2 {
+    grid-column: span 3 / span 3;
+    grid-row: span 2 / span 2;
+    grid-column-start: 1;
+    grid-row-start: 3;
+}
+
+.g-box3 {
+    grid-column: span 2 / span 2;
+    grid-row: span 4 / span 4;
+    grid-column-start: 2;
+    grid-row-start: 5;
+}
+
+.g-box4 {
+    grid-column: span 2 / span 2;
+    grid-row: span 6 / span 6;
+    grid-column-start: 4;
+    grid-row-start: 3;
+}
+
+.g-box5 {
+    grid-column: span 2 / span 2;
+    grid-row: span 8 / span 8;
+    grid-column-start: 6;
+    grid-row-start: 1;
+}
+
+.g-box6 {
+    grid-column: span 3 / span 3;
+    grid-row: span 3 / span 3;
+    grid-column-start: 8;
+    grid-row-start: 6;
+}
+
+.g-box7 {
+    grid-column: span 2 / span 2;
+    grid-row: span 5 / span 5;
+    grid-column-start: 8;
+    grid-row-start: 1;
+
+}
+
+.g-box-bkg {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border-radius: 24px;
+    overflow: hidden;
+    /* el contenido respeta las esquinas redondeadas */
+    --p: 0;
+    /* progreso de la animación, lo actualiza el JS */
+
+}
+
+.g-content {
+    position: absolute;
+    inset: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    /* abajo; usá flex-start para arriba */
+    gap: 6px;
+    color: aliceblue;
+
+    /* Revelado de abajo hacia arriba, sincronizado con la máscara */
+    clip-path: inset(calc((1 - var(--p)) * 100%) 0 0 0);
+}
+
+/* Degradado suave para que el texto se lea sobre el video */
+.g-content::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(to top, rgba(36, 36, 36, 0.55), transparent 70%);
+
+}
+
+.g-kpi {
+    font-size: clamp(2.5rem, 4vw, 2rem);
+    font-weight: 700;
+    line-height: 1;
+}
+
+.g-label {
+    font-size: 1rem;
+    font-weight: 500;
+    opacity: 0.9;
+}
+
+.g-text {
+    font-size: 0.875rem;
+    line-height: 1.4;
+    opacity: 0.8;
+    margin: 0;
+}
+
+/* Contenido por encima del video */
+.g-box1,
+.g-box2,
+.g-box6 {
+    position: relative;
+    z-index: 1;
+}
+
+.g-box-title {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+}
+
+.g-box-title h2 {
+    text-transform: uppercase;
+    font-size: 5rem;
+}
+
+.g-box-subtitle {
+    display: flex;
+    align-items: start;
+    padding-right: 40px;
+}
+
+.g-box-subtitle p {
+    font-size: 1.2rem;
+}
+
+.g-box-subtitle span {
+    font-weight: 700;
+}
+
+.g-box-content {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    padding-right: 80px;
+    font-size: 1.2rem;
+}
+
+.g-box-content span {
+    font-weight: 700;
+}
+
+/* ==========================================================
+   GOBIERNO ABIERTO — video de fondo + cards blancas sólidas
+   Reemplaza en styles.css desde ".gobierno-abierto {" (línea 1311)
+   hasta el "}" de ".gobierno-abierto__numero" (línea 1482).
+   El bloque "/* entrada de textos */
+
+/* Padding de la sección: deja respirar al contenedor redondeado */
+.gobierno-abierto {
+    --ga-inset-y: 24px;
+    --ga-inset-x: 20px;
+    --ga-radius: 32px;
+    position: relative;
+    isolation: isolate;
+    width: 100%;
+    height: auto;
+    padding: var(--ga-inset-y) var(--ga-inset-x);
+}
+
+/* Todo lo que se agregue dentro de la sección queda por encima del video.
+   OJO: sin z-index a propósito. Si .gobierno-main creara su propio stacking context,
+   los números con máscara (mix-blend-mode) no podrían "ver" el video de fondo. */
+.gobierno-abierto> :not(.gobierno-abierto__fondo) {
+    position: relative;
+}
+
+/* El contenedor ES el grid. El video ya no vive acá: está en la sección */
+.gobierno-main {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+    gap: 12px;
+    min-height: calc(100svh - 48px);
+    padding: 48px 32px;
+}
+
+/* ---------- Video de fondo (ya NO está enmascarado) ---------- */
+.gobierno-abierto__fondo {
+    position: absolute;
+    inset: var(--ga-inset-y) var(--ga-inset-x);
+    z-index: 0;
+    overflow: hidden;
+    border-radius: var(--ga-radius);
+    background: #0b1d6e;
+    /* color mientras carga el video */
+    pointer-events: none;
+    /* anula la máscara que inyecta el JS (gobbierno-abierto.js) */
+    -webkit-mask-image: none !important;
+    mask-image: none !important;
+    -webkit-mask-size: auto !important;
+    mask-size: auto !important;
+}
+
+.gobierno-abierto__fondo video,
+.gobierno-abierto__fondo .gobierno-abierto__fallback {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Capa oscura para que el texto blanco se lea sobre el video (ajustá la opacidad) */
+.gobierno-abierto__fondo::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, .45);
+}
+
+/* Se ve si el video no carga */
+.gobierno-abierto__fondo .gobierno-abierto__fallback {
+    background: linear-gradient(135deg, #0b1d6e, #2f5fe0 40%, #c9d3ea 70%, #8a8f9a);
+    background-size: 200% 200%;
+    animation: ga-shift 8s ease-in-out infinite alternate;
+}
+
+@keyframes ga-shift {
+    to {
+        background-position: 100% 100%;
+    }
+}
+
+/* ---------- Bloques sobre el video ---------- */
+.gobierno-main> :not(.gobierno-abierto__fondo) {
+    position: relative;
+    z-index: 1;
+}
+
+/* Cards de datos con KPI enmascarado: la card es transparente y se arma con dos capas blancas:
+   - .gobierno-abierto__contenido: capa blanca con el número en negro y mix-blend-mode: screen,
+     así el número "recorta" la capa y deja ver el video de fondo.
+   - .gobierno-abierto__etiqueta: franja blanca sólida con el texto legible.
+   Sin z-index ni overflow: la card no puede crear stacking context ni aislar el blend. */
+.gobierno-main>[data-mask] {
+    position: relative;
+    z-index: auto;
+    display: flex;
+    flex-direction: column;
+    background: transparent;
+}
+
+.gobierno-abierto__intro {
+    grid-column: span 5 / span 5;
+    grid-row: span 5 / span 5;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.gobierno-abierto__pedidos {
+    grid-column: span 5 / span 5;
+    grid-row: span 3 / span 3;
+    grid-column-start: 6;
+}
+
+.gobierno-abierto__datasets {
+    grid-column: span 7 / span 7;
+    grid-row: span 2 / span 2;
+    grid-column-start: 6;
+    grid-row-start: 4;
+}
+
+.gobierno-abierto__ojos {
+    grid-column: span 4 / span 4;
+    grid-row: span 3 / span 3;
+    grid-column-start: 6;
+    grid-row-start: 6;
+}
+
+.gobierno-abierto__familias {
+    grid-column: span 3 / span 3;
+    grid-row: span 2 / span 2;
+    grid-column-start: 10;
+    grid-row-start: 7;
+}
+
+.gobierno-abierto__descripcion {
+    grid-column: span 5 / span 5;
+    grid-row: span 2 / span 2;
+    grid-column-start: 1;
+    grid-row-start: 7;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Capa de máscara: blanco + número negro, mezclados con "screen"
+   (blanco => queda blanco · negro => deja pasar el video de atrás) */
+.gobierno-abierto__contenido {
+    position: static;
+    flex: 1 1 auto;
+    display: flex;
+    align-items: flex-end;
+    padding: 20px 20px 0;
+    background: #fff;
+    color: #000;
+    border-radius: 24px 24px 0 0;
+    mix-blend-mode: screen;
+    clip-path: none !important;
+}
+
+.gobierno-abierto__contenido::before {
+    display: none;
+}
+
+/* ---------- Texto ---------- */
+/* Sobre el video: blanco */
+.gobierno-abierto__intro h2 {
+    font-size: clamp(2rem, 4.6vw, 5.2rem);
+    line-height: 1.05;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #fff;
+}
+
+.gobierno-abierto__intro p,
+.gobierno-abierto__descripcion p {
+    font-size: 1.2rem;
+    line-height: 1.4;
+    color: #fff;
+    padding-right: 0;
+}
+
+.gobierno-abierto__intro p {
+    margin-top: 16px;
+    max-width: 34ch;
+}
+
+/* Etiqueta del KPI: franja blanca sólida, texto oscuro legible */
+.gobierno-abierto__etiqueta {
+    padding: 6px 20px 20px;
+    background: #fff;
+    border-radius: 0 0 24px 24px;
+    color: #111;
+    font-size: .95rem;
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+/* Número grande y pesado: cuanto más grueso, más video se ve a través */
+.gobierno-abierto__numero {
+    display: block;
+    font-size: clamp(3.5rem, 8vw, 5rem);
+    font-weight: 900;
+    line-height: .85;
+    letter-spacing: -0.04em;
+    color: #000;
+}
+
+/* ---------- Mobile ---------- */
+@media (max-width: 800px) {
+    .gobierno-abierto {
+        --ga-inset-y: 12px;
+        --ga-inset-x: 12px;
+        --ga-radius: 24px;
+    }
+
+    .gobierno-main {
+        grid-template-columns: 1fr;
+        grid-template-rows: none;
+        padding: 32px 18px;
+    }
+
+    .gobierno-main> :not(.gobierno-abierto__fondo) {
+        grid-column: 1 / -1;
+        grid-row: auto;
+    }
+
+    .gobierno-main>[data-mask] {
+        min-height: 130px;
+    }
+}
+
+/* ==========================================================================
+   SELECTOR DE GOBIERNO ABIERTO  ·  todo scopeado con .gsel
+   (sin :root, *, html ni body)
+
+   Índice
+   1. Variables y colores por categoría
+   2. Contenedor
+   3. Menú de categorías (botones sólidos)
+   4. Grilla y tarjetas
+   5. Contenido de la tarjeta (etiqueta, título, texto, enlaces)
+   6. Estados: resaltado por categoría y foco
+   7. Tarjetas expandibles
+   8. Responsive
+   9. Movimiento reducido
+   ========================================================================== */
+
+
+/* 1. VARIABLES Y COLORES POR CATEGORÍA ------------------------------------ */
+.gsel {
+    --gsel-c: #ffaf03;      /* color de la categoría (valor por defecto) */
+    --gsel-on: #111;        /* texto que se lee sobre --gsel-c */
+    --gsel-ink: #111;       /* texto/elementos oscuros */
+    --gsel-paper: #fff;     /* texto/fondo claro */
+    --gsel-bar: 6px;        /* ancho del borde izquierdo de color */
+    --gsel-gap: 12px;
+}
+
+.gsel [data-cat="informacion-publica"]     { --gsel-c: #ffaf03; --gsel-on: #111; } /* naranja */
+.gsel [data-cat="datos-abiertos"]          { --gsel-c: #2f5fd6; --gsel-on: #fff; } /* azul */
+.gsel [data-cat="participacion-ciudadana"] { --gsel-c: #21b57a; --gsel-on: #111; } /* verde */
+
+
+/* 2. CONTENEDOR ----------------------------------------------------------- */
+.gsel {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    min-height: calc(80svh - 48px);
+    margin: 24px 20px;
+    padding: 6px 40px;
+    display: grid;
+    grid-template-columns: 280px minmax(0, 1fr);
+    gap: 48px;
+    align-items: center;
+    color: #fff;
+
+    /* vidrio sobre el video de la sección (https://css.glass) */
+    background: rgba(29, 29, 29, 0.418);
+    border: 1px solid rgba(255, 255, 255, .3);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, .1);
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+}
+
+.gsel,
+.gsel *,
+.gsel *::before,
+.gsel *::after {
+    box-sizing: border-box;
+}
+
+
+/* 3. MENÚ DE CATEGORÍAS --------------------------------------------------- */
+.gsel__menu {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.gsel__btn {
+    all: unset;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: block;
+    padding: 14px 18px;
+    font-family: inherit;
+    font-weight: 700;
+    font-size: clamp(1.05rem, 1.6vw, 1.4rem);
+    line-height: 1.15;
+    color: aliceblue;
+    /* sólido, con borde izquierdo del color de la categoría */
+    border-left: var(--gsel-bar) solid var(--gsel-c);
+    border-radius: 12px;
+    transition: background .25s, color .25s, transform .25s;
+}
+
+.gsel__btn:hover,
+.gsel__btn.is-active {
+    background: var(--gsel-c);
+    color: var(--gsel-on);
+    transform: translateX(10px);
+}
+
+.gsel__btn:focus-visible {
+    outline: 2px solid #fff;
+    outline-offset: 3px;
+}
+
+
+/* 4. GRILLA Y TARJETAS ---------------------------------------------------- */
+.gsel__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, minmax(230px, 1fr));
+    gap: var(--gsel-gap);
+}
+
+/* La tarjeta es el "hueco" de la grilla; la cara visible es .gsel__face */
+.gsel__card {
+    position: relative;
+    display: flex;
+    cursor: pointer;
+    transition: transform .3s, opacity .3s;
+}
+
+.gsel__face {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 14px;
+    padding: 20px;
+    background: var(--gsel-paper);
+    color: var(--gsel-ink);
+    border-left: var(--gsel-bar) solid var(--gsel-c);
+    border-radius: 22px;
+    transition: background .3s, box-shadow .3s, width .35s;
+}
+
+
+/* 5. CONTENIDO DE LA TARJETA --------------------------------------------- */
+.gsel__top {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+}
+
+.gsel__top span:first-child {
+    opacity: .6;
+}
+
+.gsel__title {
+    margin: 0 0 6px;
+    font-size: 1.15rem;
+    line-height: 1.15;
+    letter-spacing: -.01em;
+}
+
+.gsel__text {
+    margin: 0;
+    font-size: .85rem;
+    line-height: 1.4;
+    color: var(--gsel-ink);
+    opacity: .72;
+}
+
+/* Botón-enlace (pastilla) */
+.gsel__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    align-self: flex-start;
+    padding: 10px 14px;
+    font-size: .8rem;
+    font-weight: 700;
+    line-height: 1;
+    text-decoration: none;
+    background: var(--gsel-ink);
+    color: var(--gsel-paper);
+    border-radius: 999px;
+    transition: transform .2s, opacity .2s;
+}
+
+.gsel__link:hover {
+    transform: translateX(3px);
+    opacity: .88;
+}
+
+.gsel__link:focus-visible {
+    outline: 2px solid var(--gsel-ink);
+    outline-offset: 2px;
+}
+
+
+/* 6. ESTADOS: RESALTADO POR CATEGORÍA Y FOCO ------------------------------ */
+/* Las tarjetas de otras categorías se atenúan */
+.gsel.has-active .gsel__card:not(.is-active) {
+    opacity: .35;
+    transform: scale(.97);
+}
+
+.gsel__card:focus-within .gsel__face {
+    box-shadow: 0 0 0 3px var(--gsel-c);
+}
+
+/* La tarjeta resaltada toma el color de su categoría.
+   Se invierten ink/paper para mantener el contraste (texto claro sobre azul, etc.) */
+.gsel__card.is-active {
+    transform: translateY(-8px);
+}
+
+.gsel__card.is-active .gsel__face {
+    --gsel-ink: var(--gsel-on);
+    --gsel-paper: var(--gsel-c);
+    background: var(--gsel-c);
+    box-shadow: 0 18px 36px rgba(0, 0, 0, .35);
+}
+
+.gsel__card.is-active:focus-within .gsel__face {
+    box-shadow: 0 18px 36px rgba(0, 0, 0, .35), 0 0 0 3px #fff;
+}
+
+
+/* 7. TARJETAS EXPANDIBLES (Seguridad ciudadana / Finanzas públicas) ------- */
+.gsel__card--exp .gsel__face {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 100%;
+    flex: none;
+    justify-content: flex-start;
+}
+
+.gsel__card--exp.is-flip .gsel__face {
+    left: auto;
+    right: 0;
+}
+
+.gsel__card--exp.is-open {
+    z-index: 5;
+}
+
+.gsel__card--exp.is-open .gsel__face {
+    width: calc(200% + var(--gsel-gap));
+    box-shadow: 0 24px 48px rgba(0, 0, 0, .4);
+}
+
+.gsel__toggle {
+    all: unset;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    align-self: flex-start;
+    padding: 9px 14px;
+    font-family: inherit;
+    font-size: .8rem;
+    font-weight: 700;
+    line-height: 1;
+    color: inherit;
+    border: 1.5px solid var(--gsel-ink);
+    border-radius: 999px;
+    transition: background .2s, color .2s;
+}
+
+.gsel__toggle:hover {
+    background: var(--gsel-ink);
+    color: var(--gsel-paper);
+}
+
+.gsel__toggle:focus-visible {
+    outline: 2px solid var(--gsel-ink);
+    outline-offset: 2px;
+}
+
+.gsel__toggle i {
+    font-style: normal;
+    font-size: 1rem;
+    line-height: 1;
+}
+
+/* Panel con los botones (se despliega con grid-template-rows 0fr → 1fr) */
+.gsel__panel {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows .35s;
+}
+
+.gsel__card.is-open .gsel__panel {
+    grid-template-rows: 1fr;
+}
+
+.gsel__links {
+    min-height: 0;
+    overflow: hidden;
+    visibility: hidden;          /* cerrado: sus enlaces no reciben foco */
+    transition: visibility 0s .35s;
+}
+
+.gsel__card.is-open .gsel__links {
+    visibility: visible;
+    transition-delay: 0s;
+}
+
+.gsel__inner {
+    padding-top: 4px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+}
+
+.gsel__inner .gsel__link {
+    justify-content: space-between;
+    align-self: stretch;
+}
+
+
+/* 8. RESPONSIVE ----------------------------------------------------------- */
+@media (max-width: 980px) {
+    .gsel {
+        grid-template-columns: 1fr;
+        gap: 28px;
+        padding: 32px 20px;
+        margin: 12px;
+        border-radius: 24px;
+    }
+
+    .gsel__menu {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .gsel__btn:hover,
+    .gsel__btn.is-active {
+        transform: translateY(-2px);
+    }
+
+    .gsel__grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: none;
+        grid-auto-rows: minmax(190px, auto);
+    }
+
+    /* la tarjeta expandida ocupa toda la fila y empuja al resto */
+    .gsel__card--exp .gsel__face {
+        position: relative;
+        width: 100%;
+        min-height: 0;
+        flex: 1;
+    }
+
+    .gsel__card--exp.is-open {
+        grid-column: 1 / -1;
+    }
+
+    .gsel__card--exp.is-open .gsel__face {
+        width: 100%;
+    }
+
+    .gsel__inner {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* 9. MOVIMIENTO REDUCIDO -------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+    .gsel * {
+        transition: none !important;
+    }
+}
+.agenda {
+    width: 100%;
+    height: auto;
+    background-color: #242424;
+    position: relative;
+    z-index: 2;
+    overflow: hidden;
+}
+
+.agenda-top {
+    width: 100%;
+    height: 20vh;
+    display: flex;
+    align-items: end;
+    padding-left: 60px;
+    background-color: #f0f8ff;
+    text-transform: uppercase;
+    position: relative;
+    overflow: hidden;
+    /* esconde el h2 mientras está fuera de posición */
+}
+
+.agenda-top h2 {
+    font-size: 8rem;
+    color: #242424;
+    position: absolute;
+    bottom: -30px;
+    transform: translateY(120%);
+    /* arranca oculto, abajo del bloque */
+    transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.agenda-top.in-view h2 {
+    transform: translateY(0);
+    /* sube hasta su posición final */
+}
+
+.agenda-bottom {
+    width: 100%;
+    height: 40vh;
+    text-transform: uppercase;
+    position: relative;
+    padding-left: 52px;
+    overflow: hidden;
+    /* esconde el h2 mientras está fuera de posición */
+}
+
+.agenda-bottom h2 {
+    font-size: 8rem;
+    color: aliceblue;
+    position: absolute;
+    top: -28px;
+    transform: translateY(-120%);
+    /* arranca oculto, arriba del bloque */
+    transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.agenda-bottom.in-view h2 {
+    transform: translateY(0);
+    /* baja hasta su posición final */
+}
+
+.agenda-main {
+    width: 100%;
+    height: auto;
+    background-color: #242424;
+}
+
+.agenda-kpi {
+    display: flex;
+    gap: 12px;
+    padding: 0 60px;
+}
+
+.agenda-kpi .agenda-kpi__card {
+    width: auto;
+    height: auto;
+    padding: 5rem 1rem;
+    border-radius: 8px;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.agenda-kpi .agenda-kpi__label {
+    font-size: 3rem;
+    color: aliceblue;
+    margin: 0 0 4px;
+}
+
+.agenda-kpi .agenda-kpi__value {
+    font-size: 4rem;
+    font-weight: 500;
+    margin: 0;
+    color: aliceblue;
+}
+
+:root {
+    --tile-bg: #242424;
+    --tile-w: 180px;
+    --tile-h: 150px;
+    --gap: 8px;
+    --speed-1: 35s;
+    --speed-2: 35s;
+}
+
+/* ===== Contenedor doble carrusel ===== */
+.carrusel-doble {
+    width: 100%;
+    overflow: hidden;
+    padding-bottom: 40px;
+}
+
+.carrusel-fila {
+    overflow: hidden;
+    width: 100%;
+    margin-bottom: var(--gap);
+}
+
+.carrusel-fila:last-child {
+    margin-bottom: 0;
+}
+
+.carrusel-track {
+    display: flex;
+    width: max-content;
+    gap: var(--gap);
+}
+
+:root {
+    --gap: 20px;
+    --tile-w: 400px;
+    --tile-h: 340px;
+    --tile-bg: aliceblue;
+    --tile-border: #e4e0d8;
+    --page-bg: #f6f4ef;
+    --text-dark: #242424;
+    --text-muted: #565b62;
+    --speed-1: 52s;
+    --speed-2: 48s;
+}
+
+/* ===== Tarjeta ===== */
+.carrusel-item {
+    flex: 0 0 auto;
+    width: var(--tile-w);
+    height: var(--tile-h);
+}
+
+.carrusel-card {
+    position: relative;
+    display: block;
+    height: 100%;
+    width: 100%;
+    background: var(--tile-bg);
+    border-right: 8px solid var(--card-color, #2f5fd6);
+    text-decoration: none;
+    overflow: hidden;
+    isolation: isolate;
+    border-radius: 24px;
+    /* mantiene el ::before contenido dentro de la tarjeta */
+}
+
+/* capa de color que entra deslizándose desde el lado del borde */
+.carrusel-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--card-color, #2f5fd6);
+    transform: translateX(105%);
+    transition: transform .45s cubic-bezier(.4, 0, .2, 1);
+    z-index: 0;
+}
+
+.carrusel-card:hover::before {
+    transform: translateX(0);
+}
+
+.card-inner {
+    position: relative;
+    z-index: 1;
+    height: 100%;
+    padding: 22px 24px;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin: 0 0 10px;
+    transition: color .3s ease .08s;
+}
+
+.card-text {
+    font-size: 13.5px;
+    line-height: 1.5;
+    color: var(--text-muted);
+    margin: 0;
+    transition: color .3s ease .08s;
+}
+
+.card-logo {
+    margin-top: auto;
+    align-self: flex-start;
+    max-height: 84px;
+    width: auto;
+    opacity: 0;
+    transform: translateY(6px);
+    transition: opacity .35s ease .15s, transform .35s ease .15s;
+}
+
+.carrusel-card:hover .card-title,
+.carrusel-card:hover .card-text {
+    color: aliceblue;
+}
+
+.carrusel-card:hover .card-logo {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .carrusel-card::before,
+    .card-title,
+    .card-text,
+    .card-logo {
+        transition: none !important;
+    }
+}
+
+.carrusel-card.sin-cambio-texto:hover .card-title,
+.carrusel-card.sin-cambio-texto:hover .card-text {
+    color: var(--text-dark);
+    /* o el color que quieras que mantenga */
+}
+
+.card-tag {
+    align-self: flex-start;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+    padding: 4px 10px;
+    border-radius: 999px;
+    margin-bottom: 12px;
+    transition: color .3s ease .08s, background-color .3s ease .08s;
+}
+
+/* colores por categoría, en reposo */
+.card-tag--membresia {
+    background: rgba(47, 95, 214, .12);
+    color: #2f5fd6;
+}
+
+.card-tag--certificacion {
+    background: rgba(106, 76, 156, .15);
+    color: #6a4c9c;
+}
+
+.card-tag--reconocimiento {
+    background: rgba(255, 175, 3, .15);
+    color: #ffaf03;
+}
+
+.card-tag--apoyo {
+    background: rgba(33, 181, 122, .15);
+    color: #21b57a;
+}
+
+/* al hacer hover, queda legible sobre el fondo de color de la tarjeta */
+.carrusel-card:hover .card-tag {
+    background: rgba(240, 248, 255, .22);
+    color: aliceblue;
+}
+
+.carrusel-fila {
+    cursor: grab;
+    touch-action: pan-y;
+}
+
+.carrusel-fila.arrastrando {
+    cursor: grabbing;
+}
+
+.carrusel-card,
+.carrusel-card img {
+    -webkit-user-drag: none;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.agenda-kpi .agenda-kpi__card {
+    cursor: pointer;
+    transition: transform .25s ease;
+}
+
+.agenda-kpi .agenda-kpi__card:hover {
+    transform: translateY(-4px);
+}
+
+/* Estado por defecto: todas las tarjetas visibles */
+.carrusel-doble .carrusel-item {
+    opacity: 1;
+    filter: grayscale(0);
+    transition: opacity .35s ease, filter .35s ease;
+}
+
+/* Al filtrar, todo se atenúa... */
+.carrusel-doble.filtrando .carrusel-item {
+    opacity: .18;
+    filter: grayscale(1);
+}
+
+/* ...excepto las tarjetas cuya categoría matchea el KPI en hover */
+.carrusel-doble[data-filtro-activo="membresia"] .carrusel-item.categoria-membresia,
+.carrusel-doble[data-filtro-activo="reconocimiento"] .carrusel-item.categoria-reconocimiento,
+.carrusel-doble[data-filtro-activo="apoyo"] .carrusel-item.categoria-apoyo,
+.carrusel-doble[data-filtro-activo="certificacion"] .carrusel-item.categoria-certificacion {
+    opacity: 1;
+    filter: grayscale(0);
+}
+
+/* ===== STICKY HEADER ===== */
+.sticky-nav-header {
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    width: 100%;
+    /* From https://css.glass */
+    background: rgba(240, 248, 255, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(36, 36, 36, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(240, 248, 255, 0.3);
+    padding: 0.4rem 1.8rem;
+    border-bottom: 1px solid rgba(47, 95, 214, 0.08);
+}
+
+.nav-container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.nav-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+}
+
+/* ----- LOGO ----- */
+.nav-logo {
+    flex-shrink: 0;
+    height: 48px;
+    display: flex;
+    align-items: center;
+}
+
+.nav-logo a {
+    display: block;
+    height: 100%;
+}
+
+.nav-logo img {
+    height: 100%;
+    width: auto;
+    object-fit: contain;
+}
+
+/* ----- MENÚ ----- */
+.nav-menu {
+    display: flex;
+    align-items: center;
+}
+
+.nav-list {
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
+    list-style: none;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-item {
+    position: relative;
+}
+
+.nav-btn-row {
+    display: flex;
+    align-items: center;
+
+}
+
+/* Botones base */
+.nav-btn {
+    background: transparent;
+    border: none;
+    padding: 0.5rem 1rem;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #242424;
+    cursor: pointer;
+    border-radius: 40px;
+    transition: background 0.2s ease, color 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    white-space: nowrap;
+    text-decoration: none;
+}
+
+.nav-btn i.nav-btn-icon {
+    color: #8992a6;
+    transition: transform 0.25s ease;
+}
+
+.nav-btn:hover {
+    background: rgba(47, 95, 214, 0.1);
+    color: #2f5fd6;
+}
+
+.nav-btn:hover i.nav-btn-icon {
+    color: #2f5fd6;
+}
+
+/* Botón toggle (flechita para abrir dropdown/acordeón) */
+.nav-toggle {
+    display: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    color: #8992a6;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-toggle i {
+    transition: transform 0.25s ease;
+}
+
+.nav-toggle[aria-expanded="true"] i {
+    transform: rotate(180deg);
+}
+
+/* Botones simples (sin dropdown) */
+.nav-item--simple .nav-btn--simple {
+    padding: 0.5rem 1.2rem;
+    text-decoration: none;
+}
+
+.nav-btn--primary {
+    background: #2f5fd6;
+    color: aliceblue;
+    padding: 0.5rem 1.4rem;
+    border-radius: 40px;
+    font-weight: 700;
+    transition: background 0.25s ease, transform 0.15s ease;
+}
+
+.nav-btn--primary:hover {
+    background: #2f5fd6;
+    color: aliceblue;
+    transform: scale(1.02);
+}
+
+.nav-btn--primary i {
+    color: rgba(240, 248, 255, 0.7);
+}
+
+.nav-btn--primary:hover i {
+    color: aliceblue;
+}
+
+/* ----- DROPDOWN (desktop) ----- */
+.dropdown {
+    position: absolute;
+    top: 110%;
+    left: 0;
+    min-width: 220px;
+    background: aliceblue;
+    border-radius: 16px;
+    box-shadow: 0 18px 40px -8px rgba(36, 36, 36, 0.12);
+    padding: 0.6rem 0;
+    list-style: none;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-6px) scale(0.97);
+    transform-origin: top center;
+    transition: opacity 0.22s ease, transform 0.22s ease;
+    border: 1px solid rgba(36, 36, 36, 0.04);
+    margin: 0;
+}
+
+.nav-item:hover .dropdown {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0) scale(1);
+}
+
+.dropdown li a {
+    display: block;
+    padding: 0.5rem 1.2rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #242424;
+    transition: background 0.15s ease, color 0.15s ease;
+    border-left: 3px solid transparent;
+    text-decoration: none;
+}
+
+.dropdown li a:hover {
+    background: #f4f9ff;
+    color: #2f5fd6;
+    border-left-color: #2f5fd6;
+}
+
+/* Submenú anidado (Gobierno Abierto) */
+.dropdown-item-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.dropdown-item-row .dropdown-link {
+    flex: 1;
+}
+
+.submenu-toggle {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    color: #8992a6;
+}
+
+.submenu-toggle i {
+    transition: transform 0.25s ease;
+}
+
+.submenu-toggle[aria-expanded="true"] i {
+    transform: rotate(180deg);
+}
+
+.submenu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.submenu li a {
+    padding-left: 2rem;
+    font-size: 0.85rem;
+}
+
+/* ----- HAMBURGUESA (oculta en desktop) ----- */
+.hamburger-btn {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    width: 42px;
+    height: 42px;
+    background: transparent;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.hamburger-btn:hover {
+    background: rgba(47, 95, 214, 0.1);
+}
+
+.hamburger-btn span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: #242424;
+    border-radius: 2px;
+    transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.hamburger-btn.active span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.hamburger-btn.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger-btn.active span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+
+.newsletter {
+    width: 100%;
+    height: auto;
+    background-color: #242424;
+    position: relative;
+    z-index: 0;
+    overflow: hidden;
+    padding: 20px;
+}
+
+.newsletter video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    z-index: 1;
+}
+
+.news-overlay {
+    width: 100%;
+    height: 100%;
+    background-color: #2424248e;
+    position: absolute;
+    z-index: 2;
+}
+
+.news-title {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #242424;
+    text-align: center;
+    padding: 40px 300px;
+    gap: 40px;
+    background-color: aliceblue;
+    border-radius: 24px;
+}
+
+.news-title span {
+    text-transform: uppercase;
+    font-weight: 800;
+    color: #21b57a;
+}
+
+.news-title h2 {
+    font-size: 4rem;
+}
+
+.news-title p {
+    font-size: 1.5rem;
+}
+
+.news-title a {
+    text-decoration: none;
+    color: aliceblue;
+    font-weight: 800;
+    font-size: 1.2rem;
+    background-color: #242424;
+    padding: 20px 30px;
+    border-radius: 24px;
+    border-right: 5px solid #21b57a;
+    border-left: 5px solid #21b57a;
+}
+
+.site-footer {
+    height: auto;
+    position: relative;
+    overflow: hidden;
+    color: aliceblue;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #242424;
+}
+
+.footer-inner {
+    width: 100%;
+    position: relative;
+    display: grid;
+    grid-template-columns: 1.6fr 1fr 1fr 1fr;
+    gap: 32px;
+}
+
+.brand-logo {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    font-weight: 700;
+    font-size: 2rem;
+    margin-bottom: 14px;
+    text-align: start;
+}
+
+.brand-logo .mark {
+    border-radius: 5px;
+    display: inline-block;
+}
+
+.brand-tagline {
+    font-size: 14px;
+    line-height: 1.5;
+    max-width: 260px;
+    margin-bottom: 22px;
+}
+
+.social-row {
+    display: flex;
+    gap: 10px;
+}
+
+.social-row a {
+    width: 34px;
+    height: 34px;
+    border-radius: 9px;
+    border: 1px solid var(--icon-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 13px;
+    background: rgba(240, 248, 255, .35);
+    color: aliceblue;
+}
+
+.footer-col h4 {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+
+.footer-col ul {
+    list-style: none;
+}
+
+.footer-col li {
+    margin-bottom: 12px;
+}
+
+.footer-col a {
+    font-size: 14px;
+    color: aliceblue;
+    text-decoration: none;
+}
+
+.footer-col a:hover {
+    color: var(--text);
+}
+
+.footer-bottom {
+    position: relative;
+    margin: 48px auto 0;
+    padding: 20px 0 28px;
+    border-top: 1px solid aliceblue;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 13px;
+    color: aliceblue;
+}
+
+.footer-bottom a {
+    color: var(--text);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+@media (max-width:900px) {
+    .footer-inner {
+        grid-template-columns: repeat(2, 1fr)
+    }
+}
+
+@media (max-width:560px) {
+    .footer-inner {
+        grid-template-columns: 1fr
+    }
+
+    .site-footer {
+        padding: 40px 24px 0
+    }
+}
+
+
+:root {
+    --azul: #2f5fd6;
+    --navy: #242424;
+    --amarillo: #ffaf03;
+    --verde: #21b57a;
+    --rojo: #e0475c;
+    --gris-fondo: #f4f6fb;
+    --gris-texto: #6b7280;
+}
+
+
+/* ============================================================
+     BLOQUE: 2 columnas x 4 filas = 8 tarjetas horizontales
+     ============================================================ */
+.hcards-section {
+    max-width: 1180px;
+    margin: 0 auto;
+}
+
+.hcards-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px 32px;
+}
+
+.hcard {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: aliceblue;
+    border-radius: 20px;
+    padding: 18px;
+    box-shadow: 0 6px 24px rgba(36, 36, 36, 0.06);
+}
+
+/* ---- Imagen con fondo de color, la imagen se "sale" del cuadro ---- */
+.hcard-media {
+    position: relative;
+    flex: 0 0 108px;
+    width: 108px;
+    height: 108px;
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: visible;
+    /* clave: permite que la imagen sobresalga */
+}
+
+.hcard-media img,
+.hcard-media svg {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 62%;
+    height: 112%;
+    /* anclada abajo y un poco más alta que el contenedor: sólo
+       la punta de la imagen asoma apenas por arriba del color
+       de fondo, ya que es una imagen transparente (sin fondo) */
+    transform: translateX(-50%);
+    object-fit: contain;
+    object-position: bottom;
+    filter: drop-shadow(0 6px 10px rgba(36, 36, 36, 0.18));
+}
+
+.hcard--azul .hcard-media {
+    background-color: var(--azul);
+}
+
+.hcard--amarillo .hcard-media {
+    background-color: var(--amarillo);
+}
+
+.hcard--verde .hcard-media {
+    background-color: var(--verde);
+}
+
+.hcard--rojo .hcard-media {
+    background-color: var(--rojo);
+}
+
+.hcard-body {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+}
+
+.hcard-body h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: var(--navy);
+}
+
+.hcard-body p {
+    margin: 0;
+    font-size: 0.92rem;
+    line-height: 1.5;
+    color: var(--gris-texto);
+}
+
+.hcard-body a {
+    text-decoration: none;
+}
+
+.hcard-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 4px;
+}
+
+.hcard-tag {
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 999px;
+    background: var(--gris-fondo);
+    color: var(--azul);
+}
+
+.hcard-cta {
+    margin-top: 10px;
+    align-self: flex-start;
+    background: var(--navy);
+    color: aliceblue;
+    border: 0;
+    border-radius: 999px;
+    padding: 10px 22px;
+    font-weight: 700;
+    font-size: 0.88rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.hcard-cta:hover {
+    background: var(--azul);
+}
+
+@media (max-width: 860px) {
+    .hcards-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .hcard {
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    .hcard-media {
+        align-self: flex-start;
+    }
+}
+
+.chat-section {
+    position: relative;
+}
+
+.nn-wrap {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+}
+
+.chat-content {
+    position: relative;
+    z-index: 1;
+}
+
+.chatbot-main {
+    width: 50%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: start;
+    gap: 20px;
+}
+
+.chatbot-title {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: start;
+    gap: 20px;
+}
+
+.chatbot-title h2 {
+    font-size: 2rem;
+}
+
+.chatbot-title ul {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.chatbot-title li {
+    font-size: 1rem;
+    list-style: none;
+}
+
+.lista-servicios {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+}
+
+.lista-servicios li {
+    position: relative;
+    padding: 10px 20px;
+    margin-bottom: 10px;
+    background: #f0f4f8;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    color: #242424;
+    border-left: 4px solid #2f5fd6;
+    z-index: 0;
+}
+
+.lista-servicios li:hover {
+    background: #e1e9f0;
+    transform: translateX(5px);
+    border-left-color: #21b57a;
+    z-index: 100;
+}
+
+/* Tarjeta que aparece en hover */
+.lista-servicios li::after {
+    content: attr(data-info);
+    position: absolute;
+    left: 0;
+    top: calc(100% + 10px);
+    background: #2f5fd6;
+    color: #ecf0f1;
+    padding: 15px 20px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 400;
+    width: 280px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 25px rgba(36, 36, 36, 0.2);
+
+    line-height: 1.5;
+    border-left: 3px solid #21b57a;
+    pointer-events: none;
+}
+
+
+.lista-servicios li:hover::after,
+.lista-servicios li:hover::before {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* Compensa el header sticky al hacer scroll-to hacia las tarjetas */
+#gob-datos-abiertos,
+#gob-informacion-publica,
+#gob-participacion-ciudadana,
+#gestion-productos,
+#gestion-ciencia-datos,
+#gestion-ia {
+    scroll-margin-top: 90px;
+}
+
+.dropdown--nested {
+    min-width: 260px;
+}
+
+.dropdown--nested .dropdown-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.dropdown-item-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.dropdown-item-row .dropdown-link {
+    flex: 1;
+    padding: 8px 4px;
+}
+
+.submenu-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    color: inherit;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.submenu-toggle i {
+    transition: transform 0.2s ease;
+}
+
+.dropdown-item.open .submenu-toggle i {
+    transform: rotate(180deg);
+}
+
+.submenu {
+    list-style: none;
+    margin: 0;
+    padding: 0 0 0 14px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.25s ease;
+}
+
+.dropdown-item.open .submenu {
+    max-height: 300px;
+}
+
+.submenu li a {
+    display: block;
+    padding: 6px 4px;
+    font-size: 0.9em;
+    opacity: 0.85;
+    text-decoration: none;
+    color: inherit;
+}
+
+.submenu li a:hover {
+    opacity: 1;
+    text-decoration: underline;
+}
+
+/* ==========================================================
+   PAGE TRANSITION — bloque que tapa/revela entre subpáginas
+   Incluir este archivo en TODAS las páginas que participen
+   de la transición (principal y subpáginas).
+   ========================================================== */
+
+:root {
+    --pt-color: aliceblue;
+    /* color del bloque — ajustalo a tu paleta */
+    --pt-duration: 600ms;
+    /* duración de la animación de tape/reveal */
+}
+
+#pt-block {
+    position: fixed;
+    inset: 0;
+    background: var(--pt-color);
+    transform: translateY(100%);
+    /* estado de reposo: escondido abajo */
+    transition: transform var(--pt-duration) cubic-bezier(.65, 0, .35, 1);
+    z-index: 9999;
+    pointer-events: none;
+}
+
+/* sube y tapa toda la pantalla (de abajo hacia arriba) */
+#pt-block.pt-cover {
+    transform: translateY(0);
+}
+
+/* sigue subiendo y se va por arriba (revela de arriba hacia abajo) */
+#pt-block.pt-reveal {
+    transform: translateY(-100%);
+}
+
+/* usado solo al cargar la página destino, para que el bloque
+   aparezca ya tapando todo SIN animarse desde abajo */
+#pt-block.pt-instant {
+    transition: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #pt-block {
+        transition: none;
+    }
+}
+
+/* ===== STICKY NAV EN PÍLDORA — fixed en pantalla (independiente del hero) =====
+   Estados (clases que pone hero-scroll.js):
+   - sin clase  : oculta
+   - .is-visible: aparece fija abajo (120px del borde inferior) al expandirse el hero-bkg
+   - .is-top    : al seguir bajando por la página se pega arriba (20px del borde superior)
+   La posición y la animación las maneja solo este CSS. */
+.sticky-nav-header.hero-nav {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    z-index: 999;
+    width: auto;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 5px 10px 5px 14px;
+    background: aliceblue;
+    border: none;
+    border-radius: 999px;
+    box-shadow: 0 10px 30px rgba(36, 36, 36, 0.12);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    opacity: 0;
+    pointer-events: none;
+    /* Oculta, apenas más abajo de su posición inferior (entrada con deslizamiento) */
+    transform: translate(-50%, calc(100vh - 120px - 50% + 20px));
+    transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.4s ease;
+    will-change: transform, opacity;
+}
+
+@media (min-width: 993px) {
+    .sticky-nav-header.hero-nav.is-visible {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translate(-50%, calc(100vh - 120px - 50%));
+    }
+
+    .sticky-nav-header.hero-nav.is-visible.is-top {
+        transform: translate(-50%, 20px);
+    }
+}
+
+.hero-nav__list {
+    display: flex;
+    align-items: center;
+    list-style: none;
+}
+
+.hero-nav__li {
+    position: relative;
+}
+
+/* Divisor vertical corto entre segmentos */
+.hero-nav__li+.hero-nav__li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 1px;
+    height: 28px;
+    background: #e4dfdb;
+    transform: translateY(-50%);
+}
+
+.hero-nav__row {
+    display: flex;
+    align-items: center;
+    border-radius: 999px;
+    transition: background 0.25s ease;
+}
+
+.hero-nav__row:hover,
+.hero-nav__li.is-open .hero-nav__row {
+    background: #f4efec;
+}
+
+.hero-nav__item {
+    display: flex;
+    gap: 4px;
+    padding: 8px 4px 8px 26px;
+    text-decoration: none;
+}
+
+.hero-nav__row--plain .hero-nav__item {
+    padding-right: 26px;
+}
+
+.hero-nav__label {
+    font-size: 0.9rem;
+    font-weight: 700;
+    line-height: 1;
+    color: #242424;
+}
+
+.hero-nav__value {
+    font-size: 0.9rem;
+    font-weight: 700;
+    line-height: 1.1;
+    color: #242424;
+    white-space: nowrap;
+}
+
+.hero-nav__chevron {
+    display: flex;
+    align-items: center;
+    padding: 12px 18px 12px 6px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: #7a7673;
+    font-size: 0.7rem;
+}
+
+.hero-nav__chevron i,
+.hero-nav__sub-toggle i {
+    transition: transform 0.25s ease;
+}
+
+.hero-nav__li.is-open>.hero-nav__row .hero-nav__chevron i,
+.hero-nav__sub.is-open .hero-nav__sub-toggle i {
+    transform: rotate(180deg);
+}
+
+/* ----- Dropdown: se abre hacia ARRIBA porque la píldora vive abajo ----- */
+.hero-nav__dropdown {
+    position: absolute;
+    left: 0;
+    bottom: calc(100% + 22px);
+    min-width: 240px;
+    margin: 0;
+    padding: 0.6rem 0;
+    list-style: none;
+    background: aliceblue;
+    border: 1px solid rgba(36, 36, 36, 0.04);
+    border-radius: 16px;
+    box-shadow: 0 18px 40px -8px rgba(36, 36, 36, 0.18);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(6px) scale(0.97);
+    transform-origin: bottom left;
+    transition: opacity 0.22s ease, transform 0.22s ease, visibility 0.22s;
+}
+
+.hero-nav__dropdown--nested {
+    min-width: 280px;
+}
+
+/* Puente invisible para no perder el hover al cruzar el hueco */
+.hero-nav__dropdown::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    height: 26px;
+}
+
+.hero-nav__li.is-open>.hero-nav__dropdown {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0) scale(1);
+}
+
+/* Nav arriba (.is-top): los dropdowns se abren hacia ABAJO */
+.hero-nav.is-top .hero-nav__dropdown {
+    bottom: auto;
+    top: calc(100% + 22px);
+    transform: translateY(-6px) scale(0.97);
+    transform-origin: top left;
+}
+
+.hero-nav.is-top .hero-nav__dropdown::after {
+    top: auto;
+    bottom: 100%;
+}
+
+.hero-nav.is-top .hero-nav__li.is-open>.hero-nav__dropdown {
+    transform: translateY(0) scale(1);
+}
+
+@media (hover: hover) and (min-width: 993px) {
+
+    .hero-nav__li:hover>.hero-nav__dropdown,
+    .hero-nav.is-top .hero-nav__li:hover>.hero-nav__dropdown {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.hero-nav__dropdown a {
+    display: block;
+    padding: 0.5rem 1.2rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #242424;
+    text-decoration: none;
+    border-left: 3px solid transparent;
+    transition: background 0.15s ease, color 0.15s ease;
+}
+
+.hero-nav__dropdown a:hover {
+    background: #f4f9ff;
+    color: #2f5fd6;
+    border-left-color: #2f5fd6;
+}
+
+/* Submenú anidado (Gobierno Abierto) */
+.hero-nav__sub-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.hero-nav__sub-row a {
+    flex: 1;
+}
+
+.hero-nav__sub-toggle {
+    padding: 0.5rem 1rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: #8992a6;
+    font-size: 0.7rem;
+}
+
+.hero-nav__submenu {
+    max-height: 0;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    list-style: none;
+    transition: max-height 0.25s ease;
+}
+
+.hero-nav__sub.is-open .hero-nav__submenu {
+    max-height: 240px;
+}
+
+.hero-nav__submenu a {
+    padding-left: 2rem;
+    font-size: 0.85rem;
+}
+
+/* Botón circular oscuro del final */
+.hero-nav__cta {
+    flex-shrink: 0;
+    width: 52px;
+    height: 52px;
+    margin-left: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #242424;
+    color: aliceblue;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease;
+}
+
+.hero-nav__cta:hover {
+    background: #ffaf03;
+    color: #242424;
+    transform: scale(1.06);
+}
+
+/* Mobile / tablet: el JS no anima; píldora fija abajo, tocar un segmento abre su menú */
+@media (max-width: 992px) {
+    .sticky-nav-header.hero-nav {
+        top: auto;
+        bottom: 16px;
+        padding: 8px;
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateX(-50%);
+        display: none;
+    }
+
+    .hero-nav__li {
+        position: static;
+    }
+
+    .hero-nav__value,
+    .hero-nav__chevron,
+    .hero-nav__cta {
+        display: none;
+    }
+
+    .hero-nav__item,
+    .hero-nav__row--plain .hero-nav__item {
+        padding: 12px 14px;
+    }
+
+    .hero-nav__label {
+        font-size: 0.8rem;
+        font-weight: 700;
+        color: #242424;
+    }
+
+    .hero-nav__dropdown,
+    .hero-nav__dropdown--nested {
+        left: 0;
+        right: 0;
+        min-width: 0;
+        bottom: calc(100% + 12px);
+        transform-origin: bottom center;
+    }
+}
+
+/* ==========================================================
+   GOBIERNO ABIERTO — tarjetas expandibles (Finanzas Públicas
+   y Seguridad Ciudadana). Al hacer click la tarjeta crece hacia
+   arriba y abajo hasta cubrir el alto del slider (JS calcula
+   --exp-up / --exp-down) y muestra una lista de botones.
+   ========================================================== */
+.gob-card--expandable {
+    position: relative;
+}
+
+.gob-card--expandable.is-expanded {
+    z-index: 20;
+}
+
+/* El botón de abrir ahora es <button>: reseteo para que se vea igual que los <a> */
+button.gob-card-btn {
+    border: 0;
+    font-family: inherit;
+    line-height: inherit;
+    cursor: pointer;
+}
+
+.gob-card-panel {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 30;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 24px;
+    background: aliceblue;
+    color: #242424;
+    border-radius: 18px;
+    box-shadow: 0 18px 50px rgba(36, 36, 36, 0.35);
+    overflow: hidden;
+    scrollbar-width: none;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: top 0.6s var(--gob-ease), bottom 0.6s var(--gob-ease),
+        opacity 0.2s ease 0.4s, visibility 0s 0.6s;
+}
+
+.gob-card--expandable.is-expanded .gob-card-panel {
+    top: calc(var(--exp-up, 0px) * -1);
+    bottom: calc(var(--exp-down, 0px) * -1);
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transition: top 0.6s var(--gob-ease), bottom 0.6s var(--gob-ease),
+        opacity 0.15s ease, visibility 0s;
+}
+
+.gob-card-panel h4 {
+    padding-right: 48px;
+    font-size: 1.3rem;
+}
+
+.gob-card-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    display: grid;
+    place-items: center;
+    width: 38px;
+    height: 38px;
+    border: 0;
+    border-radius: 50%;
+    background: #242424;
+    color: aliceblue;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.25s ease;
+}
+
+.gob-card-close:hover {
+    background: var(--gob-accent);
+    color: var(--gob-on);
+    transform: rotate(90deg);
+}
+
+.gob-card-close:focus-visible,
+.gob-panel-btn:focus-visible {
+    outline: 2px solid var(--gob-accent);
+    outline-offset: 2px;
+}
+
+.gob-panel-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    overflow-y: auto;
+    /* scroll funcional pero sin barra visible */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.gob-panel-list::-webkit-scrollbar {
+    display: none;
+}
+
+.gob-panel-list li {
+    opacity: 0;
+    transform: translateY(14px);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.gob-card--expandable.is-expanded .gob-panel-list li {
+    opacity: 1;
+    transform: none;
+    transition: opacity 0.5s ease, transform 0.6s var(--gob-ease);
+}
+
+.gob-card--expandable.is-expanded .gob-panel-list li:nth-child(1) {
+    transition-delay: 0.35s;
+}
+
+.gob-card--expandable.is-expanded .gob-panel-list li:nth-child(2) {
+    transition-delay: 0.42s;
+}
+
+.gob-card--expandable.is-expanded .gob-panel-list li:nth-child(3) {
+    transition-delay: 0.49s;
+}
+
+.gob-card--expandable.is-expanded .gob-panel-list li:nth-child(4) {
+    transition-delay: 0.56s;
+}
+
+.gob-card--expandable.is-expanded .gob-panel-list li:nth-child(5) {
+    transition-delay: 0.63s;
+}
+
+.gob-card--expandable.is-expanded .gob-panel-list li:nth-child(6) {
+    transition-delay: 0.70s;
+}
+
+.gob-panel-btn {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 18px;
+    border-radius: 14px;
+    background: #f4f6fb;
+    color: #242424;
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+}
+
+.gob-panel-btn span {
+    flex: 1;
+}
+
+.gob-panel-btn i {
+    font-size: 1rem;
+}
+
+.gob-panel-arrow {
+    opacity: 0.4;
+    font-size: 0.8rem !important;
+    transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.gob-panel-btn:hover {
+    background: var(--gob-accent);
+    color: var(--gob-on);
+    transform: translateX(3px);
+}
+
+.gob-panel-btn:hover .gob-panel-arrow {
+    opacity: 1;
+    transform: translateX(3px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .gob-card-panel,
+    .gob-panel-list li,
+    .gob-card-close {
+        transition-duration: 0.01ms !important;
+        transition-delay: 0s !important;
+    }
+}
+
+
+/* ==========================================================
+   Slider de Gestión · IA — etiquetas de estado y modales
+   ========================================================== */
+.g-app-tags .g-tag-status--live {
+    background: rgba(33, 181, 122, 0.15);
+    color: #21b57a;
+}
+
+.g-app-tags .g-tag-status--proposed {
+    background: rgba(255, 175, 3, 0.15);
+    color: #ffaf03;
+}
+
+button.g-app-btn {
+    border: 0;
+    font-family: inherit;
+    cursor: pointer;
+}
+
+html.ia-modal-open {
+    overflow: hidden;
+}
+
+.ia-modal {
+    --ia-c: #ffaf03;
+    --ia-on: #242424;
+    position: fixed;
+    inset: 0;
+    margin: auto;
+    width: min(1800px, calc(100vw - 40px));
+    max-height: calc(100vh - 40px);
+    padding: 0;
+    border: 0;
+    border-radius: 28px;
+    background: #242424;
+    color: aliceblue;
+    overflow: hidden;
+    box-shadow: 0 30px 80px rgba(36, 36, 36, 0.5);
+}
+
+.ia-modal--yellow {
+    --ia-c: #ffaf03;
+    --ia-on: #242424;
+}
+
+.ia-modal--blue {
+    --ia-c: #2f5fd6;
+    --ia-on: aliceblue;
+}
+
+.ia-modal--green {
+    --ia-c: #21b57a;
+    --ia-on: #242424;
+}
+
+.ia-modal--red {
+    --ia-c: #e0475c;
+    --ia-on: aliceblue;
+}
+
+.ia-modal::backdrop {
+    background: rgba(36, 36, 36, 0.7);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+}
+
+.ia-modal[open] {
+    animation: ia-modal-in 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.ia-modal[open]::backdrop {
+    animation: ia-backdrop-in 0.35s ease;
+}
+
+@keyframes ia-modal-in {
+    from {
+        opacity: 0;
+        transform: translateY(24px) scale(0.97);
+    }
+
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+@keyframes ia-backdrop-in {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.ia-modal-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 56px;
+    align-items: center;
+    min-height: min(480px, calc(100vh - 40px));
+    max-height: calc(100vh - 40px);
+    padding: 72px 64px 56px;
+    overflow-y: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    border-top: 6px solid var(--ia-c);
+}
+
+.ia-modal-inner::-webkit-scrollbar {
+    display: none;
+}
+
+.ia-modal-left {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: start;
+    gap: 20px;
+}
+
+.ia-modal-status {
+    padding: 6px 14px;
+    border-radius: 999px;
+    background: var(--ia-c);
+    color: var(--ia-on);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.ia-modal-title {
+    font-size: clamp(2.8rem, 6vw, 5.5rem);
+    font-weight: 700;
+    line-height: 1;
+}
+
+.ia-modal-right p {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    opacity: 0.92;
+}
+
+.ia-modal-right span {
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.ia-modal-close {
+    position: absolute;
+    top: 22px;
+    right: 22px;
+    z-index: 2;
+    display: grid;
+    place-items: center;
+    width: 46px;
+    height: 46px;
+    border: 0;
+    border-radius: 50%;
+    background: rgba(240, 248, 255, 0.14);
+    color: aliceblue;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.25s ease;
+}
+
+.ia-modal-close:hover {
+    background: var(--ia-c);
+    color: var(--ia-on);
+    transform: rotate(90deg);
+}
+
+.ia-modal-close:focus-visible {
+    outline: 3px solid aliceblue;
+    outline-offset: 3px;
+}
+
+@media (max-width: 800px) {
+    .ia-modal-inner {
+        grid-template-columns: 1fr;
+        gap: 28px;
+        align-items: start;
+        padding: 80px 28px 36px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .ia-modal[open],
+    .ia-modal[open]::backdrop {
+        animation: none;
+    }
+}

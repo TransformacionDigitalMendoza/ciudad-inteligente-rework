@@ -1,0 +1,1599 @@
+@media (max-width: 1366px) {
+    .hero-wrapper {
+        height: 250vh;
+    }
+
+    .hero-section {
+        padding: 10px;
+    }
+
+    /* ---- Título (izquierda) ---- */
+    .hero-title {
+        gap: 40px;
+        padding: 40px;
+    }
+
+    .logo {
+        width: 100%;
+        height: 50px;
+    }
+
+    .hero-title h1 {
+        font-size: 4rem;
+    }
+
+    .hero-title span {
+        font-size: 1.2rem;
+    }
+
+    .hero-title a {
+        padding: 10px;
+        font-size: 1rem;
+    }
+
+    /* ---- Fondo de video (centro) ---- */
+    .hero-bkg {
+        top: 15px;
+    }
+
+    /* Texto que invita al click, aparece al hacer hover sobre hero-bkg */
+    .hero-bkg-hint {
+        font-size: 0.8rem;
+        padding: 10px;
+    }
+
+    .hero-text-tag {
+        font-size: 0.9rem;
+    }
+
+
+    .hero-text-blocks h2 {
+        font-size: 2.5rem;
+    }
+
+    .hero-text-blocks p {
+        font-size: 1rem;
+    }
+
+    /* ---- Aside (derecha) ---- */
+    .hero-aside {
+        padding: 40px;
+    }
+
+    .header a {
+        font-size: 0.8rem;
+    }
+
+    .hero-aside-bottom {
+        gap: 10px;
+        padding-right: 40%;
+    }
+
+    .hero-aside h2 {
+        font-size: 1.5rem;
+    }
+
+    .trust-block__number {
+        font-size: 1.5rem;
+    }
+
+    .trust-block__text {
+        font-size: 1rem;
+    }
+
+
+    .trust-block__cta {
+        font-size: 0.8rem;
+    }
+
+    .gestion-title-block h2 {
+        font-size: 3rem;
+    }
+
+    .gestion-title-block h3 {
+        font-size: 1.2rem;
+    }
+
+    .gestion-title-block p {
+        font-size: 1rem;
+    }
+
+    .terciary-kpi-grid {
+        display: flex;
+        gap: 20px;
+    }
+
+    .terciary-kpi-card {
+        padding: 20px 8px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        text-align: center;
+    }
+
+    .terciary-kpi-card__body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .terciary-kpi-card__value {
+        font-size: 1.5rem;
+    }
+
+    .g-card-title {
+        gap: 10px;
+    }
+
+    .g-card-title h4 {
+        font-size: 1.2rem;
+    }
+
+    .g-card-title i {
+        font-size: 2rem;
+    }
+
+
+    .g-card-content {
+        width: 50%;
+        padding: 40px 40px;
+    }
+
+    .g-card-content p {
+        font-size: 1rem;
+    }
+
+    .g-card-button {
+        width: 20%;
+        height: 80%;
+    }
+
+    .g-card-button a,
+    .g-card-button button {
+        font-size: 0.8rem;
+    }
+
+    .gob-abierto-video-wrapper {
+        height: 100vh;
+    }
+
+    /* Primer contenedor: presentación del bloque, se superpone al video fijo */
+    .gob-abierto-hero {
+        height: 100vh;
+    }
+
+
+
+    .gob-abierto-title h2 {
+        font-size: 3rem;
+        margin-bottom: 20px;
+    }
+
+
+    .gob-abierto-title h3 {
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+        color: #21b57a;
+    }
+
+    .gob-abierto-title p {
+        font-size: 1rem;
+    }
+
+    .gob-abierto-title {
+        padding: 20%;
+    }
+
+    .gob-abierto-btn a {
+        font-weight: 500;
+        font-size: 1rem;
+        padding: 10px 0;
+    }
+
+    .gob-links a {
+        font-size: 0.8rem;
+        letter-spacing: .01em;
+        gap: .4rem;
+    }
+
+    .gob-links .finanzas-trigger {
+        font-size: 0.8rem;
+    }
+
+    .gob-links .seguridad-trigger {
+        font-size: 0.8rem;
+    }
+
+    .gob-card h3 {
+        font-weight: 400;
+        font-size: 2rem;
+        color: aliceblue;
+        margin: 0 0 .9rem 0;
+        line-height: 1.25;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .gob-card p {
+        font-size: 1rem;
+    }
+
+
+    .agenda-top h2 {
+        font-size: 6rem;
+        bottom: -30px;
+    }
+
+    .agenda-bottom {
+        height: 20vh;
+    }
+
+    .agenda-bottom h2 {
+        font-size: 6rem;
+        top: -22px;
+        left: 80px;
+    }
+
+    .agenda-kpi .agenda-kpi__label {
+        font-size: 1.8rem;
+        margin: 0 0 8px;
+    }
+
+    .agenda-kpi .agenda-kpi__value {
+        font-size: 2rem;
+    }
+
+    :root {
+        --gap: 25px;
+        --tile-w: 650px;
+        --tile-h: 260px;
+    }
+
+    .news-title h2 {
+        font-size: 2rem;
+    }
+
+    .news-title p {
+        font-size: 1rem;
+    }
+
+    .news-title a {
+        font-weight: 800;
+        font-size: 1rem;
+        padding: 10px 20px;
+        border-radius: 24px;
+    }
+
+    .seguridad-btn {
+        font-weight: 500;
+        font-size: 0.8rem;
+    }
+
+    .finanzas-btn {
+        font-weight: 500;
+        font-size: 0.8rem;
+    }
+
+    .g-expanded-body h2 {
+        font-size: 1.8rem;
+    }
+
+    .g-expanded-body p {
+        font-size: 0.9rem;
+    }
+
+    .g-expanded-body li {
+        font-size: 0.8rem;
+    }
+
+    .g-expanded-body span {
+        font-size: 0.9rem;
+    }
+
+    .g-expanded-body a {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 992px) {
+
+    .hero-wrapper {
+        display: none;
+    }
+
+    .sticky-nav-header {
+        display: none;
+    }
+
+    .hero {
+        display: block;
+    }
+
+
+    .gob-abierto{
+        padding: 0;
+    }
+
+
+    :root {
+        --ink: #031a15;
+        --deep: #052a22;
+        --mint: #ffaf03;
+        --mint-pale: #ffaf03;
+        --paper: #ffffff;
+        --text: #e6fbf3;
+        --muted: #93c4b4;
+        --line: rgba(123, 232, 194, 0.2);
+        --gutter: clamp(16px, 3vw, 40px);
+        --ease: cubic-bezier(0.76, 0, 0.24, 1);
+        --dur: 0.9s;
+        color-scheme: dark;
+    }
+
+
+
+    /* ---------- Hero ---------- */
+    .hero {
+        position: relative;
+        width: 100%;
+        height: 100vh;
+        height: 100svh;
+        min-height: 30rem;
+        overflow: hidden;
+    }
+
+    .hero__video {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: 68% 40%;
+    }
+
+    .hero__shade {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+    }
+
+    .tag {
+        position: relative;
+        z-index: 2;
+        display: inline-flex;
+        border-radius: 4px;
+        margin-bottom: 20px;
+    }
+
+    .tag img {
+        width: 100px;
+        height: auto;
+    }
+
+    /* ---------- Tarjeta ---------- */
+    .card {
+        position: absolute;
+        z-index: 3;
+        left: var(--gutter);
+        bottom: var(--gutter);
+        width: min(32rem, calc(100% - var(--gutter) * 2));
+        background: var(--paper);
+        color: #08110e;
+        border-radius: 1.75rem;
+        overflow: hidden;
+        box-shadow: 0 30px 80px -24px rgba(0, 0, 0, 0.55);
+        transition:
+            left var(--dur) var(--ease),
+            top var(--dur) var(--ease),
+            width var(--dur) var(--ease),
+            height var(--dur) var(--ease),
+            border-radius var(--dur) var(--ease),
+            background-color var(--dur) var(--ease);
+        animation: rise 0.8s 0.1s cubic-bezier(0.2, 0.8, 0.2, 1) backwards;
+    }
+
+    .card.is-open {
+        left: 0;
+        top: 0;
+        bottom: auto;
+        width: 100%;
+        height: 100%;
+        border-radius: 0;
+        background: var(--deep);
+        box-shadow: none;
+    }
+
+    .card__intro {
+        padding: clamp(1.25rem, 2.6vw, 2rem);
+        transition: opacity 0.35s 0.6s, transform 0.35s 0.6s, visibility 0s 0.6s;
+    }
+
+    .card.is-open .card__intro {
+        opacity: 0;
+        transform: translateY(-10px);
+        visibility: hidden;
+        pointer-events: none;
+        transition: opacity 0.3s, transform 0.3s, visibility 0s 0.3s;
+    }
+
+    .card__title {
+        font-size: clamp(2.6rem, 3.2vw + 5.4rem, 4.25rem);
+        line-height: 0.92;
+        letter-spacing: -0.045em;
+        margin-bottom: 1rem;
+    }
+
+    /* "Ciudad": sobre el video, justo encima de la tarjeta cerrada.
+       Posición (--word-left / --card-top) y tipografía las fija hero_responsive.js.
+       z-index menor que la tarjeta: al abrirse, la tarjeta la cubre. */
+    .hero__word {
+        position: absolute;
+        z-index: 2;
+        left: var(--word-left, var(--gutter));
+        top: var(--card-top, 50%);
+        transform: translateY(-100%);
+        margin: 0 0 -0.04em;
+        color: #fff;
+        text-shadow: 0 2px 24px rgba(0, 0, 0, 0.45);
+        white-space: nowrap;
+        pointer-events: none;
+        user-select: none;
+        animation: wordRise 0.8s 0.1s cubic-bezier(0.2, 0.8, 0.2, 1) backwards;
+    }
+
+    @keyframes wordRise {
+        from {
+            transform: translateY(calc(-100% + 28px));
+        }
+
+        to {
+            transform: translateY(-100%);
+        }
+    }
+
+    .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        margin: -1px;
+        padding: 0;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+    }
+
+    .card__text {
+        color: #2c3a35;
+        max-width: 30ch;
+        margin-bottom: 1.5rem;
+    }
+
+    .cta {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        padding: 1.15rem 1rem;
+        border: 0;
+        border-radius: 8px;
+        background: #242424;
+        color: #fff;
+        font-weight: 700;
+        cursor: pointer;
+        transition: background-color 0.2s;
+    }
+
+    .cta:hover {
+        background: #12302a;
+    }
+
+    .cta__chevrons {
+        display: inline-flex;
+        color: var(--mint);
+    }
+
+    .cta__chevrons svg {
+        width: 0.9rem;
+        height: 0.9rem;
+        animation: nudge 1.4s ease-in-out infinite;
+    }
+
+    .cta__chevrons svg:nth-child(2) {
+        animation-delay: 0.15s;
+    }
+
+    .cta__chevrons svg:nth-child(3) {
+        animation-delay: 0.3s;
+    }
+
+    /* ---------- Contenido revelado ---------- */
+    .reveal {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 1.25rem;
+        padding: calc(var(--gutter) * 2.5) var(--gutter);
+        text-align: center;
+        visibility: hidden;
+        opacity: 0;
+        background-color: #242424;
+        /* Cierre: se desvanece rápido y recién después se oculta */
+        transition: opacity 0.25s ease, visibility 0s 0.25s;
+    }
+
+    .card.is-open .reveal {
+        visibility: visible;
+        opacity: 1;
+        /* Apertura: el fondo se funde mientras la tarjeta crece (sin corte brusco) */
+        transition: opacity 0.6s ease 0.2s, visibility 0s;
+    }
+
+
+    /* El título recibe el foco por JS al terminar: sin recuadro que aparezca de golpe */
+    .reveal__title:focus {
+        outline: none;
+    }
+
+    .reveal__eyebrow {
+        width: 100%;
+        font-size: 0.8125rem;
+        font-weight: 700;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--mint);
+        text-align: start;
+    }
+
+    .reveal__title {
+        max-width: 18ch;
+        font-size: 3.2rem;
+        line-height: 0.95;
+        letter-spacing: -0.04em;
+        color: #fff;
+        text-align: start;
+    }
+
+    .reveal__text {
+        max-width: 52ch;
+        font-size: clamp(1rem, 0.8vw + 0.85rem, 1.25rem);
+        color: var(--mint-pale);
+        text-align: justify;
+        text-justify: inter-word;
+    }
+
+    .reveal__close {
+        position: absolute !important;
+        top: var(--gutter);
+        right: var(--gutter);
+        padding: 0.55rem 1.1rem;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        background: rgba(3, 26, 21, 0.4);
+        color: var(--text);
+        font-size: 0.875rem;
+        font-weight: 700;
+        cursor: pointer;
+    }
+
+    .reveal__close:hover {
+        background: rgba(123, 232, 194, 0.15);
+    }
+
+    .reveal__cue {
+        position: absolute !important;
+        bottom: calc(var(--gutter) + env(safe-area-inset-bottom, 0px));
+        left: 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.35rem;
+        margin-left: -4rem;
+        width: 8rem;
+        font-size: 0.8125rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--mint);
+    }
+
+    .reveal__cue svg {
+        width: 1.25rem;
+        height: 1.25rem;
+        animation: bob 1.6s ease-in-out infinite;
+    }
+
+
+    /* ---------- Animaciones ---------- */
+    @keyframes rise {
+        from {
+            transform: translateY(28px);
+        }
+
+        to {
+            transform: none;
+        }
+    }
+
+    @keyframes nudge {
+
+        0%,
+        100% {
+            opacity: 0.35;
+            transform: translateX(0);
+        }
+
+        50% {
+            opacity: 1;
+            transform: translateX(3px);
+        }
+    }
+
+    @keyframes bob {
+
+        0%,
+        100% {
+            transform: translateY(0);
+        }
+
+        50% {
+            transform: translateY(5px);
+        }
+    }
+
+    @media (max-width: 52rem) {
+        .split {
+            grid-template-columns: minmax(0, 1fr);
+        }
+
+        .hero__video {
+            object-position: 70% 40%;
+        }
+    }
+
+    @media (max-width: 30rem) {
+        .row {
+            grid-template-columns: minmax(0, 1fr);
+        }
+
+        .row__tag {
+            grid-row: auto;
+            grid-column: 1;
+            justify-self: start;
+            order: -1;
+        }
+
+        .final .cta {
+            width: 100%;
+            justify-content: space-between;
+        }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        :root {
+            --dur: 0.01s;
+        }
+
+        .card,
+        .hero__word,
+        .card__intro,
+        .reveal,
+        .reveal>* {
+            animation: none !important;
+            transition-duration: 0.01s !important;
+            transition-delay: 0s !important;
+        }
+
+        .cta__chevrons svg,
+        .reveal__cue svg {
+            animation: none;
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    .agenda-top {
+        height: 20vh;
+    }
+
+    .agenda-top,
+    .agenda-bottom {
+        height: 10vh;
+        padding-left: 24px;
+    }
+
+    .agenda-top {
+        height: 20vh;
+    }
+
+    .agenda-top h2 {
+        font-size: 3rem;
+        bottom: -15px;
+        transform: translateY(120%);
+    }
+
+    .agenda-bottom h2 {
+        font-size: 3rem;
+        top: -12px;
+        left: 20px;
+        transform: translateY(-120%);
+    }
+
+
+    .agenda-kpi {
+        width: 100%;
+        flex-wrap: wrap;
+        padding: 20px 24px;
+        gap: 10px;
+    }
+
+    .agenda-kpi .agenda-kpi__card {
+        width: 50%;
+        flex: 1 1 calc(50% - 10px);
+        padding: 1.6rem .8rem;
+        text-align: center;
+    }
+
+    .agenda-kpi .agenda-kpi__label {
+        font-size: 1.15rem;
+        margin: 0 0 6px;
+    }
+
+    .agenda-kpi .agenda-kpi__value {
+        font-size: 2.1rem;
+    }
+
+    :root {
+        --tile-w: 260px;
+        --tile-h: 230px;
+        --gap: 14px;
+    }
+
+    .card-inner {
+        padding: 16px;
+    }
+
+    .card-title {
+        font-size: 15px;
+        margin-bottom: 8px;
+    }
+
+    .card-text {
+        font-size: 12px;
+    }
+
+    .card-logo {
+        max-height: 56px;
+    }
+
+    .carrusel-item {
+        flex: 0 0 auto;
+        width: var(--tile-w);
+        height: auto;
+    }
+
+    .news-title {
+        padding: 40px 20px;
+        gap: 40px;
+    }
+
+    .news-title h2 {
+        font-size: 1.5rem;
+    }
+
+    .news-title p {
+        font-size: 0.9rem;
+    }
+
+    .news-title a {
+        font-size: var(--fs-a);
+        padding: 10px 15px;
+    }
+
+    .expanded-hero-title {
+        text-align: center;
+        padding: 20px;
+    }
+
+    .datos-row-reverse {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .datos-row-title {
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+    }
+
+    .g-expanded-body {
+        padding: 20px;
+    }
+
+    .datos-row-chart {
+        display: none;
+    }
+
+    .cards-container {
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 24px;
+        margin: 0 auto;
+        margin-top: 40px;
+    }
+
+    .chat-card {
+        display: none;
+    }
+
+    .chatbot-main {
+        width: 100%;
+    }
+
+    .lista-servicios {
+        width: 100%;
+        list-style: none;
+        padding: 0;
+        display: flex;
+        flex-wrap: wrap;
+        margin-bottom: 40px;
+    }
+
+    .lista-servicios li {
+        position: relative;
+        padding: 10px 20px;
+        margin-bottom: 10px;
+        background: #f0f4f8;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-weight: 500;
+        color: #2c3e50;
+        border-left: 4px solid #3498db;
+        z-index: 0;
+    }
+
+    .lista-servicios li:hover {
+        background: #e1e9f0;
+        transform: translateX(5px);
+        border-left-color: #039494;
+        z-index: 100;
+    }
+
+    .gestion-kpi-block {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px;
+    }
+
+    .terciary-kpi-grid {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 5px;
+        padding: 0;
+    }
+
+    .terciary-kpi-card {
+        padding: 22px 10px;
+        width: 220px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        min-height: 100px;
+        position: relative;
+        overflow: hidden;
+        opacity: 0;
+    }
+
+    .terciary-kpi-card__body {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+        gap: 10px;
+        flex: 1;
+    }
+
+    .terciary-kpi-chart {
+        width: 52px;
+        height: 52px;
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .hamburger-btn {
+        display: flex;
+    }
+
+    .nav-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        max-height: 0;
+        overflow: hidden;
+        background: #ffffff;
+        box-shadow: 0 18px 30px -10px rgba(0, 0, 0, 0.12);
+        border-top: 1px solid rgba(0, 0, 0, 0.05);
+        transition: max-height 0.35s ease;
+    }
+
+    .nav-menu.active {
+        max-height: calc(100vh - 100%);
+        overflow-y: auto;
+    }
+
+    .nav-list {
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+        gap: 0.2rem;
+        padding: 0.6rem 1rem 1.4rem;
+    }
+
+    .nav-item {
+        width: 100%;
+    }
+
+    .nav-btn-row {
+        width: 100%;
+    }
+
+    .nav-btn {
+        flex: 1;
+        border-radius: 10px;
+    }
+
+    .nav-toggle {
+        display: flex;
+    }
+
+    .nav-item--simple .nav-btn--simple {
+        width: 100%;
+        justify-content: flex-start;
+        border-radius: 10px;
+    }
+
+    .nav-btn--primary {
+        justify-content: center;
+    }
+
+    /* Dropdowns pasan a ser acordeones dentro del menú */
+    .dropdown {
+        position: static;
+        opacity: 1;
+        pointer-events: auto;
+        transform: none;
+        box-shadow: none;
+        border: none;
+        min-width: 0;
+        max-height: 0;
+        overflow: hidden;
+        padding: 0;
+        transition: max-height 0.3s ease, padding 0.3s ease;
+    }
+
+    .nav-item.open>.dropdown {
+        max-height: 800px;
+        padding: 0.3rem 0 0.6rem;
+    }
+
+    .dropdown li a {
+        padding: 0.55rem 1.4rem;
+    }
+
+    .dropdown-item.open>.submenu {
+        max-height: 400px;
+    }
+
+    .submenu {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+    }
+
+    .site-footer {
+        height: auto;
+        position: relative;
+        overflow: hidden;
+        background-image: url(../assets/images/footer.png);
+        background-size: cover;
+        background-position: center;
+        color: aliceblue;
+        padding: 20px 20px;
+    }
+
+}
+
+/* Ajustes finos para pantallas muy chicas */
+@media (max-width: 480px) {
+    .hero-title {
+        padding: 30px 18px !important;
+        gap: 18px;
+    }
+
+    .hero-title .logo {
+        height: 56px;
+    }
+
+    .trust-block__number {
+        font-size: 1.5rem;
+    }
+
+    .sticky-nav-header {
+        position: fixed;
+    }
+
+    .nav-wrapper {
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .nav-logo {
+        height: 40px;
+        display: none;
+    }
+
+    .nav-btn i {
+        display: none;
+    }
+
+    .nav-menu {
+        justify-content: center;
+        gap: 0.1rem;
+    }
+
+    .nav-btn {
+        font-size: 0.85rem;
+        padding: 0.4rem 0.8rem;
+    }
+
+    .dropdown {
+        min-width: 180px;
+    }
+
+}
+
+/* ==========================================================
+   GESTIÓN · RESPONSIVE MÓVIL
+   Va al final de responsive.css (se carga después de styles.css,
+   así pisa las reglas de escritorio con la misma especificidad).
+   ========================================================== */
+
+/* ---------- Móvil / tablet chica (≤ 768px) ---------- */
+@media (max-width: 768px) {
+
+    /* ===== 1. Grilla de título + KPIs con máscara de video ===== */
+
+    /* Mosaico de 2 columnas. Las filas de los KPIs tienen alto fijo
+       para que la máscara de video siempre tenga rectángulos estables. */
+    .gestion-main {
+        height: auto;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-rows: auto auto repeat(3, clamp(140px, 30vw, 220px)) auto;
+        gap: 10px;
+        padding: 16px;
+    }
+
+    /* Reubicación explícita (pisa grid-column-start / grid-row-start del escritorio) */
+    .g-box1 {
+        grid-column: 1 / -1;
+        grid-row: 1;
+        margin-top: 40px;
+    }
+
+    .g-box2 {
+        grid-column: 1 / -1;
+        grid-row: 2;
+        margin-bottom: 40px;
+    }
+
+    .g-box3 {
+        grid-column: 1 / -1;
+        grid-row: 3;
+    }
+
+    .g-box5 {
+        grid-column: 1;
+        grid-row: 4 / span 2;
+    }
+
+    .g-box4 {
+        grid-column: 2;
+        grid-row: 4;
+    }
+
+    .g-box7 {
+        grid-column: 2;
+        grid-row: 5;
+    }
+
+    .g-box6 {
+        grid-column: 1 / -1;
+        grid-row: 6;
+    }
+
+    .g-box-title {
+        padding-top: 12px;
+    }
+
+    .g-box-title h2 {
+        font-size: clamp(3.6rem, 8vw, 3rem);
+        line-height: 1.05;
+    }
+
+    .g-box-subtitle {
+        padding-right: 0;
+    }
+
+    .g-box-subtitle p {
+        font-size: 1.5rem;
+        line-height: 1.5;
+        color: #242424;
+    }
+
+    .g-box-content {
+        padding: 6px 0 0;
+        font-size: 1rem;
+        line-height: 1.5;
+        color: #242424;
+        margin: 20px 0;
+    }
+
+    .g-box-bkg {
+        border-radius: 18px;
+    }
+
+    .g-content {
+        padding: 14px;
+        gap: 4px;
+    }
+
+    .g-kpi {
+        font-size: clamp(2.25rem, 9vw, 3.5rem);
+    }
+
+    .g-label {
+        font-size: 0.8rem;
+        line-height: 1.25;
+    }
+
+
+    /* ===== 2. Slider (IA / Ciencia de Datos / Productos Digitales) ===== */
+
+    .gestion-content {
+        padding: 0px;
+        margin: 16px 0 0px;
+    }
+
+    /* El alto lo define el contenido, ya no 100vh */
+    .g-slider {
+        height: auto;
+        min-height: 0;
+    }
+
+    .g-slider-stage {
+        position: relative;
+        inset: auto;
+        border-radius: 24px;
+    }
+
+    /* Degradado vertical: el texto ocupa todo el ancho */
+    .g-slider-overlay {
+        background: linear-gradient(180deg, rgba(36, 36, 36, 0.55) 0%, rgba(36, 36, 36, 0.75) 100%);
+    }
+
+    /* Nav: 3 pestañas del mismo ancho, con el texto en dos líneas si hace falta */
+    .g-slider-nav {
+        top: 14px;
+        left: 12px;
+        right: 12px;
+        transform: none;
+        max-width: none;
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 2px;
+        padding: 5px;
+        overflow: visible;
+    }
+
+    .g-slider-indicator {
+        top: 5px;
+        bottom: 5px;
+    }
+
+    .g-slider-tab {
+        padding: 9px 6px;
+        font-size: 0.74rem;
+        line-height: 1.15;
+        white-space: normal;
+        text-align: center;
+    }
+
+    .g-slide {
+        height: auto;
+    }
+
+    /* Texto en una columna. Arriba deja lugar para el nav,
+       abajo el espacio que tapa la card al solaparse (28px) */
+    .g-slide-inner {
+        height: auto;
+        grid-template-columns: minmax(0, 1fr);
+        align-content: start;
+        gap: 0;
+        padding: 96px 20px 60px;
+    }
+
+    .g-slide-title {
+        font-size: clamp(2rem, 9vw, 2.75rem);
+        margin-bottom: 14px;
+    }
+
+    .g-slide-text p {
+        max-width: none;
+        font-size: 1rem;
+        line-height: 1.55;
+    }
+
+    .g-slide-cta {
+        margin-top: 20px;
+        padding: 13px 22px;
+        font-size: 0.95rem;
+    }
+
+
+    /* ===== 3. Card blanca con las apps ===== */
+
+    /* Pasa de absoluta a flujo normal, solapando la base del slider */
+    .g-card {
+        --g-r: 24px;
+        --g-overhang: 0px;
+        position: relative;
+        top: auto;
+        right: auto;
+        bottom: auto;
+        left: auto;
+        width: 100%;
+        height: auto;
+        margin-top: -28px;
+        padding: 12px 12px 4px;
+        border-radius: var(--g-r) var(--g-r) 0 0;
+    }
+
+    /* Las curvas cóncavas de los costados no entran en una card a todo el ancho */
+    .g-card::before,
+    .g-card::after {
+        display: none;
+    }
+
+    .g-card-frame {
+        height: auto;
+    }
+
+    .g-card-track {
+        height: auto;
+    }
+
+    .g-card-item {
+        height: auto;
+    }
+
+    .g-card-item--apps {
+        padding: 0;
+        overflow: hidden;
+    }
+
+    /* Las tarjetas se agrupan de a dos (una arriba de la otra) y cada par
+       se desliza en horizontal, con el siguiente par asomando */
+    .g-apps,
+    .g-apps--2,
+    .g-apps--4 {
+        display: grid;
+        grid-auto-flow: column;
+        grid-template-columns: none;
+        grid-template-rows: repeat(2, auto);
+        grid-auto-columns: calc(100% - 28px);
+        gap: 10px;
+        min-height: 0;
+        padding: 4px 4px 14px;
+        overflow-x: auto;
+        overflow-y: hidden;
+        scroll-snap-type: x mandatory;
+        scroll-padding-inline: 4px;
+        overscroll-behavior-x: contain;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+    }
+
+    .g-apps::-webkit-scrollbar {
+        display: none;
+    }
+
+    .g-apps .g-app {
+        min-width: 0;
+        scroll-snap-align: start;
+        grid-template-columns: 48px minmax(0, 1fr);
+        grid-template-rows: auto auto 1fr auto;
+        align-content: stretch;
+        gap: 6px 12px;
+        padding: 16px;
+        border-radius: 18px;
+    }
+
+    .g-apps .g-app-icon {
+        width: 48px;
+        height: 48px;
+        border-radius: 14px;
+        font-size: 1.3rem;
+    }
+
+    .g-apps .g-app-title {
+        font-size: 1rem;
+    }
+
+    .g-apps .g-app-desc {
+        margin-top: 4px;
+        font-size: 0.85rem;
+        -webkit-line-clamp: 3;
+    }
+
+    /* La fila de etiquetas absorbe el alto sobrante: el botón queda siempre abajo */
+    .g-apps .g-app-tags {
+        align-items: flex-start;
+        align-content: flex-start;
+    }
+
+    .g-apps .g-app-tags span {
+        padding: 3px 10px;
+        font-size: 0.72rem;
+    }
+
+    /* Botones con alto táctil de 44px */
+    .g-apps .g-app-btn {
+        display: inline-flex;
+        align-items: center;
+        min-height: 44px;
+        margin-top: 8px;
+        padding: 0 20px;
+        font-size: 0.85rem;
+    }
+}
+
+
+/* ---------- Teléfonos chicos (≤ 380px) ---------- */
+@media (max-width: 380px) {
+
+    .gestion-main {
+        padding: 12px;
+        gap: 8px;
+        grid-template-rows: auto auto repeat(3, 132px) auto;
+    }
+
+    .gestion-content {
+        padding: 12px;
+    }
+
+    .g-content {
+        padding: 12px;
+    }
+
+    .g-kpi {
+        font-size: 2rem;
+    }
+
+    .g-label {
+        font-size: 0.75rem;
+    }
+
+    .g-slide-inner {
+        padding-inline: 16px;
+    }
+
+    .g-slider-tab {
+        font-size: 0.7rem;
+        padding-inline: 4px;
+    }
+
+    .g-apps .g-app {
+        padding: 14px;
+    }
+}
+
+@media (max-width: 900px) {
+    .gob-grid {
+        height: auto;
+        min-height: 0;
+        grid-template-rows: auto auto auto;
+    }
+ 
+    .gob-box1 {
+        grid-column: 1 / -1;
+        grid-row: 1;
+        padding: 20px 16px 28px;
+    }
+ .gob-box1 p{
+    font-size: 1.5rem;
+ }
+    /* El bloque 3 ocupa todo el ancho: sin pestaña ni curva cóncava */
+    .gob-box3 {
+        grid-column: 1 / -1;
+        grid-row: 2;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 12px 20px;
+        padding: 20px 16px;
+    }
+ 
+    .gob-icon {
+        width: 56px;
+        height: 56px;
+        font-size: 1.3rem;
+    }
+ 
+    .gob-box2 {
+        grid-column: 1 / -1;
+        grid-row: 3;
+    }
+ 
+    .gob-viewport,
+    .gob-track {
+        height: auto;
+    }
+ 
+    .gob-slide {
+        height: auto;
+        padding: 32px 24px;
+    }
+ 
+    .gob-cards {
+        grid-template-columns: 1fr;
+    }
+}
+ 
+@media (prefers-reduced-motion: reduce) {
+ 
+    .gob-track,
+    .gob-icon,
+    .gob-nav-label,
+    .gob-slide-title,
+    .gob-slide-lead,
+    .gob-card {
+        transition-duration: 0.01ms !important;
+        transition-delay: 0s !important;
+    }
+}
+ 
+
+/* ================= HERO MOBILE: video arriba + panel con texto abajo =================
+   Misma estética del hero de escritorio: marco con degradé, panel claro y
+   muescas semicirculares. La tarjeta sigue abriéndose a pantalla completa.
+   Variables: --frame (marco), --panel (color), --notch (tamaño muescas).      */
+@media (max-width: 992px) {
+
+    .hero {
+        --frame: 12px;
+        --panel: #eef4f2;
+        --notch: clamp(64px, 20vw, 96px);
+        /* alto del video = hasta donde empieza la tarjeta (--card-top lo fija hero.responsive.js) */
+        --vid-h: calc(var(--card-top, 56%) - var(--frame));
+background: linear-gradient(to bottom, rgba(255,255,255,0.15) 0%, rgba(0,0,0,0.15) 100%), radial-gradient(at top center, rgba(255,255,255,0.40) 0%, rgba(0,0,0,0.40) 120%) #989898;
+ background-blend-mode: multiply,multiply;
+    }
+
+    /* Video arriba, dentro del marco */
+    .hero__video {
+        inset: var(--frame) var(--frame) auto var(--frame);
+        width: calc(100% - var(--frame) * 2);
+        height: var(--vid-h);
+        border-radius: 4px 4px 0 0;
+    }
+
+    /* Capa del tamaño del video: recorta las muescas (mitad visible) */
+    .hero__shade {
+        inset: var(--frame) var(--frame) auto var(--frame);
+        height: var(--vid-h);
+        overflow: hidden;
+        border-radius: 4px 4px 0 0;
+    }
+
+    .hero__shade::before,
+    .hero__shade::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        width: var(--notch);
+        height: var(--notch);
+        margin-left: calc(var(--notch) / -2);
+        border-radius: 50%;
+        background: var(--panel);
+    }
+
+    .hero__shade::before { top: calc(var(--notch) / -2); }
+    .hero__shade::after { bottom: calc(var(--notch) / -2); }
+
+    /* Tarjeta cerrada = panel claro pegado al video, ancho completo */
+    .card {
+        left: var(--frame);
+        bottom: var(--frame);
+        width: calc(100% - var(--frame) * 2);
+        background: var(--panel);
+        border-radius: 0 0 4px 4px;
+        box-shadow: none;
+    }
+
+    .card__intro {
+        padding: 28px 24px 24px;
+    }
+
+    .tag { margin-bottom: 28px; }
+    .tag img { width: 64px; }
+
+    .card__title {
+        font-size: clamp(2.4rem, 11vw, 4rem);
+        font-weight: 500;
+        line-height: 0.95;
+        letter-spacing: -0.04em;
+        color: #1d2422;
+        margin-bottom: 14px;
+    }
+
+    .card__text {
+        color: #3b4543;
+        max-width: 36ch;
+        margin-bottom: 20px;
+    }
+
+    /* El título completo vive en el panel: se oculta la palabra flotante
+       sobre el video y se muestra la parte "sr-only" del título */
+    .hero__word { display: none; }
+
+    .card__title .sr-only {
+        position: static;
+        width: auto;
+        height: auto;
+        margin: 0;
+        overflow: visible;
+        clip: auto;
+        white-space: normal;
+    }
+
+    .card__title .sr-only::after { content: " "; }
+}
