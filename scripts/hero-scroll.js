@@ -13,7 +13,8 @@
   const MOBILE_BREAKPOINT = 992;
   const GAP = 24; // aire hacia los bordes de la pantalla (px)
   const RADIUS = 24; // radio de las puntas (px)
-  const EXTRA = 0.15; // el bloque llega a 100vh + 15%
+  const EXPAND_H = 0.7; // altura del bloque al terminar la fase 1 (fracción de 100vh)
+  const END_H = 0.85; // altura del bloque al terminar la fase 2 (fracción de 100vh)
   const OUTSIDE = 120; // px libres debajo del bloque para el h2 externo
   const PHASE1 = 0.7; // 70% del scroll expande, 30% crece y sube
   const DOCK_OFFSET = 40; // scroll (px) tras terminar el hero para que el nav se pegue arriba
@@ -101,11 +102,14 @@
     const parentH = heroBkg.offsetParent
       ? heroBkg.offsetParent.clientHeight
       : window.innerHeight;
-    const fullH = parentH * (1 + EXTRA);
-    const endTop = parentH - OUTSIDE - fullH; // negativo: el borde superior sale de pantalla
+    const fullH = parentH * END_H;
+    const endTop = parentH - OUTSIDE - fullH;
 
-    const topP = lerp(startTop, GAP, p);
-    const heightP = lerp(startHeight, parentH - GAP * 2, p);
+    // Fase 1: el bloque queda más bajo que la pantalla y centrado verticalmente
+    const expandedH = parentH * EXPAND_H;
+    const expandedTop = (parentH - expandedH) / 2;
+    const topP = lerp(startTop, expandedTop, p);
+    const heightP = lerp(startHeight, expandedH, p);
 
     const curTop = lerp(topP, endTop, q);
     const curHeight = lerp(heightP, fullH, q);

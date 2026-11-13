@@ -21,10 +21,6 @@ body {
     scroll-margin-top: 120px;
 }
 
-#gobierno {
-    scroll-margin-top: 250px;
-}
-
 #agenda {
     scroll-margin-top: 120px;
 }
@@ -62,13 +58,13 @@ body {
     will-change: transform, opacity;
     border-radius: 24px;
 }
-.hero-direct-links{
+
+.hero-direct-links {
     width: auto;
     height: auto;
     display: flex;
     gap: 8px;
 }
-
 
 .logo {
     width: 100%;
@@ -102,15 +98,19 @@ body {
     justify-content: space-between;
     gap: 10px;
 }
-.hero-btn1{
+
+.hero-btn1 {
     background-color: #2f5fd6;
 }
-.hero-btn2{
+
+.hero-btn2 {
     background-color: #e29b01;
 }
-.hero-btn3{
+
+.hero-btn3 {
     background-color: #19a76e;
 }
+
 /* ---- Fondo de video (centro) ---- */
 .hero-bkg {
     position: absolute;
@@ -138,7 +138,6 @@ body {
     z-index: 9999;
     cursor: pointer;
 }
-
 
 /* Una vez que arrancó la animación de scroll (video expandiéndose),
    el hint queda oculto aunque sigas en hover, para no pisar el texto. */
@@ -199,26 +198,6 @@ body {
     margin-bottom: 20px;
 }
 
-.hero-text-bottom {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 40px;
-    margin-top: 40px;
-}
-
-.hero-text-bottom a {
-    background-color: #ffaf03;
-    color: #242424;
-    padding: 8px 18px;
-    border-radius: 24px;
-    font-size: 0.9rem;
-    font-weight: 700;
-    margin-bottom: 20px;
-    text-decoration: none;
-}
-
-
 .hero-text-blocks h2 {
     font-size: 3rem;
     max-width: 800px;
@@ -242,51 +221,21 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-
     color: aliceblue;
     z-index: 9;
 }
-.hero-aside-logos{
+
+.hero-aside-logos {
     position: absolute;
     right: 10px;
     bottom: 10px;
     display: flex;
     gap: 8px;
 }
-.hero-aside-logos img{
+
+.hero-aside-logos img {
     width: 80px;
     height: auto;
-}
-.header {
-    width: 100%;
-    height: auto;
-}
-
-.header ul {
-    display: flex;
-    justify-content: space-between;
-    align-items: start;
-    list-style: none;
-}
-
-.header a {
-    width: 100%;
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: center;
-    color: aliceblue;
-    padding: 10px;
-    font-size: 1rem;
-    font-weight: 700;
-    transition: 0.5s;
-    gap: 10px;
-    text-decoration: none;
-}
-
-.header a:hover {
-    background-color: #ffaf03;
-    color: #242424;
-    cursor: pointer;
 }
 
 .hero-aside-bottom {
@@ -301,125 +250,6 @@ body {
 
 .hero-aside h2 {
     font-size: 2rem;
-}
-
-.trust-block {
-    width: 320px;
-    margin-top: 40px;
-}
-
-.trust-block__number {
-    font-size: 40px;
-    font-weight: 700;
-    margin: 0 0 8px 0;
-    line-height: 1;
-}
-
-.trust-block__text {
-    font-size: 15px;
-    line-height: 1.4;
-    margin: 0 0 16px 0;
-}
-
-.trust-block__avatars {
-    display: flex;
-    margin-bottom: 20px;
-}
-
-/* Cada avatar ahora es un item interactivo, no solo una imagen */
-.trust-block__avatar-item {
-    position: relative;
-    margin-left: -12px;
-}
-
-.trust-block__avatar-item:first-child {
-    margin-left: 0;
-}
-
-/* El z-index sube al pasar el mouse para que la foto y su card
-     queden por encima de los avatares vecinos */
-.trust-block__avatar-item:hover,
-.trust-block__avatar-item:focus-within {
-    z-index: 10;
-}
-
-.trust-block__avatars img {
-    display: block;
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 3px solid aliceblue;
-    box-shadow: 0 0 0 1px rgba(36, 36, 36, 0.06);
-    cursor: pointer;
-    transition: transform 0.2s ease;
-}
-
-.trust-block__avatar-item:hover img,
-.trust-block__avatar-item:focus-within img {
-    transform: scale(1.08);
-}
-
-/* Card que se despliega con foto grande, título y subtítulo */
-.trust-block__card {
-    position: absolute;
-    bottom: calc(100% + 14px);
-    left: 50%;
-    transform: translateX(-50%) translateY(6px);
-    width: 168px;
-    background: aliceblue;
-    border-radius: 14px;
-
-    box-shadow: 0 12px 32px rgba(36, 36, 36, 0.14), 0 0 0 1px rgba(36, 36, 36, 0.04);
-    text-align: center;
-
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.18s ease, transform 0.18s ease;
-}
-
-.trust-block__avatar-item:hover .trust-block__card,
-.trust-block__avatar-item:focus-within .trust-block__card {
-    opacity: 1;
-    pointer-events: auto;
-    transform: translateX(-50%) translateY(0);
-}
-
-/* Flechita apuntando al avatar */
-.trust-block__card::after {
-    content: "";
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    border: 7px solid transparent;
-    border-top-color: aliceblue;
-}
-
-.trust-block__card img {
-    width: 100%;
-    aspect-ratio: 1 / 1;
-    height: auto;
-    border-radius: 10px;
-    object-fit: cover;
-    border: none;
-    box-shadow: none;
-    margin-bottom: 10px;
-    cursor: default;
-    transform: none !important;
-}
-
-.trust-block__card-title {
-    font-size: 14px;
-    font-weight: 700;
-    margin: 0 0 2px 0;
-    line-height: 1.2;
-}
-
-.trust-block__card-subtitle {
-    font-size: 12px;
-    margin: 0;
-    line-height: 1.2;
 }
 
 .trust-block__cta {
@@ -450,8 +280,8 @@ body {
 }
 
 @media (min-width: 993px) {
-
     /* Fondo degradé del marco (se desvanece al expandirse el video) */
+
     .hero-section::before {
         content: "";
         position: absolute;
@@ -463,6 +293,7 @@ body {
     }
 
     /* Panel claro de la izquierda (JS ajusta --panel-w al expandir) */
+
     .hero-section::after {
         content: "";
         position: absolute;
@@ -477,6 +308,7 @@ body {
     }
 
     /* Video: arranca en el borde del panel y llega hasta el marco derecho */
+
     .hero-bkg {
         top: var(--frame);
         left: var(--split);
@@ -487,6 +319,7 @@ body {
 
     /* Muescas: círculos del color del panel centrados en los bordes
        izquierdo y derecho del video (overflow:hidden deja ver la mitad) */
+
     .hero-bkg::before,
     .hero-bkg::after {
         content: "";
@@ -511,6 +344,7 @@ body {
     }
 
     /* Título: logo arriba, titular + texto abajo */
+
     .hero-title {
         width: var(--split);
         height: 100%;
@@ -549,6 +383,7 @@ body {
     }
 
     /* Aside: texto sobre el video, lejos de las muescas */
+
     .hero-aside {
         left: var(--split);
         bottom: var(--frame);
@@ -801,7 +636,6 @@ body {
     --card-right: 80px;
     --card-width: min(42vw, 840px);
     --card-height: min(70vh, 600px);
-
     position: absolute;
     z-index: 5;
     right: var(--card-right);
@@ -986,12 +820,6 @@ body {
     transition: visibility 0s 1s;
 }
 
-/* ----- Variante grande: pilotos de IA (2 filas) y tableros de Ciencia de Datos (2x2) ----- */
-.g-apps--2 {
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(2, minmax(0, 1fr));
-}
-
 .g-apps--4 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     grid-template-rows: repeat(2, minmax(0, 1fr));
@@ -1036,7 +864,6 @@ body {
 @media (max-width: 900px) {
 
     .g-apps,
-    .g-apps--2,
     .g-apps--4 {
         grid-template-columns: 1fr;
         grid-template-rows: none;
@@ -1226,7 +1053,6 @@ body {
     grid-row: span 5 / span 5;
     grid-column-start: 8;
     grid-row-start: 1;
-
 }
 
 .g-box-bkg {
@@ -1240,7 +1066,6 @@ body {
     /* el contenido respeta las esquinas redondeadas */
     --p: 0;
     /* progreso de la animación, lo actualiza el JS */
-
 }
 
 .g-content {
@@ -1253,7 +1078,6 @@ body {
     /* abajo; usá flex-start para arriba */
     gap: 6px;
     color: aliceblue;
-
     /* Revelado de abajo hacia arriba, sincronizado con la máscara */
     clip-path: inset(calc((1 - var(--p)) * 100%) 0 0 0);
 }
@@ -1265,7 +1089,6 @@ body {
     inset: 0;
     z-index: -1;
     background: linear-gradient(to top, rgba(36, 36, 36, 0.55), transparent 70%);
-
 }
 
 .g-kpi {
@@ -1278,13 +1101,6 @@ body {
     font-size: 1rem;
     font-weight: 500;
     opacity: 0.9;
-}
-
-.g-text {
-    font-size: 0.875rem;
-    line-height: 1.4;
-    opacity: 0.8;
-    margin: 0;
 }
 
 /* Contenido por encima del video */
@@ -1332,15 +1148,11 @@ body {
     font-weight: 700;
 }
 
-/* ==========================================================
-   GOBIERNO ABIERTO — video de fondo + cards blancas sólidas
-   Reemplaza en styles.css desde ".gobierno-abierto {" (línea 1311)
-   hasta el "}" de ".gobierno-abierto__numero" (línea 1482).
-   El bloque "/* entrada de textos */
+/* ===== GOBIERNO ABIERTO ===== */
 
 /* Padding de la sección: deja respirar al contenedor redondeado */
 .gobierno-abierto {
-    --ga-inset-y: 24px;
+    --ga-inset-y: 100px;
     --ga-inset-x: 20px;
     --ga-radius: 32px;
     position: relative;
@@ -1348,200 +1160,85 @@ body {
     width: 100%;
     height: auto;
     padding: var(--ga-inset-y) var(--ga-inset-x);
+    background-color: #242424;
 }
 
 /* Todo lo que se agregue dentro de la sección queda por encima del video.
    OJO: sin z-index a propósito. Si .gobierno-main creara su propio stacking context,
    los números con máscara (mix-blend-mode) no podrían "ver" el video de fondo. */
-.gobierno-abierto> :not(.gobierno-abierto__fondo) {
+.gobierno-abierto>* {
     position: relative;
 }
 
 /* El contenedor ES el grid. El video ya no vive acá: está en la sección */
 .gobierno-main {
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    grid-template-rows: repeat(8, 1fr);
-    gap: 12px;
-    min-height: calc(100svh - 48px);
+    width: 100%;
+    display: flex;
     padding: 48px 32px;
 }
 
-/* ---------- Video de fondo (ya NO está enmascarado) ---------- */
-.gobierno-abierto__fondo {
-    position: absolute;
-    inset: var(--ga-inset-y) var(--ga-inset-x);
-    z-index: 0;
-    overflow: hidden;
-    border-radius: var(--ga-radius);
-    background: #0b1d6e;
-    /* color mientras carga el video */
-    pointer-events: none;
-    /* anula la máscara que inyecta el JS (gobbierno-abierto.js) */
-    -webkit-mask-image: none !important;
-    mask-image: none !important;
-    -webkit-mask-size: auto !important;
-    mask-size: auto !important;
-}
-
-.gobierno-abierto__fondo video,
-.gobierno-abierto__fondo .gobierno-abierto__fallback {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-/* Capa oscura para que el texto blanco se lea sobre el video (ajustá la opacidad) */
-.gobierno-abierto__fondo::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: rgba(0, 0, 0, .45);
-}
-
-/* Se ve si el video no carga */
-.gobierno-abierto__fondo .gobierno-abierto__fallback {
-    background: linear-gradient(135deg, #0b1d6e, #2f5fe0 40%, #c9d3ea 70%, #8a8f9a);
-    background-size: 200% 200%;
-    animation: ga-shift 8s ease-in-out infinite alternate;
-}
-
-@keyframes ga-shift {
-    to {
-        background-position: 100% 100%;
-    }
-}
-
-/* ---------- Bloques sobre el video ---------- */
-.gobierno-main> :not(.gobierno-abierto__fondo) {
-    position: relative;
-    z-index: 1;
-}
-
-/* Cards de datos con KPI enmascarado: la card es transparente y se arma con dos capas blancas:
-   - .gobierno-abierto__contenido: capa blanca con el número en negro y mix-blend-mode: screen,
-     así el número "recorta" la capa y deja ver el video de fondo.
-   - .gobierno-abierto__etiqueta: franja blanca sólida con el texto legible.
-   Sin z-index ni overflow: la card no puede crear stacking context ni aislar el blend. */
-.gobierno-main>[data-mask] {
-    position: relative;
-    z-index: auto;
-    display: flex;
-    flex-direction: column;
-    background: transparent;
-}
-
 .gobierno-abierto__intro {
-    grid-column: span 5 / span 5;
-    grid-row: span 5 / span 5;
+    width: 100%;
+    height: auto;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-}
-
-.gobierno-abierto__pedidos {
-    grid-column: span 5 / span 5;
-    grid-row: span 3 / span 3;
-    grid-column-start: 6;
-}
-
-.gobierno-abierto__datasets {
-    grid-column: span 7 / span 7;
-    grid-row: span 2 / span 2;
-    grid-column-start: 6;
-    grid-row-start: 4;
-}
-
-.gobierno-abierto__ojos {
-    grid-column: span 4 / span 4;
-    grid-row: span 3 / span 3;
-    grid-column-start: 6;
-    grid-row-start: 6;
-}
-
-.gobierno-abierto__familias {
-    grid-column: span 3 / span 3;
-    grid-row: span 2 / span 2;
-    grid-column-start: 10;
-    grid-row-start: 7;
-}
-
-.gobierno-abierto__descripcion {
-    grid-column: span 5 / span 5;
-    grid-row: span 2 / span 2;
-    grid-column-start: 1;
-    grid-row-start: 7;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-/* Capa de máscara: blanco + número negro, mezclados con "screen"
-   (blanco => queda blanco · negro => deja pasar el video de atrás) */
-.gobierno-abierto__contenido {
-    position: static;
-    flex: 1 1 auto;
-    display: flex;
-    align-items: flex-end;
-    padding: 20px 20px 0;
-    background: #fff;
-    color: #000;
-    border-radius: 24px 24px 0 0;
-    mix-blend-mode: screen;
-    clip-path: none !important;
-}
-
-.gobierno-abierto__contenido::before {
-    display: none;
+    padding-right: 40px;
 }
 
 /* ---------- Texto ---------- */
+
 /* Sobre el video: blanco */
 .gobierno-abierto__intro h2 {
     font-size: clamp(2rem, 4.6vw, 5.2rem);
     line-height: 1.05;
     text-transform: uppercase;
     font-weight: 700;
-    color: #fff;
+    color: aliceblue;
 }
 
-.gobierno-abierto__intro p,
-.gobierno-abierto__descripcion p {
+.gobierno-abierto__intro p {
     font-size: 1.2rem;
     line-height: 1.4;
-    color: #fff;
+    color: aliceblue;
     padding-right: 0;
 }
 
 .gobierno-abierto__intro p {
     margin-top: 16px;
-    max-width: 34ch;
 }
 
-/* Etiqueta del KPI: franja blanca sólida, texto oscuro legible */
-.gobierno-abierto__etiqueta {
-    padding: 6px 20px 20px;
-    background: #fff;
-    border-radius: 0 0 24px 24px;
-    color: #111;
-    font-size: .95rem;
-    font-weight: 600;
-    line-height: 1.3;
+/* Colores que lee ventanas.js */
+
+:root {
+    --win-ink: #242424;
+    --win-paper: #ffffff;
+    --win-desk: #d9e5f0;
+    --win-green: #19a76e;
+    --win-amber: #e29b01;
+    --win-blue: #5b9bd5;
 }
 
-/* Número grande y pesado: cuanto más grueso, más video se ve a través */
-.gobierno-abierto__numero {
+/* Contenedor de la escena: proporción 8:5, se adapta al ancho disponible */
+.win-scene {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    max-width: 900px;
+    aspect-ratio: 8 / 5;
+}
+
+.win-scene canvas {
     display: block;
-    font-size: clamp(3.5rem, 8vw, 5rem);
-    font-weight: 900;
-    line-height: .85;
-    letter-spacing: -0.04em;
-    color: #000;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    cursor: pointer;
+    /* click = reiniciar la animación */
 }
 
 /* ---------- Mobile ---------- */
+
 @media (max-width: 800px) {
     .gobierno-abierto {
         --ga-inset-y: 12px;
@@ -1553,15 +1250,6 @@ body {
         grid-template-columns: 1fr;
         grid-template-rows: none;
         padding: 32px 18px;
-    }
-
-    .gobierno-main> :not(.gobierno-abierto__fondo) {
-        grid-column: 1 / -1;
-        grid-row: auto;
-    }
-
-    .gobierno-main>[data-mask] {
-        min-height: 130px;
     }
 }
 
@@ -1581,21 +1269,39 @@ body {
    9. Movimiento reducido
    ========================================================================== */
 
-
 /* 1. VARIABLES Y COLORES POR CATEGORÍA ------------------------------------ */
 .gsel {
-    --gsel-c: #ffaf03;      /* color de la categoría (valor por defecto) */
-    --gsel-on: #111;        /* texto que se lee sobre --gsel-c */
-    --gsel-ink: #111;       /* texto/elementos oscuros */
-    --gsel-paper: #fff;     /* texto/fondo claro */
-    --gsel-bar: 6px;        /* ancho del borde izquierdo de color */
+    --gsel-c: #ffaf03;
+    /* color de la categoría (valor por defecto) */
+    --gsel-on: #111;
+    /* texto que se lee sobre --gsel-c */
+    --gsel-ink: #111;
+    /* texto/elementos oscuros */
+    --gsel-paper: #fff;
+    /* texto/fondo claro */
+    --gsel-bar: 6px;
+    /* ancho del borde izquierdo de color */
     --gsel-gap: 12px;
 }
 
-.gsel [data-cat="informacion-publica"]     { --gsel-c: #ffaf03; --gsel-on: #111; } /* naranja */
-.gsel [data-cat="datos-abiertos"]          { --gsel-c: #2f5fd6; --gsel-on: #fff; } /* azul */
-.gsel [data-cat="participacion-ciudadana"] { --gsel-c: #21b57a; --gsel-on: #111; } /* verde */
+.gsel [data-cat="informacion-publica"] {
+    --gsel-c: #ffaf03;
+    --gsel-on: #111;
+}
 
+/* naranja */
+.gsel [data-cat="datos-abiertos"] {
+    --gsel-c: #2f5fd6;
+    --gsel-on: #fff;
+}
+
+/* azul */
+.gsel [data-cat="participacion-ciudadana"] {
+    --gsel-c: #21b57a;
+    --gsel-on: #111;
+}
+
+/* verde */
 
 /* 2. CONTENEDOR ----------------------------------------------------------- */
 .gsel {
@@ -1610,7 +1316,6 @@ body {
     gap: 48px;
     align-items: center;
     color: #fff;
-
     /* vidrio sobre el video de la sección (https://css.glass) */
     background: rgba(29, 29, 29, 0.418);
     border: 1px solid rgba(255, 255, 255, .3);
@@ -1625,6 +1330,26 @@ body {
 .gsel *::before,
 .gsel *::after {
     box-sizing: border-box;
+}
+
+/* Video de fondo (detrás de las tarjetas, dentro del vidrio) */
+.gsel__video {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background: #242424;
+    pointer-events: none;
+}
+
+.gsel__shade {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(90deg, #242424c7 0%, #f7f7f773 100%);
+    pointer-events: none;
 }
 
 
@@ -1664,7 +1389,6 @@ body {
     outline-offset: 3px;
 }
 
-
 /* 4. GRILLA Y TARJETAS ---------------------------------------------------- */
 .gsel__grid {
     display: grid;
@@ -1694,7 +1418,6 @@ body {
     border-radius: 22px;
     transition: background .3s, box-shadow .3s, width .35s;
 }
-
 
 /* 5. CONTENIDO DE LA TARJETA --------------------------------------------- */
 .gsel__top {
@@ -1752,8 +1475,8 @@ body {
     outline-offset: 2px;
 }
 
-
 /* 6. ESTADOS: RESALTADO POR CATEGORÍA Y FOCO ------------------------------ */
+
 /* Las tarjetas de otras categorías se atenúan */
 .gsel.has-active .gsel__card:not(.is-active) {
     opacity: .35;
@@ -1780,7 +1503,6 @@ body {
 .gsel__card.is-active:focus-within .gsel__face {
     box-shadow: 0 18px 36px rgba(0, 0, 0, .35), 0 0 0 3px #fff;
 }
-
 
 /* 7. TARJETAS EXPANDIBLES (Seguridad ciudadana / Finanzas públicas) ------- */
 .gsel__card--exp .gsel__face {
@@ -1856,7 +1578,8 @@ body {
 .gsel__links {
     min-height: 0;
     overflow: hidden;
-    visibility: hidden;          /* cerrado: sus enlaces no reciben foco */
+    visibility: hidden;
+    /* cerrado: sus enlaces no reciben foco */
     transition: visibility 0s .35s;
 }
 
@@ -1877,8 +1600,8 @@ body {
     align-self: stretch;
 }
 
-
 /* 8. RESPONSIVE ----------------------------------------------------------- */
+
 @media (max-width: 980px) {
     .gsel {
         grid-template-columns: 1fr;
@@ -1906,6 +1629,7 @@ body {
     }
 
     /* la tarjeta expandida ocupa toda la fila y empuja al resto */
+
     .gsel__card--exp .gsel__face {
         position: relative;
         width: 100%;
@@ -1926,13 +1650,128 @@ body {
     }
 }
 
-
 /* 9. MOVIMIENTO REDUCIDO -------------------------------------------------- */
+
 @media (prefers-reduced-motion: reduce) {
     .gsel * {
         transition: none !important;
     }
 }
+
+.g-algoritmica {
+    width: 100%;
+    height: auto;
+    padding: 20px;
+}
+
+.g-algoritmica-title {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    padding: 40px 0;
+    padding-bottom: 80px;
+}
+
+.g-algoritmica-title h2 {
+    text-transform: uppercase;
+    font-size: 5.2rem;
+    color: #242424;
+    border-bottom: 2px solid #242424;
+}
+
+.g-algoritmica-title p {
+    padding-top: 40px;
+    font-size: 3rem;
+}
+
+.g-algoritmica-main {
+    width: 100%;
+    height: auto;
+}
+
+.comite-ia {
+    width: 100%;
+    height: 400px;
+    position: relative;
+}
+
+.comite-title {
+    position: absolute;
+    width: 100%;
+    height: 400px;
+    padding: 40px;
+    z-index: 2;
+    color: aliceblue;
+}
+
+.comite-title h2 {
+    font-size: 4rem;
+}
+
+.comite-title p {
+    margin-top: 20px;
+    padding-right: 40%;
+}
+
+.comite-video {
+    position: absolute;
+    --sc-cut: clamp(36px, 5vw, 64px);
+    width: 100%;
+    height: 400px;
+    clip-path: polygon(0 0,
+            calc(100% - var(--sc-cut)) 0,
+            100% var(--sc-cut),
+            100% 100%,
+            var(--sc-cut) 100%,
+            0 calc(100% - var(--sc-cut)));
+    z-index: 0;
+}
+
+.comite-video video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+}
+
+.c-overlay {
+    position: absolute;
+    width: 100%;
+    height: 400px;
+    --sc-cut: clamp(36px, 5vw, 64px);
+    z-index: 1;
+    background-color: #1d242267;
+    clip-path: polygon(0 0,
+            calc(100% - var(--sc-cut)) 0,
+            100% var(--sc-cut),
+            100% 100%,
+            var(--sc-cut) 100%,
+            0 calc(100% - var(--sc-cut)));
+}
+
+/* Contenedor de la red: toma el tamaño de su padre (ajustá width/height a gusto) */
+.network {
+    position: relative;
+    width: 300px;
+    height: 300px;
+}
+
+.network canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    cursor: grab;
+    touch-action: none;
+}
+
+.network canvas:active {
+    cursor: grabbing;
+}
+
 .agenda {
     width: 100%;
     height: auto;
@@ -1944,7 +1783,7 @@ body {
 
 .agenda-top {
     width: 100%;
-    height: 20vh;
+    height: 40vh;
     display: flex;
     align-items: end;
     padding-left: 60px;
@@ -1972,7 +1811,7 @@ body {
 
 .agenda-bottom {
     width: 100%;
-    height: 40vh;
+    height: 20vh;
     text-transform: uppercase;
     position: relative;
     padding-left: 52px;
@@ -2066,8 +1905,6 @@ body {
     --tile-w: 400px;
     --tile-h: 340px;
     --tile-bg: aliceblue;
-    --tile-border: #e4e0d8;
-    --page-bg: #f6f4ef;
     --text-dark: #242424;
     --text-muted: #565b62;
     --speed-1: 52s;
@@ -2275,18 +2112,6 @@ body {
     border-bottom: 1px solid rgba(47, 95, 214, 0.08);
 }
 
-.nav-container {
-    max-width: 1400px;
-    margin: 0 auto;
-}
-
-.nav-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1.5rem;
-}
-
 /* ----- LOGO ----- */
 .nav-logo {
     flex-shrink: 0;
@@ -2306,237 +2131,6 @@ body {
     object-fit: contain;
 }
 
-/* ----- MENÚ ----- */
-.nav-menu {
-    display: flex;
-    align-items: center;
-}
-
-.nav-list {
-    display: flex;
-    align-items: center;
-    gap: 0.2rem;
-    list-style: none;
-    flex-wrap: wrap;
-    margin: 0;
-    padding: 0;
-}
-
-.nav-item {
-    position: relative;
-}
-
-.nav-btn-row {
-    display: flex;
-    align-items: center;
-
-}
-
-/* Botones base */
-.nav-btn {
-    background: transparent;
-    border: none;
-    padding: 0.5rem 1rem;
-    font-size: 0.95rem;
-    font-weight: 700;
-    color: #242424;
-    cursor: pointer;
-    border-radius: 40px;
-    transition: background 0.2s ease, color 0.2s ease;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    white-space: nowrap;
-    text-decoration: none;
-}
-
-.nav-btn i.nav-btn-icon {
-    color: #8992a6;
-    transition: transform 0.25s ease;
-}
-
-.nav-btn:hover {
-    background: rgba(47, 95, 214, 0.1);
-    color: #2f5fd6;
-}
-
-.nav-btn:hover i.nav-btn-icon {
-    color: #2f5fd6;
-}
-
-/* Botón toggle (flechita para abrir dropdown/acordeón) */
-.nav-toggle {
-    display: none;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    padding: 0.5rem;
-    color: #8992a6;
-    border-radius: 50%;
-    align-items: center;
-    justify-content: center;
-}
-
-.nav-toggle i {
-    transition: transform 0.25s ease;
-}
-
-.nav-toggle[aria-expanded="true"] i {
-    transform: rotate(180deg);
-}
-
-/* Botones simples (sin dropdown) */
-.nav-item--simple .nav-btn--simple {
-    padding: 0.5rem 1.2rem;
-    text-decoration: none;
-}
-
-.nav-btn--primary {
-    background: #2f5fd6;
-    color: aliceblue;
-    padding: 0.5rem 1.4rem;
-    border-radius: 40px;
-    font-weight: 700;
-    transition: background 0.25s ease, transform 0.15s ease;
-}
-
-.nav-btn--primary:hover {
-    background: #2f5fd6;
-    color: aliceblue;
-    transform: scale(1.02);
-}
-
-.nav-btn--primary i {
-    color: rgba(240, 248, 255, 0.7);
-}
-
-.nav-btn--primary:hover i {
-    color: aliceblue;
-}
-
-/* ----- DROPDOWN (desktop) ----- */
-.dropdown {
-    position: absolute;
-    top: 110%;
-    left: 0;
-    min-width: 220px;
-    background: aliceblue;
-    border-radius: 16px;
-    box-shadow: 0 18px 40px -8px rgba(36, 36, 36, 0.12);
-    padding: 0.6rem 0;
-    list-style: none;
-    opacity: 0;
-    pointer-events: none;
-    transform: translateY(-6px) scale(0.97);
-    transform-origin: top center;
-    transition: opacity 0.22s ease, transform 0.22s ease;
-    border: 1px solid rgba(36, 36, 36, 0.04);
-    margin: 0;
-}
-
-.nav-item:hover .dropdown {
-    opacity: 1;
-    pointer-events: auto;
-    transform: translateY(0) scale(1);
-}
-
-.dropdown li a {
-    display: block;
-    padding: 0.5rem 1.2rem;
-    font-size: 0.9rem;
-    font-weight: 500;
-    color: #242424;
-    transition: background 0.15s ease, color 0.15s ease;
-    border-left: 3px solid transparent;
-    text-decoration: none;
-}
-
-.dropdown li a:hover {
-    background: #f4f9ff;
-    color: #2f5fd6;
-    border-left-color: #2f5fd6;
-}
-
-/* Submenú anidado (Gobierno Abierto) */
-.dropdown-item-row {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.dropdown-item-row .dropdown-link {
-    flex: 1;
-}
-
-.submenu-toggle {
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    padding: 0.5rem 1rem;
-    color: #8992a6;
-}
-
-.submenu-toggle i {
-    transition: transform 0.25s ease;
-}
-
-.submenu-toggle[aria-expanded="true"] i {
-    transform: rotate(180deg);
-}
-
-.submenu {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-.submenu li a {
-    padding-left: 2rem;
-    font-size: 0.85rem;
-}
-
-/* ----- HAMBURGUESA (oculta en desktop) ----- */
-.hamburger-btn {
-    display: none;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 5px;
-    width: 42px;
-    height: 42px;
-    background: transparent;
-    border: none;
-    border-radius: 50%;
-    cursor: pointer;
-    flex-shrink: 0;
-}
-
-.hamburger-btn:hover {
-    background: rgba(47, 95, 214, 0.1);
-}
-
-.hamburger-btn span {
-    display: block;
-    width: 22px;
-    height: 2px;
-    background: #242424;
-    border-radius: 2px;
-    transition: transform 0.25s ease, opacity 0.25s ease;
-}
-
-.hamburger-btn.active span:nth-child(1) {
-    transform: translateY(7px) rotate(45deg);
-}
-
-.hamburger-btn.active span:nth-child(2) {
-    opacity: 0;
-}
-
-.hamburger-btn.active span:nth-child(3) {
-    transform: translateY(-7px) rotate(-45deg);
-}
-
-
 .newsletter {
     width: 100%;
     height: auto;
@@ -2553,14 +2147,6 @@ body {
     object-fit: cover;
     position: absolute;
     z-index: 1;
-}
-
-.news-overlay {
-    width: 100%;
-    height: 100%;
-    background-color: #2424248e;
-    position: absolute;
-    z-index: 2;
 }
 
 .news-title {
@@ -2724,348 +2310,12 @@ body {
     }
 }
 
-
-:root {
-    --azul: #2f5fd6;
-    --navy: #242424;
-    --amarillo: #ffaf03;
-    --verde: #21b57a;
-    --rojo: #e0475c;
-    --gris-fondo: #f4f6fb;
-    --gris-texto: #6b7280;
-}
-
-
-/* ============================================================
-     BLOQUE: 2 columnas x 4 filas = 8 tarjetas horizontales
-     ============================================================ */
-.hcards-section {
-    max-width: 1180px;
-    margin: 0 auto;
-}
-
-.hcards-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 28px 32px;
-}
-
-.hcard {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    background: aliceblue;
-    border-radius: 20px;
-    padding: 18px;
-    box-shadow: 0 6px 24px rgba(36, 36, 36, 0.06);
-}
-
-/* ---- Imagen con fondo de color, la imagen se "sale" del cuadro ---- */
-.hcard-media {
-    position: relative;
-    flex: 0 0 108px;
-    width: 108px;
-    height: 108px;
-    border-radius: 18px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: visible;
-    /* clave: permite que la imagen sobresalga */
-}
-
-.hcard-media img,
-.hcard-media svg {
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    width: 62%;
-    height: 112%;
-    /* anclada abajo y un poco más alta que el contenedor: sólo
-       la punta de la imagen asoma apenas por arriba del color
-       de fondo, ya que es una imagen transparente (sin fondo) */
-    transform: translateX(-50%);
-    object-fit: contain;
-    object-position: bottom;
-    filter: drop-shadow(0 6px 10px rgba(36, 36, 36, 0.18));
-}
-
-.hcard--azul .hcard-media {
-    background-color: var(--azul);
-}
-
-.hcard--amarillo .hcard-media {
-    background-color: var(--amarillo);
-}
-
-.hcard--verde .hcard-media {
-    background-color: var(--verde);
-}
-
-.hcard--rojo .hcard-media {
-    background-color: var(--rojo);
-}
-
-.hcard-body {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 6px;
-}
-
-.hcard-body h3 {
-    margin: 0;
-    font-size: 1.2rem;
-    color: var(--navy);
-}
-
-.hcard-body p {
-    margin: 0;
-    font-size: 0.92rem;
-    line-height: 1.5;
-    color: var(--gris-texto);
-}
-
-.hcard-body a {
-    text-decoration: none;
-}
-
-.hcard-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-top: 4px;
-}
-
-.hcard-tag {
-    font-size: 0.72rem;
-    font-weight: 700;
-    padding: 4px 12px;
-    border-radius: 999px;
-    background: var(--gris-fondo);
-    color: var(--azul);
-}
-
-.hcard-cta {
-    margin-top: 10px;
-    align-self: flex-start;
-    background: var(--navy);
-    color: aliceblue;
-    border: 0;
-    border-radius: 999px;
-    padding: 10px 22px;
-    font-weight: 700;
-    font-size: 0.88rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.hcard-cta:hover {
-    background: var(--azul);
-}
-
-@media (max-width: 860px) {
-    .hcards-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
-@media (max-width: 480px) {
-    .hcard {
-        flex-direction: column;
-        align-items: flex-start;
-        text-align: left;
-    }
-
-    .hcard-media {
-        align-self: flex-start;
-    }
-}
-
-.chat-section {
-    position: relative;
-}
-
-.nn-wrap {
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-}
-
-.chat-content {
-    position: relative;
-    z-index: 1;
-}
-
-.chatbot-main {
-    width: 50%;
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    justify-content: start;
-    gap: 20px;
-}
-
-.chatbot-title {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    justify-content: start;
-    gap: 20px;
-}
-
-.chatbot-title h2 {
-    font-size: 2rem;
-}
-
-.chatbot-title ul {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.chatbot-title li {
-    font-size: 1rem;
-    list-style: none;
-}
-
-.lista-servicios {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    flex-wrap: wrap;
-    margin-bottom: 40px;
-}
-
-.lista-servicios li {
-    position: relative;
-    padding: 10px 20px;
-    margin-bottom: 10px;
-    background: #f0f4f8;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    font-weight: 500;
-    color: #242424;
-    border-left: 4px solid #2f5fd6;
-    z-index: 0;
-}
-
-.lista-servicios li:hover {
-    background: #e1e9f0;
-    transform: translateX(5px);
-    border-left-color: #21b57a;
-    z-index: 100;
-}
-
-/* Tarjeta que aparece en hover */
-.lista-servicios li::after {
-    content: attr(data-info);
-    position: absolute;
-    left: 0;
-    top: calc(100% + 10px);
-    background: #2f5fd6;
-    color: #ecf0f1;
-    padding: 15px 20px;
-    border-radius: 10px;
-    font-size: 14px;
-    font-weight: 400;
-    width: 280px;
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(-10px);
-    transition: all 0.3s ease;
-    box-shadow: 0 8px 25px rgba(36, 36, 36, 0.2);
-
-    line-height: 1.5;
-    border-left: 3px solid #21b57a;
-    pointer-events: none;
-}
-
-
-.lista-servicios li:hover::after,
-.lista-servicios li:hover::before {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-}
-
 /* Compensa el header sticky al hacer scroll-to hacia las tarjetas */
-#gob-datos-abiertos,
-#gob-informacion-publica,
-#gob-participacion-ciudadana,
+
 #gestion-productos,
 #gestion-ciencia-datos,
 #gestion-ia {
     scroll-margin-top: 90px;
-}
-
-.dropdown--nested {
-    min-width: 260px;
-}
-
-.dropdown--nested .dropdown-item {
-    display: flex;
-    flex-direction: column;
-}
-
-.dropdown-item-row {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 8px;
-}
-
-.dropdown-item-row .dropdown-link {
-    flex: 1;
-    padding: 8px 4px;
-}
-
-.submenu-toggle {
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 8px;
-    color: inherit;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.submenu-toggle i {
-    transition: transform 0.2s ease;
-}
-
-.dropdown-item.open .submenu-toggle i {
-    transform: rotate(180deg);
-}
-
-.submenu {
-    list-style: none;
-    margin: 0;
-    padding: 0 0 0 14px;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.25s ease;
-}
-
-.dropdown-item.open .submenu {
-    max-height: 300px;
-}
-
-.submenu li a {
-    display: block;
-    padding: 6px 4px;
-    font-size: 0.9em;
-    opacity: 0.85;
-    text-decoration: none;
-    color: inherit;
-}
-
-.submenu li a:hover {
-    opacity: 1;
-    text-decoration: underline;
 }
 
 /* ==========================================================
@@ -3093,17 +2343,20 @@ body {
 }
 
 /* sube y tapa toda la pantalla (de abajo hacia arriba) */
+
 #pt-block.pt-cover {
     transform: translateY(0);
 }
 
 /* sigue subiendo y se va por arriba (revela de arriba hacia abajo) */
+
 #pt-block.pt-reveal {
     transform: translateY(-100%);
 }
 
 /* usado solo al cargar la página destino, para que el bloque
    aparezca ya tapando todo SIN animarse desde abajo */
+
 #pt-block.pt-instant {
     transition: none;
 }
@@ -3386,6 +2639,7 @@ body {
 }
 
 /* Mobile / tablet: el JS no anima; píldora fija abajo, tocar un segmento abre su menú */
+
 @media (max-width: 992px) {
     .sticky-nav-header.hero-nav {
         top: auto;
@@ -3427,199 +2681,6 @@ body {
         transform-origin: bottom center;
     }
 }
-
-/* ==========================================================
-   GOBIERNO ABIERTO — tarjetas expandibles (Finanzas Públicas
-   y Seguridad Ciudadana). Al hacer click la tarjeta crece hacia
-   arriba y abajo hasta cubrir el alto del slider (JS calcula
-   --exp-up / --exp-down) y muestra una lista de botones.
-   ========================================================== */
-.gob-card--expandable {
-    position: relative;
-}
-
-.gob-card--expandable.is-expanded {
-    z-index: 20;
-}
-
-/* El botón de abrir ahora es <button>: reseteo para que se vea igual que los <a> */
-button.gob-card-btn {
-    border: 0;
-    font-family: inherit;
-    line-height: inherit;
-    cursor: pointer;
-}
-
-.gob-card-panel {
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    z-index: 30;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    padding: 24px;
-    background: aliceblue;
-    color: #242424;
-    border-radius: 18px;
-    box-shadow: 0 18px 50px rgba(36, 36, 36, 0.35);
-    overflow: hidden;
-    scrollbar-width: none;
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-    transition: top 0.6s var(--gob-ease), bottom 0.6s var(--gob-ease),
-        opacity 0.2s ease 0.4s, visibility 0s 0.6s;
-}
-
-.gob-card--expandable.is-expanded .gob-card-panel {
-    top: calc(var(--exp-up, 0px) * -1);
-    bottom: calc(var(--exp-down, 0px) * -1);
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-    transition: top 0.6s var(--gob-ease), bottom 0.6s var(--gob-ease),
-        opacity 0.15s ease, visibility 0s;
-}
-
-.gob-card-panel h4 {
-    padding-right: 48px;
-    font-size: 1.3rem;
-}
-
-.gob-card-close {
-    position: absolute;
-    top: 16px;
-    right: 16px;
-    display: grid;
-    place-items: center;
-    width: 38px;
-    height: 38px;
-    border: 0;
-    border-radius: 50%;
-    background: #242424;
-    color: aliceblue;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease, transform 0.25s ease;
-}
-
-.gob-card-close:hover {
-    background: var(--gob-accent);
-    color: var(--gob-on);
-    transform: rotate(90deg);
-}
-
-.gob-card-close:focus-visible,
-.gob-panel-btn:focus-visible {
-    outline: 2px solid var(--gob-accent);
-    outline-offset: 2px;
-}
-
-.gob-panel-list {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    overflow-y: auto;
-    /* scroll funcional pero sin barra visible */
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-}
-
-.gob-panel-list::-webkit-scrollbar {
-    display: none;
-}
-
-.gob-panel-list li {
-    opacity: 0;
-    transform: translateY(14px);
-    transition: opacity 0.2s ease, transform 0.2s ease;
-}
-
-.gob-card--expandable.is-expanded .gob-panel-list li {
-    opacity: 1;
-    transform: none;
-    transition: opacity 0.5s ease, transform 0.6s var(--gob-ease);
-}
-
-.gob-card--expandable.is-expanded .gob-panel-list li:nth-child(1) {
-    transition-delay: 0.35s;
-}
-
-.gob-card--expandable.is-expanded .gob-panel-list li:nth-child(2) {
-    transition-delay: 0.42s;
-}
-
-.gob-card--expandable.is-expanded .gob-panel-list li:nth-child(3) {
-    transition-delay: 0.49s;
-}
-
-.gob-card--expandable.is-expanded .gob-panel-list li:nth-child(4) {
-    transition-delay: 0.56s;
-}
-
-.gob-card--expandable.is-expanded .gob-panel-list li:nth-child(5) {
-    transition-delay: 0.63s;
-}
-
-.gob-card--expandable.is-expanded .gob-panel-list li:nth-child(6) {
-    transition-delay: 0.70s;
-}
-
-.gob-panel-btn {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 14px 18px;
-    border-radius: 14px;
-    background: #f4f6fb;
-    color: #242424;
-    font-size: 0.95rem;
-    font-weight: 700;
-    text-decoration: none;
-    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
-}
-
-.gob-panel-btn span {
-    flex: 1;
-}
-
-.gob-panel-btn i {
-    font-size: 1rem;
-}
-
-.gob-panel-arrow {
-    opacity: 0.4;
-    font-size: 0.8rem !important;
-    transition: transform 0.25s ease, opacity 0.25s ease;
-}
-
-.gob-panel-btn:hover {
-    background: var(--gob-accent);
-    color: var(--gob-on);
-    transform: translateX(3px);
-}
-
-.gob-panel-btn:hover .gob-panel-arrow {
-    opacity: 1;
-    transform: translateX(3px);
-}
-
-@media (prefers-reduced-motion: reduce) {
-
-    .gob-card-panel,
-    .gob-panel-list li,
-    .gob-card-close {
-        transition-duration: 0.01ms !important;
-        transition-delay: 0s !important;
-    }
-}
-
 
 /* ==========================================================
    Slider de Gestión · IA — etiquetas de estado y modales
@@ -3814,5 +2875,643 @@ html.ia-modal-open {
     .ia-modal[open],
     .ia-modal[open]::backdrop {
         animation: none;
+    }
+}
+
+/* ==========================================================================
+   SHOWCASE · estructura compartida por Gestión y Gobierno abierto
+   Marco gris + tarjeta negra: texto/CTA a la izquierda, media con esquinas
+   cortadas al centro, KPIs y etiqueta a la derecha.
+   ========================================================================== */
+.showcase {
+    --sc-cut: clamp(36px, 5vw, 64px);
+    padding: 0px;
+    border-radius: 36px;
+    background-blend-mode: multiply;
+}
+
+
+.showcase__card {
+    position: relative;
+    padding: clamp(24px, 3vw, 44px);
+    background: #242424;
+    color: aliceblue;
+    border-radius: 28px;
+    overflow: hidden;
+}
+
+/* Fila superior: texto | media | KPIs */
+.showcase__top {
+    display: grid;
+    grid-template-columns: minmax(280px, 0.9fr) minmax(0, 1.3fr) minmax(150px, 0.34fr);
+    gap: clamp(20px, 3vw, 48px);
+    height: min(calc(100vh - 140px), 700px);
+    min-height: 520px;
+}
+
+/* Fila inferior: slider / selector, dentro de la misma tarjeta */
+.showcase__extra {
+    position: relative;
+    margin-top: clamp(28px, 4vw, 56px);
+    padding-top: clamp(28px, 4vw, 56px);
+    border-top: 1px solid rgba(240, 248, 255, 0.14);
+}
+
+/* Slider de Gestión integrado: sin sobresalir de la tarjeta */
+.showcase .gestion-content {
+    padding: 0;
+    margin: 0;
+}
+
+.showcase .g-slider {
+    height: min(calc(100vh - 60px), 800px);
+    min-height: 600px;
+}
+
+.showcase .g-slide-inner {
+    padding-top: 110px;
+    padding-bottom: 40px;
+}
+
+.showcase .g-slide-text p {
+    font-size: 1.05rem;
+    line-height: 1.55;
+    height: auto;
+}
+
+.showcase .g-slider-stage {
+    border-radius: 20px;
+}
+
+.showcase .g-card {
+    --g-overhang: 0px;
+    --card-right: 32px;
+}
+
+/* Selector de Gobierno abierto integrado: sin vidrio, sin video propio, sin margen */
+.showcase .gsel {
+    margin: 0;
+    padding: 0;
+    min-height: 0;
+    overflow: visible;
+    background: none;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+}
+
+.showcase .gsel__video,
+.showcase .gsel__shade {
+    display: none;
+}
+
+/* ----- Izquierda ----- */
+.showcase__left {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 32px;
+    min-width: 0;
+}
+
+.showcase__title {
+    font-size: clamp(2.6rem, 4.6vw, 4.8rem);
+    font-weight: 500;
+    line-height: 0.95;
+    letter-spacing: -0.035em;
+    color: #fff;
+    margin-bottom: 24px;
+}
+
+.showcase__text {
+    max-width: 380px;
+    font-size: 0.9rem;
+    line-height: 1.55;
+    color: rgba(240, 248, 255, 0.85);
+}
+
+.showcase__text strong {
+    color: #fff;
+    font-weight: 700;
+}
+
+.showcase__foot {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+}
+
+/* Botón blanco con esquina superior derecha cortada */
+.showcase__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 22px;
+    background: aliceblue;
+    color: #111;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-decoration: none;
+    clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 0 100%);
+    transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.showcase__cta:hover {
+    background: var(--sc-accent);
+    transform: translateX(4px);
+}
+
+.showcase__cta:focus-visible {
+    outline: 2px solid var(--sc-accent);
+    outline-offset: 3px;
+}
+
+.showcase__trust {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    max-width: 320px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+.showcase__trust i {
+    margin-top: 2px;
+    color: var(--sc-accent);
+}
+
+/* ----- Centro: media con esquinas cortadas (arriba-derecha y abajo-izquierda) ----- */
+.showcase__media {
+    position: relative;
+    min-width: 0;
+    overflow: hidden;
+    background: #242424;
+    container-type: size;
+    clip-path: polygon(0 0,
+            calc(100% - var(--sc-cut)) 0,
+            100% var(--sc-cut),
+            100% 100%,
+            var(--sc-cut) 100%,
+            0 calc(100% - var(--sc-cut)));
+}
+
+.showcase__video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.showcase__shade {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+/* La escena de ventanas (canvas) se centra sobre el video manteniendo 8:5 */
+.showcase__media .win-scene {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: min(92cqw, 147cqh);
+    height: auto;
+    max-width: none;
+    aspect-ratio: 8 / 5;
+}
+
+/* ----- Derecha ----- */
+.showcase__right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+    text-align: right;
+    min-width: 0;
+}
+
+.showcase__stats {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+.showcase__stats strong {
+    display: block;
+    font-size: clamp(2rem, 3vw, 3rem);
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    color: #fff;
+}
+
+.showcase__stats span {
+    display: block;
+    max-width: 150px;
+    margin: 6px 0 0 auto;
+    font-size: 0.72rem;
+    line-height: 1.3;
+    color: rgba(240, 248, 255, 0.8);
+}
+
+.showcase__tag {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: aliceblue;
+}
+
+/* Reemplaza la grilla y el layout previos de las dos secciones */
+.gestion .gestion-main {
+    display: block;
+    height: auto;
+    min-height: 0;
+    padding: 90px 20px 20px;
+}
+
+.gobierno-abierto .gobierno-main {
+    display: block;
+    padding: 0 0 24px;
+}
+
+/* ----- Responsive ----- */
+@media (max-width: 992px) {
+    .showcase__top {
+        grid-template-columns: 1fr;
+        height: auto;
+        min-height: 0;
+    }
+
+    .showcase__media {
+        order: 2;
+        aspect-ratio: 4 / 3;
+    }
+
+    .showcase__left {
+        order: 1;
+    }
+
+    .showcase__right {
+        order: 3;
+        flex-direction: row;
+        align-items: flex-end;
+        justify-content: space-between;
+        text-align: left;
+        gap: 16px;
+    }
+
+    .showcase__stats {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 18px 28px;
+    }
+
+    .showcase__stats span {
+        margin-left: 0;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .showcase__cta {
+        transition: none;
+    }
+}
+
+
+/* ==========================================================================
+   GESTIÓN · showcase
+   Clases propias de esta sección. Se suman a las compartidas (.showcase__*),
+   así que acá solo va lo que la diferencia.
+   ========================================================================== */
+.gestion-showcase {
+    --sc-accent: #21b57a;
+}
+
+.gestion-showcase__card {
+    background-color: aliceblue;
+}
+
+.gestion-showcase__top {
+    /* gestión: ajustes de top */
+}
+
+.gestion-showcase__left {
+    color: #242424;
+}
+
+.gestion-showcase__head {
+    /* gestión: ajustes de head */
+}
+
+.gestion-showcase__title {
+    /* gestión: ajustes de title */
+    color: #242424;
+}
+
+.gestion-showcase__text {
+    /* gestión: ajustes de text */
+    color: #242424;
+}
+
+.gestion-showcase__foot {
+    /* gestión: ajustes de foot */
+    color: #242424;
+}
+
+.gestion-showcase__cta {
+    /* gestión: ajustes de cta */
+    color: #242424;
+}
+
+.gestion-showcase__trust {
+    /* gestión: ajustes de trust */
+}
+
+.gestion-showcase__media {
+    /* gestión: ajustes de media */
+}
+
+.gestion-showcase__video {
+    /* gestión: ajustes de video */
+}
+
+.gestion-showcase__shade {
+    /* gestión: ajustes de shade */
+}
+
+.gestion-showcase__right {
+    /* gestión: ajustes de right */
+}
+
+.gestion-showcase__stats strong {
+    /* gestión: ajustes de stats */
+    color: #242424;
+}
+
+.gestion-showcase__stats span {
+    /* gestión: ajustes de stats */
+    color: #242424;
+}
+
+.gestion-showcase__tag {
+    /* gestión: ajustes de tag */
+    color: #242424;
+}
+
+.gestion-showcase__extra {
+    /* gestión: ajustes de extra */
+    color: #242424;
+}
+
+
+/* ==========================================================================
+   GOBIERNO ABIERTO · showcase
+   Clases propias de esta sección. Se suman a las compartidas (.showcase__*),
+   así que acá solo va lo que la diferencia.
+   ========================================================================== */
+.gobierno-showcase {
+    --sc-accent: #ffaf03;
+}
+
+.gobierno-showcase__card {
+    /* gobierno abierto: ajustes de card */
+}
+
+.gobierno-showcase__top {
+    /* gobierno abierto: ajustes de top */
+}
+
+.gobierno-showcase__left {
+    /* gobierno abierto: ajustes de left */
+}
+
+.gobierno-showcase__head {
+    /* gobierno abierto: ajustes de head */
+}
+
+.gobierno-showcase__title {
+    /* gobierno abierto: ajustes de title */
+}
+
+.gobierno-showcase__text {
+    /* gobierno abierto: ajustes de text */
+}
+
+.gobierno-showcase__foot {
+    /* gobierno abierto: ajustes de foot */
+}
+
+.gobierno-showcase__cta {
+    /* gobierno abierto: ajustes de cta */
+}
+
+.gobierno-showcase__trust {
+    /* gobierno abierto: ajustes de trust */
+}
+
+.gobierno-showcase__media {
+    /* gobierno abierto: ajustes de media */
+}
+
+.gobierno-showcase__video {
+    /* gobierno abierto: ajustes de video */
+}
+
+.gobierno-showcase__shade {
+    /* gobierno abierto: ajustes de shade */
+}
+
+.gobierno-showcase__right {
+    /* gobierno abierto: ajustes de right */
+}
+
+.gobierno-showcase__stats {
+    /* gobierno abierto: ajustes de stats */
+}
+
+.gobierno-showcase__tag {
+    /* gobierno abierto: ajustes de tag */
+}
+
+.gobierno-showcase__extra {
+    /* gobierno abierto: ajustes de extra */
+}
+
+
+
+
+:root {
+    color-scheme: light;
+    --page: #ece9e3;
+    --bar: #2f5fd6;
+    --axis: #2f5fd6;
+    --accent: #ffaf03;
+    --lens: grey;
+    --ok: #21b57a;
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+/* ---- Comité IA: botones Ordenanza / Decreto ---- */
+.comite-botones {
+    position: absolute;
+    top: 40px;
+    right: 80px;
+    z-index: 3;
+    display: flex;
+    gap: 14px;
+}
+
+.comite-btn {
+    display: inline-block;
+    padding: 12px 28px;
+    background: #ffaf03;
+    color: #111;
+    border: 2px solid #ffaf03;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background .2s, color .2s, transform .2s;
+}
+
+.comite-btn:hover,
+.comite-btn:focus-visible {
+    background: transparent;
+    color: #f0f8ff;
+    transform: translateY(-2px);
+}
+
+/* ---- Objetivos (tarjetas) ---- */
+.objetivos {
+    width: 100%;
+    padding: 60px 40px 40px;
+}
+
+.objetivos-intro {
+    max-width: 820px;
+    margin-bottom: 40px;
+}
+
+.objetivos-intro h3 {
+    font-size: 3rem;
+    color: #242424;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+}
+
+.objetivos-intro p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #242424;
+}
+
+.objetivos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+}
+
+.objetivo-card {
+    --sc-cut: 28px;
+    position: relative;
+    background: #242424;
+    color: #f0f8ff;
+    padding: 28px 24px 32px;
+    clip-path: polygon(0 0,
+            calc(100% - var(--sc-cut)) 0,
+            100% var(--sc-cut),
+            100% 100%,
+            var(--sc-cut) 100%,
+            0 calc(100% - var(--sc-cut)));
+    transition: transform .25s, background .25s, color .25s;
+}
+
+.objetivo-card:hover {
+    transform: translateY(-6px);
+    background: #2f5fd6;
+    color: #111;
+}
+
+.objetivo-num {
+    display: block;
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: #2f5fd6;
+    margin-bottom: 14px;
+    transition: color .25s;
+}
+
+.objetivo-card:hover .objetivo-num {
+    color: #111;
+}
+
+.objetivo-card h4 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+}
+
+.objetivo-card p {
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+@media (max-width: 900px) {
+    .comite-botones {
+        top: auto;
+        bottom: 40px;
+        left: 40px;
+        right: auto;
+    }
+
+    .comite-title p {
+        padding-right: 0;
+    }
+
+    .objetivos {
+        padding: 40px 20px;
+    }
+
+    .objetivos-intro h3 {
+        font-size: 2.2rem;
+    }
+}
+
+/* ---- Capas: comite-ia (0-3) < imagen (4) < tarjetas y textos (5) ---- */
+.objetivos {
+    position: relative;
+}
+
+.objetivos-intro,
+.objetivos-grid {
+    position: relative;
+    z-index: 5;
+}
+
+.objetivos-img {
+    --img-up: 180px;
+    /* cuánto sube la imagen sobre el bloque comite-ia */
+    position: absolute;
+    top: calc(-1 * var(--img-up));
+    right: 60px;
+    z-index: 4;
+    width: min(45%, 460px);
+    height: auto;
+    background: none;
+    pointer-events: none;
+}
+
+@media (max-width: 900px) {
+    .objetivos-img {
+        --img-up: 120px;
+        right: 20px;
+        width: 50%;
     }
 }
