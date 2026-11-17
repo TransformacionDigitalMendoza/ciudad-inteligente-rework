@@ -1,0 +1,829 @@
+/* ==========================================================================
+   RESPONSIVE FIXES
+   Cargar DESPUÉS de styles.css, gob-grid.css y responsive.css.
+   Breakpoint "mobile/tablet" del proyecto: 992px (el mismo que ya usa
+   .showcase para pasar a una sola columna).
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   0. Paddings de Gestión y Gobierno abierto: iguales y lo más chicos posible
+   -------------------------------------------------------------------------- */
+@media (max-width: 992px) {
+
+    /* Aire vertical entre secciones: se cambia en un solo lugar */
+    :root {
+        --section-air: 40px;
+    }
+
+    /* Sección (marco exterior): 6px a los lados, aire arriba y abajo */
+    .gestion .gestion-main {
+        padding: var(--section-air) 6px;
+    }
+
+    .gobierno-abierto {
+        --ga-inset-x: 6px;
+        --ga-inset-y: var(--section-air);
+        padding: var(--section-air) 6px;
+    }
+
+    .gobierno-abierto .gobierno-main {
+        padding: 0;
+    }
+
+    /* Tarjeta interna */
+    .gestion-showcase .showcase__card,
+    .gobierno-showcase .showcase__card {
+        padding: 12px;
+        border-radius: 20px;
+    }
+
+    .gestion-showcase .showcase__top,
+    .gobierno-showcase .showcase__top {
+        gap: 16px;
+    }
+
+    /* Separación entre el bloque superior y el slider / selector */
+    .gestion-showcase .showcase__extra,
+    .gobierno-showcase .showcase__extra {
+        margin-top: 16px;
+        padding-top: 16px;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   1. HERO · mobile / tablet
+   Estructura: marco claro con aire a los lados; dentro, una tarjeta redondeada
+   con el video de fondo y todo el contenido encima (logo arriba, titular, texto
+   y dos botones). Abajo a la izquierda, una "muesca" del color de la página
+   se mete en la tarjeta (borde inverso curvo).
+   Variables editables en .hero: --hero-gap, --hero-radius, --hero-accent,
+   --hero-notch-w, --hero-notch-h.
+   -------------------------------------------------------------------------- */
+@media (max-width: 992px) {
+    .hero {
+        --hero-gap: 12px;
+        --hero-radius: 24px;
+        --hero-accent: #ffaf03;
+        --hero-on-accent: #242424;
+        --hero-bg: aliceblue;
+        --hero-notch-w: 52%;
+        --hero-notch-h: 52px;
+        --hero-curve: 24px;
+        position: relative;
+        display: block;
+        width: 100%;
+        height: auto;
+        min-height: 100svh;
+        padding: var(--hero-gap);
+        overflow: hidden;
+        background: var(--hero-bg);
+        box-sizing: border-box;
+    }
+
+    /* Video: es el fondo de la tarjeta */
+    .hero__video {
+        position: absolute;
+        top: var(--hero-gap);
+        left: var(--hero-gap);
+        width: calc(100% - var(--hero-gap) * 2);
+        height: calc(100% - var(--hero-gap) * 2);
+        min-height: 0;
+        order: 0;
+        display: block;
+        object-fit: cover;
+        object-position: center;
+        border-radius: var(--hero-radius);
+        z-index: 0;
+    }
+
+    /* Velo verde/oscuro para que el texto se lea sobre el video */
+    .hero__shade {
+        position: absolute;
+        top: var(--hero-gap);
+        left: var(--hero-gap);
+        width: calc(100% - var(--hero-gap) * 2);
+        height: calc(100% - var(--hero-gap) * 2);
+        min-height: 0;
+        border-radius: var(--hero-radius);
+        background: linear-gradient(180deg, rgba(20, 60, 55, 0.55) 0%, rgba(20, 60, 55, 0.35) 55%, rgba(20, 40, 40, 0.65) 100%);
+        pointer-events: none;
+        z-index: 1;
+    }
+
+    /* Tarjeta: transparente, solo ordena el contenido sobre el video */
+    .hero .card {
+        position: relative;
+        inset: auto;
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        max-width: none;
+        min-height: calc(100svh - var(--hero-gap) * 2);
+        margin: 0;
+        padding: 0;
+        background: transparent;
+        box-shadow: none;
+        border-radius: var(--hero-radius);
+        color: aliceblue;
+        box-sizing: border-box;
+    }
+
+    .hero .card__intro {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 22px 20px calc(var(--hero-notch-h) + 26px);
+    }
+
+    /* Logo arriba a la izquierda */
+    .hero .tag {
+        display: flex;
+        align-items: center;
+        height: 34px;
+        margin-bottom: auto;
+        padding: 0;
+        background: transparent;
+    }
+
+    .hero .tag img {
+        height: 100%;
+        width: auto;
+        object-fit: contain;
+    }
+
+    .hero .card__title {
+        margin: 40px 0 18px;
+        color: aliceblue;
+        font-size: clamp(2.3rem, 11vw, 3.6rem);
+        font-weight: 500;
+        line-height: 1.04;
+        letter-spacing: -0.03em;
+    }
+
+    .hero .card__text {
+        max-width: 34ch;
+        margin: 0 0 24px;
+        color: rgba(240, 248, 255, 0.9);
+        font-size: 0.95rem;
+        line-height: 1.5;
+    }
+
+    /* Botones: uno lleno (acento) y otro con borde */
+    .hero .card__actions {
+        display: flex;
+        flex-wrap: nowrap;
+        gap: 8px;
+    }
+
+    .hero .cta,
+    .hero .cta--ghost {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 14px 18px;
+        border-radius: 999px;
+        font-family: inherit;
+        font-size: 0.86rem;
+        font-weight: 600;
+        line-height: 1;
+        text-decoration: none;
+        cursor: pointer;
+        box-sizing: border-box;
+    }
+
+    .hero .cta {
+        border: 1.5px solid var(--hero-accent);
+        background: var(--hero-accent);
+        color: var(--hero-on-accent);
+    }
+
+    .hero .cta--ghost {
+        border: 1.5px solid rgba(240, 248, 255, 0.7);
+        background: transparent;
+        color: aliceblue;
+    }
+
+    .hero .cta:focus-visible,
+    .hero .cta--ghost:focus-visible {
+        outline: 3px solid aliceblue;
+        outline-offset: 3px;
+    }
+
+    /* Sin círculos decorativos heredados de responsive.css */
+    .hero .card::before,
+    .hero .card::after,
+    .hero__shade::before,
+    .hero__shade::after,
+    .hero .tag::before,
+    .hero .tag::after,
+    .hero .card__intro::before,
+    .hero .card__intro::after,
+    .hero .reveal::before,
+    .hero .reveal::after {
+        content: none;
+        display: none;
+    }
+
+    /* Muesca inferior izquierda: el color de la página entra en la tarjeta */
+    .hero::after {
+        content: "";
+        position: absolute;
+        z-index: 3;
+        top: auto;
+        right: auto;
+        left: 0;
+        bottom: 0;
+        transform: none;
+        box-shadow: none;
+        width: calc(var(--hero-notch-w) + var(--hero-gap));
+        height: calc(var(--hero-notch-h) + var(--hero-gap));
+        background: var(--hero-bg);
+        border-radius: 0 var(--hero-curve) 0 0;
+        pointer-events: none;
+    }
+
+    /* Curva cóncava a la derecha de la muesca (borde inverso) */
+    .hero::before {
+        content: "";
+        position: absolute;
+        z-index: 3;
+        top: auto;
+        right: auto;
+        border-radius: 0;
+        transform: none;
+        box-shadow: none;
+        left: calc(var(--hero-notch-w) + var(--hero-gap));
+        bottom: var(--hero-gap);
+        width: var(--hero-curve);
+        height: var(--hero-curve);
+        background: radial-gradient(circle at 100% 0, transparent calc(var(--hero-curve) - 0.5px), var(--hero-bg) var(--hero-curve));
+        pointer-events: none;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   2. KPIs de Gestión y Gobierno abierto: mismo comportamiento
+   Ambos se apilan en una sola columna (número + descripción) y la etiqueta
+   queda debajo, alineada a la izquierda. Antes Gobierno se quedaba en fila
+   y la etiqueta lo empujaba hacia la derecha.
+   -------------------------------------------------------------------------- */
+@media (max-width: 992px) {
+
+    .gestion-showcase .showcase__right,
+    .gobierno-showcase .showcase__right {
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: flex-start;
+        gap: 18px;
+        text-align: left;
+    }
+
+    .gestion-showcase .showcase__stats,
+    .gobierno-showcase .showcase__stats {
+        flex-direction: column;
+        flex-wrap: nowrap;
+        gap: 0;
+        width: 100%;
+    }
+
+    .gestion-showcase .showcase__stats li,
+    .gobierno-showcase .showcase__stats li {
+        display: grid;
+        grid-template-columns: minmax(96px, 0.4fr) 1fr;
+        align-items: center;
+        gap: 16px;
+        padding: 14px 0;
+        border-top: 1px solid rgba(36, 36, 36, 0.14);
+    }
+
+    .gobierno-showcase .showcase__stats li {
+        border-top-color: rgba(240, 248, 255, 0.14);
+    }
+
+    .gestion-showcase .showcase__stats li:last-child {
+        border-bottom: 1px solid rgba(36, 36, 36, 0.14);
+    }
+
+    .gobierno-showcase .showcase__stats li:last-child {
+        border-bottom: 1px solid rgba(240, 248, 255, 0.14);
+    }
+
+    .gestion-showcase .showcase__stats strong,
+    .gobierno-showcase .showcase__stats strong {
+        font-size: clamp(1.8rem, 8vw, 2.6rem);
+    }
+
+    .gestion-showcase .showcase__stats span,
+    .gobierno-showcase .showcase__stats span {
+        max-width: none;
+        margin: 0;
+        font-size: 0.85rem;
+    }
+
+    .gestion-showcase .showcase__tag,
+    .gobierno-showcase .showcase__tag {
+        align-self: flex-start;
+        text-align: left;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   3. Canvas animados de Gestión y Gobierno abierto: fuera en mobile / tablet
+   -------------------------------------------------------------------------- */
+@media (max-width: 992px) {
+    .gestion-showcase #g-chart,
+    .gobierno-showcase .win-scene {
+        display: none;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   3b. Aire arriba y abajo en Gobernanza algorítmica y Agenda
+   (Agenda: el aire superior se suma a la altura del bloque claro del título,
+   porque el fondo de la sección es oscuro y una franja arriba se vería mal)
+   -------------------------------------------------------------------------- */
+@media (max-width: 992px) {
+    .g-algoritmica {
+        padding-top: var(--section-air);
+        padding-bottom: var(--section-air);
+    }
+
+    .agenda {
+        padding-bottom: var(--section-air);
+    }
+}
+
+/* --------------------------------------------------------------------------
+   4. Tarjetas del selector (.gsel): una debajo de la otra, a todo el ancho
+   -------------------------------------------------------------------------- */
+@media (max-width: 992px) {
+
+    .gsel__grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: none;
+        grid-auto-rows: auto;
+        width: 100%;
+    }
+
+    .gsel__card {
+        width: 100%;
+    }
+
+    .gsel__face {
+        min-height: 190px;
+    }
+
+    /* Las tarjetas expandibles ya no necesitan ocupar "dos columnas" */
+    .gsel__card--exp.is-open {
+        grid-column: auto;
+    }
+
+    .gsel__card--exp.is-open .gsel__face {
+        width: 100%;
+    }
+
+    /* El resaltado no debe empujar fuera del ancho disponible */
+    .gsel__card.is-active {
+        transform: none;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   5. Agenda · títulos centrados y KPIs
+   Títulos: centrados, una sola línea y sin recortes. "AGENDA" (6 letras) va
+   mucho más grande; "INTERNACIONAL" (13 letras) se ajusta al ancho de pantalla.
+   KPIs: grilla 2x2 en todos los celulares. Cada tarjeta lleva un fondo
+   suave, borde fino, una marca de color y el número grande arriba con la
+   etiqueta debajo, para que las 4 se vean parejas.
+   -------------------------------------------------------------------------- */
+@media (max-width: 992px) {
+
+    .agenda .agenda-top,
+    .agenda .agenda-bottom {
+        padding-left: 0;
+        padding-right: 0;
+        text-align: center;
+    }
+
+    .agenda .agenda-top {
+        height: calc(30vh + var(--section-air));
+        min-height: calc(150px + var(--section-air));
+    }
+
+    .agenda .agenda-bottom {
+        height: 14vw;
+        min-height: 56px;
+    }
+
+    .agenda .agenda-top h2,
+    .agenda .agenda-bottom h2 {
+        left: 0;
+        right: 0;
+        width: 100%;
+        margin: 0;
+        line-height: 1;
+        text-align: center;
+        white-space: nowrap;
+    }
+
+    /* AGENDA: el título protagonista */
+    .agenda .agenda-top h2 {
+        font-size: clamp(3rem, 20vw, 9rem);
+        bottom: -0.08em;
+    }
+
+    /* INTERNACIONAL: la palabra más larga, ajustada al ancho */
+    .agenda .agenda-bottom h2 {
+        font-size: clamp(1.5rem, 10.6vw, 5.5rem);
+        top: -0.06em;
+    }
+
+    .agenda .agenda-main {
+        padding: 28px 0 20px;
+    }
+
+    .agenda .agenda-kpi {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+        width: 100%;
+        max-width: 640px;
+        margin: 0 auto;
+        padding: 0 20px;
+        box-sizing: border-box;
+    }
+
+    .agenda .agenda-kpi .agenda-kpi__card {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        width: 100%;
+        min-width: 0;
+        margin: 0;
+        padding: 26px 8px 20px;
+        box-sizing: border-box;
+        text-align: center;
+        background: rgba(240, 248, 255, 0.06);
+        border: 1px solid rgba(240, 248, 255, 0.14);
+        border-radius: 16px;
+    }
+
+    /* Marca de color arriba de cada tarjeta */
+    .agenda .agenda-kpi .agenda-kpi__card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 50%;
+        width: 32px;
+        height: 3px;
+        border-radius: 0 0 3px 3px;
+        background: #2f5fd6;
+        transform: translateX(-50%);
+    }
+
+    /* Número arriba (grande), etiqueta debajo (chica) */
+    .agenda .agenda-kpi .agenda-kpi__value {
+        order: 1;
+        margin: 0;
+        font-size: clamp(2.6rem, 13vw, 4.5rem);
+        font-weight: 600;
+        line-height: 1;
+    }
+
+    .agenda .agenda-kpi .agenda-kpi__label {
+        order: 2;
+        margin: 0;
+        font-size: clamp(0.62rem, 3.1vw, 0.95rem);
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        line-height: 1.2;
+        overflow-wrap: normal;
+        word-break: normal;
+        opacity: 0.85;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   6. Slider de Gestión (.g-slider) en mobile / tablet
+   La altura ya no es fija: el slide define su alto y las tarjetas pasan a
+   un bloque debajo del slide (una por fila), en vez de quedar tapadas.
+   -------------------------------------------------------------------------- */
+@media (max-width: 900px) {
+    .showcase .g-slider {
+        height: auto;
+        min-height: 0;
+    }
+
+    .showcase .g-slider-stage {
+        position: relative;
+        inset: auto;
+        border-radius: 20px;
+    }
+
+    .showcase .g-slider-track {
+        height: auto;
+        align-items: stretch;
+    }
+
+    .showcase .g-slide {
+        height: auto;
+    }
+
+    /* Pestañas: centradas arriba. Se anclan a ambos lados (10px) y se reparten
+       el ancho por igual, así quedan centradas sin depender de left/transform */
+    .showcase .g-slider-nav {
+        top: 14px;
+        left: 10px;
+        right: 10px;
+        width: auto;
+        max-width: none;
+        margin: 0;
+        transform: none;
+    }
+
+    .showcase .g-slider-tab {
+        flex: 1 1 0;
+        padding: 10px 6px;
+        font-size: 0.74rem;
+        white-space: normal;
+        line-height: 1.1;
+        text-align: center;
+    }
+
+    /* Texto: sin el padding lateral de 80px y con tamaños de celular */
+    .showcase .g-slide-inner {
+        display: block;
+        height: auto;
+        padding: 100px 20px 28px;
+    }
+
+    .showcase .g-slide-title {
+        font-size: clamp(1.7rem, 8vw, 2.4rem);
+        margin-bottom: 14px;
+    }
+
+    .showcase .g-slide-text p {
+        height: auto;
+        padding-right: 0;
+        font-size: 0.92rem;
+        line-height: 1.5;
+        margin-bottom: 12px;
+    }
+
+    .showcase .ia-logo {
+        gap: 14px 24px;
+        padding: 8px 0;
+    }
+
+    .showcase .ia-logo img {
+        height: 38px;
+    }
+
+    .showcase .bit-logo img {
+        width: 70px;
+        height: auto;
+    }
+
+    .showcase .banco-logo img {
+        width: 130px;
+        height: auto;
+    }
+
+    .showcase .g-slide-cta {
+        width: 100%;
+        justify-content: space-between;
+        margin-top: 12px;
+        padding: 12px 18px;
+        font-size: 0.88rem;
+        text-align: left;
+    }
+
+    /* Card de tarjetas: bloque normal debajo del slide, ancho completo */
+    .showcase .g-card {
+        position: relative;
+        inset: auto;
+        left: auto;
+        right: auto;
+        bottom: auto;
+        width: 100%;
+        height: auto;
+        margin-top: 12px;
+        padding: 0;
+        background: transparent;
+        border-radius: 0;
+    }
+
+    .showcase .g-card::before,
+    .showcase .g-card::after {
+        display: none;
+    }
+
+    .showcase .g-card-frame {
+        height: auto;
+        border-radius: 20px;
+        border-top: 5px solid var(--g-accent);
+    }
+
+    .showcase .g-card-track {
+        height: auto;
+        align-items: flex-start;
+    }
+
+    /* Solo la lista activa ocupa alto; así no queda espacio en blanco */
+    .showcase .g-card-item {
+        height: auto;
+        min-width: 0;
+    }
+
+    .showcase .g-card-item[aria-hidden="true"] {
+        height: 0;
+        overflow: hidden;
+    }
+
+    .showcase .g-card-item--apps {
+        overflow: visible;
+        padding: 10px;
+    }
+
+    /* Tarjetas: una sola fila con scroll horizontal (se asoma la siguiente) */
+    .showcase .g-apps,
+    .showcase .g-apps--4,
+    .showcase .g-apps--lg {
+        display: flex;
+        grid-template-columns: none;
+        grid-template-rows: none;
+        grid-auto-rows: auto;
+        gap: 10px;
+        min-height: 0;
+        overflow-x: auto;
+        overflow-y: hidden;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        overscroll-behavior-x: contain;
+        scrollbar-width: none;
+        padding: 2px 2px 6px;
+    }
+
+    .showcase .g-apps::-webkit-scrollbar {
+        display: none;
+    }
+
+    .showcase .g-apps > .g-app {
+        flex: 0 0 82%;
+        min-width: 0;
+        scroll-snap-align: start;
+    }
+
+    .showcase .g-app {
+        background: #fff;
+    }
+
+    .showcase .g-apps--lg .g-app {
+        grid-template-columns: 48px minmax(0, 1fr);
+        padding: 14px 16px;
+    }
+
+    .showcase .g-apps--lg .g-app-icon {
+        width: 48px;
+        height: 48px;
+        font-size: 1.3rem;
+    }
+
+    .showcase .g-apps--lg .g-app-title {
+        font-size: 1rem;
+        overflow-wrap: anywhere;
+    }
+
+    .showcase .g-apps--lg .g-app-desc {
+        font-size: 0.82rem;
+    }
+
+    /* "Ver más": el texto bajo el título se esconde y se despliega con el botón.
+       Logos y botones de la sección quedan siempre visibles. */
+    .showcase .g-slide-more {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        margin: 0 0 12px;
+        padding: 8px 16px;
+        border: 1.5px solid aliceblue;
+        border-radius: 999px;
+        background: transparent;
+        color: aliceblue;
+        font-family: inherit;
+        font-size: 0.82rem;
+        font-weight: 700;
+        cursor: pointer;
+    }
+
+    .showcase .g-slide-more i {
+        font-size: 0.7rem;
+        transition: transform 0.25s ease;
+    }
+
+    .showcase .g-slide-more[aria-expanded="true"] i {
+        transform: rotate(180deg);
+    }
+
+    .showcase .g-slide-more:focus-visible {
+        outline: 3px solid aliceblue;
+        outline-offset: 3px;
+    }
+
+    .showcase .g-slide-text.is-collapsed > p:not(.is-lead) {
+        display: none;
+    }
+}
+
+@media (min-width: 901px) {
+    .g-slide-more {
+        display: none;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   7. Objetivos (.objetivo-card): cerradas por defecto, se abren al tocar
+   Funciona junto con scripts/objetivos-accordion.js (agrega .is-open).
+   -------------------------------------------------------------------------- */
+@media (max-width: 992px) {
+    .objetivo-card {
+        cursor: pointer;
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    /* Cerrada: solo número + título */
+    .objetivo-card p {
+        display: none;
+    }
+
+    .objetivo-card.is-open p {
+        display: block;
+        margin-top: 4px;
+        animation: objetivo-reveal 0.25s ease;
+    }
+
+    /* Indicador (chevron) a la derecha del título */
+    .objetivo-card h4 {
+        position: relative;
+        margin-bottom: 0;
+        padding-right: 30px;
+    }
+
+    .objetivo-card.is-open h4 {
+        margin-bottom: 10px;
+    }
+
+    .objetivo-card h4::after {
+        content: "";
+        position: absolute;
+        right: 6px;
+        top: 50%;
+        width: 9px;
+        height: 9px;
+        border-right: 2px solid currentColor;
+        border-bottom: 2px solid currentColor;
+        transform: translateY(-75%) rotate(45deg);
+        transition: transform 0.25s ease;
+    }
+
+    .objetivo-card.is-open h4::after {
+        transform: translateY(-25%) rotate(-135deg);
+    }
+
+    /* Tarjeta abierta resaltada (en touch el :hover queda pegado, así que
+       el resaltado depende solo del estado abierto) */
+    .objetivo-card:hover {
+        background: #242424;
+        color: #f0f8ff;
+    }
+
+    .objetivo-card:hover .objetivo-num {
+        color: #2f5fd6;
+    }
+
+    .objetivo-card.is-open,
+    .objetivo-card.is-open:hover {
+        background: #2f5fd6;
+        color: #111;
+    }
+
+    .objetivo-card.is-open .objetivo-num,
+    .objetivo-card.is-open:hover .objetivo-num {
+        color: #111;
+    }
+
+    .objetivo-card:focus-visible {
+        outline: 3px solid #2f5fd6;
+        outline-offset: 3px;
+    }
+}
+
+@keyframes objetivo-reveal {
+    from { opacity: 0; transform: translateY(-4px); }
+    to   { opacity: 1; transform: translateY(0); }
+}

@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="styles/styles.css" />
   <link rel="stylesheet" href="styles/gob-grid.css" />
   <link rel="stylesheet" href="styles/responsive.css">
+  <link rel="stylesheet" href="styles/responsive-fixes.css">
   <title>Document</title>
 </head>
 
@@ -78,7 +79,7 @@
     </section>
   </section>
   <section class="hero" id="hero" aria-label="Portada">
-    <video class="hero__video" id="heroVideo" src="assets/images/15351574_1920_1080_24fps.mp4" autoplay muted loop
+    <video class="hero__video" id="heroVideo" src="https://www.dropbox.com/scl/fi/9kjhudn7m3aa561ulz6qy/gob-abierto.mp4?rlkey=xri6g2bdvjxqo1bzwcpktrrlw&st=q0jgof4i&raw=1" autoplay muted loop
       playsinline preload="auto" aria-hidden="true"></video>
     <div class="hero__shade"></div>
 
@@ -92,9 +93,13 @@
         <h1 class="card__title">Ciudad Inteligente</h1>
         <p class="card__text">Tecnología e innovación al servicio de una ciudad más conectada,
           eficiente y cercana a sus ciudadanos.</p>
-        <button class="cta" id="openBtn" type="button" aria-expanded="false" aria-controls="reveal">
-          <span>Conocé nuestro trabajo</span>
-        </button>
+        <div class="card__actions">
+          <a class="cta" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=transformaciondigitalmendoza@gmail.com"
+            target="_blank" rel="noopener noreferrer"><span>Contactános</span></a>
+          <button class="cta cta--ghost" id="openBtn" type="button" aria-expanded="false" aria-controls="reveal">
+            <span>Conocé nuestro trabajo</span>
+          </button>
+        </div>
       </div>
 
       <div class="reveal" id="reveal">
@@ -768,21 +773,49 @@
 
     </div>
     <div class="g-algoritmica-main">
-      <div class="comite-ia">
-        <div class="comite-title">
-          <h2>Comité Local <br> de Inteligencia Artificial</h2>
-          <p>Creado mediante el Decreto N.º 832/2024, el Comité Local de Inteligencia Artificial es un espacio de
-            planificación, debate y articulación que busca promover la incorporación responsable de estas tecnologías en
-            el ámbito municipal.</p>
+      <div class="showcase algoritmica-showcase showcase--algoritmica">
+        <div class="showcase__card algoritmica-showcase__card">
+
+          <div class="showcase__top algoritmica-showcase__top">
+            <div class="showcase__left algoritmica-showcase__left">
+              <div class="showcase__head algoritmica-showcase__head">
+                <h2 class="showcase__title algoritmica-showcase__title">Comité Local de Inteligencia Artificial</h2>
+                <p class="showcase__text algoritmica-showcase__text"><strong>Creado mediante el Decreto N.º
+                    832/2024,</strong> el Comité Local de Inteligencia Artificial es un espacio de planificación, debate
+                  y articulación que busca promover la incorporación responsable de estas tecnologías en el ámbito
+                  municipal.</p>
+              </div>
+              <div class="showcase__foot algoritmica-showcase__foot">
+                <div class="algoritmica-showcase__actions">
+                  <a class="showcase__cta algoritmica-showcase__cta" href="#objetivos-ordenanza">Ordenanza <i
+                      class="fa-solid fa-arrow-right-long"></i></a>
+                  <a class="showcase__cta algoritmica-showcase__cta algoritmica-showcase__cta--ghost" href="#">Decreto
+                    <i class="fa-solid fa-arrow-right-long"></i></a>
+                </div>
+                <p class="showcase__trust algoritmica-showcase__trust"><i class="fa-solid fa-star"
+                    aria-hidden="true"></i>
+                  Programa Municipal de Innovación con IA · Ordenanza N.º 4221/2025</p>
+              </div>
+            </div>
+
+            <div class="showcase__media algoritmica-showcase__media">
+              <video class="showcase__video algoritmica-showcase__video"
+                src="https://www.dropbox.com/scl/fi/p3w6n1hy59p3zguiz1s2u/14483720_1920_1080_30fps.mp4?rlkey=i0cgoarswv53zod3ak9trunu9&st=lkdpoo3g&raw=1"
+                autoplay muted loop playsinline></video>
+              <div class="showcase__shade algoritmica-showcase__shade"></div>
+            </div>
+
+            <div class="showcase__right algoritmica-showcase__right">
+              <ul class="showcase__stats algoritmica-showcase__stats">
+                <li><strong>2024</strong><span>Creación del Comité (Decreto N.º 832)</span></li>
+                <li><strong>2025</strong><span>Ordenanza N.º 4221 y Programa de Innovación con IA</span></li>
+                <li><strong>05</strong><span>Objetivos del Programa Municipal</span></li>
+              </ul>
+              <span class="showcase__tag algoritmica-showcase__tag">[IA · Ética · Innovación]</span>
+            </div>
+
+          </div>
         </div>
-        <div class="comite-video">
-          <video src="https://www.dropbox.com/scl/fi/p3w6n1hy59p3zguiz1s2u/14483720_1920_1080_30fps.mp4?rlkey=i0cgoarswv53zod3ak9trunu9&st=lkdpoo3g&raw=1" autoplay loop playsinline></video>
-        </div>
-        <div class="comite-botones">
-          <a href="#objetivos-ordenanza" class="comite-btn">Ordenanza</a>
-          <a href="#" class="comite-btn">Decreto</a>
-        </div>
-        <div class="c-overlay"></div>
       </div>
 
       <div class="objetivos" id="objetivos-ordenanza">
@@ -1103,8 +1136,8 @@
   <script src="scripts/video-hero.js"></script>
   <script src="scripts/hero-scroll.js"></script>
   <script src="scripts/hero-click-scroll.js"></script>
+  <script src="scripts/objetivos-acordion.js"></script>
   <script src="scripts/page-transition.js"></script>
-  <script src="scripts/hero.responsive.js"></script>
 
 </body>
 

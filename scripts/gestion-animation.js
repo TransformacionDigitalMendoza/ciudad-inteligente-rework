@@ -12,6 +12,45 @@
   const cardItems = [...slider.querySelectorAll('.g-card-item')];
   let current = 0;
 
+  // ----- "Ver más" (solo se ve en móvil; el CSS lo muestra/oculta) -----
+  // Debajo del título de cada sección se agrega un botón que despliega los
+  // párrafos de texto. Los logos y los botones de la sección quedan siempre a la vista.
+  const readMores = slides.map((slide, i) => {
+    const text = slide.querySelector('.g-slide-text');
+    const title = text && text.querySelector('.g-slide-title');
+    const paragraphs = [...(text ? text.querySelectorAll('p') : [])];
+    if (!text || !title || !paragraphs.length) return null;
+
+    // Si la sección no tiene logos ni botones, el primer párrafo queda siempre
+    // visible para que no se vea vacía; "Ver más" despliega solo el resto.
+    const hasExtras = !!text.querySelector('.ia-logo, .g-slide-cta');
+    if (!hasExtras) paragraphs[0].classList.add('is-lead');
+    if (paragraphs.every((p) => p.classList.contains('is-lead'))) return null; // nada que esconder
+
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'g-slide-more';
+    btn.setAttribute('aria-expanded', 'false');
+    btn.innerHTML = '<span>Ver más</span> <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>';
+    title.after(btn);
+
+    text.classList.add('is-collapsed');
+    text.id = text.id || 'g-slide-text-' + i;
+    btn.setAttribute('aria-controls', text.id);
+
+    btn.addEventListener('click', () => setExpanded(i, text.classList.contains('is-collapsed')));
+    return { text, btn };
+  });
+
+  function setExpanded(index, expanded) {
+    const item = readMores[index];
+    if (!item) return;
+    item.text.classList.toggle('is-collapsed', !expanded);
+    item.btn.setAttribute('aria-expanded', String(expanded));
+    item.btn.querySelector('span').textContent = expanded ? 'Ver menos' : 'Ver más';
+    moveIndicator();
+  }
+
   // Posiciona el fondo amarillo del nav sobre la pestaña activa
   function moveIndicator() {
     const tab = tabs[current];
@@ -24,6 +63,7 @@
     slider.style.setProperty('--g-index', current);
     slider.dataset.active = current; // define el color del borde de la card
     cardItems.forEach((item, i) => item.setAttribute('aria-hidden', String(i !== current)));
+    readMores.forEach((_, i) => { if (i !== current) setExpanded(i, false); }); // las demás vuelven a "Ver más"
 
     slides.forEach((slide, i) => {
       const active = i === current;
