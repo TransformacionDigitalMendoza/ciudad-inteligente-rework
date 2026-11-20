@@ -5,185 +5,341 @@
   font-family: "Raleway", system-ui, -apple-system, sans-serif;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background: aliceblue;
   min-height: 100vh;
-}
-
-/* --- HERO --- */
-.hero {
-  width: 100%;
-  height: 100vh;
-  background-color: aliceblue;
-  padding: 20px;
-}
-
-.hero-main {
-  width: 100%;
-  height: 80%;
-  border-radius: 24px;
-  background-color: #2b2b2b;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: aliceblue;
-  position: relative;
-}
-
-.video-player {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  z-index: 1;
-  object-fit: cover;
-  border-radius: 24px;
-}
-
-.hero-overlay {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  z-index: 2;
-  border-radius: 24px;
-  background-color: rgba(10, 10, 10, 0.541);
-}
-
-h1 {
-  text-transform: uppercase;
-  font-size: 6rem;
-  text-align: center;
-  position: absolute;
-  z-index: 3;
-}
-
-.hero-logo {
-  width: 200px;
-  height: auto;
-}
-
-.title-mod {
-  text-transform: lowercase;
-  font-style: italic;
-  font-weight: 500;
-}
-
-.hero-bottom {
-  width: 100%;
-  height: 20%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-  padding: 20px;
-}
-
-.hero-card {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.hero-card span {
-  font-size: 2rem;
-  text-align: center;
-  font-weight: 700;
-  color: #2b2b2b;
+  color: #242424;
 }
 
 :root {
-  --team-text: #111111;
-  --team-muted: #6c6c6c;
-  --team-line: #dcdcdc;
-  --team-accent: #a0d659;
-  --team-dark: #062735;
+  /* Paleta de la página principal */
+  --ink: #242424;
+  --paper: aliceblue;
+  --c-yellow: #ffaf03;
+  --c-blue: #2f5fd6;
+  --c-green: #21b57a;
+  --c-red: #e0475c;
+  --sc-cut: clamp(28px, 4vw, 56px);
+
+  --team-text: #242424;
+  --team-muted: #565b62;
+  --team-line: rgba(36, 36, 36, 0.14);
+  --team-accent: #ffaf03;
+  --team-dark: #242424;
+  --team-bg: aliceblue;
 }
 
+/* ==========================================================================
+   HERO · mismo marco que la home: tarjeta oscura, esquinas cortadas
+   ========================================================================== */
+.hero {
+  width: 100%;
+  min-height: 100vh;
+  background-color: aliceblue;
+  padding: 12px;
+}
+
+.hero-main {
+  --sc-cut: clamp(36px, 5vw, 64px);
+  position: relative;
+  width: 100%;
+  height: calc(100vh - 24px);
+  min-height: 520px;
+  background-color: #242424;
+  color: aliceblue;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  padding: clamp(24px, 4vw, 56px);
+  border-radius: 4px;
+  clip-path: polygon(0 0,
+      calc(100% - var(--sc-cut)) 0,
+      100% var(--sc-cut),
+      100% 100%,
+      var(--sc-cut) 100%,
+      0 calc(100% - var(--sc-cut)));
+}
+
+.video-player {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: linear-gradient(90deg, rgba(36, 36, 36, 0.85) 0%, rgba(36, 36, 36, 0.45) 60%, rgba(36, 36, 36, 0.25) 100%);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.hero-tag {
+  background-color: var(--c-yellow);
+  color: #242424;
+  padding: 8px 18px;
+  border-radius: 24px;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+h1 {
+  font-size: clamp(3.25rem, 8vw, 8rem);
+  font-weight: 500;
+  line-height: 0.95;
+  letter-spacing: -0.035em;
+  text-align: left;
+  color: #fff;
+}
+
+.title-mod {
+  font-style: italic;
+  font-weight: 500;
+  color: var(--c-yellow);
+}
+
+.hero-logo {
+  width: 160px;
+  height: auto;
+}
+
+/* Botón Volver: píldora de vidrio */
+.hero-back-btn {
+  position: absolute;
+  top: clamp(20px, 3vw, 40px);
+  left: clamp(20px, 3vw, 40px);
+  z-index: 4;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 22px;
+  border-radius: 999px;
+  background: rgba(240, 248, 255, 0.92);
+  color: #242424;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 10px 30px rgba(36, 36, 36, 0.18);
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.hero-back-btn:hover,
+.hero-back-btn:focus-visible {
+  background: var(--c-yellow);
+  transform: translateX(-4px);
+}
+
+.hero-back-btn:focus-visible {
+  outline: 2px solid aliceblue;
+  outline-offset: 3px;
+}
+
+/* KPIs a la derecha, igual que .showcase__stats */
+.hero-stats {
+  position: absolute;
+  z-index: 3;
+  right: clamp(24px, 4vw, 56px);
+  bottom: clamp(24px, 4vw, 56px);
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  text-align: right;
+}
+
+.hero-stats strong {
+  display: block;
+  font-size: clamp(2rem, 3vw, 3rem);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: #fff;
+}
+
+.hero-stats span {
+  display: block;
+  margin-top: 6px;
+  font-size: 0.72rem;
+  line-height: 1.3;
+  color: rgba(240, 248, 255, 0.8);
+}
+
+/* ==========================================================================
+   SECCIÓN EQUIPO
+   ========================================================================== */
 .team-section {
   width: 100%;
   background: var(--team-bg);
   color: var(--team-text);
-  padding: 90px 6vw 120px;
-  box-sizing: border-box;
-  font-family: "Raleway", system-ui, -apple-system, sans-serif;
+  padding: 90px 20px 20px;
 }
 
+/* ----- Cabecera ----- */
 .team-header {
   display: grid;
   grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.9fr);
   gap: 80px;
-  margin-bottom: 90px;
+  margin: 0 20px 70px;
   align-items: end;
 }
 
 .team-eyebrow {
-  margin: 0 0 14px;
-  text-transform: uppercase;
-  font-size: 12px;
-  letter-spacing: 0.16em;
-  font-weight: 600;
+  margin: 0 0 18px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--c-blue);
 }
 
 .team-header h2 {
-  margin: 0;
-  max-width: 720px;
-  font-size: clamp(48px, 6vw, 92px);
+  max-width: 760px;
+  font-size: clamp(2.8rem, 6vw, 5.6rem);
   line-height: 0.95;
-  font-weight: 400;
-  letter-spacing: -0.04em;
+  font-weight: 500;
+  letter-spacing: -0.035em;
+  color: #242424;
 }
 
 .team-intro {
-  max-width: 540px;
-  margin: 0;
-  font-size: 16px;
+  max-width: 480px;
+  font-size: 1rem;
   line-height: 1.65;
   color: var(--team-muted);
 }
 
-.team-group {
-  display: grid;
-  grid-template-columns: 190px minmax(0, 1fr);
-  gap: 45px;
-  padding: 40px 0 58px;
-  border-top: 1px solid var(--team-line);
+.team-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 24px;
 }
 
-.team-group-title {
+.chip {
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.chip--yellow {
+  background: var(--c-yellow);
+  color: #242424;
+}
+
+.chip--green {
+  background: var(--c-green);
+  color: #242424;
+}
+
+.chip--blue {
+  background: var(--c-blue);
+  color: aliceblue;
+}
+
+.chip--red {
+  background: var(--c-red);
+  color: aliceblue;
+}
+
+/* ----- Grupos: tarjeta oscura con esquinas cortadas ----- */
+.team-group {
+  --g-c: var(--c-yellow);
+  --g-on: #242424;
   position: relative;
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
+  gap: 48px;
+  margin: 0 0 12px;
+  padding: clamp(24px, 3vw, 44px);
+  background: #242424;
+  color: aliceblue;
+  border-radius: 28px;
+  border-top: 6px solid var(--g-c);
+}
+
+.team-group--light {
+  --g-c: aliceblue;
+  --g-on: #242424;
+}
+
+.team-group--yellow {
+  --g-c: var(--c-yellow);
+  --g-on: #242424;
+}
+
+.team-group--green {
+  --g-c: var(--c-green);
+  --g-on: #242424;
+}
+
+.team-group--blue {
+  --g-c: var(--c-blue);
+  --g-on: aliceblue;
+}
+
+.team-group--red {
+  --g-c: var(--c-red);
+  --g-on: aliceblue;
 }
 
 .team-group-title span {
-  display: block;
+  display: inline-block;
   margin-bottom: 18px;
-  color: var(--team-muted);
-  font-size: 11px;
-  letter-spacing: 0.12em;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: var(--g-c);
+  color: var(--g-on);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
 }
 
 .team-group-title h3 {
-  margin: 0;
-  font-size: 28px;
-  line-height: 0.98;
-  font-weight: 400;
+  font-size: clamp(1.8rem, 2.6vw, 2.4rem);
+  line-height: 1;
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  color: #fff;
 }
 
 .team-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 18px;
+  gap: 16px;
 }
 
 .team-card {
   min-width: 0;
 }
 
+/* Foto con esquinas cortadas (arriba-derecha y abajo-izquierda) */
 .team-photo {
+  --sc-cut: 36px;
   position: relative;
   aspect-ratio: 4 / 5;
   overflow: hidden;
-  background: #d6d6d6;
+  background: #3a3a3a;
+  clip-path: polygon(0 0,
+      calc(100% - var(--sc-cut)) 0,
+      100% var(--sc-cut),
+      100% 100%,
+      var(--sc-cut) 100%,
+      0 calc(100% - var(--sc-cut)));
 }
 
 .team-photo img {
@@ -192,14 +348,12 @@ h1 {
   height: 100%;
   object-fit: cover;
   filter: grayscale(100%);
-  transition:
-    filter 0.4s ease,
-    transform 0.6s cubic-bezier(.2, .7, .2, 1);
+  transition: filter 0.4s ease, transform 0.6s cubic-bezier(.2, .7, .2, 1);
 }
 
 .team-card:hover .team-photo img {
   filter: grayscale(0%);
-  transform: scale(1.025);
+  transform: scale(1.04);
 }
 
 .team-toggle,
@@ -214,30 +368,32 @@ h1 {
   right: 14px;
   bottom: 14px;
   z-index: 4;
-  width: 44px;
-  height: 44px;
+  width: 46px;
+  height: 46px;
   display: grid;
   place-items: center;
   border-radius: 50%;
-  background: #fff;
-  color: var(--team-text);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, .08);
-  transition:
-    transform .25s ease,
-    background-color .25s ease,
-    color .25s ease;
+  background: var(--g-c);
+  color: var(--g-on);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, .25);
+  transition: transform .25s ease, opacity .25s ease;
 }
 
 .team-toggle span {
   display: block;
-  font-size: 25px;
+  font-size: 26px;
   line-height: 1;
   transform: translateY(-1px);
 }
 
 .team-toggle:hover {
-  transform: scale(1.08);
-  background: var(--team-accent);
+  transform: scale(1.1) rotate(90deg);
+}
+
+.team-toggle:focus-visible,
+.team-close:focus-visible {
+  outline: 3px solid aliceblue;
+  outline-offset: 3px;
 }
 
 .team-overlay {
@@ -247,20 +403,21 @@ h1 {
   display: flex;
   align-items: flex-end;
   padding: 28px;
-  box-sizing: border-box;
-  color: #fff;
-  background:
-    linear-gradient(to top,
-      rgba(6, 39, 53, .97) 0%,
-      rgba(6, 39, 53, .92) 58%,
-      rgba(6, 39, 53, .82) 100%);
-
+  color: aliceblue;
+  background: linear-gradient(to top,
+      rgba(36, 36, 36, .98) 0%,
+      rgba(36, 36, 36, .94) 60%,
+      rgba(36, 36, 36, .86) 100%);
+  border-top: 5px solid var(--g-c);
   transform: translateY(102%);
-  transition: transform .48s cubic-bezier(.2, .75, .2, 1);
+  visibility: hidden;
+  transition: transform .48s cubic-bezier(.2, .75, .2, 1), visibility 0s linear .48s;
 }
 
 .team-card.is-open .team-overlay {
   transform: translateY(0);
+  visibility: visible;
+  transition-delay: 0s;
 }
 
 .team-card.is-open .team-toggle {
@@ -270,24 +427,25 @@ h1 {
 
 .team-role {
   margin: 0 0 12px;
-  color: var(--team-accent);
+  color: var(--g-c);
   text-transform: uppercase;
-  letter-spacing: .12em;
-  font-size: 10px;
-  font-weight: 600;
+  letter-spacing: .1em;
+  font-size: 0.7rem;
+  font-weight: 700;
 }
 
 .team-overlay h4 {
-  margin: 0 0 15px;
-  font-size: 28px;
-  font-weight: 400;
+  margin: 0 0 12px;
+  font-size: 1.6rem;
+  font-weight: 500;
+  letter-spacing: -0.02em;
 }
 
 .team-overlay p:last-child {
   margin: 0;
-  font-size: 14px;
+  font-size: 0.9rem;
   line-height: 1.6;
-  color: rgba(255, 255, 255, .8);
+  color: rgba(240, 248, 255, .85);
 }
 
 .team-close {
@@ -297,29 +455,96 @@ h1 {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, .95);
-  color: var(--team-dark);
-  font-size: 23px;
+  background: rgba(240, 248, 255, .14);
+  color: aliceblue;
+  font-size: 22px;
   line-height: 1;
+  transition: background-color .3s ease, color .3s ease, transform .25s ease;
+}
+
+.team-close:hover {
+  background: var(--g-c);
+  color: var(--g-on);
+  transform: rotate(90deg);
 }
 
 .team-info {
-  padding-top: 12px;
+  padding-top: 14px;
 }
 
 .team-info h4 {
   margin: 0 0 2px;
-  font-size: 20px;
-  font-weight: 400;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #fff;
 }
 
 .team-info p {
   margin: 0;
-  font-size: 12px;
-  color: var(--team-muted);
+  font-size: 0.8rem;
+  color: rgba(240, 248, 255, .7);
 }
 
-/* TABLET */
+/* ----- CTA final (mismo lenguaje que el newsletter de la home) ----- */
+.team-cta {
+  margin: 8px 0 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 28px;
+  padding: clamp(40px, 6vw, 80px) clamp(20px, 10vw, 240px);
+  background: #242424;
+  color: aliceblue;
+  border-radius: 24px;
+}
+
+.team-cta h2 {
+  font-size: clamp(2.2rem, 5vw, 4rem);
+  font-weight: 500;
+  letter-spacing: -0.03em;
+}
+
+.team-cta h2 span {
+  color: var(--c-green);
+  text-transform: uppercase;
+  font-weight: 800;
+}
+
+.team-cta p {
+  max-width: 620px;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: rgba(240, 248, 255, .85);
+}
+
+.team-cta a {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 28px;
+  background: aliceblue;
+  color: #242424;
+  font-size: 0.95rem;
+  font-weight: 800;
+  text-decoration: none;
+  clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 0 100%);
+  transition: background .25s ease, transform .25s ease;
+}
+
+.team-cta a:hover {
+  background: var(--c-yellow);
+  transform: translateX(4px);
+}
+
+.team-cta a:focus-visible {
+  outline: 2px solid var(--c-yellow);
+  outline-offset: 3px;
+}
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
 @media (max-width: 1050px) {
   .team-header {
     grid-template-columns: 1fr;
@@ -327,7 +552,8 @@ h1 {
   }
 
   .team-group {
-    grid-template-columns: 150px 1fr;
+    grid-template-columns: 1fr;
+    gap: 28px;
   }
 
   .team-grid {
@@ -335,28 +561,31 @@ h1 {
   }
 }
 
-/* MOBILE */
 @media (max-width: 720px) {
+  .hero-main {
+    height: calc(100svh - 24px);
+    padding: 20px;
+  }
+
+  .hero-stats {
+    display: none;
+  }
+
+  .hero-logo {
+    width: 120px;
+  }
+
   .team-section {
-    padding: 65px 20px 80px;
+    padding: 56px 12px 12px;
   }
 
   .team-header {
-    margin-bottom: 55px;
-  }
-
-  .team-header h2 {
-    font-size: clamp(46px, 14vw, 72px);
+    margin: 0 8px 44px;
   }
 
   .team-group {
-    grid-template-columns: 1fr;
-    gap: 28px;
-    padding: 32px 0 44px;
-  }
-
-  .team-group-title h3 {
-    font-size: 26px;
+    padding: 22px 16px 28px;
+    border-radius: 22px;
   }
 
   .team-grid {
@@ -370,41 +599,51 @@ h1 {
   .team-overlay {
     padding: 24px;
   }
+
+  .team-cta {
+    padding: 40px 20px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .team-photo img,
+  .team-overlay,
+  .team-toggle,
+  .team-close,
+  .hero-back-btn,
+  .team-cta a {
+    transition: none !important;
+  }
 }
 
 /* ==========================================================
    PAGE TRANSITION — bloque que tapa/revela entre subpáginas
-   Incluir este archivo en TODAS las páginas que participen
-   de la transición (principal y subpáginas).
    ========================================================== */
 
 :root {
-  --pt-color: aliceblue;   /* color del bloque — ajustalo a tu paleta */
-  --pt-duration: 600ms;  /* duración de la animación de tape/reveal */
+  --pt-color: aliceblue;
+  --pt-duration: 600ms;
 }
 
 #pt-block {
   position: fixed;
   inset: 0;
   background: var(--pt-color);
-  transform: translateY(100%); /* estado de reposo: escondido abajo */
+  transform: translateY(100%);
   transition: transform var(--pt-duration) cubic-bezier(.65, 0, .35, 1);
   z-index: 9999;
   pointer-events: none;
 }
 
-/* sube y tapa toda la pantalla (de abajo hacia arriba) */
 #pt-block.pt-cover {
   transform: translateY(0);
 }
 
-/* sigue subiendo y se va por arriba (revela de arriba hacia abajo) */
 #pt-block.pt-reveal {
   transform: translateY(-100%);
 }
 
-/* usado solo al cargar la página destino, para que el bloque
-   aparezca ya tapando todo SIN animarse desde abajo */
 #pt-block.pt-instant {
   transition: none;
 }

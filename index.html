@@ -72,8 +72,20 @@
           <span class="hero-bkg-hint">Conocé nuestro trabajo</span>
         </div>
         <div class="hero-aside-logos">
-          <img src="assets/images/WWC-GOLD.png" alt="wwc-gold">
-          <img src="assets/images/certificacion-faro.png" alt="certificacion-faro">
+          <div class="hero-medal" tabindex="0" aria-describedby="medal-wwc">
+            <img src="assets/images/WWC-GOLD.png" alt="wwc-gold">
+            <div class="hero-medal__tip" id="medal-wwc" role="tooltip">
+              <h3>What Works Cities Gold</h3>
+              <p>Reconocimiento internacional a las ciudades que usan datos y evidencia para tomar mejores decisiones de gobierno.</p>
+            </div>
+          </div>
+          <div class="hero-medal" tabindex="0" aria-describedby="medal-faro">
+            <img src="assets/images/certificacion-faro.png" alt="certificacion-faro">
+            <div class="hero-medal__tip" id="medal-faro" role="tooltip">
+              <h3>Certificación Faro</h3>
+              <p>Distinción que reconoce la calidad y las buenas prácticas en la gestión de nuestros servicios.</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -242,9 +254,6 @@
               <div class="showcase__foot gestion-showcase__foot">
                 <a class="showcase__cta gestion-showcase__cta" href="#gSlider">Conocé nuestro trabajo <i
                     class="fa-solid fa-arrow-right-long"></i></a>
-                <p class="showcase__trust gestion-showcase__trust"><i class="fa-solid fa-star" aria-hidden="true"></i>
-                  En cooperación con el
-                  Banco Mundial y la Civic Analytics Network</p>
               </div>
             </div>
 
@@ -904,7 +913,24 @@
       <p>En nuestro newsletter compartimos nuevas herramientas, iniciativas de innovación, proyectos basados en datos,
         avances en gobierno abierto y soluciones tecnológicas que buscan mejorar la gestión municipal y la experiencia
         de la ciudadanía.</p>
-      <a href="#">Suscribirse</a>
+      <form class="news-form" id="newsletter-form" novalidate>
+        <div class="news-form__row">
+          <label class="visually-hidden" for="newsletter-email">Correo electrónico</label>
+          <input type="email" id="newsletter-email" name="email" placeholder="tuemail@ejemplo.com"
+            autocomplete="email" required />
+          <button type="submit" class="news-form__btn" id="newsletter-submit">Suscribirse</button>
+        </div>
+
+        <label class="news-form__consent" for="newsletter-consent">
+          <input type="checkbox" id="newsletter-consent" name="consent" required />
+          <span>Acepto recibir correos informativos de la Dirección de Transformación Digital.</span>
+        </label>
+
+        <!-- Honeypot anti-spam: los usuarios reales no lo ven ni lo completan -->
+        <input type="text" name="website" class="visually-hidden" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
+        <p class="news-form__msg" id="newsletter-msg" role="status" aria-live="polite"></p>
+      </form>
     </div>
   </section>
   <footer class="site-footer">
@@ -1138,6 +1164,7 @@
   <script src="scripts/hero-click-scroll.js"></script>
   <script src="scripts/objetivos-acordion.js"></script>
   <script src="scripts/page-transition.js"></script>
+  <script type="module" src="scripts/newsletter.js"></script>
 
 </body>
 

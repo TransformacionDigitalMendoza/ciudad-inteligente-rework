@@ -827,3 +827,778 @@
     from { opacity: 0; transform: translateY(-4px); }
     to   { opacity: 1; transform: translateY(0); }
 }
+
+/* ==========================================================================
+   LAPTOP / NOTEBOOK · ajustes para pantallas chicas de escritorio
+   Cubre 993px–1440px de ancho (1280×720, 1366×768, 1440×900) y, dentro de eso,
+   un bloque extra para pantallas BAJAS (alto <= 800px).
+
+   IMPORTANTE: enlazar este archivo ÚLTIMO en el <head>, después de
+   styles.css, gob-grid.css, responsive.css y responsive-fixes.css:
+
+   <link rel="stylesheet" href="styles/laptop.css">
+   ========================================================================== */
+
+/* ==========================================================================
+   1. LAPTOP  ·  993px – 1440px
+   ========================================================================== */
+@media (min-width: 993px) and (max-width: 1440px) {
+
+    /* ---------- Variables globales (carrusel de agenda) ---------- */
+    :root {
+        --gap: 14px;
+        --tile-w: 300px;
+        --tile-h: 270px;
+    }
+
+    /* ---------- HERO ---------- */
+    .hero-section {
+        --notch: clamp(70px, 9vw, 130px);
+    }
+
+    .hero-title {
+        padding: calc(var(--frame) + 28px) 40px calc(var(--frame) + 32px) calc(var(--frame) + 28px);
+        gap: 18px;
+    }
+
+    .hero-title .logo {
+        height: 36px;
+    }
+
+    .hero-title h1 {
+        font-size: clamp(2.8rem, 5.2vw, 5rem);
+    }
+
+    .hero-title span {
+        font-size: 0.85rem;
+        max-width: 380px;
+    }
+
+    .hero-title .hero-direct-links {
+        flex-wrap: wrap;
+        gap: 6px;
+    }
+
+    .hero-title .hero-direct-links a {
+        padding: 10px 14px;
+        font-size: 0.78rem;
+        gap: 10px;
+    }
+
+    .hero-aside {
+        padding: 40px 40px 40px calc(var(--notch) / 2 + 32px);
+    }
+
+    .hero-aside-bottom {
+        gap: 14px;
+        padding-right: 14%;
+    }
+
+    .hero-aside h2 {
+        font-size: 1.6rem;
+    }
+
+    .hero-aside p {
+        font-size: 0.95rem;
+        line-height: 1.5;
+    }
+
+    .hero-bkg-hint {
+        padding: 10px 18px;
+        font-size: 0.9rem;
+    }
+
+    .hero-aside-logos img {
+        width: 64px;
+    }
+
+    .hero-text-tag {
+        padding: 6px 14px;
+        font-size: 0.8rem;
+        margin-bottom: 14px;
+    }
+
+    .hero-text-blocks h2 {
+        font-size: 2.2rem;
+        max-width: 640px;
+        margin-bottom: 14px;
+    }
+
+    .hero-text-blocks p {
+        font-size: 1.05rem;
+        max-width: 480px;
+    }
+
+    /* ---------- NAV PÍLDORA ---------- */
+    .sticky-nav-header.hero-nav {
+        padding: 4px 8px 4px 12px;
+        gap: 4px;
+    }
+
+    .nav-logo {
+        height: 38px;
+    }
+
+    .hero-nav__item {
+        padding: 6px 2px 6px 16px;
+        gap: 3px;
+    }
+
+    .hero-nav__row--plain .hero-nav__item {
+        padding-right: 16px;
+    }
+
+    .hero-nav__label,
+    .hero-nav__value {
+        font-size: 0.78rem;
+    }
+
+    .hero-nav__chevron {
+        padding: 10px 12px 10px 4px;
+        font-size: 0.62rem;
+    }
+
+    .hero-nav__cta {
+        width: 42px;
+        height: 42px;
+        margin-left: 4px;
+        font-size: 0.9rem;
+    }
+
+    .hero-nav__dropdown {
+        min-width: 210px;
+    }
+
+    .hero-nav__dropdown--nested {
+        min-width: 250px;
+    }
+
+    .hero-nav__dropdown a {
+        padding: 0.4rem 1rem;
+        font-size: 0.82rem;
+    }
+
+    /* ---------- SHOWCASE (Gestión / Gobierno / Algorítmica) ---------- */
+    .showcase__card {
+        padding: 24px;
+        border-radius: 24px;
+    }
+
+    .showcase__top {
+        height: min(calc(100vh - 120px), 620px);
+        min-height: 460px;
+        gap: 24px;
+        grid-template-columns: minmax(250px, 0.9fr) minmax(0, 1.3fr) minmax(130px, 0.3fr);
+    }
+
+    .showcase__extra {
+        margin-top: 24px;
+        padding-top: 24px;
+    }
+
+    .showcase__left {
+        gap: 20px;
+    }
+
+    .showcase__title {
+        font-size: clamp(2.2rem, 3.8vw, 3.6rem);
+        margin-bottom: 16px;
+    }
+
+    .algoritmica-showcase__title {
+        font-size: clamp(1.9rem, 3vw, 3rem);
+    }
+
+    .showcase__text {
+        font-size: 0.85rem;
+        line-height: 1.5;
+        max-width: 340px;
+    }
+
+    .algoritmica-showcase__text {
+        max-width: 360px;
+    }
+
+    .showcase__cta {
+        padding: 11px 18px;
+        font-size: 0.8rem;
+        gap: 10px;
+    }
+
+    .showcase__trust {
+        font-size: 0.7rem;
+        max-width: 280px;
+    }
+
+    .showcase__stats {
+        gap: 14px;
+    }
+
+    .showcase__stats strong {
+        font-size: clamp(1.7rem, 2.4vw, 2.3rem);
+    }
+
+    .showcase__stats span {
+        font-size: 0.68rem;
+        max-width: 130px;
+    }
+
+    .showcase__tag {
+        font-size: 0.7rem;
+    }
+
+    .showcase {
+        --sc-cut: clamp(28px, 4vw, 48px);
+    }
+
+    /* Gráfico y escena de ventanas dentro de la columna izquierda */
+    #g-chart {
+        max-width: 100%;
+        min-height: 0;
+    }
+
+    .win-scene {
+        height: clamp(220px, 34vh, 300px);
+    }
+
+    .gestion .gestion-main {
+        padding: 80px 14px 14px;
+    }
+
+    /* ---------- SLIDER DE GESTIÓN ---------- */
+    .showcase .g-slider {
+        height: min(calc(100vh - 60px), 680px);
+        min-height: 520px;
+    }
+
+    .g-slider-nav {
+        top: 6%;
+        padding: 4px;
+    }
+
+    .g-slider-tab {
+        padding: 9px 16px;
+        font-size: 0.8rem;
+    }
+
+    .g-slider-indicator {
+        top: 4px;
+        bottom: 4px;
+    }
+
+    .showcase .g-slide-inner {
+        padding: 100px 36px 28px;
+        gap: 32px;
+    }
+
+    .g-slide-title {
+        font-size: clamp(2rem, 3.6vw, 3.2rem);
+        margin-bottom: 14px;
+    }
+
+    .showcase .g-slide-text p {
+        font-size: 0.92rem;
+        line-height: 1.5;
+        padding-right: 24px;
+    }
+
+    .ia-logo {
+        gap: 16px 28px;
+        padding: 12px 0;
+    }
+
+    .ia-logo img {
+        height: 40px;
+    }
+
+    .bit-logo img {
+        width: 70px;
+    }
+
+    .banco-logo img {
+        width: 140px;
+    }
+
+    .g-slide-cta {
+        margin-top: 14px;
+        padding: 10px 18px;
+        font-size: 0.85rem;
+        gap: 8px;
+    }
+
+    /* Card blanca con apps */
+    .showcase .g-card {
+        --g-r: 22px;
+        --card-right: 28px;
+        --card-width: min(44vw, 640px);
+        --card-height: min(64vh, 470px);
+        padding: 12px;
+    }
+
+    .g-card-item--apps {
+        padding: 8px;
+    }
+
+    .g-apps {
+        gap: 8px;
+    }
+
+    .g-apps--lg .g-app {
+        grid-template-columns: 44px 1fr;
+        gap: 6px 12px;
+        padding: 14px 16px;
+        border-radius: 14px;
+    }
+
+    .g-apps--lg .g-app-icon {
+        width: 44px;
+        height: 44px;
+        border-radius: 12px;
+        font-size: 1.2rem;
+    }
+
+    .g-apps--lg .g-app-title {
+        font-size: 0.98rem;
+    }
+
+    .g-apps--lg .g-app-desc {
+        margin-top: 2px;
+        font-size: 0.78rem;
+        -webkit-line-clamp: 2;
+    }
+
+    .g-apps--lg .g-app-tags span {
+        padding: 2px 8px;
+        font-size: 0.66rem;
+    }
+
+    .g-apps--lg .g-app-btn {
+        margin-top: 4px;
+        padding: 7px 14px;
+        font-size: 0.76rem;
+    }
+
+    /* ---------- MODALES ---------- */
+    .ia-modal {
+        width: min(1200px, calc(100vw - 32px));
+        max-height: calc(100vh - 32px);
+        border-radius: 22px;
+    }
+
+    .ia-modal-inner {
+        gap: 36px;
+        padding: 60px 44px 36px;
+        min-height: min(400px, calc(100vh - 32px));
+        max-height: calc(100vh - 32px);
+    }
+
+    .ia-modal-title {
+        font-size: clamp(2rem, 4vw, 3.4rem);
+    }
+
+    .ia-modal-right p {
+        font-size: 0.98rem;
+        line-height: 1.55;
+    }
+
+    .ia-modal-right span {
+        font-size: 1.05rem;
+    }
+
+    .ia-modal-status {
+        padding: 5px 12px;
+        font-size: 0.72rem;
+    }
+
+    .ia-modal-close {
+        top: 16px;
+        right: 16px;
+        width: 40px;
+        height: 40px;
+    }
+
+    /* ---------- GOBIERNO ABIERTO · selector ---------- */
+    .gobierno-abierto {
+        --ga-inset-y: 70px;
+        --ga-inset-x: 14px;
+    }
+
+    .gsel {
+        grid-template-columns: 220px minmax(0, 1fr);
+        gap: 28px;
+    }
+
+    .gsel__menu {
+        gap: 8px;
+    }
+
+    .gsel__btn {
+        padding: 11px 14px;
+        font-size: 1rem;
+    }
+
+    .gsel__grid {
+        grid-template-rows: repeat(2, minmax(190px, 1fr));
+        --gsel-gap: 10px;
+        gap: var(--gsel-gap);
+    }
+
+    .gsel__face {
+        padding: 14px;
+        gap: 10px;
+        border-radius: 18px;
+    }
+
+    .gsel__top {
+        font-size: 10px;
+    }
+
+    .gsel__title {
+        font-size: 1rem;
+    }
+
+    .gsel__text {
+        font-size: 0.78rem;
+        line-height: 1.35;
+    }
+
+    .gsel__link,
+    .gsel__toggle {
+        padding: 8px 12px;
+        font-size: 0.74rem;
+    }
+
+    /* ---------- GOBERNANZA ALGORÍTMICA ---------- */
+    .g-algoritmica-title {
+        padding: 28px 0 48px;
+    }
+
+    .g-algoritmica-title h2 {
+        font-size: 3.4rem;
+    }
+
+    .g-algoritmica-title p {
+        padding-top: 22px;
+        font-size: 1.8rem;
+    }
+
+    .network {
+        width: 200px;
+        height: 200px;
+    }
+
+    .g-algoritmica-main>.algoritmica-showcase {
+        margin: 0 14px;
+    }
+
+    .objetivos {
+        padding: 40px 28px 32px;
+    }
+
+    .objetivos-intro {
+        margin-bottom: 26px;
+        max-width: 700px;
+    }
+
+    .objetivos-intro h3 {
+        font-size: 2.2rem;
+        margin-bottom: 10px;
+    }
+
+    .objetivos-intro p {
+        font-size: 1rem;
+        line-height: 1.5;
+    }
+
+    .objetivos-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 14px;
+    }
+
+    .objetivo-card {
+        --sc-cut: 22px;
+        padding: 22px 18px 26px;
+    }
+
+    .objetivo-num {
+        font-size: 1.9rem;
+        margin-bottom: 8px;
+    }
+
+    .objetivo-card h4 {
+        font-size: 1.1rem;
+        margin-bottom: 8px;
+    }
+
+    .objetivo-card p {
+        font-size: 0.9rem;
+        line-height: 1.45;
+    }
+
+    .g-algoritmica .objetivos-img {
+        --img-up: -20px;
+        width: min(24%, 280px);
+    }
+
+    /* ---------- AGENDA ---------- */
+    .agenda-top {
+        height: 32vh;
+        padding-left: 40px;
+    }
+
+    .agenda-top h2 {
+        font-size: 5rem;
+        bottom: -18px;
+    }
+
+    .agenda-bottom {
+        height: 16vh;
+        padding-left: 34px;
+    }
+
+    .agenda-bottom h2 {
+        font-size: 5rem;
+        top: -16px;
+    }
+
+    .agenda-kpi {
+        padding: 0 40px;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+
+    .agenda-kpi .agenda-kpi__card {
+        padding: 3rem 0.8rem;
+    }
+
+    .agenda-kpi .agenda-kpi__label {
+        font-size: 1.7rem;
+    }
+
+    .agenda-kpi .agenda-kpi__value {
+        font-size: 2.6rem;
+    }
+
+    .carrusel-doble {
+        padding-bottom: 28px;
+    }
+
+    .carrusel-card {
+        border-radius: 18px;
+        border-right-width: 6px;
+    }
+
+    .card-inner {
+        padding: 16px 18px;
+    }
+
+    .card-title {
+        font-size: 15px;
+        margin-bottom: 8px;
+    }
+
+    .card-text {
+        font-size: 12.5px;
+        line-height: 1.45;
+    }
+
+    .card-tag {
+        font-size: 10px;
+        padding: 3px 8px;
+        margin-bottom: 10px;
+    }
+
+    .card-logo {
+        max-height: 60px;
+    }
+
+    /* ---------- NEWSLETTER ---------- */
+    .newsletter {
+        padding: 14px;
+    }
+
+    .news-title {
+        padding: 40px 14%;
+        gap: 22px;
+        border-radius: 20px;
+    }
+
+    .news-title h2 {
+        font-size: 2.6rem;
+    }
+
+    .news-title p {
+        font-size: 1.1rem;
+        line-height: 1.5;
+    }
+
+    .news-title a {
+        padding: 14px 24px;
+        font-size: 1rem;
+    }
+
+    /* ---------- FOOTER ---------- */
+    .site-footer {
+        padding: 16px 20px;
+    }
+
+    .footer-inner {
+        gap: 24px;
+    }
+
+    .brand-logo {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+    }
+
+    .brand-tagline {
+        font-size: 13px;
+        margin-bottom: 16px;
+    }
+
+    .footer-col h4 {
+        margin-bottom: 12px;
+    }
+
+    .footer-col li {
+        margin-bottom: 8px;
+    }
+
+    .footer-col a {
+        font-size: 13px;
+    }
+
+    .footer-bottom {
+        margin-top: 28px;
+        padding: 14px 0 18px;
+        font-size: 12px;
+    }
+
+    /* ---------- Anclas: compensar la píldora ---------- */
+    #gestion,
+    #agenda {
+        scroll-margin-top: 90px;
+    }
+}
+
+/* ==========================================================================
+   2. LAPTOP ANGOSTA  ·  993px – 1200px  (1024×768, 1152×864, etc.)
+   ========================================================================== */
+@media (min-width: 993px) and (max-width: 1200px) {
+
+    .hero-title h1 {
+        font-size: clamp(2.6rem, 5vw, 3.8rem);
+    }
+
+    .hero-nav__value {
+        display: none;
+    }
+
+    .showcase__top {
+        grid-template-columns: minmax(230px, 1fr) minmax(0, 1.1fr) minmax(110px, 0.25fr);
+    }
+
+    .showcase .g-card {
+        --card-width: min(48vw, 520px);
+        --card-right: 16px;
+    }
+
+    .gsel {
+        grid-template-columns: 180px minmax(0, 1fr);
+        gap: 20px;
+    }
+
+    .gsel__grid {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: none;
+        grid-auto-rows: minmax(180px, auto);
+    }
+
+    .news-title {
+        padding: 36px 8%;
+    }
+}
+
+/* ==========================================================================
+   3. PANTALLAS BAJAS  ·  alto <= 800px  (1366×768, 1280×720, 1440×760 con barras)
+   ========================================================================== */
+@media (min-width: 993px) and (max-width: 1440px) and (max-height: 800px) {
+
+    .hero-section {
+        --frame: 10px;
+    }
+
+    .hero-title {
+        padding-top: calc(var(--frame) + 22px);
+        padding-bottom: calc(var(--frame) + 24px);
+        gap: 14px;
+    }
+
+    .hero-title h1 {
+        font-size: clamp(2.6rem, 4.8vw, 4.4rem);
+    }
+
+    .hero-aside {
+        padding-top: 28px;
+        padding-bottom: 28px;
+    }
+
+    .hero-aside h2 {
+        font-size: 1.45rem;
+    }
+
+    /* Píldora más cerca del borde inferior */
+    .sticky-nav-header.hero-nav {
+        transform: translate(-50%, calc(100vh - 80px - 50% + 20px));
+    }
+
+    .sticky-nav-header.hero-nav.is-visible {
+        transform: translate(-50%, calc(100vh - 80px - 50%));
+    }
+
+    .sticky-nav-header.hero-nav.is-visible.is-top {
+        transform: translate(-50%, 14px);
+    }
+
+    .showcase__top {
+        height: min(calc(100vh - 100px), 560px);
+        min-height: 430px;
+    }
+
+    .win-scene {
+        height: clamp(190px, 30vh, 250px);
+    }
+
+    .showcase .g-slider {
+        min-height: 480px;
+        height: min(calc(100vh - 50px), 620px);
+    }
+
+    .showcase .g-slide-inner {
+        padding-top: 88px;
+    }
+
+    .g-slide-title {
+        font-size: clamp(1.9rem, 3.2vw, 2.8rem);
+    }
+
+    .showcase .g-card {
+        --card-height: min(62vh, 430px);
+    }
+
+    .gsel__grid {
+        grid-template-rows: repeat(2, minmax(170px, 1fr));
+    }
+
+    .agenda-top {
+        height: 28vh;
+    }
+
+    .agenda-bottom {
+        height: 14vh;
+    }
+
+    .agenda-kpi .agenda-kpi__card {
+        padding: 2.2rem 0.8rem;
+    }
+}
